@@ -75,7 +75,7 @@ def main(query: str):
   search_model_url = "https://models.aixplain.com/api/v2/execute/65c51c556eb563350f6e1bb1"
   scrapping_model_url = "https://models.aixplain.com/api/v2/execute/66f423426eb563fa213a3531"
   llm_model_url = "https://models.aixplain.com/api/v2/execute/677c16166eb563bb611623c1"
-  api_key = "f8a6ff66caa50968904d94e17b54cecc98e955cd779b92f02c0aa6f8a017e7ed"
+  api_key = "YOUR_API_KEY"
   headers = {"x-api-key": api_key, "Content-Type": "application/json"}
 
   payload = {
