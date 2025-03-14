@@ -13,7 +13,7 @@ Easy to use and deploy.
 
 🚀 Deployable AI Agent – Can be published as an API for seamless integration into applications.
 
-## How It Works
+## How It Works 
 
 The agent follows a structured workflow to find the best deals:
 
