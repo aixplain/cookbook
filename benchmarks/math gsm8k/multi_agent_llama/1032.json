@@ -1,0 +1,127 @@
+{
+    "question": "Grandpa loves to eat jelly beans, but how many jelly beans he can eat depends on the size of the beans.  It takes 75 large jelly beans to fill Grandpa up. He can eat twice as many medium-sized beans as large beans.  And eating 3 small beans is the same as eating 1 medium-sized bean.  How many small beans can Grandpa eat?",
+    "generated_answer": "450",
+    "correct_answer": "450",
+    "accuracy": 1,
+    "current_accuracy": 0.7250726040658277,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Grandpa loves to eat jelly beans, but how many jelly beans he can eat depends on the size of the beans.  It takes 75 large jelly beans to fill Grandpa up. He can eat twice as many medium-sized beans as large beans.  And eating 3 small beans is the same as eating 1 medium-sized bean.  How many small beans can Grandpa eat?",
+        "output": "450",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of medium-sized beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of small beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the number of small beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.297,
+                "usedCredits": 5.7024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of medium-sized beans Grandpa can eat. It takes 75 large jelly beans to fill Grandpa up. He can eat twice as many medium-sized beans as large beans. Use the python_repl tool to calculate this. \n\nPlease use python_repl to execute the following command: \nprint(75 * 2)')",
+                "tool_steps": null,
+                "runTime": 3.39,
+                "usedCredits": 7.8399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Grandpa can eat 150 medium-sized beans.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(75 * 2)",
+                        "output": "150\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.333,
+                "usedCredits": 1.6179799999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of small beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the number of small beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.914,
+                "usedCredits": 8.3774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of small beans Grandpa can eat. We know that Grandpa can eat 150 medium-sized beans and that eating 3 small beans is the same as eating 1 medium-sized bean. Use the python_repl tool to calculate this. \n\nPlease use python_repl to execute the following command: \nprint(150 * 3)')",
+                "tool_steps": null,
+                "runTime": 3.32,
+                "usedCredits": 9.0149e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Grandpa can eat 450 small beans.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(150 * 3)",
+                        "output": "450\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.532,
+                "usedCredits": 1.52673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the number of small beans Grandpa can eat",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.903,
+                "usedCredits": 9.577400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The task is complete. The number of small beans Grandpa can eat is 450.')",
+                "tool_steps": null,
+                "runTime": 8.072,
+                "usedCredits": 1.0227400000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.211,
+                "usedCredits": 9.864900000000001e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "450",
+                "tool_steps": null,
+                "runTime": 1.917,
+                "usedCredits": 6.1649e-07
+            }
+        ]
+    }
+}

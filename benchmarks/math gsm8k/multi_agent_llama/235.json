@@ -1,0 +1,161 @@
+{
+    "question": "John orders some pizzas to share with his friends.  There are 20 friends in total, and John wants to make sure each can have 4 slices.  Pizzas are only sold sliced into 8 portions.  How many Pizzas does John need to order?",
+    "generated_answer": "10",
+    "correct_answer": "10",
+    "accuracy": 1,
+    "current_accuracy": 0.7754237288135594,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.John orders some pizzas to share with his friends.  There are 20 friends in total, and John wants to make sure each can have 4 slices.  Pizzas are only sold sliced into 8 portions.  How many Pizzas does John need to order?",
+        "output": "10",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of slices required by John's friends",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of pizzas required",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the number of pizzas required",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.961,
+                "usedCredits": 5.4024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of slices required by John's friends. There are 20 friends in total, and John wants to make sure each can have 4 slices. Use the python_repl tool to calculate the total number of slices required. The formula to calculate the total number of slices is: total_slices = number_of_friends * slices_per_friend. Please provide the python code to calculate the total number of slices required.')",
+                "tool_steps": null,
+                "runTime": 3.068,
+                "usedCredits": 7.4399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of slices required by John's friends is 80.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "number_of_friends = 20\nslices_per_friend = 4\ntotal_slices = number_of_friends * slices_per_friend\nprint(total_slices)",
+                        "output": "80\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.685,
+                "usedCredits": 1.51548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of pizzas required",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the number of pizzas required",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.147,
+                "usedCredits": 8.1899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Now that we know the total number of slices required by John's friends is 80, we need to calculate the number of pizzas required. Each pizza is sliced into 8 portions. Please use the python_repl tool to calculate the number of pizzas required. The formula to calculate the number of pizzas required is: number_of_pizzas = total_slices / slices_per_pizza. Please provide the python code to calculate the number of pizzas required.'')",
+                "tool_steps": null,
+                "runTime": 3.069,
+                "usedCredits": 8.8274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of pizzas required is 10.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_slices = 80; slices_per_pizza = 8; number_of_pizzas = total_slices / slices_per_pizza; print(number_of_pizzas)",
+                        "output": "10.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.789,
+                "usedCredits": 1.53423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the number of pizzas required as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.861,
+                "usedCredits": 9.602400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Now that we know the number of pizzas required is 10.0, we need to convert it to an integer. Please use the python_repl tool to convert the number to an integer. The formula to convert the number to an integer is: number_of_pizzas = int(number_of_pizzas). Please provide the python code to convert the number to an integer and print the result.'')",
+                "tool_steps": null,
+                "runTime": 3.151,
+                "usedCredits": 1.0339900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of pizzas required has been successfully converted to an integer. The result is 10.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "number_of_pizzas = 10.0\nnumber_of_pizzas = int(number_of_pizzas)\nprint(number_of_pizzas)",
+                        "output": "10\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.902,
+                "usedCredits": 1.5004800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the number of pizzas required as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.072,
+                "usedCredits": 1.1077400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 10.')",
+                "tool_steps": null,
+                "runTime": 1.816,
+                "usedCredits": 1.20274e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.791,
+                "usedCredits": 1.1527400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "10",
+                "tool_steps": null,
+                "runTime": 1.895,
+                "usedCredits": 7.8399e-07
+            }
+        ]
+    }
+}

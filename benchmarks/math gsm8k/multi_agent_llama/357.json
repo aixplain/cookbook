@@ -1,0 +1,172 @@
+{
+    "question": "Morgan's dad said that she had $90 budgeted for her birthday party. She wants to make sure she and her friends all get to play one round of mini-golf, have $5 in arcade tokens, and get to ride the go-karts twice. A round of mini-golf is $5. The Go-karts cost $10 a ride. How many friends can she invite?",
+    "generated_answer": "2",
+    "correct_answer": "2",
+    "accuracy": 1,
+    "current_accuracy": 0.7793296089385475,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Morgan's dad said that she had $90 budgeted for her birthday party. She wants to make sure she and her friends all get to play one round of mini-golf, have $5 in arcade tokens, and get to ride the go-karts twice. A round of mini-golf is $5. The Go-karts cost $10 a ride. How many friends can she invite?",
+        "output": "2",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of Morgan's activities",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining budget after Morgan's activities",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the cost per friend",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of friends Morgan can invite",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 5.348,
+                "usedCredits": 5.7149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of Morgan's activities. Morgan's budget is $90. She wants to play one round of mini-golf ($5), have $5 in arcade tokens, and ride the go-karts twice ($10 per ride). Please write a Python code to calculate the total cost of these activities. Use the following variables: mini_golf_cost = 5, arcade_tokens_cost = 5, go_kart_cost_per_ride = 10, number_of_go_kart_rides = 2. Print the total cost.')",
+                "tool_steps": null,
+                "runTime": 3.212,
+                "usedCredits": 8.0024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of Morgan's activities is $30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "mini_golf_cost = 5\narcade_tokens_cost = 5\ngo_kart_cost_per_ride = 10\nnumber_of_go_kart_rides = 2\ntotal_cost = mini_golf_cost + arcade_tokens_cost + (go_kart_cost_per_ride * number_of_go_kart_rides)\nprint(total_cost)",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.819,
+                "usedCredits": 1.6329800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the remaining budget after Morgan's activities",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the cost per friend",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of friends Morgan can invite",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.084,
+                "usedCredits": 9.0274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the remaining budget after Morgan's activities. Morgan's budget is $90 and the total cost of her activities is $30. Please write a Python code to calculate the remaining budget. Use the following variables: total_budget = 90, total_cost = 30. Print the remaining budget.')",
+                "tool_steps": null,
+                "runTime": 3.072,
+                "usedCredits": 9.7024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The remaining budget after Morgan's activities is $60.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_budget = 90\ntotal_cost = 30\nremaining_budget = total_budget - total_cost\nprint(remaining_budget)",
+                        "output": "60\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.682,
+                "usedCredits": 1.44923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the cost per friend. A round of mini-golf is $5. The Go-karts cost $10 a ride and Morgan wants to ride the go-karts twice. Please write a Python code to calculate the cost per friend. Use the following variables: mini_golf_cost = 5, go_kart_cost_per_ride = 10, number_of_go_kart_rides = 2. Print the cost per friend.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of friends Morgan can invite. The remaining budget after Morgan's activities is $60 and the cost per friend is calculated in the previous step. Please write a Python code to calculate the number of friends Morgan can invite. Use the following variables: remaining_budget = 60, cost_per_friend = (calculated in the previous step). Print the number of friends Morgan can invite.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.056,
+                "usedCredits": 1.0102400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost per friend. Morgan's activities include one round of mini-golf ($5), $5 in arcade tokens, and two go-kart rides ($10 per ride). The total cost of her activities is $30. The cost of her friends' activities is the cost of one round of mini-golf ($5) and two go-kart rides ($10 per ride). Please write a Python code to calculate the cost per friend. Use the following variables: mini_golf_cost = 5, go_kart_cost_per_ride = 10, number_of_go_kart_rides = 2. Print the cost per friend.\n\n```python\nmini_golf_cost = 5\ngo_kart_cost_per_ride = 10\nnumber_of_go_kart_rides = 2\n\n# Calculate the cost per friend\ncost_per_friend = mini_golf_cost + (go_kart_cost_per_ride * number_of_go_kart_rides)\nprint(cost_per_friend)\n```')",
+                "tool_steps": null,
+                "runTime": 2.966,
+                "usedCredits": 1.2702400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost per friend is calculated by adding the cost of one round of mini-golf ($5) and two go-kart rides ($10 per ride). The total cost per friend is $25.",
+                "tool_steps": [],
+                "runTime": 3.068,
+                "usedCredits": 8.627400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of friends Morgan can invite. The remaining budget after Morgan's activities is $60 and the cost per friend is $25. Please write a Python code to calculate the number of friends Morgan can invite. Use the following variables: remaining_budget = 60, cost_per_friend = 25. Print the number of friends Morgan can invite.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.948,
+                "usedCredits": 1.5327400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of friends Morgan can invite. The remaining budget after Morgan's activities is $60 and the cost per friend is $25. Please write a Python code to calculate the number of friends Morgan can invite. Use the following variables: remaining_budget = 60, cost_per_friend = 25. Print the number of friends Morgan can invite.\n\n```python\nremaining_budget = 60\ncost_per_friend = 25\n\n# Calculate the number of friends Morgan can invite\nnumber_of_friends = remaining_budget // cost_per_friend\nprint(number_of_friends)\n```')",
+                "tool_steps": null,
+                "runTime": 2.957,
+                "usedCredits": 1.4889900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of friends Morgan can invite is 2.",
+                "tool_steps": [],
+                "runTime": 1.95,
+                "usedCredits": 7.5024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.949,
+                "usedCredits": 1.6027400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "2",
+                "tool_steps": null,
+                "runTime": 1.851,
+                "usedCredits": 1.1577400000000002e-06
+            }
+        ]
+    }
+}

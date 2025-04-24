@@ -1,0 +1,222 @@
+{
+    "question": "Tom plants 10 trees a year.  Every year he also chops down 2 trees a year.  He starts with 50 trees.  After 10 years 30% of the trees die.  How many trees does he have left?",
+    "generated_answer": "91",
+    "correct_answer": "91",
+    "accuracy": 1,
+    "current_accuracy": 0.7046632124352331,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Tom plants 10 trees a year.  Every year he also chops down 2 trees a year.  He starts with 50 trees.  After 10 years 30% of the trees die.  How many trees does he have left?",
+        "output": "Tom starts with 50 trees and plants 10 trees a year for 10 years, which is 10 trees a year for 10 years, trees, 100. He also chops down 2 trees a year for 10 years, which is 2 trees a year for 10 years, trees, 20. After 10 years, he has 50 + 100 - 20 = 130 trees. Then, 30% of the trees die, which is 30% of 130 trees, trees, 39. Therefore, Tom has 50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of trees Tom plants in 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees Tom chops down in 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of trees Tom has after 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees that die",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees Tom has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.698,
+                "usedCredits": 5.6024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Tom plants 10 trees a year. He does this for 10 years. Calculate the total number of trees Tom plants in 10 years. Provide the answer as an [Explanation,unit,final answer as an integer]. For example, if the answer is 100 trees, the response should be: 10 trees a year for 10 years, trees, 100')",
+                "tool_steps": null,
+                "runTime": 1.89,
+                "usedCredits": 8.327399999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "10 trees a year for 10 years, trees, 100",
+                "tool_steps": [],
+                "runTime": 1.927,
+                "usedCredits": 6.952400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of trees Tom chops down in 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of trees Tom has after 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees that die",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees Tom has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.899,
+                "usedCredits": 8.952400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Tom chops down 2 trees a year. He does this for 10 years. Calculate the total number of trees Tom chops down in 10 years. Provide the answer as an [Explanation,unit,final answer as an integer]. For example, if the answer is 20 trees, the response should be: 2 trees a year for 10 years, trees, 20. Also, consider the previous result that Tom plants 100 trees in 10 years and he starts with 50 trees.')",
+                "tool_steps": null,
+                "runTime": 2.742,
+                "usedCredits": 9.589900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "2 trees a year for 10 years, trees, 20",
+                "tool_steps": [],
+                "runTime": 1.931,
+                "usedCredits": 7.2899e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of trees Tom has after 10 years",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees that die",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of trees Tom has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.91,
+                "usedCredits": 1.0552400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Tom has a total of 50 + 100 - 20 = 130 trees after 10 years. 30% of the trees die. Calculate the number of trees that die. Provide the answer as an [Explanation,unit,final answer as an integer]. For example, if the answer is 39 trees, the response should be: 30% of 130 trees, trees, 39.'')",
+                "tool_steps": null,
+                "runTime": 1.893,
+                "usedCredits": 1.1177400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "30% of 130 trees, trees, 39",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_trees = 50 + 100 - 20; percentage_die = 30; trees_die = (percentage_die / 100) * total_trees; print(trees_die)",
+                        "output": "39.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.868,
+                "usedCredits": 1.5242300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of trees Tom has left after 30% of the trees die",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.053,
+                "usedCredits": 1.1877400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Tom has 50 trees initially. He plants 100 trees in 10 years and chops down 20 trees in 10 years. Then, 30% of the trees die, which is 39 trees. Calculate the number of trees Tom has left. Provide the answer as an [Explanation,unit,final answer as an integer]. For example, if the answer is 131 trees, the response should be: 50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 131.'')",
+                "tool_steps": null,
+                "runTime": 1.882,
+                "usedCredits": 1.2339900000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_trees = 50\ntrees_planted = 100\ntrees_chopped = 20\ntrees_died = 39\nfinal_trees = initial_trees + trees_planted - trees_chopped - trees_died\nprint(f\"{initial_trees} trees plus {trees_planted} trees minus {trees_chopped} trees minus {trees_died} trees, trees, {final_trees}\")",
+                        "output": "50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.916,
+                "usedCredits": 1.66423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the final answer based on the previous steps",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.912,
+                "usedCredits": 1.3414900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91.')",
+                "tool_steps": null,
+                "runTime": 1.962,
+                "usedCredits": 1.4277400000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the final answer based on the previous steps",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.877,
+                "usedCredits": 1.4002400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer to the user's question is: 50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91.')",
+                "tool_steps": null,
+                "runTime": 1.888,
+                "usedCredits": 1.4952400000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.91,
+                "usedCredits": 1.4752400000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Tom starts with 50 trees and plants 10 trees a year for 10 years, which is 10 trees a year for 10 years, trees, 100. He also chops down 2 trees a year for 10 years, which is 2 trees a year for 10 years, trees, 20. After 10 years, he has 50 + 100 - 20 = 130 trees. Then, 30% of the trees die, which is 30% of 130 trees, trees, 39. Therefore, Tom has 50 trees plus 100 trees minus 20 trees minus 39 trees, trees, 91.",
+                "tool_steps": null,
+                "runTime": 1.868,
+                "usedCredits": 1.10649e-06
+            }
+        ]
+    }
+}

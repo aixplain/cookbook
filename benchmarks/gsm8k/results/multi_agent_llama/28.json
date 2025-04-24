@@ -1,0 +1,130 @@
+{
+    "question": "Henry made two stops during his 60-mile bike trip. He first stopped after 20 miles. His second stop was 15 miles before the end of the trip. How many miles did he travel between his first and second stops?",
+    "generated_answer": "25",
+    "correct_answer": "25",
+    "accuracy": 1,
+    "current_accuracy": 0.8275862068965517,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Henry made two stops during his 60-mile bike trip. He first stopped after 20 miles. His second stop was 15 miles before the end of the trip. How many miles did he travel between his first and second stops?",
+        "output": "Henry traveled 25 miles between his first and second stops. miles, 25",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the distance from the start to the second stop",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the distance between the first and second stops",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.75,
+                "usedCredits": 5.5524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance from the start to the second stop. Henry made two stops during his 60-mile bike trip. He first stopped after 20 miles. His second stop was 15 miles before the end of the trip. To find the distance from the start to the second stop, we need to subtract the distance before the second stop from the total distance. The distance before the second stop is the total distance minus the distance before the end of the trip. Use python_repl to calculate this distance. \n\n```python\n# Define variables\ntotal_distance = 60\ndistance_before_first_stop = 20\ndistance_before_second_stop = 15\n\n# Calculate the distance from the start to the second stop\ndistance_to_second_stop = total_distance - distance_before_second_stop\nprint(distance_to_second_stop)\n```')",
+                "tool_steps": null,
+                "runTime": 2.873,
+                "usedCredits": 7.7399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance from the start to the second stop is 45 miles.",
+                "tool_steps": [],
+                "runTime": 1.999,
+                "usedCredits": 8.1649e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the distance between the first and second stops",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.03,
+                "usedCredits": 9.577400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance between the first and second stops. We already know the distance from the start to the second stop is 45 miles, and the distance of the first stop is 20 miles. Use python_repl to calculate the distance between the first and second stops.\n\n```python\n# Define variables\ndistance_to_second_stop = 45\ndistance_of_first_stop = 20\n\n# Calculate the distance between the first and second stops\ndistance_between_stops = distance_to_second_stop - distance_of_first_stop\nprint(distance_between_stops)\n```')",
+                "tool_steps": null,
+                "runTime": 2.797,
+                "usedCredits": 1.0227400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance between the first and second stops is 25 miles.",
+                "tool_steps": [],
+                "runTime": 2.264,
+                "usedCredits": 2.28572e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.983,
+                "usedCredits": 1.1377400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The distance between the first and second stops is 25 miles. miles, 25')",
+                "tool_steps": null,
+                "runTime": 1.963,
+                "usedCredits": 1.2039900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.895,
+                "usedCredits": 1.1664900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 'Henry traveled 25 miles between his first and second stops. miles, 25'.')",
+                "tool_steps": null,
+                "runTime": 2.217,
+                "usedCredits": 1.26149e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.94,
+                "usedCredits": 1.2314900000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Henry traveled 25 miles between his first and second stops. miles, 25",
+                "tool_steps": null,
+                "runTime": 1.928,
+                "usedCredits": 8.539899999999999e-07
+            }
+        ]
+    }
+}

@@ -1,0 +1,119 @@
+{
+    "question": "John collects peaches for 3 hours.  He can collect 2 peaches a minute.  How many peaches does he collect?",
+    "generated_answer": "360",
+    "correct_answer": "360",
+    "accuracy": 1,
+    "current_accuracy": 0.7801047120418848,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.John collects peaches for 3 hours.  He can collect 2 peaches a minute.  How many peaches does he collect?",
+        "output": "The total number of peaches collected is 360.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Convert 3 hours to minutes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of peaches collected",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of peaches collected",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.961,
+                "usedCredits": 5.0774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Convert 3 hours to minutes. John collects peaches for 3 hours. He can collect 2 peaches a minute. To do this, you can use the python_repl tool to execute a Python command. Please use the following command: print(3 * 60)')",
+                "tool_steps": null,
+                "runTime": 3.011,
+                "usedCredits": 7.102399999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "3 hours is equal to 180 minutes. Since John can collect 2 peaches a minute, he can collect 180 * 2 = 360 peaches in 3 hours.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(3 * 60)",
+                        "output": "180\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.709,
+                "usedCredits": 1.4129800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of peaches collected",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of peaches collected",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.797,
+                "usedCredits": 7.8149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='You previously calculated that John collects peaches for 180 minutes and he can collect 2 peaches a minute. Now, use the python_repl tool to execute a Python command to calculate the total number of peaches collected. Please use the following command: print(180 * 2)')",
+                "tool_steps": null,
+                "runTime": 2.986,
+                "usedCredits": 8.514900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of peaches collected is 360.",
+                "tool_steps": [],
+                "runTime": 2.332,
+                "usedCredits": 6.7524e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the total number of peaches collected",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.949,
+                "usedCredits": 8.914900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The task has been completed, and the final answer is 360.')",
+                "tool_steps": null,
+                "runTime": 1.855,
+                "usedCredits": 9.589900000000002e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.826,
+                "usedCredits": 9.1774e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The total number of peaches collected is 360.",
+                "tool_steps": null,
+                "runTime": 2.967,
+                "usedCredits": 5.5024e-07
+            }
+        ]
+    }
+}

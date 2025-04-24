@@ -1,0 +1,29 @@
+CREATE TABLE "battle" (
+    "id" int,  -- Unique identifier for the battle
+    "name" text,  -- Name of the battle
+    "date" text,  -- Date when the battle took place
+    "bulgarian_commander" text,  -- Name of the Bulgarian commander in the battle
+    "latin_commander" text,  -- Name of the Latin commander in the battle
+    "result" text,  -- Outcome of the battle
+    primary key("id")
+) 
+CREATE TABLE "ship" (
+    "lost_in_battle" int,  -- Identifier of the battle in which the ship was lost
+    "id" int,  -- Unique identifier for the ship
+    "name" text,  -- Name of the ship
+    "tonnage" text,  -- Weight or carrying capacity of the ship
+    "ship_type" text,  -- Type or classification of the ship
+    "location" text,  -- Location where the ship was last recorded or found
+    "disposition_of_ship" text,  -- Current status or condition of the ship
+    primary key("id"),
+    foreign key (`lost_in_battle`) references `battle`("id") 
+) 
+CREATE TABLE "death" (
+    "caused_by_ship_id" int,  -- Identifier of the ship that caused the death
+    "id" int,  -- Unique identifier for the death record
+    "note" text,  -- Additional notes or details about the death
+    "killed" int,  -- Number of people killed in the incident
+    "injured" int,  -- Number of people injured in the incident
+    primary key("id"),
+    foreign key ("caused_by_ship_id") references `ship`("id") 
+)

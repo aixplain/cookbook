@@ -1,0 +1,29 @@
+{
+    "question": "Colby loves going to the movies and every month his parents give him $150 to spend at the movies. Tickets for Fridays and Saturdays cost $10. Tickets for any other day cost $7. Popcorn costs $8 and boxes of candy cost $2. It is the last day of the month and it's a Friday. He wants to make sure he gets a popcorn and box of candy that night. How many movies can he see if he already saw 5 movies on a Friday or Saturday, 8 movies on other days, had 2 tubs of popcorn, and four boxes of candy that month?",
+    "generated_answer": "0",
+    "correct_answer": "1",
+    "accuracy": 0,
+    "current_accuracy": 0.6796116504854369,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Colby loves going to the movies and every month his parents give him $150 to spend at the movies. Tickets for Fridays and Saturdays cost $10. Tickets for any other day cost $7. Popcorn costs $8 and boxes of candy cost $2. It is the last day of the month and it's a Friday. He wants to make sure he gets a popcorn and box of candy that night. How many movies can he see if he already saw 5 movies on a Friday or Saturday, 8 movies on other days, had 2 tubs of popcorn, and four boxes of candy that month?",
+        "output": "Colby can see 2 movies on the last day.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Colby can see 2 movies on the last day.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_budget = 150\ntickets_cost_friday_saturday = 10\ntickets_cost_other_days = 7\npopcorn_cost = 8\ncandy_cost = 2\nmovies_friday_saturday = 5\nmovies_other_days = 8\npopcorns = 2\ncandies = 4\n\n# Calculate total cost of tickets for Fridays and Saturdays\nfriday_saturday_cost = movies_friday_saturday * tickets_cost_friday_saturday\n# Calculate total cost of tickets for other days\nother_days_cost = movies_other_days * tickets_cost_other_days\n# Calculate total cost of popcorns and candies\nsnacks_cost = popcorns * popcorn_cost + candies * candy_cost\n# Calculate remaining budget\nremaining_budget = total_budget - friday_saturday_cost - other_days_cost - snacks_cost\n# Calculate number of movies Colby can see on the last day (Friday)\nlast_day_movies = remaining_budget // tickets_cost_friday_saturday\nprint(last_day_movies)",
+                        "output": "2\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.694,
+                "usedCredits": 1.8879800000000003e-06
+            }
+        ]
+    }
+}

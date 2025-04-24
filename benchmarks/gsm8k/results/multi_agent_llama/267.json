@@ -1,0 +1,118 @@
+{
+    "question": "It takes 20 minutes for the oil to heat up to 300 degrees.  It then takes 40% longer for the oil to heat up to the desired temperature of 400 degrees.  After warming the oil it takes 5 minutes less time to cook than it took to warm up the oil.  How much time passes from starting the oil to having cooked chicken?",
+    "generated_answer": "51",
+    "correct_answer": "91",
+    "accuracy": 0,
+    "current_accuracy": 0.746268656716418,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2It takes 20 minutes for the oil to heat up to 300 degrees.  It then takes 40% longer for the oil to heat up to the desired temperature of 400 degrees.  After warming the oil it takes 5 minutes less time to cook than it took to warm up the oil.  How much time passes from starting the oil to having cooked chicken?",
+        "output": "It takes 28 minutes to heat up the oil and 23 minutes to cook the chicken, so it takes 51 minutes to heat up the oil and cook the chicken, minutes, 51",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the time it takes for the oil to heat up to 400 degrees",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the time it takes to cook the chicken",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the time it takes to heat up the oil and the time it takes to cook the chicken",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.725,
+                "usedCredits": 5.9149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the time it takes for the oil to heat up to 400 degrees. It takes 20 minutes for the oil to heat up to 300 degrees. It then takes 40% longer for the oil to heat up to the desired temperature of 400 degrees. Please provide the answer as an [Explanation,unit,final answer as an integer]. For example: 3 apples minus 1 are 2 apples, apples, 2. Use python_repl to execute the following python command:\n\n```python\n# Given time to heat up to 300 degrees\ntime_to_300 = 20\n\n# Calculate additional time to heat up to 400 degrees\nadditional_time = time_to_300 * 0.4\n\n# Calculate total time to heat up to 400 degrees\ntotal_time = time_to_300 + additional_time\n\nprint(\"It takes\", time_to_300, \"minutes to heat up to 300 degrees and then\", additional_time, \"minutes longer to heat up to 400 degrees, so it takes\", total_time, \"minutes to heat up the oil to 400 degrees, minutes,\", int(total_time))\n```')",
+                "tool_steps": null,
+                "runTime": 2.804,
+                "usedCredits": 8.2024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "It takes 20 minutes to heat up to 300 degrees and then 8 minutes longer to heat up to 400 degrees, so it takes 28 minutes to heat up the oil to 400 degrees, minutes, 28",
+                "tool_steps": [],
+                "runTime": 1.97,
+                "usedCredits": 9.0649e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the time it takes to cook the chicken",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the time it takes to heat up the oil and the time it takes to cook the chicken",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.911,
+                "usedCredits": 1.13274e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the time it takes to cook the chicken. It takes 5 minutes less time to cook the chicken than it took to warm up the oil. The time it took to warm up the oil is 28 minutes. Please provide the answer as an [Explanation,unit,final answer as an integer]. For example: 3 apples minus 1 are 2 apples, apples, 2. Use python_repl to execute the following python command:\n\n```python\n# Given time to heat up the oil\ntime_to_heat_oil = 28\n\n# Calculate time to cook the chicken\ntime_to_cook_chicken = time_to_heat_oil - 5\n\nprint(\"It takes\", time_to_heat_oil, \"minutes to heat up the oil and then\", 5, \"minutes less to cook the chicken, so it takes\", time_to_cook_chicken, \"minutes to cook the chicken, minutes,\", int(time_to_cook_chicken))\n```')",
+                "tool_steps": null,
+                "runTime": 2.789,
+                "usedCredits": 1.19149e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "It takes 28 minutes to heat up the oil and then 5 minutes less to cook the chicken, so it takes 23 minutes to cook the chicken, minutes, 23",
+                "tool_steps": [],
+                "runTime": 1.937,
+                "usedCredits": 8.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the time it takes to heat up the oil and the time it takes to cook the chicken",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.0,
+                "usedCredits": 1.4452400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the time it takes to heat up the oil and the time it takes to cook the chicken. It takes 28 minutes to heat up the oil and 23 minutes to cook the chicken. Please provide the answer as an [Explanation,unit,final answer as an integer]. For example: 3 apples minus 1 are 2 apples, apples, 2. Use python_repl to execute the following python command:\n\n```python\n# Given time to heat up the oil\ntime_to_heat_oil = 28\n\n# Given time to cook the chicken\ntime_to_cook_chicken = 23\n\n# Calculate total time\ntotal_time = time_to_heat_oil + time_to_cook_chicken\n\nprint(\"It takes\", time_to_heat_oil, \"minutes to heat up the oil and\", time_to_cook_chicken, \"minutes to cook the chicken, so it takes\", total_time, \"minutes to heat up the oil and cook the chicken, minutes,\", int(total_time))\n```'')",
+                "tool_steps": null,
+                "runTime": 2.804,
+                "usedCredits": 1.5114900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "It takes 28 minutes to heat up the oil and 23 minutes to cook the chicken, so it takes 51 minutes to heat up the oil and cook the chicken, minutes, 51",
+                "tool_steps": [],
+                "runTime": 1.921,
+                "usedCredits": 8.739900000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.035,
+                "usedCredits": 1.7839900000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "It takes 28 minutes to heat up the oil and 23 minutes to cook the chicken, so it takes 51 minutes to heat up the oil and cook the chicken, minutes, 51",
+                "tool_steps": null,
+                "runTime": 1.919,
+                "usedCredits": 1.4027400000000002e-06
+            }
+        ]
+    }
+}

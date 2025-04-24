@@ -1,0 +1,179 @@
+{
+    "question": "Mike needed a new pair of jeans.  When he got to the mall he saw that his favorite jeans were advertised 25% off.  The original price of the jeans was $40.  How much money will Mike have left over if he pays with a $50.00 bill?",
+    "generated_answer": "20",
+    "correct_answer": "20",
+    "accuracy": 1,
+    "current_accuracy": 0.8266331658291457,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Mike needed a new pair of jeans.  When he got to the mall he saw that his favorite jeans were advertised 25% off.  The original price of the jeans was $40.  How much money will Mike have left over if he pays with a $50.00 bill?",
+        "output": "[\"Mike will have $20 left over after buying the jeans.\", \"dollars\", 20]",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the discount amount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the price of the jeans after discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Mike will have left over",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.728,
+                "usedCredits": 5.7024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the discount amount. The original price of the jeans is $40 and the discount is 25% off. Please use the python_repl tool to calculate the discount amount. \n\nExample code:\n```python\n# Define the original price and discount percentage\noriginal_price = 40\ndiscount_percentage = 0.25\n\n# Calculate the discount amount\ndiscount_amount = original_price * discount_percentage\n\n# Print the discount amount\nprint(discount_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 1.959,
+                "usedCredits": 8.1024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The discount amount is $10.",
+                "tool_steps": [
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.696,
+                "usedCredits": 2.64197e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the price of the jeans after discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Mike will have left over",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.892,
+                "usedCredits": 9.0024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the price of the jeans after discount. The original price of the jeans is $40 and the discount amount is $10. Please use the python_repl tool to calculate the price after discount.\n\nExample code:\n```python\n# Define the original price and discount amount\noriginal_price = 40\ndiscount_amount = 10\n\n# Calculate the price after discount\nprice_after_discount = original_price - discount_amount\n\n# Print the price after discount\nprint(price_after_discount)\n```')",
+                "tool_steps": null,
+                "runTime": 1.854,
+                "usedCredits": 9.7274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The price of the jeans after discount is $30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "original_price = 40\ndiscount_amount = 10\nprice_after_discount = original_price - discount_amount\nprint(price_after_discount)",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.981,
+                "usedCredits": 1.5692300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount of money Mike will have left over. The price of the jeans after discount is $30 and Mike pays with a $50.00 bill.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format 'Mike will have $X left over after buying the jeans.', the unit should be 'dollars', and the final answer should be the amount of money Mike will have left over.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.909,
+                "usedCredits": 1.07024e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the amount of money Mike will have left over. The price of the jeans after discount is $30 and Mike pays with a $50.00 bill. Please use the python_repl tool to calculate the amount of money Mike will have left over.\n\nExample code:\n```python\n# Define the price of the jeans after discount and the amount Mike pays with\nprice_after_discount = 30\namount_paid = 50\n\n# Calculate the amount of money Mike will have left over\namount_left_over = amount_paid - price_after_discount\n\n# Print the amount of money Mike will have left over\nprint(amount_left_over)\n```')",
+                "tool_steps": null,
+                "runTime": 1.959,
+                "usedCredits": 1.2202400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The amount of money Mike will have left over is $20.",
+                "tool_steps": [],
+                "runTime": 1.946,
+                "usedCredits": 7.6899e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format 'Mike will have $X left over after buying the jeans.', the unit should be 'dollars', and the final answer should be the amount of money Mike will have left over.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.886,
+                "usedCredits": 1.3552400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format \"Mike will have $X left over after buying the jeans.\", the unit should be \"dollars\", and the final answer should be the amount of money Mike will have left over. The amount of money Mike will have left over is $20. Please use the python_repl tool to return the answer in the required format.\n\nExample code:\n```python\n# Define the amount of money Mike will have left over\namount_left_over = 20\n\n# Define the explanation, unit, and final answer\nexplanation = f\"Mike will have ${amount_left_over} left over after buying the jeans.\"\nunit = \"dollars\"\nfinal_answer = amount_left_over\n\n# Print the answer in the required format\nprint([explanation, unit, final_answer])\n```'')",
+                "tool_steps": null,
+                "runTime": 2.727,
+                "usedCredits": 1.39274e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[\"Mike will have $20 left over after buying the jeans.\", \"dollars\", 20]",
+                "tool_steps": [],
+                "runTime": 1.862,
+                "usedCredits": 8.389900000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.876,
+                "usedCredits": 1.6089900000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "[\"Mike will have $20 left over after buying the jeans.\", \"dollars\", 20]",
+                "tool_steps": null,
+                "runTime": 1.894,
+                "usedCredits": 1.17649e-06
+            }
+        ]
+    }
+}

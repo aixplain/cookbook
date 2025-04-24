@@ -1,0 +1,119 @@
+{
+    "question": "Nick had twice as many candies as George. Then George ate 5 candies. Now George has 3 candies left. How many candies does Nick have?",
+    "generated_answer": "16",
+    "correct_answer": "16",
+    "accuracy": 1,
+    "current_accuracy": 0.7649253731343284,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Nick had twice as many candies as George. Then George ate 5 candies. Now George has 3 candies left. How many candies does Nick have?",
+        "output": "16",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Determine the initial number of candies George had",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of candies Nick had",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final number of candies Nick has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.868,
+                "usedCredits": 5.102399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Determine the initial number of candies George had. We know that George ate 5 candies and now has 3 candies left. We can use this information to calculate the initial number of candies George had. Please use the following python code to calculate the initial number of candies George had:\n\n```python\n# Define the number of candies George has left\ncandies_left = 3\n\n# Define the number of candies George ate\ncandies_ate = 5\n\n# Calculate the initial number of candies George had\ninitial_candies = candies_left + candies_ate\n\nprint(initial_candies)\n```')",
+                "tool_steps": null,
+                "runTime": 3.652,
+                "usedCredits": 7.1524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The initial number of candies George had is 8.",
+                "tool_steps": [],
+                "runTime": 2.367,
+                "usedCredits": 7.6649e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of candies Nick had",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final number of candies Nick has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.457,
+                "usedCredits": 8.4399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of candies Nick had. We know that Nick had twice as many candies as George. We also know that George had 8 candies initially. Please use the following python code to calculate the number of candies Nick had:\n\n```python\n# Define the initial number of candies George had\ninitial_candies_george = 8\n\n# Calculate the number of candies Nick had\ncandies_nick = initial_candies_george * 2\n\nprint(candies_nick)\n```')",
+                "tool_steps": null,
+                "runTime": 3.222,
+                "usedCredits": 9.1024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Nick had 16 candies.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the initial number of candies George had\ninitial_candies_george = 8\n\n# Calculate the number of candies Nick had\ncandies_nick = initial_candies_george * 2\n\nprint(candies_nick)",
+                        "output": "16\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 7.947,
+                "usedCredits": 1.60173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final number of candies Nick has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.479,
+                "usedCredits": 1.0014900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final number of candies Nick has is 16.')",
+                "tool_steps": null,
+                "runTime": 2.553,
+                "usedCredits": 1.07024e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.322,
+                "usedCredits": 1.0252400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "16",
+                "tool_steps": null,
+                "runTime": 2.545,
+                "usedCredits": 6.5774e-07
+            }
+        ]
+    }
+}

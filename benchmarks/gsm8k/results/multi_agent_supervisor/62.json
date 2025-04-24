@@ -1,0 +1,58 @@
+{
+    "question": "If Marcy works for the same company for 40 years, she gets an annual pension of $50,000/year. Starting after 20 years, she becomes entitled to 5% of the value of the pension per year. If she quits after 30 years, what will her annual pension be?",
+    "generated_answer": "25000",
+    "correct_answer": "25000",
+    "accuracy": 1,
+    "current_accuracy": 0.746031746031746,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2If Marcy works for the same company for 40 years, she gets an annual pension of $50,000/year. Starting after 20 years, she becomes entitled to 5% of the value of the pension per year. If she quits after 30 years, what will her annual pension be?",
+        "output": "Marcy will get 30/40 of the full pension and 10/20 of the additional pension, dollars, 26250",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "The final answer is $37,500 + $12,500 = $50,000.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "pension = 50000; years_worked = 30; total_years = 40; additional_years = 10; additional_value_per_year = pension * 0.05; total_value_after_20_years = pension * 20; additional_value = additional_value_per_year * additional_years; adjusted_pension = (years_worked / total_years) * pension; adjusted_additional_value = (additional_years / 20) * additional_value_per_year * additional_years; final_pension = adjusted_pension + adjusted_additional_value; print(final_pension)",
+                        "output": "50000.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.716,
+                "usedCredits": 1.3652400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Marcy works for the same company for 40 years and gets an annual pension of $50,000/year. Starting after 20 years, she becomes entitled to 5% of the value of the pension per year. If she quits after 30 years, what will her annual pension be? Please write a python code to calculate the final answer and return it as [Explanation, unit, final answer as an integer]. \n\nExample: \n3 apples minus 1 are 2 apples, apples, 2 \n\nPlease use the following calculation method:\n- Calculate the total value of the pension she is entitled to after 20 years: 20 years * $50,000/year = $1,000,000\n- Calculate the additional value she is entitled to for the next 10 years: 10 years * 5% of $50,000/year = 10 years * $2,500/year = $25,000\n- Calculate the total annual pension after 30 years: $1,000,000 + $25,000 = $1,025,000 / 30 years = $34,166.67\n\nHowever, since she only worked for 30 years, she will only get 30/40 of the full pension. So the final answer will be 30/40 * $50,000 + 10/20 * $25,000.')",
+                "tool_steps": null,
+                "runTime": 3.645,
+                "usedCredits": 1.06399e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Marcy will get 30/40 of the full pension and 10/20 of the additional pension, dollars, 26250",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_pension = 50000\nyears_worked_initial = 20\nadditional_years = 10\nadditional_pension_percentage = 0.05\nadditional_pension = additional_years * (initial_pension * additional_pension_percentage)\ntotal_pension = (initial_pension * years_worked_initial) + additional_pension\nfinal_pension = (years_worked_initial / 40) * initial_pension + (additional_years / 20) * (initial_pension * additional_pension_percentage)\nprint(f'The final answer is $\\boxed{{{int(final_pension)}}}.')",
+                        "output": "The final answer is $\boxed{26250}.\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.876,
+                "usedCredits": 1.19774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='Marcy will get 30/40 of the full pension and 10/20 of the additional pension, dollars, 26250')",
+                "tool_steps": null,
+                "runTime": 1.865,
+                "usedCredits": 1.5027400000000003e-06
+            }
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "question": "Brinley is in Mr. Bert's math class. Mr. Bert gives six tests each semester. He allows the students to remove the lowest score from the average each semester. If Brinley has scores of 89, 71, 92, 100 and 86 on the first five tests, what score does she need on the sixth test to get an average of 93?",
+    "generated_answer": "98",
+    "correct_answer": "98",
+    "accuracy": 1,
+    "current_accuracy": 0.7087378640776699,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Brinley is in Mr. Bert's math class. Mr. Bert gives six tests each semester. He allows the students to remove the lowest score from the average each semester. If Brinley has scores of 89, 71, 92, 100 and 86 on the first five tests, what score does she need on the sixth test to get an average of 93?",
+        "output": "To get an average of 93, Brinley needs a score of 191 on the sixth test.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "To get an average of 93, Brinley needs a score of 191 on the sixth test.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "def calculate_required_score(test_scores, required_average, total_tests):\n    # Calculate the total score needed for the required average\n    total_score_needed = required_average * total_tests\n    # Calculate the total score of the first five tests\n    total_score_first_five = sum(test_scores)\n    # Calculate the score needed on the sixth test\n    score_needed_on_sixth_test = total_score_needed - total_score_first_five + min(test_scores)\n    return score_needed_on_sixth_test\n\ntest_scores = [89, 71, 92, 100, 86]\nrequired_average = 93\ntotal_tests = 6\nprint(calculate_required_score(test_scores, required_average, total_tests))",
+                        "output": "191\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.169,
+                "usedCredits": 1.6979800000000004e-06
+            }
+        ]
+    }
+}

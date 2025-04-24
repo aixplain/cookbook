@@ -1,0 +1,108 @@
+{
+    "question": "The jumbo bottle of shampoo costs $24.00.  The directions say to use 2 pumps of shampoo and this will give you 120 washings.  If Jackie only uses 1 pump per wash, how much will each pump cost, in cents?",
+    "generated_answer": "10",
+    "correct_answer": "10",
+    "accuracy": 1,
+    "current_accuracy": 0.8075657894736842,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2The jumbo bottle of shampoo costs $24.00.  The directions say to use 2 pumps of shampoo and this will give you 120 washings.  If Jackie only uses 1 pump per wash, how much will each pump cost, in cents?",
+        "output": "The cost per pump is calculated by dividing the total cost per bottle in cents by the number of pumps per bottle, cents, 10",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of pumps in the bottle",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the cost per pump in cents",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.105,
+                "usedCredits": 5.6399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of pumps in the bottle. The shampoo bottle costs $24.00, and the directions say to use 2 pumps of shampoo for 120 washings. If Jackie only uses 1 pump per wash, how many pumps are in the bottle? Use the given information to calculate the total number of pumps. Print the total number of pumps.')",
+                "tool_steps": null,
+                "runTime": 1.911,
+                "usedCredits": 7.7399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of pumps in the bottle is 240.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "washings = 120; pumps_per_washing = 2; pumps_used = 1; total_pumps = (washings * pumps_per_washing) / pumps_used; print(total_pumps)",
+                        "output": "240.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.957,
+                "usedCredits": 1.5029800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the cost per pump in cents. The shampoo bottle costs $24.00 and has 240 pumps. Use the given information to calculate the cost per pump in cents. Print the cost per pump in cents.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer. The shampoo bottle costs $24.00 and has 240 pumps. If Jackie only uses 1 pump per wash, how much will each pump cost, in cents? Use the given information to create an explanation, specify the unit, and provide the final answer as an integer. Print the answer in the format: [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.877,
+                "usedCredits": 8.327399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost per pump in cents. The shampoo bottle costs $24.00 and has 240 pumps. Use the given information to calculate the cost per pump in cents. Then, return the answer as an explanation, unit, and final answer. The shampoo bottle costs $24.00 and has 240 pumps. If Jackie only uses 1 pump per wash, how much will each pump cost, in cents? Use the given information to create an explanation, specify the unit, and provide the final answer as an integer. Print the answer in the format: [Explanation, unit, final answer as an integer].')",
+                "tool_steps": null,
+                "runTime": 2.76,
+                "usedCredits": 1.03774e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[The cost per pump is calculated by dividing the total cost per bottle in cents by the number of pumps per bottle, unit: cents, 10]",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "cost_per_bottle = 24.00 * 100  # convert dollars to cents\npumps_per_bottle = 240\ncost_per_pump = cost_per_bottle / pumps_per_bottle\nprint(f\"The cost per pump is {cost_per_pump} cents.\")",
+                        "output": "The cost per pump is 10.0 cents.\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.865,
+                "usedCredits": 1.66923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.897,
+                "usedCredits": 1.1827400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The cost per pump is calculated by dividing the total cost per bottle in cents by the number of pumps per bottle, cents, 10",
+                "tool_steps": null,
+                "runTime": 1.885,
+                "usedCredits": 6.4524e-07
+            }
+        ]
+    }
+}

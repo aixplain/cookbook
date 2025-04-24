@@ -1,0 +1,200 @@
+{
+    "question": "Mark took a test yesterday that consisted of 75 questions. He completed the test at a rate of 5 questions per hour. Today, he took another test of 100 questions at the same rate. If Mark had 8 hours to complete the first test and 6 hours to complete the second one, how many questions did he leave incomplete?",
+    "generated_answer": "105",
+    "correct_answer": "105",
+    "accuracy": 1,
+    "current_accuracy": 0.6618705035971223,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Mark took a test yesterday that consisted of 75 questions. He completed the test at a rate of 5 questions per hour. Today, he took another test of 100 questions at the same rate. If Mark had 8 hours to complete the first test and 6 hours to complete the second one, how many questions did he leave incomplete?",
+        "output": "Mark left 105 questions incomplete, questions, 105",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of questions Mark completed in the first test",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of questions Mark completed in the second test",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of questions Mark left incomplete",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.615,
+                "usedCredits": 5.8399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of questions Mark completed in the first test. Mark took a test yesterday that consisted of 75 questions. He completed the test at a rate of 5 questions per hour. If Mark had 8 hours to complete the first test, how many questions did he complete in the first test? Use the given information to calculate the number of questions Mark completed in the first test and print the result.')",
+                "tool_steps": null,
+                "runTime": 2.087,
+                "usedCredits": 8.3524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Mark completed 40 questions in the first test.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_questions = 75\ntime_to_complete = 8\nquestions_per_hour = 5\nquestions_completed = min(total_questions, questions_per_hour * time_to_complete)\nprint(questions_completed)",
+                        "output": "40\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.732,
+                "usedCredits": 8.2274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of questions Mark completed in the second test. Mark took a test today that consisted of 100 questions. He completed the test at a rate of 5 questions per hour. If Mark had 6 hours to complete the second test, how many questions did he complete in the second test?",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of questions Mark left incomplete. Mark completed 40 questions in the first test and X questions in the second test. The total number of questions in both tests is 75 + 100. Use the given information to calculate the total number of questions Mark left incomplete and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the given information to return the answer in the required format and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.716,
+                "usedCredits": 9.0274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of questions Mark completed in the second test. Mark took a test today that consisted of 100 questions. He completed the test at a rate of 5 questions per hour. If Mark had 6 hours to complete the second test, how many questions did he complete in the second test? Use the given information to calculate the number of questions Mark completed in the second test and print the result.')",
+                "tool_steps": null,
+                "runTime": 2.729,
+                "usedCredits": 1.1152400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Mark completed 120 questions in the second test.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "100 / 5 * 6",
+                        "output": "120.0",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.025,
+                "usedCredits": 7.7524e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of questions Mark left incomplete. Mark completed 40 questions in the first test and 30 questions in the second test. The total number of questions in both tests is 75 + 100. Use the given information to calculate the total number of questions Mark left incomplete and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the given information to return the answer in the required format and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.947,
+                "usedCredits": 1.1827400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of questions Mark left incomplete. Mark completed 40 questions in the first test and 30 questions in the second test. The total number of questions in both tests is 75 + 100. Use the given information to calculate the total number of questions Mark left incomplete and print the result.')",
+                "tool_steps": null,
+                "runTime": 1.863,
+                "usedCredits": 1.1852400000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of questions Mark left incomplete is 105.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_questions = 75 + 100\ncompleted_questions = 40 + 30\nincomplete_questions = total_questions - completed_questions\nprint(incomplete_questions)",
+                        "output": "105\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.801,
+                "usedCredits": 7.852400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the correct number of questions Mark completed in the second test and the total number of questions Mark left incomplete. Mark completed 40 questions in the first test and completed the second test at a rate of 5 questions per hour. If Mark had 6 hours to complete the second test, how many questions did he complete in the second test? Use the given information to calculate the correct number of questions Mark completed in the second test and the total number of questions Mark left incomplete and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the given information to return the answer in the required format and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.88,
+                "usedCredits": 1.2302400000000004e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Return the answer as an [Explanation,unit,final answer as an integer]. Use the given information to return the answer in the required format and print the result. The total number of questions Mark left incomplete is 105.'')",
+                "tool_steps": null,
+                "runTime": 1.848,
+                "usedCredits": 1.37274e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[Mark left 105 questions incomplete, unit, 105]",
+                "tool_steps": [],
+                "runTime": 1.869,
+                "usedCredits": 1.32423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the correct number of questions Mark completed in the second test and the total number of questions Mark left incomplete. Mark completed 40 questions in the first test and completed the second test at a rate of 5 questions per hour. If Mark had 6 hours to complete the second test, how many questions did he complete in the second test? Use the given information to calculate the correct number of questions Mark completed in the second test and the total number of questions Mark left incomplete and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the given information to return the answer in the required format and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.712,
+                "usedCredits": 1.3964900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The problem has already been solved. The correct number of questions Mark completed in the second test is 30, and the total number of questions Mark left incomplete is 105. The correct answer is [Mark left 105 questions incomplete, unit, 105].')",
+                "tool_steps": null,
+                "runTime": 2.143,
+                "usedCredits": 1.4914900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Mark left 105 questions incomplete, questions, 105",
+                "tool_steps": null,
+                "runTime": 3.641,
+                "usedCredits": 9.564900000000002e-07
+            }
+        ]
+    }
+}

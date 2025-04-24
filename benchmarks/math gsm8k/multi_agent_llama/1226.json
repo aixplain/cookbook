@@ -1,0 +1,229 @@
+{
+    "question": "A basic manicure starts at $35 while a pedicure starts at $40. A certain salon offers 20% off if you get both. Suppose Karen chooses to do both and would also like to add nail art on each of her fingers, which costs $3 per nail. How much would she pay in all?",
+    "generated_answer": "90",
+    "correct_answer": "90",
+    "accuracy": 1,
+    "current_accuracy": 0.7220863895680522,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.A basic manicure starts at $35 while a pedicure starts at $40. A certain salon offers 20% off if you get both. Suppose Karen chooses to do both and would also like to add nail art on each of her fingers, which costs $3 per nail. How much would she pay in all?",
+        "output": "The final answer is $90.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the manicure and pedicure without discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the discount amount for getting both manicure and pedicure",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the manicure and pedicure with the discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the nail art",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.942,
+                "usedCredits": 5.5274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the manicure and pedicure without discount. The cost of a basic manicure is $35 and a pedicure is $40. Please use the python_repl tool to calculate the total cost. \n\nExample code:\n```python\n# Define the cost of a manicure and pedicure\nmanicure_cost = 35\npedicure_cost = 40\n\n# Calculate the total cost of the manicure and pedicure without discount\ntotal_cost_without_discount = manicure_cost + pedicure_cost\n\n# Print the total cost without discount\nprint(total_cost_without_discount)\n```')",
+                "tool_steps": null,
+                "runTime": 5.499,
+                "usedCredits": 8.602400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the manicure and pedicure without discount is $75.",
+                "tool_steps": [],
+                "runTime": 1.814,
+                "usedCredits": 7.7149e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the discount amount for getting both manicure and pedicure",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the manicure and pedicure with the discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the nail art",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.283,
+                "usedCredits": 1.0027400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the discount amount for getting both manicure and pedicure. The total cost of the manicure and pedicure without discount is $75. The salon offers 20% off if you get both. Please use the python_repl tool to calculate the discount amount.\n\nExample code:\n```python\n# Define the total cost of the manicure and pedicure without discount\ntotal_cost_without_discount = 75\n\n# Define the discount percentage\ndiscount_percentage = 20\n\n# Calculate the discount amount\ndiscount_amount = (discount_percentage / 100) * total_cost_without_discount\n\n# Print the discount amount\nprint(discount_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 3.7,
+                "usedCredits": 1.06274e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The discount amount for getting both manicure and pedicure is $15.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_cost_without_discount = 75\ndiscount_percentage = 20\ndiscount_amount = (discount_percentage / 100) * total_cost_without_discount\nprint(discount_amount)",
+                        "output": "15.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.849,
+                "usedCredits": 1.6804800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the manicure and pedicure with the discount",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the nail art",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.286,
+                "usedCredits": 1.21774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the manicure and pedicure with the discount. The total cost of the manicure and pedicure without discount is $75, and the discount amount is $15.0. Please use the python_repl tool to calculate the total cost with the discount.\n\nExample code:\n```python\n# Define the total cost of the manicure and pedicure without discount\ntotal_cost_without_discount = 75\n\n# Define the discount amount\ndiscount_amount = 15.0\n\n# Calculate the total cost of the manicure and pedicure with the discount\ntotal_cost_with_discount = total_cost_without_discount - discount_amount\n\n# Print the total cost with discount\nprint(total_cost_with_discount)\n```')",
+                "tool_steps": null,
+                "runTime": 3.261,
+                "usedCredits": 1.2789900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the manicure and pedicure with the discount is $60.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_cost_without_discount = 75\ndiscount_amount = 15.0\ntotal_cost_with_discount = total_cost_without_discount - discount_amount\nprint(total_cost_with_discount)",
+                        "output": "60.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.138,
+                "usedCredits": 1.71673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the nail art",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.029,
+                "usedCredits": 1.45524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the nail art. The cost of nail art per nail is $3, and there are 10 nails in total. Please use the python_repl tool to calculate the total cost of the nail art.\n\nExample code:\n```python\n# Define the cost of nail art per nail\nnail_art_cost_per_nail = 3\n\n# Define the total number of nails\ntotal_nails = 10\n\n# Calculate the total cost of the nail art\ntotal_nail_art_cost = nail_art_cost_per_nail * total_nails\n\n# Print the total cost of the nail art\nprint(total_nail_art_cost)\n```')",
+                "tool_steps": null,
+                "runTime": 3.132,
+                "usedCredits": 1.5139900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the nail art is $30.",
+                "tool_steps": [
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 7.802,
+                "usedCredits": 2.90072e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.971,
+                "usedCredits": 1.6577400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the total cost of the manicure and pedicure with the discount and the total cost of the nail art to get the final answer. The total cost of the manicure and pedicure with the discount is $60.0, and the total cost of the nail art is $30. Please use the python_repl tool to calculate the final answer.\n\nExample code:\n```python\n# Define the total cost of the manicure and pedicure with the discount\ntotal_cost_with_discount = 60.0\n\n# Define the total cost of the nail art\ntotal_nail_art_cost = 30\n\n# Calculate the final answer\nfinal_answer = total_cost_with_discount + total_nail_art_cost\n\n# Print the final answer\nprint(final_answer)\n```'')",
+                "tool_steps": null,
+                "runTime": 4.05,
+                "usedCredits": 1.7252400000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final answer is $90.0.",
+                "tool_steps": [],
+                "runTime": 3.518,
+                "usedCredits": 8.1024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.356,
+                "usedCredits": 1.89774e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is $90.",
+                "tool_steps": null,
+                "runTime": 1.702,
+                "usedCredits": 1.50524e-06
+            }
+        ]
+    }
+}

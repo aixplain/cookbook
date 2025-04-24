@@ -1,0 +1,108 @@
+{
+    "question": "Jen decides to travel to 3 different countries.  He has to pay $400 for the supplies he needs, in total.  The tickets for travel cost, in total, 50% more than the supplies.  How much does travel cost?",
+    "generated_answer": "600",
+    "correct_answer": "1000",
+    "accuracy": 0,
+    "current_accuracy": 0.7206645898234684,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Jen decides to travel to 3 different countries.  He has to pay $400 for the supplies he needs, in total.  The tickets for travel cost, in total, 50% more than the supplies.  How much does travel cost?",
+        "output": "The travel cost is $600.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate 50% of the supplies cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the calculated 50% to the supplies cost to get the travel cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the calculated travel cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.266,
+                "usedCredits": 5.352399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate 50% of the supplies cost. The supplies cost is $400. Please use the python_repl tool to calculate 50% of the supplies cost and print the result. \n\nExample code:\n```python\nsupplies_cost = 400\nfifty_percent_supplies_cost = supplies_cost * 0.5\nprint(fifty_percent_supplies_cost)\n```')",
+                "tool_steps": null,
+                "runTime": 3.32,
+                "usedCredits": 7.4524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "50% of the supplies cost is $200.00.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "supplies_cost = 400\nfifty_percent_supplies_cost = supplies_cost * 0.5\nprint(fifty_percent_supplies_cost)",
+                        "output": "200.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.397,
+                "usedCredits": 1.5067299999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the calculated 50% to the supplies cost to get the travel cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the calculated travel cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.89,
+                "usedCredits": 8.114899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Add the calculated 50% to the supplies cost to get the travel cost. The supplies cost is $400 and 50% of the supplies cost is $200. Please use the python_repl tool to add these two values and print the result.\n\nExample code:\n```python\nsupplies_cost = 400\nfifty_percent_supplies_cost = 200\ntravel_cost = supplies_cost + fifty_percent_supplies_cost\nprint(travel_cost)\n```')",
+                "tool_steps": null,
+                "runTime": 3.29,
+                "usedCredits": 8.7899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The travel cost is $600.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "supplies_cost = 400\nfifty_percent_supplies_cost = 200\ntravel_cost = supplies_cost + fifty_percent_supplies_cost\nprint(travel_cost)",
+                        "output": "600\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.21,
+                "usedCredits": 1.55298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.112,
+                "usedCredits": 9.602400000000002e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The travel cost is $600.",
+                "tool_steps": null,
+                "runTime": 2.049,
+                "usedCredits": 5.6024e-07
+            }
+        ]
+    }
+}

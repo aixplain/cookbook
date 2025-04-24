@@ -1,0 +1,165 @@
+{
+    "question": "Tanya is teaching at school. She earns $15 for every hour and an additional $5 per day if she teaches more than 3 classes. On Monday she teaches 4 classes for 5 hours, and on Wednesday 2 classes for 2 hours. How much did Tanya earn for these two days of teaching?",
+    "generated_answer": "110",
+    "correct_answer": "110",
+    "accuracy": 1,
+    "current_accuracy": 0.825974025974026,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Tanya is teaching at school. She earns $15 for every hour and an additional $5 per day if she teaches more than 3 classes. On Monday she teaches 4 classes for 5 hours, and on Wednesday 2 classes for 2 hours. How much did Tanya earn for these two days of teaching?",
+        "output": "Tanya's total earnings for these two days of teaching is, dollars, 110",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate earnings for Monday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate earnings for Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add earnings for Monday and Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.667,
+                "usedCredits": 5.7899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate Tanya's earnings for Monday. She earns $15 for every hour and an additional $5 per day if she teaches more than 3 classes. On Monday, she teaches 4 classes for 5 hours. Use the python_repl tool to calculate her earnings for Monday. \n\nPlease provide the python code to calculate her earnings for Monday. \n\nExample: \n```python\n# Define variables\nhourly_rate = 15\nadditional_rate = 5\nhours_worked = 5\nclasses_taught = 4\n\n# Calculate earnings for Monday\nif classes_taught > 3:\n    earnings_monday = (hourly_rate * hours_worked) + additional_rate\nelse:\n    earnings_monday = hourly_rate * hours_worked\n\nprint(earnings_monday)\n```')",
+                "tool_steps": null,
+                "runTime": 2.714,
+                "usedCredits": 7.977399999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Tanya's earnings for Monday is $80.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define variables\nhourly_rate = 15\nadditional_rate = 5\nhours_worked = 5\nclasses_taught = 4\n\n# Calculate earnings for Monday\nif classes_taught > 3:\n    earnings_monday = (hourly_rate * hours_worked) + additional_rate\nelse:\n    earnings_monday = hourly_rate * hours_worked\n\nprint(earnings_monday)",
+                        "output": "80\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.925,
+                "usedCredits": 1.82548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate earnings for Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add earnings for Monday and Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.887,
+                "usedCredits": 9.777400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate Tanya's earnings for Wednesday. She earns $15 for every hour and an additional $5 per day if she teaches more than 3 classes. On Wednesday, she teaches 2 classes for 2 hours. Use the python_repl tool to calculate her earnings for Wednesday.\n\nPlease provide the python code to calculate her earnings for Wednesday. \n\nExample: \n```python\n# Define variables\nhourly_rate = 15\nadditional_rate = 5\nhours_worked = 2\nclasses_taught = 2\n\n# Calculate earnings for Wednesday\nif classes_taught > 3:\n    earnings_wednesday = (hourly_rate * hours_worked) + additional_rate\nelse:\n    earnings_wednesday = hourly_rate * hours_worked\n\nprint(earnings_wednesday)\n```')",
+                "tool_steps": null,
+                "runTime": 2.872,
+                "usedCredits": 1.0502400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Tanya's earnings for Wednesday is $30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define variables\nhourly_rate = 15\nadditional_rate = 5\nhours_worked = 2\nclasses_taught = 2\n\n# Calculate earnings for Wednesday\nif classes_taught > 3:\n    earnings_wednesday = (hourly_rate * hours_worked) + additional_rate\nelse:\n    earnings_wednesday = hourly_rate * hours_worked\n\nprint(earnings_wednesday)",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.913,
+                "usedCredits": 1.92173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add earnings for Monday and Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.946,
+                "usedCredits": 1.2327400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add Tanya's earnings for Monday and Wednesday. On Monday, she earns $80 and on Wednesday, she earns $30. Use the python_repl tool to calculate her total earnings for these two days.\n\nPlease provide the python code to calculate her total earnings.\n\nExample:\n```python\n# Define variables\nearnings_monday = 80\nearnings_wednesday = 30\n\n# Calculate total earnings\ntotal_earnings = earnings_monday + earnings_wednesday\n\n# Return the final answer as an integer\nfinal_answer = total_earnings\n\n# Print the explanation, unit, and final answer\nprint(\"Tanya's total earnings for these two days of teaching is\", final_answer, \"dollars\")\n```'')",
+                "tool_steps": null,
+                "runTime": 2.768,
+                "usedCredits": 1.3052400000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Tanya's total earnings for these two days of teaching is 110 dollars",
+                "tool_steps": [],
+                "runTime": 1.904,
+                "usedCredits": 8.0274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.975,
+                "usedCredits": 1.4764900000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer has already been calculated and returned as an integer. The explanation is \"Tanya's total earnings for these two days of teaching is\", the unit is \"dollars\", and the final answer is 110.')",
+                "tool_steps": null,
+                "runTime": 1.884,
+                "usedCredits": 1.54649e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.892,
+                "usedCredits": 1.5439900000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Tanya's total earnings for these two days of teaching is, dollars, 110",
+                "tool_steps": null,
+                "runTime": 1.912,
+                "usedCredits": 1.1777400000000002e-06
+            }
+        ]
+    }
+}

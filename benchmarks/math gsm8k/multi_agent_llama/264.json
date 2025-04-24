@@ -1,0 +1,199 @@
+{
+    "question": "Carmen has $100, Samantha has $25 more than Carmen, and Daisy has $50 more than Samantha. How much do all three girls have combined?",
+    "generated_answer": "400",
+    "correct_answer": "400",
+    "accuracy": 1,
+    "current_accuracy": 0.7735849056603774,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Carmen has $100, Samantha has $25 more than Carmen, and Daisy has $50 more than Samantha. How much do all three girls have combined?",
+        "output": "The final answer is 400.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the amount of money Samantha has",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Daisy has",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts of money all three girls have",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.053,
+                "usedCredits": 5.1149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the amount of money Samantha has. Carmen has $100 and Samantha has $25 more than Carmen. Please use the following code to calculate Samantha's amount and print the result:\n```python\ncarmen_money = 100\nsamantha_money = carmen_money + 25\nprint(samantha_money)\n```')",
+                "tool_steps": null,
+                "runTime": 3.158,
+                "usedCredits": 7.377400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Samantha has $125.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "carmen_money = 100\nsamantha_money = carmen_money + 25\nprint(samantha_money)",
+                        "output": "125\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.177,
+                "usedCredits": 1.47173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount of money Daisy has. Samantha has $125 and Daisy has $50 more than Samantha. Please use the following code to calculate Daisy's amount and print the result:",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts of money all three girls have. Please use the following code to calculate the total amount and print the result:",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final answer. Please use the following code to print the final answer without any symbols or punctuation:",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.362,
+                "usedCredits": 7.827400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the amount of money Daisy has. Samantha has $125 and Daisy has $50 more than Samantha. Please use the following code to calculate Daisy's amount and print the result:\n```python\nsamantha_money = 125\ndaisy_money = samantha_money + 50\nprint(daisy_money)\n```')",
+                "tool_steps": null,
+                "runTime": 3.02,
+                "usedCredits": 9.289900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Daisy has $175.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "samantha_money = 125\ndaisy_money = samantha_money + 50\nprint(daisy_money)",
+                        "output": "175\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.927,
+                "usedCredits": 1.46423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the amounts of money all three girls have. Please use the following code to calculate the total amount and print the result:",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final answer. Please use the following code to print the final answer without any symbols or punctuation:",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.134,
+                "usedCredits": 9.7024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total amount of money all three girls have. Carmen has $100, Samantha has $125, and Daisy has $175. Please use the following code to calculate the total amount and print the result:\n```python\ncarmen_money = 100\nsamantha_money = 125\ndaisy_money = 175\ntotal_money = carmen_money + samantha_money + daisy_money\nprint(total_money)\n```')",
+                "tool_steps": null,
+                "runTime": 3.134,
+                "usedCredits": 1.0027400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount of money all three girls have is $400.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "carmen_money = 100\nsamantha_money = 125\ndaisy_money = 175\ntotal_money = carmen_money + samantha_money + daisy_money\nprint(total_money)",
+                        "output": "400\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.846,
+                "usedCredits": 1.55048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final answer without any symbols or punctuation. Please use the following code to print the final answer:",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.935,
+                "usedCredits": 1.08524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The total amount of money all three girls have is $400. Please use the following code to print the final answer without any symbols or punctuation:\n```python\ntotal_money = 400\nprint(total_money)\n```')",
+                "tool_steps": null,
+                "runTime": 2.972,
+                "usedCredits": 1.1314900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount of money all three girls have is 400",
+                "tool_steps": [],
+                "runTime": 2.04,
+                "usedCredits": 6.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final answer without any symbols or punctuation. Please use the following code to print the final answer:",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.933,
+                "usedCredits": 1.1564900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 400.')",
+                "tool_steps": null,
+                "runTime": 1.897,
+                "usedCredits": 1.2514900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.979,
+                "usedCredits": 1.2014900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 400.",
+                "tool_steps": null,
+                "runTime": 2.023,
+                "usedCredits": 8.177400000000001e-07
+            }
+        ]
+    }
+}

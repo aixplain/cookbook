@@ -1,0 +1,108 @@
+{
+    "question": "Raymond and Samantha are cousins. Raymond was born 6 years before Samantha. Raymond had a son at the age of 23. If Samantha is now 31, how many years ago was Raymond's son born?",
+    "generated_answer": "14",
+    "correct_answer": "14",
+    "accuracy": 1,
+    "current_accuracy": 0.7727272727272727,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Raymond and Samantha are cousins. Raymond was born 6 years before Samantha. Raymond had a son at the age of 23. If Samantha is now 31, how many years ago was Raymond's son born?",
+        "output": "Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago., years ago, 14",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the age of Raymond",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of years ago Raymond's son was born",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.86,
+                "usedCredits": 5.514900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the age of Raymond and the number of years ago his son was born. Raymond was born 6 years before Samantha. Raymond had a son at the age of 23. If Samantha is now 31, how many years ago was Raymond's son born? Use the following variables: samantha_age = 31, age_difference = 6, raymond_age_at_son_birth = 23. Calculate raymond_age and years_ago_son_was_born. Print the values of raymond_age and years_ago_son_was_born.')",
+                "tool_steps": null,
+                "runTime": 2.079,
+                "usedCredits": 7.6649e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Raymond's age is 37 and his son was born 14 years ago.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "samantha_age = 31\nage_difference = 6\nraymond_age_at_son_birth = 23\nraymond_age = samantha_age + age_difference\nyears_ago_son_was_born = raymond_age - raymond_age_at_son_birth\nprint(raymond_age)\nprint(years_ago_son_was_born)",
+                        "output": "14\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.892,
+                "usedCredits": 2.32697e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. The explanation should be 'Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago.' The unit should be 'years ago' and the final answer should be 14.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.872,
+                "usedCredits": 8.814900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The explanation is 'Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago.' The unit is 'years ago' and the final answer is 14.')",
+                "tool_steps": null,
+                "runTime": 1.87,
+                "usedCredits": 1.0227400000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. The explanation should be 'Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago.' The unit should be 'years ago' and the final answer should be 14.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.885,
+                "usedCredits": 1.0614900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The problem has been fully solved by the Python Code Executor and the orchestrator. The final answer is ['Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago.', 'years ago', 14].')",
+                "tool_steps": null,
+                "runTime": 2.707,
+                "usedCredits": 1.1564900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.873,
+                "usedCredits": 1.2064900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Samantha is 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 + 6 = 37 years old. Raymond had a son at the age of 23, so his son was born 37 - 23 = 14 years ago., years ago, 14",
+                "tool_steps": null,
+                "runTime": 5.729,
+                "usedCredits": 7.2774e-07
+            }
+        ]
+    }
+}

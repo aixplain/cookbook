@@ -1,0 +1,36 @@
+{
+    "question": "Rory orders 2 subs for $7.50 each, 2 bags of chips for $1.50 each and 2 cookies for $1.00 each for delivery.  There\u2019s a 20% delivery fee added at check out and she wants to add a $5.00 tip.  What will her delivery order cost?",
+    "generated_answer": "29",
+    "correct_answer": "29",
+    "accuracy": 1,
+    "current_accuracy": 0.7753623188405797,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Rory orders 2 subs for $7.50 each, 2 bags of chips for $1.50 each and 2 cookies for $1.00 each for delivery.  There\u2019s a 20% delivery fee added at check out and she wants to add a $5.00 tip.  What will her delivery order cost?",
+        "output": "The total cost of Rory's delivery order is $29.00, dollars, 29",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "[\"The total cost of Rory's delivery order is $29.00\", \"dollars\", 29]",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "def calculate_total_cost():\n    # Define the costs of each item\n    sub_cost = 7.50\n    chips_cost = 1.50\n    cookie_cost = 1.00\n    delivery_fee_percentage = 0.20\n    tip = 5.00\n    num_subs = 2\n    num_chips = 2\n    num_cookies = 2\n    # Calculate the cost of each item\n    total_sub_cost = num_subs * sub_cost\n    total_chips_cost = num_chips * chips_cost\n    total_cookie_cost = num_cookies * cookie_cost\n    # Calculate the total cost before delivery fee and tip\n    total_cost_before_delivery_fee = total_sub_cost + total_chips_cost + total_cookie_cost\n    # Calculate the delivery fee\n    delivery_fee = total_cost_before_delivery_fee * delivery_fee_percentage\n    # Calculate the total cost\n    total_cost = total_cost_before_delivery_fee + delivery_fee + tip\n    # Convert the total cost to an integer and return it\n    return [f\"The total cost of Rory's delivery order is ${total_cost:.2f}\", \"dollars\", int(total_cost)]\n\nprint(calculate_total_cost())",
+                        "output": "[\"The total cost of Rory's delivery order is $29.00\", 'dollars', 29]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.805,
+                "usedCredits": 2.76322e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The total cost of Rory's delivery order is $29.00, dollars, 29')",
+                "tool_steps": null,
+                "runTime": 2.008,
+                "usedCredits": 9.077400000000001e-07
+            }
+        ]
+    }
+}

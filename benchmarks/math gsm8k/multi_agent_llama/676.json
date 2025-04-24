@@ -1,0 +1,188 @@
+{
+    "question": "Three people invested $1200 in a joint savings account.  After Dylan's investment of 2/5 of the total amount, Frances invested 2/3 of the remaining amount.  Skyler's investment accounted for the rest. How much money was Skyler's investment?",
+    "generated_answer": "240",
+    "correct_answer": "240",
+    "accuracy": 1,
+    "current_accuracy": 0.7149187592319055,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Three people invested $1200 in a joint savings account.  After Dylan's investment of 2/5 of the total amount, Frances invested 2/3 of the remaining amount.  Skyler's investment accounted for the rest. How much money was Skyler's investment?",
+        "output": "Skyler's investment is 240.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate Dylan's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining amount after Dylan's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Frances's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining amount after Frances's investment, which is Skyler's investment",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.878,
+                "usedCredits": 5.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate Dylan's investment, which is 2/5 of the total amount of $1200. Please use the following python code to calculate Dylan's investment and print the result:\n\n```python\ntotal_amount = 1200\ndylan_investment = (2/5) * total_amount\nprint(dylan_investment)\n```')",
+                "tool_steps": null,
+                "runTime": 2.845,
+                "usedCredits": 7.7399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Dylan's investment is 480.0, which is 2/5 of the total amount of $1200.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_amount = 1200\ndylan_investment = (2/5) * total_amount\nprint(dylan_investment)",
+                        "output": "480.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.788,
+                "usedCredits": 1.48298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the remaining amount after Dylan's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Frances's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining amount after Frances's investment, which is Skyler's investment",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.338,
+                "usedCredits": 8.4524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the remaining amount after Dylan's investment. The total amount is $1200, and Dylan's investment is $480.0. Please use the following python code to calculate the remaining amount and print the result:\n\n```python\ntotal_amount = 1200\ndylan_investment = 480.0\nremaining_amount = total_amount - dylan_investment\nprint(remaining_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 2.965,
+                "usedCredits": 9.1774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The remaining amount after Dylan's investment is $720.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_amount = 1200\ndylan_investment = 480.0\nremaining_amount = total_amount - dylan_investment\nprint(remaining_amount)",
+                        "output": "720.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.317,
+                "usedCredits": 1.52423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate Frances's investment, which is 2/3 of the remaining amount after Dylan's investment",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining amount after Frances's investment, which is Skyler's investment",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.496,
+                "usedCredits": 9.914900000000003e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate Frances's investment, which is 2/3 of the remaining amount after Dylan's investment. The remaining amount after Dylan's investment is $720.0. Please use the following python code to calculate Frances's investment and print the result:\n\n```python\nremaining_amount = 720.0\nfrances_investment = (2/3) * remaining_amount\nprint(frances_investment)\n```')",
+                "tool_steps": null,
+                "runTime": 2.994,
+                "usedCredits": 1.0777400000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Frances's investment is $480.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "remaining_amount = 720.0\nfrances_investment = (2/3) * remaining_amount\nprint(frances_investment)",
+                        "output": "480.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.205,
+                "usedCredits": 1.51798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the remaining amount after Frances's investment, which is Skyler's investment",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.827,
+                "usedCredits": 1.14774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the remaining amount after Frances's investment, which is Skyler's investment. The remaining amount after Dylan's investment is $720.0, and Frances's investment is $480.0. Please use the following python code to calculate the remaining amount and print the result:\n\n```python\nremaining_amount_after_dylan = 720.0\nfrances_investment = 480.0\nskyler_investment = remaining_amount_after_dylan - frances_investment\nprint(skyler_investment)\n```')",
+                "tool_steps": null,
+                "runTime": 3.07,
+                "usedCredits": 1.2014900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The remaining amount after Frances's investment, which is Skyler's investment, is $240.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "remaining_amount_after_dylan = 720.0\nfrances_investment = 480.0\nskyler_investment = remaining_amount_after_dylan - frances_investment\nprint(skyler_investment)",
+                        "output": "240.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.27,
+                "usedCredits": 1.59423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.471,
+                "usedCredits": 1.3127400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Skyler's investment is 240.",
+                "tool_steps": null,
+                "runTime": 1.861,
+                "usedCredits": 9.364900000000001e-07
+            }
+        ]
+    }
+}

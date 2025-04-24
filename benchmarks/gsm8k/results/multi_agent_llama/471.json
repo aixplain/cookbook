@@ -1,0 +1,156 @@
+{
+    "question": "There are 30 students in Marissa\u2019s class. Each student started the year with 10 pencils. After two months, 1/5 of the total pencils in class were used. At the end of the year, only 1/3 of the remaining pencils were left. How many pencils were left?",
+    "generated_answer": "80",
+    "correct_answer": "80",
+    "accuracy": 1,
+    "current_accuracy": 0.7902542372881356,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2There are 30 students in Marissa\u2019s class. Each student started the year with 10 pencils. After two months, 1/5 of the total pencils in class were used. At the end of the year, only 1/3 of the remaining pencils were left. How many pencils were left?",
+        "output": "300 pencils minus 60 pencils are 80 pencils, pencils, 80",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of pencils at the beginning of the year",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of pencils used after two months",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of pencils left at the end of the year",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.947,
+                "usedCredits": 5.752400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of pencils at the beginning of the year. There are 30 students in Marissa\u2019s class. Each student started the year with 10 pencils. Use python_repl to calculate the total number of pencils. \n\n```python\n# Define variables\nstudents = 30\npencils_per_student = 10\n\n# Calculate total pencils\ntotal_pencils = students * pencils_per_student\n\n# Print the result\nprint(total_pencils)\n```')",
+                "tool_steps": null,
+                "runTime": 1.969,
+                "usedCredits": 8.289900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of pencils at the beginning of the year is 300.",
+                "tool_steps": [],
+                "runTime": 1.918,
+                "usedCredits": 7.302400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of pencils used after two months",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of pencils left at the end of the year",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.892,
+                "usedCredits": 9.2774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of pencils used after two months. We know that there are 300 pencils at the beginning of the year and 1/5 of the total pencils were used after two months. Use python_repl to calculate the number of pencils used after two months.\n\n```python\n# Define variables\ntotal_pencils = 300\nfraction_used = 1/5\n\n# Calculate pencils used after two months\npencils_used = total_pencils * fraction_used\n\n# Print the result\nprint(pencils_used)\n```')",
+                "tool_steps": null,
+                "runTime": 1.923,
+                "usedCredits": 9.902400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of pencils used after two months is 60.",
+                "tool_steps": [],
+                "runTime": 2.08,
+                "usedCredits": 7.4774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of pencils left at the end of the year. We know that there are 300 pencils at the beginning of the year, 60 pencils were used after two months, and 1/3 of the remaining pencils were left at the end of the year. Use python_repl to calculate the number of pencils left at the end of the year.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the results from previous steps to create the final answer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.911,
+                "usedCredits": 1.1027400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of pencils left at the end of the year. We know that there are 300 pencils at the beginning of the year, 60 pencils were used after two months, and 1/3 of the remaining pencils were left at the end of the year. Use python_repl to calculate the number of pencils left at the end of the year.\n\n```python\n# Define variables\ntotal_pencils = 300\npencils_used = 60\nfraction_left = 1/3\n\n# Calculate pencils left after two months\npencils_left_after_two_months = total_pencils - pencils_used\n\n# Calculate pencils left at the end of the year\npencils_left_at_end_of_year = pencils_left_after_two_months * fraction_left\n\n# Print the result\nprint(pencils_left_at_end_of_year)\n```')",
+                "tool_steps": null,
+                "runTime": 2.782,
+                "usedCredits": 1.26024e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of pencils left at the end of the year is 80.",
+                "tool_steps": [],
+                "runTime": 2.021,
+                "usedCredits": 8.277400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Use the results from previous steps to create the final explanation and final answer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.004,
+                "usedCredits": 1.45649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Create the final explanation and final answer using the results from the previous steps. The total number of pencils at the beginning of the year is 300. The number of pencils used after two months is 60. The number of pencils left at the end of the year is 80. Use python_repl to create the final explanation and final answer.\n\n```python\n# Define variables\ntotal_pencils = 300\npencils_used = 60\npencils_left = 80\n\n# Create the final explanation and final answer\nexplanation = f\"{total_pencils} pencils minus {pencils_used} pencils are {pencils_left} pencils\"\nunit = \"pencils\"\nfinal_answer = pencils_left\n\n# Print the result\nprint([explanation, unit, final_answer])\n```'')",
+                "tool_steps": null,
+                "runTime": 2.853,
+                "usedCredits": 1.4464900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final answer is 80 pencils. The explanation is: 300 pencils minus 60 pencils are 80 pencils.",
+                "tool_steps": [],
+                "runTime": 1.982,
+                "usedCredits": 8.2399e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.917,
+                "usedCredits": 1.6514900000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "300 pencils minus 60 pencils are 80 pencils, pencils, 80",
+                "tool_steps": null,
+                "runTime": 2.0,
+                "usedCredits": 1.2552400000000001e-06
+            }
+        ]
+    }
+}

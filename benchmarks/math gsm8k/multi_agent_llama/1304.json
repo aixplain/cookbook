@@ -1,0 +1,119 @@
+{
+    "question": "Norman High School enrolls an average of 4000 students every year. Butler High School, the neighboring school, enrolls an average of 3/4 as many students as Norman High School. How much greater is the average enrollment at Norman High School than the enrollment at Butler High School?",
+    "generated_answer": "1000",
+    "correct_answer": "1000",
+    "accuracy": 1,
+    "current_accuracy": 0.724904214559387,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Norman High School enrolls an average of 4000 students every year. Butler High School, the neighboring school, enrolls an average of 3/4 as many students as Norman High School. How much greater is the average enrollment at Norman High School than the enrollment at Butler High School?",
+        "output": "The final answer is 1000.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the average enrollment at Butler High School by multiplying the average enrollment at Norman High School by 3/4",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the average enrollment at Butler High School from the average enrollment at Norman High School to find the difference",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the result of the subtraction to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.371,
+                "usedCredits": 5.452399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the average enrollment at Butler High School by multiplying the average enrollment at Norman High School by 3/4. The average enrollment at Norman High School is 4000 students. Use the python_repl tool to perform the calculation. \n\nPlease use the following python command: \nbutler_enrollment = 4000 * (3/4)\nprint(butler_enrollment)')",
+                "tool_steps": null,
+                "runTime": 3.526,
+                "usedCredits": 7.8774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The average enrollment at Butler High School is 3000 students.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "butler_enrollment = 4000 * (3/4)\nprint(butler_enrollment)",
+                        "output": "3000.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.783,
+                "usedCredits": 1.49673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the average enrollment at Butler High School from the average enrollment at Norman High School to find the difference",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the result of the subtraction to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.882,
+                "usedCredits": 8.5774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the difference between the average enrollment at Norman High School and the average enrollment at Butler High School. The average enrollment at Norman High School is 4000 students, and the average enrollment at Butler High School is 3000 students. Use the python_repl tool to perform the subtraction. Please use the following python command: \nnorman_enrollment = 4000\nbutler_enrollment = 3000\ndifference = norman_enrollment - butler_enrollment\nprint(difference)')",
+                "tool_steps": null,
+                "runTime": 3.446,
+                "usedCredits": 9.077400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The difference between the average enrollment at Norman High School and the average enrollment at Butler High School is 1000 students.",
+                "tool_steps": [],
+                "runTime": 1.806,
+                "usedCredits": 7.2774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the result of the subtraction to get the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.949,
+                "usedCredits": 1.01649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 1000.')",
+                "tool_steps": null,
+                "runTime": 4.438,
+                "usedCredits": 1.0677400000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.722,
+                "usedCredits": 1.0189900000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 1000.",
+                "tool_steps": null,
+                "runTime": 1.965,
+                "usedCredits": 6.4774e-07
+            }
+        ]
+    }
+}

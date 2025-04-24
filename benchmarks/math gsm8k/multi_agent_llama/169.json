@@ -1,0 +1,164 @@
+{
+    "question": "Pancho walks 20 miles a day. Except on weekends when he walks 10 miles. How many miles does he walk in a week?",
+    "generated_answer": "120",
+    "correct_answer": "120",
+    "accuracy": 1,
+    "current_accuracy": 0.7823529411764706,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Pancho walks 20 miles a day. Except on weekends when he walks 10 miles. How many miles does he walk in a week?",
+        "output": "The total miles walked in a week is 120.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total miles walked on weekdays",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total miles walked on weekends",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total miles walked on weekdays and weekends to get the total miles walked in a week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.255,
+                "usedCredits": 5.0774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Pancho walks 20 miles a day on weekdays. There are 5 weekdays in a week. Please calculate the total miles walked on weekdays. Use the python_repl tool to execute the following python command: print(20 * 5)')",
+                "tool_steps": null,
+                "runTime": 3.192,
+                "usedCredits": 7.2274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles walked on weekdays is 100 miles.",
+                "tool_steps": [],
+                "runTime": 1.869,
+                "usedCredits": 6.6274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total miles walked on weekends",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total miles walked on weekdays and weekends to get the total miles walked in a week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.096,
+                "usedCredits": 7.5024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Pancho walks 10 miles a day on weekends. There are 2 days in a weekend. Please calculate the total miles walked on weekends. Use the python_repl tool to execute the following python command: print(10 * 2)')",
+                "tool_steps": null,
+                "runTime": 3.502,
+                "usedCredits": 8.1899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles walked on weekends is 20.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(10 * 2)",
+                        "output": "20\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.387,
+                "usedCredits": 1.56173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the total miles walked on weekdays and weekends to get the total miles walked in a week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.282,
+                "usedCredits": 8.4524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''You have calculated the total miles walked on weekdays as 100 miles and the total miles walked on weekends as 20 miles. Please use the python_repl tool to execute the following python command: print(100 + 20)'')",
+                "tool_steps": null,
+                "runTime": 3.231,
+                "usedCredits": 9.1399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles walked is 120 miles.",
+                "tool_steps": [],
+                "runTime": 1.855,
+                "usedCredits": 6.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return only the number, with no symbols or other punctuation, from the total miles walked in a week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.087,
+                "usedCredits": 9.364900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The task has been completed, and the final answer is 120.')",
+                "tool_steps": null,
+                "runTime": 2.102,
+                "usedCredits": 1.0339900000000003e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return only the number, with no symbols or other punctuation, from the total miles walked in a week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.162,
+                "usedCredits": 9.9274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='You have calculated the total miles walked in a week as 120 miles. Please use the python_repl tool to execute the following python command: print(120)')",
+                "tool_steps": null,
+                "runTime": 3.187,
+                "usedCredits": 1.0877400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles walked in a week is 120 miles.",
+                "tool_steps": [],
+                "runTime": 1.954,
+                "usedCredits": 6.4274e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The total miles walked in a week is 120.",
+                "tool_steps": null,
+                "runTime": 1.887,
+                "usedCredits": 7.1399e-07
+            }
+        ]
+    }
+}

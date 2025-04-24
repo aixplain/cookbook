@@ -1,0 +1,34 @@
+{
+    "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 more to the red house, and half of what was left at the orange house. If Melanie has 5 vacuum cleaners left, how many did she start with?",
+    "generated_answer": "15",
+    "correct_answer": "18",
+    "accuracy": 0,
+    "current_accuracy": 0.14285714285714285,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 more to the red house, and half of what was left at the orange house. If Melanie has 5 vacuum cleaners left, how many did she start with?",
+        "output": "Melanie started with 15 vacuum cleaners.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Melanie started with 15 vacuum cleaners.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\n# Melanie sold a third of her vacuum cleaners at the green house\n# Then she had 2/3 * x\n# Then she sold 2 vacuum cleaners to the red house\n# Then she had 2/3 * x - 2\n# Then she sold half of what was left at the orange house\n# Then she had 1/2 * (2/3 * x - 2)\n# We know this is equal to 5\n# So we can set up the equation\n# 1/2 * (2/3 * x - 2) = 5\n# And solve for x\nequation = Eq(1/2 * (2/3 * x - 2), 5)\nsolution = solve(equation, x)\nprint(solution)",
+                        "output": "[18.0000000000000]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\neq = Eq(x - x/3 - 2 - (x - x/3 - 2)/2, 5)\nsolution = solve(eq, x)\nprint(solution)",
+                        "output": "[18]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\neq = Eq(((2/3)*x - 2)/2, 5)\nsolve(eq, x)",
+                        "output": [
+                            

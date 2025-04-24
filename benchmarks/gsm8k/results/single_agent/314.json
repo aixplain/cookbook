@@ -1,0 +1,29 @@
+{
+    "question": "A football team has 105 members.  There are twice as many players on the offense as there is on the defense. There is half the number of players on the special teams as there is on the defense.  How many players are on the defense?",
+    "generated_answer": "30",
+    "correct_answer": "30",
+    "accuracy": 1,
+    "current_accuracy": 0.707936507936508,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.A football team has 105 members.  There are twice as many players on the offense as there is on the defense. There is half the number of players on the special teams as there is on the defense.  How many players are on the defense?",
+        "output": "30",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "30",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\ndefense = x\noffense = 2 * x\nspecial_teams = x / 2\ntotal_players = 105\nequation = Eq(defense + offense + special_teams, total_players)\ndefense_players = solve(equation, x)\nprint(defense_players[0])",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.215,
+                "usedCredits": 7.5899e-07
+            }
+        ]
+    }
+}

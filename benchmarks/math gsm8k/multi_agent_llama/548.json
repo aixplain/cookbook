@@ -1,0 +1,84 @@
+{
+    "question": "Mark was unwell for 3 months, during which he lost 10 pounds per month. If his final weight was 70 pounds, what was his initial weight?",
+    "generated_answer": "100",
+    "correct_answer": "100",
+    "accuracy": 1,
+    "current_accuracy": 0.761384335154827,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Mark was unwell for 3 months, during which he lost 10 pounds per month. If his final weight was 70 pounds, what was his initial weight?",
+        "output": "Mark's initial weight is 100 pounds.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total weight lost by multiplying the weight lost per month by the number of months",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total weight lost to Mark's final weight to find his initial weight",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.579,
+                "usedCredits": 5.1274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total weight lost by multiplying the weight lost per month by the number of months. The weight lost per month is 10 pounds and the number of months is 3. Use the python_repl tool to execute the following command: print(10 * 3)')",
+                "tool_steps": null,
+                "runTime": 2.218,
+                "usedCredits": 7.102399999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total weight lost is 30 pounds.",
+                "tool_steps": [],
+                "runTime": 2.216,
+                "usedCredits": 6.7024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the total weight lost to Mark's final weight to find his initial weight. The total weight lost is 30 pounds and Mark's final weight is 70 pounds. Use the python_repl tool to execute the following command: print(70 + 30)",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.347,
+                "usedCredits": 7.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate Mark's initial weight by adding the total weight lost to his final weight. The total weight lost is 30 pounds and Mark's final weight is 70 pounds. Use the python_repl tool to execute the following command: print(70 + 30)')",
+                "tool_steps": null,
+                "runTime": 3.241,
+                "usedCredits": 8.464900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Mark's initial weight is 100 pounds.",
+                "tool_steps": [],
+                "runTime": 1.963,
+                "usedCredits": 6.6774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.04,
+                "usedCredits": 8.7649e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "Mark's initial weight is 100 pounds.",
+                "tool_steps": null,
+                "runTime": 2.466,
+                "usedCredits": 4.5274000000000007e-07
+            }
+        ]
+    }
+}

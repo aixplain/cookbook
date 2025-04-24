@@ -1,0 +1,177 @@
+{
+    "question": "Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, calculate the total time the math teachers collectively spend sleeping in one day.",
+    "generated_answer": "360",
+    "correct_answer": "360",
+    "accuracy": 1,
+    "current_accuracy": 0.8093093093093093,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, calculate the total time the math teachers collectively spend sleeping in one day.",
+        "output": "Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, the total time the math teachers collectively spend sleeping in one day is, hours, 360",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of history teachers",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of math teachers",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time the math teachers collectively spend sleeping in one day",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.856,
+                "usedCredits": 5.6774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of history teachers out of 150 teachers, given that 60% are history teachers. Use the formula: (percentage / 100) * total_teachers to find the number of history teachers. \n\nPlease provide the python code to calculate this.')",
+                "tool_steps": null,
+                "runTime": 1.895,
+                "usedCredits": 8.114899999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of history teachers out of 150 teachers is 90.0, calculated by multiplying 60% (or 0.6) by the total number of teachers.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "(60 / 100) * 150",
+                        "output": "90.0",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.86,
+                "usedCredits": 1.41673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of math teachers out of 150 teachers, given that the rest of the teachers are math teachers. Use the formula: total_teachers - number_of_history_teachers to find the number of math teachers.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time the math teachers collectively spend sleeping in one day, given that each teacher sleeps for 6 hours a day. Use the formula: number_of_math_teachers * 6 to find the total time.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer].",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.838,
+                "usedCredits": 8.7899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of math teachers out of 150 teachers, given that 60% are history teachers. Use the formula: total_teachers - number_of_history_teachers to find the number of math teachers. The number of history teachers is 90.0. Please provide the python code to calculate this. \n\nFor example, you can use the following python code:\n```python\ntotal_teachers = 150\nnumber_of_history_teachers = 90.0\nnumber_of_math_teachers = total_teachers - number_of_history_teachers\nprint(number_of_math_teachers)\n```')",
+                "tool_steps": null,
+                "runTime": 2.719,
+                "usedCredits": 1.0389900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of math teachers is 60.0",
+                "tool_steps": [],
+                "runTime": 1.909,
+                "usedCredits": 7.6774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total time the math teachers collectively spend sleeping in one day, given that each teacher sleeps for 6 hours a day. Use the formula: number_of_math_teachers * 6 to find the total time.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer].",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.888,
+                "usedCredits": 1.16899e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total time the math teachers collectively spend sleeping in one day, given that each teacher sleeps for 6 hours a day and there are 60 math teachers. Use the formula: number_of_math_teachers * 6 to find the total time. Please provide the python code to calculate this.\n\nFor example, you can use the following python code:\n```python\nnumber_of_math_teachers = 60\ntotal_sleep_time = number_of_math_teachers * 6\nprint(total_sleep_time)\n```')",
+                "tool_steps": null,
+                "runTime": 1.931,
+                "usedCredits": 1.1889900000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time the math teachers collectively spend sleeping in one day is 360 hours.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "number_of_math_teachers = 60\ntotal_sleep_time = number_of_math_teachers * 6\nprint(total_sleep_time)",
+                        "output": "360\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.804,
+                "usedCredits": 1.58173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer].",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.962,
+                "usedCredits": 1.3002400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already calculated in the intermediate steps. The explanation is 'Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, the total time the math teachers collectively spend sleeping in one day is', the unit is 'hours', and the final answer is 360.')",
+                "tool_steps": null,
+                "runTime": 1.876,
+                "usedCredits": 1.3214900000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer].",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.917,
+                "usedCredits": 1.3702400000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already calculated in the intermediate steps. The explanation is 'Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, the total time the math teachers collectively spend sleeping in one day is', the unit is 'hours', and the final answer is 360.')",
+                "tool_steps": null,
+                "runTime": 1.873,
+                "usedCredits": 1.4652400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Out of the 150 teachers on the school basketball court, 60% are history teachers. If the rest of the teachers on the court are math teachers, and each teacher sleeps for 6 hours a day, the total time the math teachers collectively spend sleeping in one day is, hours, 360",
+                "tool_steps": null,
+                "runTime": 1.872,
+                "usedCredits": 1.1364900000000002e-06
+            }
+        ]
+    }
+}

@@ -1,0 +1,183 @@
+{
+    "question": "Annabelle is saving for a phone that costs $400. She already has $80 in her savings. Her first job, where she earns $10 per hour, pays her for 20 hours of work. She is also paid for 15 hours of work at her second job, where she earns $5 an hour. In dollars, how much money does Annabelle still need to save?",
+    "generated_answer": "45",
+    "correct_answer": "45",
+    "accuracy": 1,
+    "current_accuracy": 0.7774647887323943,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Annabelle is saving for a phone that costs $400. She already has $80 in her savings. Her first job, where she earns $10 per hour, pays her for 20 hours of work. She is also paid for 15 hours of work at her second job, where she earns $5 an hour. In dollars, how much money does Annabelle still need to save?",
+        "output": "The final answer is 45.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total amount earned from the first job",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount earned from the second job",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total amount earned from both jobs to Annabelle's initial savings",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total amount Annabelle has from the cost of the phone",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.329,
+                "usedCredits": 5.7024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Annabelle earns $10 per hour and worked for 20 hours at her first job. Calculate the total amount earned from the first job. Use the python_repl tool to execute the following command: print(10 * 20)')",
+                "tool_steps": null,
+                "runTime": 2.866,
+                "usedCredits": 8.2024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Annabelle earned $200 from her first job.",
+                "tool_steps": [],
+                "runTime": 5.53,
+                "usedCredits": 6.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total amount earned from the second job",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the total amount earned from both jobs to Annabelle's initial savings",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total amount Annabelle has from the cost of the phone",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.952,
+                "usedCredits": 8.4399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Annabelle earns $5 per hour and worked for 15 hours at her second job. Calculate the total amount earned from the second job. Use the python_repl tool to execute the following command: print(5 * 15)')",
+                "tool_steps": null,
+                "runTime": 2.962,
+                "usedCredits": 9.1024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Annabelle earned $75 from her second job.",
+                "tool_steps": [],
+                "runTime": 1.83,
+                "usedCredits": 6.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the total amount earned from both jobs to Annabelle's initial savings",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total amount Annabelle has from the cost of the phone",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.99,
+                "usedCredits": 9.339900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Annabelle has $80 in her savings. She earned $200 from her first job and $75 from her second job. Use the python_repl tool to execute the following command: print(80 + 200 + 75)')",
+                "tool_steps": null,
+                "runTime": 2.936,
+                "usedCredits": 1.00024e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Annabelle has a total of $355 in her savings after earning money from her two jobs.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(80 + 200 + 75)",
+                        "output": "355\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.682,
+                "usedCredits": 1.39548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total amount Annabelle has from the cost of the phone",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.965,
+                "usedCredits": 1.03524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''The cost of the phone is $400 and Annabelle has a total of $355 in her savings. Use the python_repl tool to execute the following command: print(400 - 355)'')",
+                "tool_steps": null,
+                "runTime": 2.869,
+                "usedCredits": 1.0952400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Annabelle is short $45 to buy the phone.",
+                "tool_steps": [],
+                "runTime": 1.823,
+                "usedCredits": 6.527400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total amount Annabelle has from the cost of the phone and return the result without symbols or punctuation",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.816,
+                "usedCredits": 1.11274e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 45.')",
+                "tool_steps": null,
+                "runTime": 2.896,
+                "usedCredits": 1.21774e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.852,
+                "usedCredits": 1.16774e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 45.",
+                "tool_steps": null,
+                "runTime": 1.888,
+                "usedCredits": 7.827400000000001e-07
+            }
+        ]
+    }
+}

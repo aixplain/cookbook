@@ -1,0 +1,127 @@
+{
+    "question": "48 people are riding a bus. On the first stop, 8 passengers get off, and 5 times as many people as the number who got off from the bus get into the bus. On the second stop 21, passengers get off and 3 times fewer passengers get on. How many passengers are riding the bus after the second stop?",
+    "generated_answer": "66",
+    "correct_answer": "66",
+    "accuracy": 1,
+    "current_accuracy": 0.7631578947368421,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.48 people are riding a bus. On the first stop, 8 passengers get off, and 5 times as many people as the number who got off from the bus get into the bus. On the second stop 21, passengers get off and 3 times fewer passengers get on. How many passengers are riding the bus after the second stop?",
+        "output": "The final number of passengers after the second stop is 66.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of passengers after the first stop",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of passengers after the second stop",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final number of passengers",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.428,
+                "usedCredits": 5.5899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of passengers after the first stop. The bus initially has 48 people. On the first stop, 8 passengers get off, and 5 times as many people as the number who got off from the bus get into the bus. Use the following variables: initial_passengers = 48, passengers_off_first_stop = 8. Calculate the number of passengers who get on the bus at the first stop as 5 * passengers_off_first_stop and then calculate the total number of passengers after the first stop. Print the total number of passengers after the first stop.')",
+                "tool_steps": null,
+                "runTime": 2.783,
+                "usedCredits": 7.639900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of passengers after the first stop is 80.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_passengers = 48\npassengers_off_first_stop = 8\npassengers_on_first_stop = 5 * passengers_off_first_stop\ntotal_passengers_after_first_stop = initial_passengers - passengers_off_first_stop + passengers_on_first_stop\nprint(total_passengers_after_first_stop)",
+                        "output": "80\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.351,
+                "usedCredits": 1.6304800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of passengers after the second stop",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final number of passengers",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.0,
+                "usedCredits": 8.7774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of passengers after the second stop. The bus had 80 people after the first stop. On the second stop, 21 passengers get off, and 3 times fewer passengers get on. Use the following variables: passengers_after_first_stop = 80, passengers_off_second_stop = 21. Calculate the number of passengers who get on the bus at the second stop as (passengers_off_second_stop / 3) and then calculate the total number of passengers after the second stop. Print the total number of passengers after the second stop.')",
+                "tool_steps": null,
+                "runTime": 3.075,
+                "usedCredits": 9.4399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of passengers after the second stop is 66.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "passengers_after_first_stop = 80\npassengers_off_second_stop = 21\npassengers_on_second_stop = passengers_off_second_stop // 3\npassengers_after_second_stop = passengers_after_first_stop - passengers_off_second_stop + passengers_on_second_stop\nprint(passengers_after_second_stop)",
+                        "output": "66\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.789,
+                "usedCredits": 1.62298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the final number of passengers",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.32,
+                "usedCredits": 1.0514900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final number of passengers after the second stop is 66.')",
+                "tool_steps": null,
+                "runTime": 2.796,
+                "usedCredits": 1.1177400000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.19,
+                "usedCredits": 1.0752400000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final number of passengers after the second stop is 66.",
+                "tool_steps": null,
+                "runTime": 1.951,
+                "usedCredits": 7.102399999999999e-07
+            }
+        ]
+    }
+}

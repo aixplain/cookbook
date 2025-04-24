@@ -1,0 +1,188 @@
+{
+    "question": "Roger goes to the store to buy some coffee.  The normal brand of coffee he buys cost $5 per pound.  He had to buy a more expensive brand that cost 20% more since his favorite brand was sold out.  He decides to buy a week's worth of coffee and he uses 1 pound of coffee per day.  He also decided to buy himself a donut for $2.  How much did everything cost?",
+    "generated_answer": "440",
+    "correct_answer": "44",
+    "accuracy": 0,
+    "current_accuracy": 0.7145015105740181,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Roger goes to the store to buy some coffee.  The normal brand of coffee he buys cost $5 per pound.  He had to buy a more expensive brand that cost 20% more since his favorite brand was sold out.  He decides to buy a week's worth of coffee and he uses 1 pound of coffee per day.  He also decided to buy himself a donut for $2.  How much did everything cost?",
+        "output": "The total cost without symbols and punctuation is 440.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the cost of the more expensive brand of coffee",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the coffee for a week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the cost of the donut to the total cost of the coffee",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.173,
+                "usedCredits": 5.8399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost of the more expensive brand of coffee. The normal brand of coffee costs $5 per pound, but the more expensive brand costs 20% more. Please use the python_repl tool to calculate this cost. \n\nPlease provide the code to calculate the cost of the more expensive brand of coffee. For example, you can use the following code:\n```python\nnormal_brand_cost = 5\nmore_expensive_brand_cost = normal_brand_cost * 1.2\nprint(more_expensive_brand_cost)\n```')",
+                "tool_steps": null,
+                "runTime": 2.837,
+                "usedCredits": 8.2399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost of the more expensive brand of coffee is $6.0 per pound.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "normal_brand_cost = 5\nmore_expensive_brand_cost = normal_brand_cost * 1.2\nprint(more_expensive_brand_cost)",
+                        "output": "6.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.871,
+                "usedCredits": 1.5854800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the coffee for a week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the cost of the donut to the total cost of the coffee",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.85,
+                "usedCredits": 9.3524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Now that we know the cost of the more expensive brand of coffee is $6.0 per pound, we need to calculate the total cost of the coffee for a week. Roger uses 1 pound of coffee per day, so we need to multiply the cost of the coffee per pound by 7. Please use the python_repl tool to calculate this cost. For example, you can use the following code:\n```python\ncost_of_coffee_per_pound = 6.0\ntotal_cost_of_coffee = cost_of_coffee_per_pound * 7\nprint(total_cost_of_coffee)\n```'')",
+                "tool_steps": null,
+                "runTime": 5.293,
+                "usedCredits": 1.00024e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the coffee for a week is $42.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "cost_of_coffee_per_pound = 6.0\ntotal_cost_of_coffee = cost_of_coffee_per_pound * 7\nprint(total_cost_of_coffee)",
+                        "output": "42.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.823,
+                "usedCredits": 1.6354800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the cost of the donut to the total cost of the coffee",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.953,
+                "usedCredits": 1.13274e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Now that we know the total cost of the coffee for a week is $42.0, we need to add the cost of the donut to this total cost. The cost of the donut is $2. Please use the python_repl tool to calculate the new total cost. For example, you can use the following code:\n```python\ntotal_cost_of_coffee = 42.0\ncost_of_donut = 2\nnew_total_cost = total_cost_of_coffee + cost_of_donut\nprint(new_total_cost)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.036,
+                "usedCredits": 1.19774e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The new total cost is $44.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_cost_of_coffee = 42.0\ncost_of_donut = 2\nnew_total_cost = total_cost_of_coffee + cost_of_donut\nprint(new_total_cost)",
+                        "output": "44.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.911,
+                "usedCredits": 1.61048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the total cost of $44.0 without symbols or punctuation",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.741,
+                "usedCredits": 1.30774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Now that we know the total cost is $44.0, we need to remove the symbols and punctuation from this cost. Please use the python_repl tool to remove the symbols and punctuation. For example, you can use the following code:\n```python\ntotal_cost = \"$44.0\"\n# Remove the symbols and punctuation from the total cost\ntotal_cost_without_symbols = total_cost.replace(\"$\", \"\").replace(\".\", \"\")\nprint(total_cost_without_symbols)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.045,
+                "usedCredits": 1.3789900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost without symbols and punctuation is 440.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_cost = \"$44.0\"\ntotal_cost_without_symbols = total_cost.replace(\"$\", \"\").replace(\".\", \"\")\nprint(total_cost_without_symbols)",
+                        "output": "440\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.735,
+                "usedCredits": 1.59798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.035,
+                "usedCredits": 1.47774e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The total cost without symbols and punctuation is 440.",
+                "tool_steps": null,
+                "runTime": 3.122,
+                "usedCredits": 1.1039900000000003e-06
+            }
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "question": "Carly is making cupcakes and brownies for her art class. She makes 2 less than three times as many brownies as cupcakes. If Carly's class has five people and each person gets two treats, how many cupcakes did Carly make?",
+    "generated_answer": "3",
+    "correct_answer": "3",
+    "accuracy": 1,
+    "current_accuracy": 0.6876019575856444,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Carly is making cupcakes and brownies for her art class. She makes 2 less than three times as many brownies as cupcakes. If Carly's class has five people and each person gets two treats, how many cupcakes did Carly make?",
+        "output": "Carly made 3 cupcakes.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Carly made 3 cupcakes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\n# 2 less than three times as many brownies as cupcakes\nbrownies = 3 * x - 2\ncupcakes = x\ntotal_treats = brownies + cupcakes\n# each person gets two treats and there are five people\ntotal_people = 5\ntotal_treats_per_person = 2\ntotal_treats_needed = total_people * total_treats_per_person\nequation = Eq(total_treats, total_treats_needed)\nsolution = solve(equation, x)\nprint(solution[0])",
+                        "output": "3\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.869,
+                "usedCredits": 1.43298e-06
+            }
+        ]
+    }
+}

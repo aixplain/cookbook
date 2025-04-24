@@ -1,0 +1,206 @@
+{
+    "question": "Steve is 60 years old. His wife is 4 years older than him. Their son is currently half as old as his mom and their son's wife is 3 years younger than her husband. How old is Steve's son's wife?",
+    "generated_answer": "29",
+    "correct_answer": "29",
+    "accuracy": 1,
+    "current_accuracy": 0.8062015503875969,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Steve is 60 years old. His wife is 4 years older than him. Their son is currently half as old as his mom and their son's wife is 3 years younger than her husband. How old is Steve's son's wife?",
+        "output": "Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old., years old, 29",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the age of Steve's wife",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the age of Steve's son",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the age of Steve's son's wife",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.909,
+                "usedCredits": 5.5899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the age of Steve's wife. Steve is 60 years old. His wife is 4 years older than him. Please provide the age of Steve's wife as an integer. \n\nPlease use python_repl to execute the following python command: \nprint(60 + 4)')",
+                "tool_steps": null,
+                "runTime": 1.86,
+                "usedCredits": 8.0024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The age of Steve's wife is 64.",
+                "tool_steps": [],
+                "runTime": 1.857,
+                "usedCredits": 6.7774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the age of Steve's son. Steve's son is half as old as his mom. Steve's wife is 64 years old. Please provide the age of Steve's son as an integer.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the age of Steve's son's wife. Steve's son's wife is 3 years younger than her husband. Please provide the age of Steve's son's wife as an integer.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. Please provide the explanation, unit and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.875,
+                "usedCredits": 8.4149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the age of Steve's son. Steve's son is half as old as his mom. Steve's wife is 64 years old. Please provide the age of Steve's son as an integer.\n\nPlease use python_repl to execute the following python command: \nprint(64 // 2)')",
+                "tool_steps": null,
+                "runTime": 1.899,
+                "usedCredits": 1.0039900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The age of Steve's son is 32.",
+                "tool_steps": [],
+                "runTime": 1.94,
+                "usedCredits": 6.8024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the age of Steve's son's wife. Steve's son's wife is 3 years younger than her husband. Please provide the age of Steve's son's wife as an integer.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. Please provide the explanation, unit and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.876,
+                "usedCredits": 1.0477400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the age of Steve's son's wife. Steve's son is 32 years old. His wife is 3 years younger than him. Please provide the age of Steve's son's wife as an integer.\n\nPlease use python_repl to execute the following python command: \nprint(32 - 3)')",
+                "tool_steps": null,
+                "runTime": 1.966,
+                "usedCredits": 1.0752400000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "29",
+                "tool_steps": [],
+                "runTime": 1.957,
+                "usedCredits": 6.8399e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. Please provide the explanation, unit and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.877,
+                "usedCredits": 1.11149e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already provided in the intermediate steps. The explanation is: 'Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old.' The unit is 'years old' and the final answer is 29.')",
+                "tool_steps": null,
+                "runTime": 1.945,
+                "usedCredits": 1.1414900000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Please provide the explanation, unit and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.865,
+                "usedCredits": 1.17649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already provided in the intermediate steps. The explanation is: 'Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old.' The unit is 'years old' and the final answer is 29.')",
+                "tool_steps": null,
+                "runTime": 1.885,
+                "usedCredits": 1.2714900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. Please provide the explanation, unit and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.883,
+                "usedCredits": 1.3064900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already provided in the intermediate steps. The explanation is: 'Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old.' The unit is 'years old' and the final answer is 29.')",
+                "tool_steps": null,
+                "runTime": 1.855,
+                "usedCredits": 1.4014900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. The explanation is: 'Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old.' The unit is 'years old' and the final answer is 29.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.901,
+                "usedCredits": 1.43649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already provided in the intermediate steps. The explanation is: 'Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old.' The unit is 'years old' and the final answer is 29.')",
+                "tool_steps": null,
+                "runTime": 1.867,
+                "usedCredits": 1.59524e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.881,
+                "usedCredits": 1.6302400000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Steve's son's wife is 3 years younger than Steve's son. Steve's son is half as old as his mom. Steve's wife is 4 years older than Steve. Steve is 60 years old., years old, 29",
+                "tool_steps": null,
+                "runTime": 1.874,
+                "usedCredits": 1.1727400000000003e-06
+            }
+        ]
+    }
+}

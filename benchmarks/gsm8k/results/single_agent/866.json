@@ -1,0 +1,36 @@
+{
+    "question": "Together, Sofie, Anne, and Fawn have 85 books. If Sofie has 25 more books than Anne, and Anne has 12 fewer books than Fawn does, how many books does Fawn have?",
+    "generated_answer": "60",
+    "correct_answer": "28",
+    "accuracy": 0,
+    "current_accuracy": 0.6816608996539792,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Together, Sofie, Anne, and Fawn have 85 books. If Sofie has 25 more books than Anne, and Anne has 12 fewer books than Fawn does, how many books does Fawn have?",
+        "output": "Fawn has 28 books.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Fawn has 28 books.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx, y, z = symbols('x y z')\n# Sofie has 25 more books than Anne\n# Anne has 12 fewer books than Fawn does\n# Together, Sofie, Anne, and Fawn have 85 books\n# x = Fawn, y = Anne, z = Sofie\n# z = y + 25\n# y = x - 12\n# x + y + z = 85\n# x + (x - 12) + (x - 12 + 25) = 85\n# 3x + 1 = 85\n# 3x = 84\n# x = 84 / 3\n# x = 28\nx = Eq(3*x + 1, 85)\nprint(solve(x, x))",
+                        "output": "[]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx, y, z = symbols('x y z')\neq1 = Eq(x + y + z, 85)\neq2 = Eq(x, y + 25)\neq3 = Eq(y, z - 12)\nsolution = solve((eq1, eq2, eq3), (x, y, z))\nprint(solution[z])",
+                        "output": "28\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.562,
+                "usedCredits": 2.31947e-06
+            }
+        ]
+    }
+}

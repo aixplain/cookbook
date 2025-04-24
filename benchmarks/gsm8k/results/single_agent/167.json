@@ -1,0 +1,29 @@
+{
+    "question": "Seth is twice as old as Brooke. In 2 years, the sum of their ages will be 28. How old is Seth?",
+    "generated_answer": "16",
+    "correct_answer": "16",
+    "accuracy": 1,
+    "current_accuracy": 0.7083333333333334,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Seth is twice as old as Brooke. In 2 years, the sum of their ages will be 28. How old is Seth?",
+        "output": "Seth is 16 years old.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Seth is 16 years old.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nS, B = symbols('S B')\n# Seth is twice as old as Brooke\nexpr1 = Eq(S, 2 * B)\n# In 2 years, the sum of their ages will be 28\nexpr2 = Eq(S + 2 + B + 2, 28)\n# Solve the system of equations\nsolution = solve((expr1, expr2), (S, B))\nprint(solution[S])",
+                        "output": "16\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.827,
+                "usedCredits": 1.38798e-06
+            }
+        ]
+    }
+}

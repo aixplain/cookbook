@@ -1,0 +1,36 @@
+{
+    "question": "The combined age of Peter, Paul and Jean is 100 years old. Find the age of Peter knowing that Paul is 10 years older than John and that Peter\u2019s age is equal to the sum of Paul and John's age.",
+    "generated_answer": "50",
+    "correct_answer": "50",
+    "accuracy": 1,
+    "current_accuracy": 0.6813304721030042,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The combined age of Peter, Paul and Jean is 100 years old. Find the age of Peter knowing that Paul is 10 years older than John and that Peter\u2019s age is equal to the sum of Paul and John's age.",
+        "output": "The age of Peter is 50 years old.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "The age of Peter is 50 years old.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\np, paul, jean = symbols('p paul jean')\npaul = jean + 10\np = paul + jean\ncombined_age = p + paul + jean\nsolution = solve((Eq(p, paul + jean), Eq(combined_age, 100)), (p, paul, jean))\nprint(solution[p])",
+                        "output": "KeyError: 2*jean + 10",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\np, paul, jean = symbols('p paul jean')\n# Define the equations\npaul_eq = Eq(paul, jean + 10)\np_eq = Eq(p, paul + jean)\ntotal_age_eq = Eq(p + paul + jean, 100)\n# Solve the equations\nsolution = solve((paul_eq, p_eq, total_age_eq), (p, paul, jean))\nprint(solution[p])",
+                        "output": "50\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.742,
+                "usedCredits": 5.955190000000001e-06
+            }
+        ]
+    }
+}

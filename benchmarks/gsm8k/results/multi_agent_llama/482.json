@@ -1,0 +1,126 @@
+{
+    "question": "Keegan was running a car wash with his friend Tashay to raise money for a baseball camp. They needed to raise $200 for the two of them. By 3 pm, Keegan had earned $83 and Tasha had earned $91. How much more did they need to earn to reach their goal?",
+    "generated_answer": "26",
+    "correct_answer": "26",
+    "accuracy": 1,
+    "current_accuracy": 0.7950310559006211,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Keegan was running a car wash with his friend Tashay to raise money for a baseball camp. They needed to raise $200 for the two of them. By 3 pm, Keegan had earned $83 and Tasha had earned $91. How much more did they need to earn to reach their goal?",
+        "output": "Keegan and Tashay earned a total of $174 and need $26 more to reach their goal of $200., dollars, 26",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total amount earned by Keegan and Tashay",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total amount earned from the goal to find out how much more they need to earn",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.929,
+                "usedCredits": 5.777399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total amount earned by Keegan and Tashay. Keegan earned $83 and Tashay earned $91. The goal is $200. Please calculate the total amount earned and provide it as a variable that can be used in the next step. Use the python_repl tool to execute the following command: \n```python\nkeegan_earnings = 83\ntashay_earnings = 91\ntotal_earnings = keegan_earnings + tashay_earnings\nprint(total_earnings)\n```')",
+                "tool_steps": null,
+                "runTime": 2.047,
+                "usedCredits": 8.1024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount earned by Keegan and Tashay is 174.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "keegan_earnings = 83\ntashay_earnings = 91\ntotal_earnings = keegan_earnings + tashay_earnings\nprint(total_earnings)",
+                        "output": "174\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.064,
+                "usedCredits": 1.6142300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total amount earned from the goal to find out how much more they need to earn",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.008,
+                "usedCredits": 9.264900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''You previously calculated the total amount earned by Keegan and Tashay as 174. Now, subtract the total amount earned from the goal to find out how much more they need to earn. The goal is $200. Please calculate the difference and provide it as a variable that can be used in the next step. Use the python_repl tool to execute the following command: \n```python\ntotal_earnings = 174\ngoal = 200\namount_needed = goal - total_earnings\nprint(amount_needed)\n```'')",
+                "tool_steps": null,
+                "runTime": 1.961,
+                "usedCredits": 9.889900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The amount needed to reach the goal is 26.",
+                "tool_steps": [],
+                "runTime": 2.05,
+                "usedCredits": 7.4274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.919,
+                "usedCredits": 1.0964900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='You previously calculated the total amount earned by Keegan and Tashay as 174, and the amount needed to reach the goal as 26. Now, use these values to construct the final answer in the format [Explanation, unit, final answer as an integer]. The explanation should describe the situation, the unit is dollars, and the final answer is the amount needed to reach the goal. Use the python_repl tool to execute the following command:\n```python\ntotal_earnings = 174\namount_needed = 26\nexplanation = f\"Keegan and Tashay earned a total of ${total_earnings} and need ${amount_needed} more to reach their goal of $200.\"\nunit = \"dollars\"\nfinal_answer = amount_needed\nprint(f\"[\\\"{explanation}\\\", \\\"{unit}\\\", {final_answer}]\")\n```')",
+                "tool_steps": null,
+                "runTime": 2.92,
+                "usedCredits": 1.1502400000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[\"Keegan and Tashay earned a total of $174 and need $26 more to reach their goal of $200.\", \"dollars\", 26]",
+                "tool_steps": [],
+                "runTime": 2.019,
+                "usedCredits": 8.3649e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.124,
+                "usedCredits": 1.3789900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Keegan and Tashay earned a total of $174 and need $26 more to reach their goal of $200., dollars, 26",
+                "tool_steps": null,
+                "runTime": 1.994,
+                "usedCredits": 1.0027400000000002e-06
+            }
+        ]
+    }
+}

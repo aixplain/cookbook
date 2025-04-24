@@ -1,0 +1,154 @@
+{
+    "question": "Jason has a phone plan of 1000 minutes per month. Every day he has a 15-minute call with his boss, and he's had 300 extra minutes of call this month to other people. How many minutes does Jason have left if this month has 30 days?",
+    "generated_answer": "250",
+    "correct_answer": "250",
+    "accuracy": 1,
+    "current_accuracy": 0.7336065573770492,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Jason has a phone plan of 1000 minutes per month. Every day he has a 15-minute call with his boss, and he's had 300 extra minutes of call this month to other people. How many minutes does Jason have left if this month has 30 days?",
+        "output": "Jason has 250 minutes left, minutes, 250",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total minutes Jason uses for his daily calls with his boss",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the extra minutes Jason used for calls to other people",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total minutes used from Jason's monthly limit",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the explanation, unit, and final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.887,
+                "usedCredits": 5.6774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total minutes Jason uses for his daily calls with his boss. Jason has a 15-minute call with his boss every day, and this month has 30 days. Use the python_repl tool to calculate the total minutes. \n\nPlease use the following python command to calculate the total minutes: \n```python\ntotal_minutes_with_boss = 15 * 30\nprint(total_minutes_with_boss)\n```')",
+                "tool_steps": null,
+                "runTime": 1.908,
+                "usedCredits": 8.1524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total minutes Jason uses for his daily calls with his boss is 450 minutes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_minutes_with_boss = 15 * 30\nprint(total_minutes_with_boss)",
+                        "output": "450\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.847,
+                "usedCredits": 1.51548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the extra minutes Jason used for calls to other people to the total minutes used for his daily calls with his boss",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total minutes used from Jason's monthly limit",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the explanation, unit, and final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.904,
+                "usedCredits": 9.0024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the extra minutes Jason used for calls to other people to the total minutes used for his daily calls with his boss. You have already calculated the total minutes used for daily calls with the boss, which is 450 minutes. Jason has used 300 extra minutes for calls to other people. Use the python_repl tool to calculate the new total minutes.\n\nPlease use the following python command to calculate the new total minutes:\n```python\ntotal_minutes_with_boss = 450\nextra_minutes = 300\ntotal_minutes = total_minutes_with_boss + extra_minutes\nprint(total_minutes)\n```'')",
+                "tool_steps": null,
+                "runTime": 1.915,
+                "usedCredits": 9.764900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The new total minutes is 750, which is the sum of the total minutes used for daily calls with the boss and the extra minutes used for calls to other people.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_minutes_with_boss = 450\nextra_minutes = 300\ntotal_minutes = total_minutes_with_boss + extra_minutes\nprint(total_minutes)",
+                        "output": "750\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.846,
+                "usedCredits": 1.62298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total minutes used from Jason's monthly limit",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the explanation, unit, and final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.875,
+                "usedCredits": 1.1289900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Subtract the total minutes used from Jason's monthly limit. You have already calculated the total minutes used, which is 750 minutes. Jason's monthly limit is 1000 minutes. Use the python_repl tool to calculate the remaining minutes.\n\nPlease use the following python command to calculate the remaining minutes:\n```python\nmonthly_limit = 1000\ntotal_minutes_used = 750\nremaining_minutes = monthly_limit - total_minutes_used\nprint(remaining_minutes)\n```\nAlso, please provide the explanation, unit, and final answer in the required format. For example, if the remaining minutes is 250, the output should be: 'Jason has 250 minutes left', 'minutes', 250.')",
+                "tool_steps": null,
+                "runTime": 2.763,
+                "usedCredits": 1.1777400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jason has 250 minutes left, minutes, 250",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "monthly_limit = 1000\ntotal_minutes_used = 750\nremaining_minutes = monthly_limit - total_minutes_used\nprint(remaining_minutes)",
+                        "output": "250\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.79,
+                "usedCredits": 1.6754800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.898,
+                "usedCredits": 1.32899e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Jason has 250 minutes left, minutes, 250",
+                "tool_steps": null,
+                "runTime": 1.163,
+                "usedCredits": 9.289900000000001e-07
+            }
+        ]
+    }
+}

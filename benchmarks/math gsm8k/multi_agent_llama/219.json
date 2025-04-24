@@ -1,0 +1,138 @@
+{
+    "question": "Four students scored a total of 251 points in a board game. Naomi scored 68 of the points. Yuri scored 10 more than half as many points as Naomi and Brianna scored 17 points more than Naomi. How many points did Jojo score?",
+    "generated_answer": "54",
+    "correct_answer": "54",
+    "accuracy": 1,
+    "current_accuracy": 0.7727272727272727,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Four students scored a total of 251 points in a board game. Naomi scored 68 of the points. Yuri scored 10 more than half as many points as Naomi and Brianna scored 17 points more than Naomi. How many points did Jojo score?",
+        "output": "The number of points Jojo scored is 54.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the points scored by Yuri",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the points scored by Brianna",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total points scored by Naomi, Yuri, and Brianna",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the points scored by Jojo",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.937,
+                "usedCredits": 5.3774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the points scored by Yuri. Naomi scored 68 points. Yuri scored 10 more than half as many points as Naomi. Use the following variables: naomi_points = 68. Calculate yuri_points as 10 more than half of naomi_points. Print the value of yuri_points. \n\n```python\nnaomi_points = 68\nyuri_points = (naomi_points / 2) + 10\nprint(yuri_points)\n```')",
+                "tool_steps": null,
+                "runTime": 2.911,
+                "usedCredits": 7.7149e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Yuri scored 44 points.",
+                "tool_steps": [],
+                "runTime": 1.895,
+                "usedCredits": 7.2399e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the points scored by Brianna",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total points scored by Naomi, Yuri, and Brianna",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the points scored by Jojo",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.975,
+                "usedCredits": 8.539899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the points scored by Brianna. Naomi scored 68 points. Brianna scored 17 points more than Naomi. Use the following variables: naomi_points = 68. Calculate brianna_points as 17 more than naomi_points. Print the value of brianna_points.\n\n```python\nnaomi_points = 68\nbrianna_points = naomi_points + 17\nprint(brianna_points)\n```')",
+                "tool_steps": null,
+                "runTime": 2.964,
+                "usedCredits": 9.2399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Brianna scored 85 points.",
+                "tool_steps": [],
+                "runTime": 1.898,
+                "usedCredits": 7.1399e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total points scored by Naomi, Yuri, and Brianna",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the points scored by Jojo",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.342,
+                "usedCredits": 9.964900000000003e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Calculate the total points scored by Naomi, Yuri, and Brianna, and then calculate the points scored by Jojo. Naomi scored 68 points. Yuri scored 44 points. Brianna scored 85 points. The total points scored by all four students is 251. Use the following variables: naomi_points = 68, yuri_points = 44, brianna_points = 85, total_points = 251. Calculate total_naomi_yuri_brianna as the sum of naomi_points, yuri_points, and brianna_points. Then, calculate jojo_points as the difference between total_points and total_naomi_yuri_brianna. Print the value of jojo_points.\n\n```python\nnaomi_points = 68\nyuri_points = 44\nbrianna_points = 85\ntotal_points = 251\ntotal_naomi_yuri_brianna = naomi_points + yuri_points + brianna_points\njojo_points = total_points - total_naomi_yuri_brianna\nprint(jojo_points)\n```')",
+                "tool_steps": null,
+                "runTime": 4.505,
+                "usedCredits": 1.0652400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The value of jojo_points is 54.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "naomi_points = 68\nyuri_points = 44\nbrianna_points = 85\ntotal_points = 251\ntotal_naomi_yuri_brianna = naomi_points + yuri_points + brianna_points\njojo_points = total_points - total_naomi_yuri_brianna\nprint(jojo_points)",
+                        "output": "54\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.328,
+                "usedCredits": 2.0079800000000004e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.894,
+                "usedCredits": 1.30899e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The number of points Jojo scored is 54.",
+                "tool_steps": null,
+                "runTime": 1.857,
+                "usedCredits": 9.0899e-07
+            }
+        ]
+    }
+}

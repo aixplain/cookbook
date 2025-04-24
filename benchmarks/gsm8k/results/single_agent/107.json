@@ -1,0 +1,29 @@
+{
+    "question": "Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Wednesday, he watched a few episodes of a 30-minute show. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, how many 30-minute episodes did he watch on Wednesday?",
+    "generated_answer": "3",
+    "correct_answer": "3",
+    "accuracy": 1,
+    "current_accuracy": 0.7314814814814815,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Wednesday, he watched a few episodes of a 30-minute show. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, how many 30-minute episodes did he watch on Wednesday?",
+        "output": "3",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "3",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\n# 1 hour episodes on Monday and Tuesday\nmon_tue = 2 * 60\n# 1 hour episodes on Thursday and Friday\nthur_fri = 3 * 60\n# total hours watched\ntotal_hours = 7 * 60\n# 30 minute episodes on Thursday\nthur_30 = 30\n# equation to solve\nequation = Eq(mon_tue + thur_fri + thur_30 + 30*x, total_hours)\n# solve for x\nsolution = solve(equation, x)\nprint(solution[0])",
+                        "output": "3\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.783,
+                "usedCredits": 1.5929800000000001e-06
+            }
+        ]
+    }
+}

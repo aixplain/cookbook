@@ -1,0 +1,161 @@
+{
+    "question": "Amber, Micah, and Ahito ran 52 miles in total. Amber ran 8 miles. Micah ran 3.5 times what Amber ran. How many miles did Ahito run?",
+    "generated_answer": "16",
+    "correct_answer": "16",
+    "accuracy": 1,
+    "current_accuracy": 0.7241379310344828,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Amber, Micah, and Ahito ran 52 miles in total. Amber ran 8 miles. Micah ran 3.5 times what Amber ran. How many miles did Ahito run?",
+        "output": "16",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the miles ran by Micah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total miles ran by Amber and Micah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the miles ran by Ahito",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.026,
+                "usedCredits": 5.2399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the miles ran by Micah. Amber ran 8 miles and Micah ran 3.5 times what Amber ran. Use this information to calculate the miles ran by Micah. Print the result.')",
+                "tool_steps": null,
+                "runTime": 2.955,
+                "usedCredits": 7.2899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Micah ran 28.0 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "amber_ran = 8; micah_ran = 3.5 * amber_ran; print(micah_ran)",
+                        "output": "28.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.678,
+                "usedCredits": 1.40798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total miles ran by Amber and Micah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the miles ran by Ahito",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.966,
+                "usedCredits": 7.4524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total miles ran by Amber and Micah. Amber ran 8 miles and Micah ran 28 miles. Use this information to calculate the total miles ran by Amber and Micah. Print the result.')",
+                "tool_steps": null,
+                "runTime": 3.115,
+                "usedCredits": 8.1399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles ran by Amber and Micah is 36.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "amber_miles = 8\nmicah_miles = 28\ntotal_miles = amber_miles + micah_miles\nprint(total_miles)",
+                        "output": "36\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.84,
+                "usedCredits": 1.41798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the miles ran by Ahito. Amber and Micah ran a total of 36 miles and the total miles ran by all three is 52 miles. Use this information to calculate the miles ran by Ahito. Print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.047,
+                "usedCredits": 8.3649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the miles ran by Ahito. Amber ran 8 miles, Micah ran 28 miles, and the total miles ran by all three is 52 miles. Use this information to calculate the miles ran by Ahito. Print the result.')",
+                "tool_steps": null,
+                "runTime": 3.033,
+                "usedCredits": 9.5274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Ahito ran 16 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "amber_miles = 8\nmicah_miles = 28\ntotal_miles = 52\nahito_miles = total_miles - amber_miles - micah_miles\nprint(ahito_miles)",
+                        "output": "16\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.935,
+                "usedCredits": 1.4529800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the final answer which is the number of miles ran by Ahito",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.219,
+                "usedCredits": 9.764900000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already calculated in the intermediate steps. The number of miles ran by Ahito is 16.')",
+                "tool_steps": null,
+                "runTime": 2.137,
+                "usedCredits": 1.0289900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.266,
+                "usedCredits": 9.9899e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "16",
+                "tool_steps": null,
+                "runTime": 1.478,
+                "usedCredits": 6.2399e-07
+            }
+        ]
+    }
+}

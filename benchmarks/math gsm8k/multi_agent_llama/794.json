@@ -1,0 +1,92 @@
+{
+    "question": "A zookeeper is counting how many lions are in their enclosure. She counts 12 female lions, half as many male lions, and 14 lion cubs. How many lions are in the enclosure?",
+    "generated_answer": "32",
+    "correct_answer": "32",
+    "accuracy": 1,
+    "current_accuracy": 0.7094339622641509,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.A zookeeper is counting how many lions are in their enclosure. She counts 12 female lions, half as many male lions, and 14 lion cubs. How many lions are in the enclosure?",
+        "output": "The total number of lions in the enclosure is 32.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of male lions by dividing the number of female lions by 2",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of female lions, male lions, and lion cubs to get the total number of lions",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of lions",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.864,
+                "usedCredits": 5.214899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The zookeeper has counted 12 female lions and half as many male lions. To calculate the number of male lions, we need to divide the number of female lions by 2. Please use the python_repl tool to execute the following command: print(12 // 2)')",
+                "tool_steps": null,
+                "runTime": 3.626,
+                "usedCredits": 7.514900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of male lions is 6.",
+                "tool_steps": [],
+                "runTime": 3.267,
+                "usedCredits": 6.7274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add up the number of female lions, male lions, and lion cubs to get the total number of lions",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of lions",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.183,
+                "usedCredits": 7.8649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The zookeeper has counted 12 female lions, 6 male lions, and 14 lion cubs. To calculate the total number of lions, please use the python_repl tool to execute the following command: print(12 + 6 + 14)')",
+                "tool_steps": null,
+                "runTime": 3.471,
+                "usedCredits": 8.4399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of lions is 32.",
+                "tool_steps": [],
+                "runTime": 2.612,
+                "usedCredits": 6.6774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 4.684,
+                "usedCredits": 8.739900000000001e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The total number of lions in the enclosure is 32.",
+                "tool_steps": null,
+                "runTime": 1.798,
+                "usedCredits": 4.6399e-07
+            }
+        ]
+    }
+}

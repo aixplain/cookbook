@@ -1,0 +1,163 @@
+{
+    "question": "Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Wednesday, he watched a few episodes of a 30-minute show. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, how many 30-minute episodes did he watch on Wednesday?",
+    "generated_answer": "0",
+    "correct_answer": "3",
+    "accuracy": 0,
+    "current_accuracy": 0.7314814814814815,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Wednesday, he watched a few episodes of a 30-minute show. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, how many 30-minute episodes did he watch on Wednesday?",
+        "output": "0",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Monday and Tuesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Thursday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Friday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on all days except Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of 30-minute episodes Frankie watched on Wednesday",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.742,
+                "usedCredits": 6.1149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total time Frankie spent watching TV on Monday and Tuesday. Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, use this information to calculate the total time spent watching TV on Monday and Tuesday.')",
+                "tool_steps": null,
+                "runTime": 3.291,
+                "usedCredits": 9.2274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time Frankie spent watching TV on Monday and Tuesday is 3.5 hours.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_time = 7; thursday_time = 1.5; friday_time = 2; monday_and_tuesday_time = total_time - thursday_time - friday_time; print(monday_and_tuesday_time)",
+                        "output": "3.5\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.514,
+                "usedCredits": 1.6067300000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Thursday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Friday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on all days except Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of 30-minute episodes Frankie watched on Wednesday",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.461,
+                "usedCredits": 1.0389900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total time Frankie spent watching TV on Wednesday. Frankie watches TV after he finishes his homework every night. On Monday and Tuesday, he watched a 1-hour episode of his favorite show each night. On Wednesday, he watched a few episodes of a 30-minute show. On Thursday, he finished homework early and watched a 1-hour episode and a 30-minute show. On Friday, he got to stay up late for the weekend, so he watched two 1-hour episodes. If he watched 7 hours of TV in all, and the total time spent watching TV on Monday and Tuesday is 3.5 hours, use this information to calculate the total time spent watching TV on Wednesday.')",
+                "tool_steps": null,
+                "runTime": 3.715,
+                "usedCredits": 1.10149e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time Frankie spent watching TV on Wednesday is 0 hours.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_time = 7; mon_tue_time = 3.5; wed_time = total_time - mon_tue_time - 2 - 1.5; print(wed_time)",
+                        "output": "0.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.748,
+                "usedCredits": 1.6729800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Thursday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on Friday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time Frankie spent watching TV on all days except Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of 30-minute episodes Frankie watched on Wednesday",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.206,
+                "usedCredits": 1.2489900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The user's request is to calculate the number of 30-minute episodes Frankie watched on Wednesday. However, based on the completed steps, Frankie did not watch any 30-minute episodes on Wednesday. Therefore, the answer is 0.')",
+                "tool_steps": null,
+                "runTime": 3.283,
+                "usedCredits": 1.3139900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.082,
+                "usedCredits": 1.3139900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "0",
+                "tool_steps": null,
+                "runTime": 1.987,
+                "usedCredits": 8.4774e-07
+            }
+        ]
+    }
+}

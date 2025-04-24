@@ -1,0 +1,154 @@
+{
+    "question": "It takes Carmen 10 minutes to finish a crossword puzzle and 5 minutes to finish a sudoku puzzle.  Over the weekend she solved 3 crossword puzzles and 8 sudoku puzzles.  How much time did she spend playing these games?",
+    "generated_answer": "70",
+    "correct_answer": "70",
+    "accuracy": 1,
+    "current_accuracy": 0.7194570135746606,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2It takes Carmen 10 minutes to finish a crossword puzzle and 5 minutes to finish a sudoku puzzle.  Over the weekend she solved 3 crossword puzzles and 8 sudoku puzzles.  How much time did she spend playing these games?",
+        "output": "[Carmen spent 70 minutes playing these games over the weekend., minutes, 70]",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the time spent on crossword puzzles",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the time spent on sudoku puzzles",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the time spent on crossword puzzles and sudoku puzzles",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.883,
+                "usedCredits": 5.564899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the time spent on crossword puzzles. It takes Carmen 10 minutes to finish a crossword puzzle and she solved 3 crossword puzzles over the weekend. Use the python_repl tool to calculate the total time spent on crossword puzzles. \n\nPlease provide the total time spent on crossword puzzles in minutes.')",
+                "tool_steps": null,
+                "runTime": 2.03,
+                "usedCredits": 7.9899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time spent on crossword puzzles is 30 minutes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "10 * 3",
+                        "output": "30",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.874,
+                "usedCredits": 1.42048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the time spent on sudoku puzzles. It takes Carmen 5 minutes to finish a sudoku puzzle and she solved 8 sudoku puzzles over the weekend. Use the python_repl tool to calculate the total time spent on sudoku puzzles. Please provide the total time spent on sudoku puzzles in minutes.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the time spent on crossword puzzles and sudoku puzzles. Use the python_repl tool to calculate the total time spent on both puzzles. Please provide the total time spent in minutes.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format 'Carmen spent X minutes playing these games over the weekend.', the unit should be 'minutes', and the final answer should be the total time spent in minutes.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.782,
+                "usedCredits": 8.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the time spent on sudoku puzzles. It takes Carmen 5 minutes to finish a sudoku puzzle and she solved 8 sudoku puzzles over the weekend. Use the python_repl tool to calculate the total time spent on sudoku puzzles. Please provide the total time spent on sudoku puzzles in minutes.')",
+                "tool_steps": null,
+                "runTime": 1.894,
+                "usedCredits": 1.05899e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time spent on sudoku puzzles is 40 minutes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "5 * 8",
+                        "output": "40",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.945,
+                "usedCredits": 1.4129800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the time spent on crossword puzzles and sudoku puzzles. Use the python_repl tool to calculate the total time spent on both puzzles. Please provide the total time spent in minutes.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format 'Carmen spent X minutes playing these games over the weekend.', the unit should be 'minutes', and the final answer should be the total time spent in minutes.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.892,
+                "usedCredits": 1.0989900000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the time spent on crossword puzzles and sudoku puzzles. The time spent on crossword puzzles is 30 minutes and the time spent on sudoku puzzles is 40 minutes. Use the python_repl tool to calculate the total time spent on both puzzles. Then, return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be in the format 'Carmen spent X minutes playing these games over the weekend.', the unit should be 'minutes', and the final answer should be the total time spent in minutes.'')",
+                "tool_steps": null,
+                "runTime": 1.923,
+                "usedCredits": 1.1039900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[\"Carmen spent 70 minutes playing these games over the weekend.\", \"minutes\", 70]",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "crossword_puzzle_time = 30\nsudoku_puzzle_time = 40\ntotal_time = crossword_puzzle_time + sudoku_puzzle_time\nprint(total_time)",
+                        "output": "70\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.884,
+                "usedCredits": 1.5842300000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.891,
+                "usedCredits": 1.21899e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "[Carmen spent 70 minutes playing these games over the weekend., minutes, 70]",
+                "tool_steps": null,
+                "runTime": 1.085,
+                "usedCredits": 7.2774e-07
+            }
+        ]
+    }
+}

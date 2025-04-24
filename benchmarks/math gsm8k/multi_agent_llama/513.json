@@ -1,0 +1,185 @@
+{
+    "question": "Julie had $500. She spent 20% of it on clothes and then 25% of the remaining money on CDs. How much money did Julie have left?",
+    "generated_answer": "300",
+    "correct_answer": "300",
+    "accuracy": 1,
+    "current_accuracy": 0.7607003891050583,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Julie had $500. She spent 20% of it on clothes and then 25% of the remaining money on CDs. How much money did Julie have left?",
+        "output": "300",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate 20% of the initial amount of money Julie had",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the remaining amount of money after Julie spent 20% on clothes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate 25% of the remaining amount of money",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount of money Julie spent",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Julie has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.666,
+                "usedCredits": 5.1524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate 20% of the initial amount of money Julie had. Julie had $500. Please use the python_repl tool to calculate 20% of 500 and print the result. \n\nExample code:\n```python\ninitial_amount = 500\npercentage_spent = 20\namount_spent = (percentage_spent / 100) * initial_amount\nprint(amount_spent)\n```')",
+                "tool_steps": null,
+                "runTime": 3.616,
+                "usedCredits": 7.9024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "20% of Julie's initial amount of money is $100.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_amount = 500\npercentage_spent = 20\namount_spent = (percentage_spent / 100) * initial_amount\nprint(amount_spent)",
+                        "output": "100.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.659,
+                "usedCredits": 1.52673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the remaining amount of money after Julie spent 20% on clothes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate 25% of the remaining amount of money",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount of money Julie spent",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Julie has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.855,
+                "usedCredits": 8.6649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the remaining amount of money after Julie spent 20% on clothes. Julie had $500 and spent $100.0 on clothes. Please use the python_repl tool to calculate the remaining amount of money and print the result.\n\nExample code:\n```python\ninitial_amount = 500\namount_spent = 100.0\nremaining_amount = initial_amount - amount_spent\nprint(remaining_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 3.754,
+                "usedCredits": 9.289900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The remaining amount of money after Julie spent 20% on clothes is $400.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_amount = 500\namount_spent = 100.0\nremaining_amount = initial_amount - amount_spent\nprint(remaining_amount)",
+                        "output": "400.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 9.912,
+                "usedCredits": 1.53173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate 25% of the remaining amount of money",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount of money Julie spent",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of money Julie has left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.867,
+                "usedCredits": 1.01524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate 25% of the remaining amount of money and then subtract the result from the remaining amount. The remaining amount of money after Julie spent 20% on clothes is $400.0. Please use the python_repl tool to calculate 25% of 400.0, subtract the result from 400.0, and print the final result.\n\nExample code:\n```python\nremaining_amount = 400.0\npercentage_spent = 25\namount_spent = (percentage_spent / 100) * remaining_amount\nfinal_amount = remaining_amount - amount_spent\nprint(final_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 3.287,
+                "usedCredits": 1.0752400000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final amount after subtracting 25% of the remaining amount from the remaining amount is 300.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "remaining_amount = 400.0\npercentage_spent = 25\namount_spent = (percentage_spent / 100) * remaining_amount\nfinal_amount = remaining_amount - amount_spent\nprint(final_amount)",
+                        "output": "300.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.253,
+                "usedCredits": 1.65173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total amount of money Julie spent",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.217,
+                "usedCredits": 1.21649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The task is complete. The final amount of money Julie has left is 300.')",
+                "tool_steps": null,
+                "runTime": 3.3,
+                "usedCredits": 1.2539900000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.252,
+                "usedCredits": 1.21649e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "300",
+                "tool_steps": null,
+                "runTime": 6.14,
+                "usedCredits": 8.489900000000001e-07
+            }
+        ]
+    }
+}

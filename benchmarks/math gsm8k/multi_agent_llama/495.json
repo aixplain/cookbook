@@ -1,0 +1,107 @@
+{
+    "question": "Charisma works for 8 hours every day.  She has a timer to remind her to get up and walk for 5 minutes every hour she\u2019s at work.  After 5 days at the office, how many minutes has she walked?",
+    "generated_answer": "200",
+    "correct_answer": "200",
+    "accuracy": 1,
+    "current_accuracy": 0.7600806451612904,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Charisma works for 8 hours every day.  She has a timer to remind her to get up and walk for 5 minutes every hour she\u2019s at work.  After 5 days at the office, how many minutes has she walked?",
+        "output": "200",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of hours Charisma works in 5 days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of minutes Charisma walks in 5 days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of minutes Charisma has walked",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.137,
+                "usedCredits": 5.3274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Charisma works for 8 hours every day. She has a timer to remind her to get up and walk for 5 minutes every hour she\u2019s at work. After 5 days at the office, how many minutes has she walked? Calculate the total number of hours Charisma works in 5 days. Use the given information that Charisma works for 8 hours every day. You can use the python_repl tool to execute the following python command: print(8 * 5)')",
+                "tool_steps": null,
+                "runTime": 3.21,
+                "usedCredits": 7.5274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Charisma walked 200 minutes in 5 days.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(8 * 5)",
+                        "output": "40\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(8 * 5)",
+                        "output": "40\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 8.054,
+                "usedCredits": 2.67947e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of minutes Charisma walks in 5 days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total number of minutes Charisma has walked",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.01,
+                "usedCredits": 8.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='You previously calculated that Charisma walked 200 minutes in 5 days. However, the user's request asks for the number only, without symbols or punctuation. Use the python_repl tool to execute the following python command: print(200)')",
+                "tool_steps": null,
+                "runTime": 2.853,
+                "usedCredits": 9.0399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "200",
+                "tool_steps": [],
+                "runTime": 1.901,
+                "usedCredits": 6.6274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.963,
+                "usedCredits": 9.1899e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "200",
+                "tool_steps": null,
+                "runTime": 1.907,
+                "usedCredits": 5.1524e-07
+            }
+        ]
+    }
+}

@@ -1,0 +1,197 @@
+{
+    "question": "Toby is reading a book that is 45 pages long. It averages 200 words a page. Toby can read at a rate of 300 words per minute. He has to be at the airport in 60 minutes and plans to leave as soon as he finishes the book. It takes 10 minutes to get to the airport. How many minutes early will Toby be?",
+    "generated_answer": "20",
+    "correct_answer": "20",
+    "accuracy": 1,
+    "current_accuracy": 0.7921760391198044,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Toby is reading a book that is 45 pages long. It averages 200 words a page. Toby can read at a rate of 300 words per minute. He has to be at the airport in 60 minutes and plans to leave as soon as he finishes the book. It takes 10 minutes to get to the airport. How many minutes early will Toby be?",
+        "output": "Toby will be 20 minutes early, minutes, 20",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of words in the book",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total time it takes to read the book",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total available time before leaving for the airport",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the time left after reading the book and subtracting the travel time",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.858,
+                "usedCredits": 5.9149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of words in the book. The book is 45 pages long and averages 200 words a page. Use the python_repl tool to calculate the total number of words. \n\nPlease use the following python command to calculate the total number of words: \n```python\ntotal_pages = 45\nwords_per_page = 200\ntotal_words = total_pages * words_per_page\nprint(total_words)\n```')",
+                "tool_steps": null,
+                "runTime": 1.86,
+                "usedCredits": 8.752399999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of words in the book is 9000.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_pages = 45\nwords_per_page = 200\ntotal_words = total_pages * words_per_page\nprint(total_words)",
+                        "output": "9000\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.924,
+                "usedCredits": 1.53673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total time it takes to read the book",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total available time before leaving for the airport",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the time left after reading the book and subtracting the travel time",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.899,
+                "usedCredits": 9.589900000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total time it takes to read the book. The book is 9000 words long and Toby can read at a rate of 300 words per minute. Use the python_repl tool to calculate the total time. \n\nPlease use the following python command to calculate the total time:\n```python\ntotal_words = 9000\nreading_rate = 300\ntotal_time = total_words / reading_rate\nprint(total_time)\n```')",
+                "tool_steps": null,
+                "runTime": 1.873,
+                "usedCredits": 1.0252400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total time it takes to read the book is 30.0 minutes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_words = 9000\nreading_rate = 300\ntotal_time = total_words / reading_rate\nprint(total_time)",
+                        "output": "30.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.941,
+                "usedCredits": 1.6254800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total available time before leaving for the airport",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the time left after reading the book and subtracting the travel time",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.925,
+                "usedCredits": 1.1152400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Calculate the total available time before leaving for the airport and subtract the time it takes to read the book and travel time. Toby has to be at the airport in 60 minutes and plans to leave as soon as he finishes the book. It takes 10 minutes to get to the airport. The total time it takes to read the book is 30.0 minutes. Use the python_repl tool to calculate the total available time and subtract the time it takes to read the book and travel time.\n\nPlease use the following python command to calculate the total available time and subtract the time it takes to read the book and travel time:\n```python\ntotal_available_time = 60\ntravel_time = 10\ntime_to_read_book = 30.0\ntime_left = total_available_time - time_to_read_book - travel_time\nprint(\"Toby will be\", time_left, \"minutes early.\")\n```'')",
+                "tool_steps": null,
+                "runTime": 2.766,
+                "usedCredits": 1.1802400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Toby will be 20.0 minutes early.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_available_time = 60\ntravel_time = 10\ntime_to_read_book = 30.0\ntime_left = total_available_time - time_to_read_book - travel_time\nprint(\"Toby will be\", time_left, \"minutes early.\")",
+                        "output": "Toby will be 20.0 minutes early.\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.775,
+                "usedCredits": 1.8367300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.883,
+                "usedCredits": 1.3852400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer has already been calculated in the last intermediate step. The explanation is that Toby will be 20 minutes early, the unit is minutes, and the final answer as an integer is 20.')",
+                "tool_steps": null,
+                "runTime": 1.932,
+                "usedCredits": 1.41524e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.875,
+                "usedCredits": 1.4077400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer has already been calculated in the last intermediate step. The explanation is that Toby will be 20 minutes early, the unit is minutes, and the final answer as an integer is 20.')",
+                "tool_steps": null,
+                "runTime": 1.908,
+                "usedCredits": 1.5027400000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Toby will be 20 minutes early, minutes, 20",
+                "tool_steps": null,
+                "runTime": 1.882,
+                "usedCredits": 1.1177400000000002e-06
+            }
+        ]
+    }
+}

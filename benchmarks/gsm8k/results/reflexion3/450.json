@@ -1,0 +1,137 @@
+{
+    "question": "You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?",
+    "generated_answer": "6",
+    "correct_answer": "4",
+    "accuracy": 0,
+    "current_accuracy": 0.8913525498891353,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?",
+        "output": "[Explanation, unit, final answer as an integer]: \nYou can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. If the soda costs $3 and you didn't buy the super ticket and ended up saving $2, then the regular price of popcorn is $6. \ndollars, 6",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "input": "INPUT\n--------------------\n\nUSER: Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?",
+                "output": "[{'step': 'Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket', 'worker': 'Python Code Executor'}, {'step': 'Calculate the total cost of the movie ticket and super ticket', 'worker': 'Python Code Executor'}, {'step': 'Determine the regular price of popcorn by comparing the two costs and using the given savings', 'worker': 'Python Code Executor'}]",
+                "tool_steps": null,
+                "thought": "To find the regular price of popcorn, we need to calculate the total cost of the movie ticket, popcorn, and soda without the super ticket, and then compare it to the cost with the super ticket. We can then use this information to determine the regular price of popcorn.",
+                "runTime": 2.711,
+                "usedCredits": 6.289900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "input": "USER REQUEST:\n\nUSER: Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?\n\nINTERMEDIATE STEPS:\n[]\n\nWORKER:\nPython Code Executor\n\nNEXT STEP:\nCalculate the total cost of the movie ticket, popcorn, and soda without the super ticket\n\nASSIGNMENT:",
+                "output": "Python Code Executor(input='ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket, popcorn, and soda without the super ticket.\n\nTo start, let's calculate the total cost of the movie ticket, popcorn, and soda without the super ticket. We know that the user saved $2 by not buying the super ticket. We also know that the super ticket costs $20 and includes a $1 extra charge for the popcorn and soda. So, the total cost of the movie ticket, popcorn, and soda without the super ticket is $20 - $1 = $19 + $2 (savings) = $21.\n\nHowever, this $21 includes the cost of the movie ticket, popcorn, and soda. Since the movie ticket costs $12, we can subtract this from the total cost to get the cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Define the savings\nsavings = 2\n\n# Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket\ntotal_cost_without_super_ticket = super_ticket_cost - extra_charge + savings\n\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Calculate the cost of the popcorn and soda\npopcorn_and_soda_cost = total_cost_without_super_ticket - movie_ticket_cost\n\nprint(popcorn_and_soda_cost)\n```\n\nThis will give us the cost of the popcorn and soda. We can then use this value to calculate the regular price of the popcorn.')",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 2.724,
+                "usedCredits": 5.564899999999999e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "input": "ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket, popcorn, and soda without the super ticket.\n\nTo start, let's calculate the total cost of the movie ticket, popcorn, and soda without the super ticket. We know that the user saved $2 by not buying the super ticket. We also know that the super ticket costs $20 and includes a $1 extra charge for the popcorn and soda. So, the total cost of the movie ticket, popcorn, and soda without the super ticket is $20 - $1 = $19 + $2 (savings) = $21.\n\nHowever, this $21 includes the cost of the movie ticket, popcorn, and soda. Since the movie ticket costs $12, we can subtract this from the total cost to get the cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Define the savings\nsavings = 2\n\n# Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket\ntotal_cost_without_super_ticket = super_ticket_cost - extra_charge + savings\n\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Calculate the cost of the popcorn and soda\npopcorn_and_soda_cost = total_cost_without_super_ticket - movie_ticket_cost\n\nprint(popcorn_and_soda_cost)\n```\n\nThis will give us the cost of the popcorn and soda. We can then use this value to calculate the regular price of the popcorn.",
+                "output": "The cost of the popcorn and soda is $9. Since the cost of the soda is $3, we can subtract this from the total cost of the popcorn and soda to get the cost of the popcorn. So, the cost of the popcorn is $9 - $3 = $6.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Define the savings\nsavings = 2\n\n# Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket\ntotal_cost_without_super_ticket = super_ticket_cost - extra_charge + savings\n\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Calculate the cost of the popcorn and soda\npopcorn_and_soda_cost = total_cost_without_super_ticket - movie_ticket_cost\n\nprint(popcorn_and_soda_cost)",
+                        "output": "9\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "thought": null,
+                "runTime": 3.793,
+                "usedCredits": 2.5804800000000004e-06
+            },
+            {
+                "agent": "inspector",
+                "input": "",
+                "output": "[{'step': 'Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket', 'worker': 'Python Code Executor'}, {'step': 'Calculate the total cost of the movie ticket and super ticket', 'worker': 'Python Code Executor'}, {'step': 'Determine the regular price of popcorn by comparing the two costs and using the given savings', 'worker': 'Python Code Executor'}]",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 1.058,
+                "usedCredits": 8.8024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "input": "USER REQUEST:\n\nUSER: Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?\n\nINTERMEDIATE STEPS:\n***INTERMEDIATE STEP 1:***\nWORKER: Python Code Executor\nWORKER INPUT:\n'ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket, popcorn, and soda without the super ticket.\n\nTo start, let's calculate the total cost of the movie ticket, popcorn, and soda without the super ticket. We know that the user saved $2 by not buying the super ticket. We also know that the super ticket costs $20 and includes a $1 extra charge for the popcorn and soda. So, the total cost of the movie ticket, popcorn, and soda without the super ticket is $20 - $1 = $19 + $2 (savings) = $21.\n\nHowever, this $21 includes the cost of the movie ticket, popcorn, and soda. Since the movie ticket costs $12, we can subtract this from the total cost to get the cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Define the savings\nsavings = 2\n\n# Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket\ntotal_cost_without_super_ticket = super_ticket_cost - extra_charge + savings\n\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Calculate the cost of the popcorn and soda\npopcorn_and_soda_cost = total_cost_without_super_ticket - movie_ticket_cost\n\nprint(popcorn_and_soda_cost)\n```\n\nThis will give us the cost of the popcorn and soda. We can then use this value to calculate the regular price of the popcorn.'\nWORKER RESPONSE:\n'The cost of the popcorn and soda is $9. Since the cost of the soda is $3, we can subtract this from the total cost of the popcorn and soda to get the cost of the popcorn. So, the cost of the popcorn is $9 - $3 = $6.'\n--------------------\n\nWORKER:\nPython Code Executor\n\nNEXT STEP:\nCalculate the total cost of the movie ticket and super ticket\n\nASSIGNMENT:",
+                "output": "Python Code Executor(input='ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket and super ticket.\n\nWe already know that the cost of the popcorn and soda is $9, and the cost of the popcorn is $6. We also know that the cost of the movie ticket is $12 and the cost of the super ticket is $20 with a $1 extra charge for the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Calculate the total cost of the movie ticket and super ticket\ntotal_cost_movie_ticket = movie_ticket_cost\ntotal_cost_super_ticket = super_ticket_cost + extra_charge\n\nprint(\"The total cost of the movie ticket is: \", total_cost_movie_ticket)\nprint(\"The total cost of the super ticket is: \", total_cost_super_ticket)\n```\n\nThis will give us the total cost of the movie ticket and super ticket.')",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 2.721,
+                "usedCredits": 1.2139900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "input": "ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket and super ticket.\n\nWe already know that the cost of the popcorn and soda is $9, and the cost of the popcorn is $6. We also know that the cost of the movie ticket is $12 and the cost of the super ticket is $20 with a $1 extra charge for the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Calculate the total cost of the movie ticket and super ticket\ntotal_cost_movie_ticket = movie_ticket_cost\ntotal_cost_super_ticket = super_ticket_cost + extra_charge\n\nprint(\"The total cost of the movie ticket is: \", total_cost_movie_ticket)\nprint(\"The total cost of the super ticket is: \", total_cost_super_ticket)\n```\n\nThis will give us the total cost of the movie ticket and super ticket.",
+                "output": "The total cost of the movie ticket is $12 and the total cost of the super ticket is $21.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Calculate the total cost of the movie ticket and super ticket\ntotal_cost_movie_ticket = movie_ticket_cost\ntotal_cost_super_ticket = super_ticket_cost + extra_charge\n\nprint(\"The total cost of the movie ticket is: \", total_cost_movie_ticket)\nprint(\"The total cost of the super ticket is: \", total_cost_super_ticket)",
+                        "output": "The total cost of the super ticket is:  21\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "thought": null,
+                "runTime": 3.787,
+                "usedCredits": 2.3004800000000005e-06
+            },
+            {
+                "agent": "inspector",
+                "input": "",
+                "output": "[{'step': 'Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket', 'worker': 'Python Code Executor'}, {'step': 'Calculate the total cost of the movie ticket and super ticket', 'worker': 'Python Code Executor'}, {'step': 'Determine the regular price of popcorn by comparing the two costs and using the given savings', 'worker': 'Python Code Executor'}]",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 1.151,
+                "usedCredits": 6.652399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "input": "USER REQUEST:\n\nUSER: Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?\n\nINTERMEDIATE STEPS:\n***INTERMEDIATE STEP 1:***\nWORKER: Python Code Executor\nWORKER INPUT:\n'ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket, popcorn, and soda without the super ticket.\n\nTo start, let's calculate the total cost of the movie ticket, popcorn, and soda without the super ticket. We know that the user saved $2 by not buying the super ticket. We also know that the super ticket costs $20 and includes a $1 extra charge for the popcorn and soda. So, the total cost of the movie ticket, popcorn, and soda without the super ticket is $20 - $1 = $19 + $2 (savings) = $21.\n\nHowever, this $21 includes the cost of the movie ticket, popcorn, and soda. Since the movie ticket costs $12, we can subtract this from the total cost to get the cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Define the savings\nsavings = 2\n\n# Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket\ntotal_cost_without_super_ticket = super_ticket_cost - extra_charge + savings\n\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Calculate the cost of the popcorn and soda\npopcorn_and_soda_cost = total_cost_without_super_ticket - movie_ticket_cost\n\nprint(popcorn_and_soda_cost)\n```\n\nThis will give us the cost of the popcorn and soda. We can then use this value to calculate the regular price of the popcorn.'\nWORKER RESPONSE:\n'The cost of the popcorn and soda is $9. Since the cost of the soda is $3, we can subtract this from the total cost of the popcorn and soda to get the cost of the popcorn. So, the cost of the popcorn is $9 - $3 = $6.'\n--------------------\n\n***INTERMEDIATE STEP 2:***\nWORKER: Python Code Executor\nWORKER INPUT:\n'ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the total cost of the movie ticket and super ticket.\n\nWe already know that the cost of the popcorn and soda is $9, and the cost of the popcorn is $6. We also know that the cost of the movie ticket is $12 and the cost of the super ticket is $20 with a $1 extra charge for the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the movie ticket\nmovie_ticket_cost = 12\n\n# Define the cost of the super ticket\nsuper_ticket_cost = 20\n\n# Define the extra charge for the popcorn and soda\nextra_charge = 1\n\n# Calculate the total cost of the movie ticket and super ticket\ntotal_cost_movie_ticket = movie_ticket_cost\ntotal_cost_super_ticket = super_ticket_cost + extra_charge\n\nprint(\"The total cost of the movie ticket is: \", total_cost_movie_ticket)\nprint(\"The total cost of the super ticket is: \", total_cost_super_ticket)\n```\n\nThis will give us the total cost of the movie ticket and super ticket.'\nWORKER RESPONSE:\n'The total cost of the movie ticket is $12 and the total cost of the super ticket is $21.'\n--------------------\n\nWORKER:\nPython Code Executor\n\nNEXT STEP:\nDetermine the regular price of popcorn by comparing the two costs and using the given savings\n\nASSIGNMENT:",
+                "output": "Python Code Executor(input='ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the regular price of popcorn.\n\nWe already know that the cost of the popcorn and soda is $9, and the cost of the popcorn is $6. We also know that the cost of the movie ticket is $12 and the cost of the super ticket is $20 with a $1 extra charge for the popcorn and soda.\n\nTo determine the regular price of popcorn, we can compare the two costs and use the given savings. Since the user saved $2 by not buying the super ticket, we can calculate the regular price of popcorn by subtracting the cost of the soda from the total cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the popcorn and soda\npopcorn_and_soda_cost = 9\n\n# Define the cost of the soda\nsoda_cost = 3\n\n# Calculate the regular price of popcorn\nregular_price_popcorn = popcorn_and_soda_cost - soda_cost\n\nprint(\"The regular price of popcorn is: \", regular_price_popcorn)\n```\n\nThis will give us the regular price of popcorn. We can then use this value to provide the final answer in the required format.')",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 2.718,
+                "usedCredits": 1.7039900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "input": "ASSIGNMENT:\n\nYou are given a problem where a user can either buy a movie super ticket for $20 that includes a movie ticket, popcorn, and a soda for $1 extra, or buy a movie ticket for $12 and purchase popcorn and a soda at regular price. The user chose not to buy the super ticket and ended up saving $2. The cost of the soda is $3. We need to calculate the regular price of popcorn.\n\nWe already know that the cost of the popcorn and soda is $9, and the cost of the popcorn is $6. We also know that the cost of the movie ticket is $12 and the cost of the super ticket is $20 with a $1 extra charge for the popcorn and soda.\n\nTo determine the regular price of popcorn, we can compare the two costs and use the given savings. Since the user saved $2 by not buying the super ticket, we can calculate the regular price of popcorn by subtracting the cost of the soda from the total cost of the popcorn and soda.\n\nPlease use the python_repl tool to execute the following code:\n\n```python\n# Define the cost of the popcorn and soda\npopcorn_and_soda_cost = 9\n\n# Define the cost of the soda\nsoda_cost = 3\n\n# Calculate the regular price of popcorn\nregular_price_popcorn = popcorn_and_soda_cost - soda_cost\n\nprint(\"The regular price of popcorn is: \", regular_price_popcorn)\n```\n\nThis will give us the regular price of popcorn. We can then use this value to provide the final answer in the required format.",
+                "output": "The regular price of popcorn is $6.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the cost of the popcorn and soda\npopcorn_and_soda_cost = 9\n\n# Define the cost of the soda\nsoda_cost = 3\n\n# Calculate the regular price of popcorn\nregular_price_popcorn = popcorn_and_soda_cost - soda_cost\n\nprint(\"The regular price of popcorn is: \", regular_price_popcorn)",
+                        "output": "The regular price of popcorn is:  6\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "thought": null,
+                "runTime": 3.816,
+                "usedCredits": 2.2854800000000007e-06
+            },
+            {
+                "agent": "inspector",
+                "input": "",
+                "output": "[{'step': 'Calculate the total cost of the movie ticket, popcorn, and soda without the super ticket', 'worker': 'Python Code Executor'}, {'step': 'Calculate the total cost of the movie ticket and super ticket', 'worker': 'Python Code Executor'}, {'step': 'Determine the regular price of popcorn by comparing the two costs and using the given savings', 'worker': 'Python Code Executor'}]",
+                "tool_steps": null,
+                "thought": "",
+                "runTime": 1.074,
+                "usedCredits": 6.502400000000001e-07
+            },
+            {
+                "agent": "response_generator",
+                "input": "USER: Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2You can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. What's the regular price of popcorn if the soda costs $3 and you didn't buy the super ticket and ended up saving $2?",
+                "output": "[Explanation, unit, final answer as an integer]: \nYou can buy a movie super ticket for $20 that includes rights to watch any movie and you get one popcorn with a soda for only $1 extra. Or you can buy a movie ticket for $12 and buy one popcorn and a soda at regular price. If the soda costs $3 and you didn't buy the super ticket and ended up saving $2, then the regular price of popcorn is $6. \ndollars, 6",
+                "tool_steps": null,
+                "thought": null,
+                "runTime": 1.872,
+                "usedCredits": 1.91524e-06
+            }
+        ]
+    }
+}

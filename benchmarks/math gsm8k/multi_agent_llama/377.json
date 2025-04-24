@@ -1,0 +1,116 @@
+{
+    "question": "Lucy sells apples from her orchard at $4 per piece. On Monday, she sold all the apples picked. On Tuesday, she picked 12 apples. Come Wednesday, Lucy picked double the number of apples she did the previous day. If Lucy got $56 from selling the apples picked on Monday, how many apples did she pick over the three days?",
+    "generated_answer": "50",
+    "correct_answer": "50",
+    "accuracy": 1,
+    "current_accuracy": 0.7804232804232805,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Lucy sells apples from her orchard at $4 per piece. On Monday, she sold all the apples picked. On Tuesday, she picked 12 apples. Come Wednesday, Lucy picked double the number of apples she did the previous day. If Lucy got $56 from selling the apples picked on Monday, how many apples did she pick over the three days?",
+        "output": "50",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Monday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Tuesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of apples Lucy picked on Monday, Tuesday, and Wednesday",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.072,
+                "usedCredits": 5.6274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of apples Lucy picked on Monday. We know that she sold all the apples picked on Monday and got $56. Since each apple is sold at $4, we can calculate the number of apples picked on Monday. Please use the following python code to calculate the number of apples picked on Monday:\n\n```python\n# Define the total amount earned on Monday\ntotal_earned = 56\n\n# Define the price per apple\nprice_per_apple = 4\n\n# Calculate the number of apples picked on Monday\napples_picked_on_monday = total_earned // price_per_apple\n\nprint(apples_picked_on_monday)\n```')",
+                "tool_steps": null,
+                "runTime": 2.988,
+                "usedCredits": 8.077400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Lucy picked 14 apples on Monday.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the total amount earned on Monday\ntotal_earned = 56\n# Define the price per apple\nprice_per_apple = 4\n# Calculate the number of apples picked on Monday\napples_picked_on_monday = total_earned // price_per_apple\nprint(apples_picked_on_monday)",
+                        "output": "14\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.783,
+                "usedCredits": 1.70923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Tuesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of apples Lucy picked on Monday, Tuesday, and Wednesday",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.871,
+                "usedCredits": 9.4649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of apples Lucy picked over the three days. We know that she picked 14 apples on Monday, 12 apples on Tuesday, and double the number of apples on Wednesday compared to Tuesday. Please use the following information to calculate the total number of apples picked:\n\n- Number of apples picked on Monday: 14\n- Number of apples picked on Tuesday: 12\n- Number of apples picked on Wednesday: double the number of apples picked on Tuesday\n\nPlease write a Python code to calculate the total number of apples picked over the three days.')",
+                "tool_steps": null,
+                "runTime": 2.936,
+                "usedCredits": 1.0127400000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of apples Lucy picked over the three days is 50.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "monday_apples = 14\ntuesday_apples = 12\nwednesday_apples = tuesday_apples * 2\ntotal_apples = monday_apples + tuesday_apples + wednesday_apples\nprint(total_apples)",
+                        "output": "50\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.318,
+                "usedCredits": 1.62423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.961,
+                "usedCredits": 1.1289900000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "50",
+                "tool_steps": null,
+                "runTime": 1.801,
+                "usedCredits": 6.952400000000001e-07
+            }
+        ]
+    }
+}

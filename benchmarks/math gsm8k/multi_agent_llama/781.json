@@ -1,0 +1,84 @@
+{
+    "question": "Four friends ordered four pizzas for a total of 64 dollars. If two of the pizzas cost 30 dollars, how much did each of the other two pizzas cost if they cost the same amount?",
+    "generated_answer": "17",
+    "correct_answer": "17",
+    "accuracy": 1,
+    "current_accuracy": 0.7122762148337596,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Four friends ordered four pizzas for a total of 64 dollars. If two of the pizzas cost 30 dollars, how much did each of the other two pizzas cost if they cost the same amount?",
+        "output": "The cost of each of the other two pizzas is 17 dollars.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Subtract the cost of the two pizzas that cost $30 from the total cost of all four pizzas",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Divide the result by 2 to find the cost of each of the other two pizzas",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.803,
+                "usedCredits": 5.214899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The total cost of four pizzas is 64 dollars, and two of the pizzas cost 30 dollars. Subtract the cost of the two pizzas that cost 30 dollars from the total cost of all four pizzas. Use the python_repl tool to execute the following command: print(64 - 30)')",
+                "tool_steps": null,
+                "runTime": 2.917,
+                "usedCredits": 7.2649e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost of the two pizzas that did not cost 30 dollars is 34 dollars.",
+                "tool_steps": [],
+                "runTime": 1.973,
+                "usedCredits": 6.7774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Divide the result by 2 to find the cost of each of the other two pizzas",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.779,
+                "usedCredits": 7.7774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The cost of the two pizzas that did not cost 30 dollars is 34 dollars. Divide this result by 2 to find the cost of each of the other two pizzas. Use the python_repl tool to execute the following command: print(34 / 2)')",
+                "tool_steps": null,
+                "runTime": 3.132,
+                "usedCredits": 8.302400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost of each of the other two pizzas is 17 dollars.",
+                "tool_steps": [],
+                "runTime": 2.832,
+                "usedCredits": 6.7024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.215,
+                "usedCredits": 8.6899e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The cost of each of the other two pizzas is 17 dollars.",
+                "tool_steps": null,
+                "runTime": 1.782,
+                "usedCredits": 4.8899e-07
+            }
+        ]
+    }
+}

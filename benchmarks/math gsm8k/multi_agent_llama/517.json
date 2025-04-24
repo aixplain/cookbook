@@ -1,0 +1,92 @@
+{
+    "question": "The eighth-grade class held a bake-off. Kelsie made two times more cookies than Josh. Josh made one-fourth the number of cookies that Suzanne made. If Suzanne made 36 cookies, how many did Kelsie make?",
+    "generated_answer": "18",
+    "correct_answer": "18",
+    "accuracy": 1,
+    "current_accuracy": 0.7625482625482626,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The eighth-grade class held a bake-off. Kelsie made two times more cookies than Josh. Josh made one-fourth the number of cookies that Suzanne made. If Suzanne made 36 cookies, how many did Kelsie make?",
+        "output": "Kelsie made 18 cookies.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Determine the number of cookies Josh made",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Determine the number of cookies Kelsie made",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the number of cookies Kelsie made",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.931,
+                "usedCredits": 5.302400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='To determine the number of cookies Josh made, we know that Suzanne made 36 cookies and Josh made one-fourth the number of cookies that Suzanne made. We can calculate the number of cookies Josh made by dividing the number of cookies Suzanne made by 4. Please use the python_repl tool to execute the following command: \n```python\n# Define the number of cookies Suzanne made\nsuzanne_cookies = 36\n\n# Calculate the number of cookies Josh made\njosh_cookies = suzanne_cookies / 4\n\n# Print the number of cookies Josh made\nprint(josh_cookies)\n```')",
+                "tool_steps": null,
+                "runTime": 3.661,
+                "usedCredits": 7.3899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Josh made 9 cookies.",
+                "tool_steps": [],
+                "runTime": 3.597,
+                "usedCredits": 7.5899e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Determine the number of cookies Kelsie made",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the number of cookies Kelsie made",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.342,
+                "usedCredits": 8.5524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='We know that Suzanne made 36 cookies and Josh made one-fourth the number of cookies that Suzanne made. Josh made 9 cookies. Kelsie made two times more cookies than Josh. We can calculate the number of cookies Kelsie made by multiplying the number of cookies Josh made by 2. Please use the python_repl tool to execute the following command: \n```python\n# Define the number of cookies Josh made\njosh_cookies = 9\n\n# Calculate the number of cookies Kelsie made\nkelsie_cookies = josh_cookies * 2\n\n# Print the number of cookies Kelsie made\nprint(kelsie_cookies)\n```')",
+                "tool_steps": null,
+                "runTime": 3.062,
+                "usedCredits": 9.2274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Kelsie made 18 cookies.",
+                "tool_steps": [],
+                "runTime": 2.261,
+                "usedCredits": 7.7774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.018,
+                "usedCredits": 1.05899e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Kelsie made 18 cookies.",
+                "tool_steps": null,
+                "runTime": 2.661,
+                "usedCredits": 6.602400000000001e-07
+            }
+        ]
+    }
+}

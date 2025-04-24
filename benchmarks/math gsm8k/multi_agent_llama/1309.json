@@ -1,0 +1,214 @@
+{
+    "question": "The girls are trying to raise money for a carnival. Kim raises $320 more than Alexandra, who raises $430, and Maryam raises $400 more than Sarah, who raises $300. How much money, in dollars, did they all raise in total?",
+    "generated_answer": "2180",
+    "correct_answer": "2280",
+    "accuracy": 0,
+    "current_accuracy": 0.7251908396946565,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The girls are trying to raise money for a carnival. Kim raises $320 more than Alexandra, who raises $430, and Maryam raises $400 more than Sarah, who raises $300. How much money, in dollars, did they all raise in total?",
+        "output": "The total amount raised by all girls is 2180.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the amount raised by Alexandra",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Kim",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Sarah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Maryam",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts raised by all girls to find the total",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.526,
+                "usedCredits": 5.3649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Alexandra's amount is given as $430. Please calculate and print Alexandra's amount. Use the following code to do this:\n\n```python\nalexandra_amount = 430\nprint(alexandra_amount)\n```')",
+                "tool_steps": null,
+                "runTime": 2.54,
+                "usedCredits": 7.9149e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Alexandra's amount is $430.",
+                "tool_steps": [],
+                "runTime": 1.907,
+                "usedCredits": 6.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount raised by Kim",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Sarah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Maryam",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts raised by all girls to find the total",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.108,
+                "usedCredits": 8.114899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Kim raises $320 more than Alexandra, who raises $430. Please calculate and print Kim's amount. Use the following code to do this:\n\n```python\nalexandra_amount = 430\nkim_amount = alexandra_amount + 320\nprint(kim_amount)\n```'')",
+                "tool_steps": null,
+                "runTime": 2.866,
+                "usedCredits": 8.814900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Kim raises $750.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "alexandra_amount = 430\nkim_amount = alexandra_amount + 320\nprint(kim_amount)",
+                        "output": "750\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.536,
+                "usedCredits": 1.4429799999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount raised by Sarah",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount raised by Maryam",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts raised by all girls to find the total",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.96,
+                "usedCredits": 9.1399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Sarah raises $300. Please calculate and print Sarah's amount. Use the following code to do this:\n\n```python\nsarah_amount = 300\nprint(sarah_amount)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.135,
+                "usedCredits": 9.839900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Sarah's amount is $300.",
+                "tool_steps": [],
+                "runTime": 1.895,
+                "usedCredits": 6.527400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount raised by Maryam",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the amounts raised by all girls to find the total",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.781,
+                "usedCredits": 9.964900000000003e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Maryam raises $400 more than Sarah, who raises $300. Please calculate and print Maryam's amount. Use the following code to do this:\n\n```python\nsarah_amount = 300\nmaryam_amount = sarah_amount + 400\nprint(maryam_amount)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.613,
+                "usedCredits": 1.0664900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Maryam raises $700.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "sarah_amount = 300\nmaryam_amount = sarah_amount + 400\nprint(maryam_amount)",
+                        "output": "700\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.848,
+                "usedCredits": 1.4554800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the amounts raised by all girls to find the total",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.066,
+                "usedCredits": 1.10524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''You have the amounts raised by each girl: Alexandra ($430), Kim ($750), Sarah ($300), and Maryam ($700). Please calculate and print the total amount raised by all girls. Use the following code to do this:\n\n```python\nalexandra_amount = 430\nkim_amount = 750\nsarah_amount = 300\nmaryam_amount = 700\ntotal_amount = alexandra_amount + kim_amount + sarah_amount + maryam_amount\nprint(total_amount)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.368,
+                "usedCredits": 1.1739900000000003e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount raised by all girls is 2180.",
+                "tool_steps": [],
+                "runTime": 1.794,
+                "usedCredits": 7.3274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.878,
+                "usedCredits": 1.2727400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The total amount raised by all girls is 2180.",
+                "tool_steps": null,
+                "runTime": 2.055,
+                "usedCredits": 9.0149e-07
+            }
+        ]
+    }
+}

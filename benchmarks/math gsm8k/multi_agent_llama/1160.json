@@ -1,0 +1,100 @@
+{
+    "question": "Last week the IRS received 5168 tax reports. On Monday and Tuesday they received a total of 1907 reports. On Thursday and Friday they received a total of 2136 reports. How many reports did they receive on Wednesday?",
+    "generated_answer": "1125",
+    "correct_answer": "1125",
+    "accuracy": 1,
+    "current_accuracy": 0.726959517657192,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Last week the IRS received 5168 tax reports. On Monday and Tuesday they received a total of 1907 reports. On Thursday and Friday they received a total of 2136 reports. How many reports did they receive on Wednesday?",
+        "output": "The IRS received 1125 tax reports on Wednesday.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of reports received on Monday, Tuesday, Thursday, and Friday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total number of reports received on Monday, Tuesday, Thursday, and Friday from the total number of reports received last week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.754,
+                "usedCredits": 5.302400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of reports received on Monday, Tuesday, Thursday, and Friday. The IRS received a total of 1907 reports on Monday and Tuesday, and a total of 2136 reports on Thursday and Friday. Please use the python_repl tool to calculate the sum of these two totals. \n\nPlease provide the following input to the python_repl tool:\n```python\nmonday_tuesday_reports = 1907\nthursday_friday_reports = 2136\ntotal_reports = monday_tuesday_reports + thursday_friday_reports\nprint(total_reports)\n```')",
+                "tool_steps": null,
+                "runTime": 2.73,
+                "usedCredits": 7.402400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of reports received on Monday, Tuesday, Thursday, and Friday is 4043.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "monday_tuesday_reports = 1907\nthursday_friday_reports = 2136\ntotal_reports = monday_tuesday_reports + thursday_friday_reports\nprint(total_reports)",
+                        "output": "4043\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.803,
+                "usedCredits": 1.62173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total number of reports received on Monday, Tuesday, Thursday, and Friday from the total number of reports received last week",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.755,
+                "usedCredits": 8.6899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Subtract the total number of reports received on Monday, Tuesday, Thursday, and Friday from the total number of reports received last week. The total number of reports received last week is 5168, and the total number of reports received on Monday, Tuesday, Thursday, and Friday is 4043. Please use the python_repl tool to calculate the difference between these two totals.\n\nPlease provide the following input to the python_repl tool:\n```python\ntotal_last_week = 5168\ntotal_monday_to_friday = 4043\nreports_on_wednesday = total_last_week - total_monday_to_friday\nprint(reports_on_wednesday)\n```')",
+                "tool_steps": null,
+                "runTime": 2.845,
+                "usedCredits": 9.264900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of reports received on Wednesday is 1125.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_last_week = 5168\ntotal_monday_to_friday = 4043\nreports_on_wednesday = total_last_week - total_monday_to_friday\nprint(reports_on_wednesday)",
+                        "output": "1125\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.084,
+                "usedCredits": 1.68548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.815,
+                "usedCredits": 1.0739900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The IRS received 1125 tax reports on Wednesday.",
+                "tool_steps": null,
+                "runTime": 2.579,
+                "usedCredits": 6.8399e-07
+            }
+        ]
+    }
+}

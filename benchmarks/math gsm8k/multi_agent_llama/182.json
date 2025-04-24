@@ -1,0 +1,230 @@
+{
+    "question": "Jean is two years older than Mark.  Two years ago Mark was 5 years older than half Jan's age.  If Jan is 30 how old is Jean?",
+    "generated_answer": "23",
+    "correct_answer": "23",
+    "accuracy": 1,
+    "current_accuracy": 0.7814207650273224,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Jean is two years older than Mark.  Two years ago Mark was 5 years older than half Jan's age.  If Jan is 30 how old is Jean?",
+        "output": "23",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Define variables for Jan's, Mark's, and Jean's current ages",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Mark's age two years ago based on Jan's age two years ago",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Jean's current age based on Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print Jean's current age",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.968,
+                "usedCredits": 5.1524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Define variables for Jan's, Mark's, and Jean's current ages. We know Jan is 30 years old. Please use the python_repl tool to define the variable 'jan_age' and assign it the value 30. Also, define variables 'mark_age' and 'jean_age' and assign them a value of None for now. \n\nExample code:\n```\njan_age = 30\nmark_age = None\njean_age = None\nprint(jan_age)\n```')",
+                "tool_steps": null,
+                "runTime": 3.173,
+                "usedCredits": 7.8774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The variables for Jan's, Mark's, and Jean's current ages have been defined. The variable 'jan_age' has been assigned the value 30, and the variables 'mark_age' and 'jean_age' have been assigned a value of None for now. The value of 'jan_age' is 30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "jan_age = 30\nmark_age = None\njean_age = None\nprint(jan_age)",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.813,
+                "usedCredits": 1.5617300000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate Mark's age two years ago based on Jan's age two years ago",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Jean's current age based on Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print Jean's current age",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.959,
+                "usedCredits": 9.552400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='We know Jan is 30 years old. We need to calculate Jan's age two years ago. Please use the python_repl tool to calculate Jan's age two years ago and assign it to a new variable 'jan_age_two_years_ago'. Then, use the given information that two years ago Mark was 5 years older than half Jan's age to calculate Mark's age two years ago and assign it to a new variable 'mark_age_two_years_ago'.\n\nExample code:\n```\njan_age = 30\njan_age_two_years_ago = jan_age - 2\nmark_age_two_years_ago = (jan_age_two_years_ago / 2) + 5\nprint(jan_age_two_years_ago)\nprint(mark_age_two_years_ago)\n```')",
+                "tool_steps": null,
+                "runTime": 2.964,
+                "usedCredits": 1.01524e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jan's age two years ago is 28. Mark's age two years ago is 19.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "jan_age = 30\njan_age_two_years_ago = jan_age - 2\nmark_age_two_years_ago = (jan_age_two_years_ago / 2) + 5\nprint(jan_age_two_years_ago)\nprint(mark_age_two_years_ago)",
+                        "output": "19.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.9,
+                "usedCredits": 1.76173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate Mark's current age based on Mark's age two years ago",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate Jean's current age based on Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print Jean's current age",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.08,
+                "usedCredits": 1.19774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='We know Jan's age two years ago is 28 and Mark's age two years ago is 19. We need to calculate Mark's current age based on Mark's age two years ago. Please use the python_repl tool to calculate Mark's current age and assign it to the variable 'mark_age'. \n\nExample code:\n```python\nmark_age_two_years_ago = 19\nmark_age = mark_age_two_years_ago + 2\nprint(mark_age)\n```')",
+                "tool_steps": null,
+                "runTime": 3.049,
+                "usedCredits": 1.26649e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Mark's current age is 21.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "mark_age_two_years_ago = 19\nmark_age = mark_age_two_years_ago + 2\nprint(mark_age)",
+                        "output": "21\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.793,
+                "usedCredits": 1.55673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate Jean's current age based on Mark's current age",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print Jean's current age",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.955,
+                "usedCredits": 1.3539900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='We know Jan is 30 years old and Mark's current age is 21. We also know that Jean is two years older than Mark. Please use the python_repl tool to calculate Jean's current age based on Mark's current age and assign it to the variable 'jean_age'. \n\nExample code:\n```python\nmark_age = 21\njean_age = mark_age + 2\nprint(jean_age)\n```')",
+                "tool_steps": null,
+                "runTime": 2.969,
+                "usedCredits": 1.41524e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jean's current age is 23.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "mark_age = 21\njean_age = mark_age + 2\nprint(jean_age)",
+                        "output": "23\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.901,
+                "usedCredits": 1.5267300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print Jean's current age",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.944,
+                "usedCredits": 1.4914900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''We know Jean's current age is 23. Please use the python_repl tool to print Jean's current age.\n\nExample code:\n```\njean_age = 23\nprint(jean_age)\n```'')",
+                "tool_steps": null,
+                "runTime": 3.151,
+                "usedCredits": 1.5552400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jean's current age is 23.",
+                "tool_steps": [],
+                "runTime": 4.301,
+                "usedCredits": 6.6149e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.065,
+                "usedCredits": 1.5777400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "23",
+                "tool_steps": null,
+                "runTime": 1.987,
+                "usedCredits": 1.2139900000000003e-06
+            }
+        ]
+    }
+}

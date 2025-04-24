@@ -1,0 +1,96 @@
+{
+    "question": "A plane travels 1200 miles in 3 hours. At the same rate, how many additional hours would it take to travel an additional 2000 miles?",
+    "generated_answer": "5",
+    "correct_answer": "5",
+    "accuracy": 1,
+    "current_accuracy": 0.8076285240464345,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2A plane travels 1200 miles in 3 hours. At the same rate, how many additional hours would it take to travel an additional 2000 miles?",
+        "output": "['5 hours is the time required to travel 2000 miles at the same rate', 'hours', 5]",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the rate at which the plane travels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Use the rate to calculate the additional time required to travel the additional distance",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.764,
+                "usedCredits": 5.3774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the rate at which the plane travels. The plane travels 1200 miles in 3 hours. Use this information to calculate the rate in miles per hour. Then, use the rate to calculate the additional time required to travel an additional 2000 miles. Finally, return the answer as an [Explanation,unit,final answer as an integer]. For example, if the answer is 5 hours, the output should be ['5 hours is the time required to travel 2000 miles at the same rate', 'hours', 5]. \n\nPlease use the python_repl tool to execute the necessary python commands to solve this problem.')",
+                "tool_steps": null,
+                "runTime": 1.916,
+                "usedCredits": 7.6024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "['5 hours is the time required to travel 2000 miles at the same rate', 'hours', 5]",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "1200 / 3",
+                        "output": "400.0",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "2000 / 400",
+                        "output": "5.0",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.735,
+                "usedCredits": 2.6769700000000004e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.906,
+                "usedCredits": 9.0649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The problem has been solved, and the answer has been provided in the required format. No further action is required.')",
+                "tool_steps": null,
+                "runTime": 1.928,
+                "usedCredits": 9.3899e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.916,
+                "usedCredits": 9.0899e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "['5 hours is the time required to travel 2000 miles at the same rate', 'hours', 5]",
+                "tool_steps": null,
+                "runTime": 1.125,
+                "usedCredits": 5.3149e-07
+            }
+        ]
+    }
+}

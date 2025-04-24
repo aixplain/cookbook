@@ -1,0 +1,200 @@
+{
+    "question": "Ginger and Amy both start with 100 pieces of Halloween candy. Ginger eats 4 pieces a day and Amy eats 3 pieces a day. How much more candy does Amy have after two weeks?",
+    "generated_answer": "14",
+    "correct_answer": "14",
+    "accuracy": 1,
+    "current_accuracy": 0.7124824684431977,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Ginger and Amy both start with 100 pieces of Halloween candy. Ginger eats 4 pieces a day and Amy eats 3 pieces a day. How much more candy does Amy have after two weeks?",
+        "output": "14",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total amount of candy Ginger eats in two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount of candy Amy eats in two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of candy Ginger has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of candy Amy has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the difference between the amount of candy Amy and Ginger have left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.235,
+                "usedCredits": 5.214899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Ginger eats 4 pieces of candy per day. There are 14 days in two weeks. Calculate the total amount of candy Ginger eats in two weeks. Use the formula total_candy_eaten = 4 * 14 and print the result.')",
+                "tool_steps": null,
+                "runTime": 4.041,
+                "usedCredits": 8.0274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount of candy Ginger eats in two weeks is 56.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_candy_eaten = 4 * 14; print(total_candy_eaten)",
+                        "output": "56\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.724,
+                "usedCredits": 1.41673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total amount of candy Amy eats in two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of candy Ginger has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of candy Amy has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the difference between the amount of candy Amy and Ginger have left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.886,
+                "usedCredits": 8.3649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Amy eats 3 pieces of candy per day. There are 14 days in two weeks. Calculate the total amount of candy Amy eats in two weeks. Use the formula total_candy_eaten = 3 * 14 and print the result.')",
+                "tool_steps": null,
+                "runTime": 4.202,
+                "usedCredits": 9.0024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Amy eats a total of 42 pieces of candy in two weeks.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_candy_eaten = 3 * 14; print(total_candy_eaten)",
+                        "output": "42\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.516,
+                "usedCredits": 1.4104800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the amount of candy Ginger has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the amount of candy Amy has left after two weeks",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the difference between the amount of candy Amy and Ginger have left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.824,
+                "usedCredits": 9.3274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Ginger and Amy both start with 100 pieces of Halloween candy. Ginger eats 4 pieces a day and Amy eats 3 pieces a day. We already know that Ginger eats a total of 56 pieces of candy in two weeks and Amy eats a total of 42 pieces of candy in two weeks. Calculate the amount of candy Ginger and Amy have left after two weeks. Use the formulas ginger_candy_left = 100 - 56 and amy_candy_left = 100 - 42, and print the results.'')",
+                "tool_steps": null,
+                "runTime": 4.034,
+                "usedCredits": 9.964900000000003e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Ginger has 44 pieces of candy left. Amy has 58 pieces of candy left.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "ginger_candy_left = 100 - 56; amy_candy_left = 100 - 42; print(f'Ginger has {ginger_candy_left} pieces of candy left.'); print(f'Amy has {amy_candy_left} pieces of candy left.');",
+                        "output": "Amy has 58 pieces of candy left.\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.971,
+                "usedCredits": 1.58923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the difference between the amount of candy Amy and Ginger have left",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.832,
+                "usedCredits": 1.10524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Ginger has 44 pieces of candy left and Amy has 58 pieces of candy left. Calculate the difference between the amount of candy Amy and Ginger have left. Use the formula difference = amy_candy_left - ginger_candy_left and print the result.'')",
+                "tool_steps": null,
+                "runTime": 8.355,
+                "usedCredits": 1.1377400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The difference between the amount of candy Amy and Ginger have left is 14.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "amy_candy_left = 58\n\nginger_candy_left = 44\n\ndifference = amy_candy_left - ginger_candy_left\n\nprint(difference)",
+                        "output": "14\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.826,
+                "usedCredits": 1.44923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.788,
+                "usedCredits": 1.17524e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "14",
+                "tool_steps": null,
+                "runTime": 2.42,
+                "usedCredits": 8.0149e-07
+            }
+        ]
+    }
+}

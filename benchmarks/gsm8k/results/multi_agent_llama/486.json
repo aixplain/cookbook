@@ -1,0 +1,115 @@
+{
+    "question": "James runs 12 miles a day for 5 days a week.  If he runs 10 miles an hour how many hours does he run a week?",
+    "generated_answer": "6",
+    "correct_answer": "6",
+    "accuracy": 1,
+    "current_accuracy": 0.7967145790554415,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2James runs 12 miles a day for 5 days a week.  If he runs 10 miles an hour how many hours does he run a week?",
+        "output": "James runs 6 hours in a week, hours, 6",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total miles James runs in a week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total hours James runs in a week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.955,
+                "usedCredits": 5.3649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total miles James runs in a week. James runs 12 miles a day for 5 days a week. Please write a Python code to calculate the total miles James runs in a week. Use the given information and provide the result as a variable 'total_miles'.')",
+                "tool_steps": null,
+                "runTime": 2.07,
+                "usedCredits": 7.5399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total miles James runs in a week is 60 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_miles = 12 * 5",
+                        "output": {},
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.163,
+                "usedCredits": 1.4154800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total hours James runs in a week using the total miles and the speed in miles per hour",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.024,
+                "usedCredits": 7.9399e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''You previously calculated that James runs a total of 60 miles in a week. Now, we need to calculate the total hours James runs in a week. James runs 10 miles an hour. Please write a Python code to calculate the total hours James runs in a week using the total miles and the speed in miles per hour. Use the given information and provide the result as a variable 'total_hours'. \n\nAlso, please provide the result in the format [Explanation, unit, final answer as an integer]. For example, if the total hours is 6, the result should be \"James runs 6 hours in a week\", \"hours\", 6.'')",
+                "tool_steps": null,
+                "runTime": 2.023,
+                "usedCredits": 8.739900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "James runs 6 hours in a week, hours, 6",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_miles = 60\nspeed_mph = 10\ntotal_hours = total_miles / speed_mph\nprint(total_hours)",
+                        "output": "6.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.349,
+                "usedCredits": 2.61197e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.021,
+                "usedCredits": 1.0114900000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "James runs 6 hours in a week, hours, 6",
+                "tool_steps": null,
+                "runTime": 1.193,
+                "usedCredits": 5.9149e-07
+            }
+        ]
+    }
+}

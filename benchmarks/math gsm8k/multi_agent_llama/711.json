@@ -1,0 +1,145 @@
+{
+    "question": "The ice cream parlor was offering a deal, buy 2 scoops of ice cream, get 1 scoop free.  Each scoop cost $1.50.  If Erin had  $6.00, how many scoops of ice cream should she buy?",
+    "generated_answer": "6",
+    "correct_answer": "6",
+    "accuracy": 1,
+    "current_accuracy": 0.7120786516853933,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The ice cream parlor was offering a deal, buy 2 scoops of ice cream, get 1 scoop free.  Each scoop cost $1.50.  If Erin had  $6.00, how many scoops of ice cream should she buy?",
+        "output": "The final answer is 6.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the cost of 3 scoops (2 paid + 1 free)",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of sets of 3 scoops Erin can buy",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of scoops Erin can buy",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.07,
+                "usedCredits": 5.3899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost of 3 scoops of ice cream, where 2 scoops are paid and 1 scoop is free, and each scoop costs $1.50. The cost of 3 scoops can be calculated as 2 * cost_per_scoop. Please use the python_repl tool to execute the following command: print(2 * 1.50)')",
+                "tool_steps": null,
+                "runTime": 3.124,
+                "usedCredits": 7.6274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost of 3 scoops of ice cream is $3.00.",
+                "tool_steps": [],
+                "runTime": 1.804,
+                "usedCredits": 6.9649e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of sets of 3 scoops Erin can buy",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of scoops Erin can buy",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.128,
+                "usedCredits": 8.302400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Erin has $6.00 to spend on ice cream. Each set of 3 scoops costs $3.00. Calculate the number of sets of 3 scoops Erin can buy. Please use the python_repl tool to execute the following command: print(6 / 3)')",
+                "tool_steps": null,
+                "runTime": 3.507,
+                "usedCredits": 8.8774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Erin can buy 2 sets of 3 scoops of ice cream.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(6 / 3)",
+                        "output": "2.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.905,
+                "usedCredits": 1.42298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of scoops Erin can buy",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.054,
+                "usedCredits": 9.3524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''You have already calculated the number of sets of 3 scoops Erin can buy as 2. Now, calculate the total number of scoops Erin can buy by multiplying the number of sets by 3. Please use the python_repl tool to execute the following command: print(2 * 3)'')",
+                "tool_steps": null,
+                "runTime": 3.227,
+                "usedCredits": 9.964900000000003e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of scoops Erin can buy is 6.",
+                "tool_steps": [],
+                "runTime": 1.775,
+                "usedCredits": 6.8024e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the total number of scoops Erin can buy as the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.821,
+                "usedCredits": 1.0439900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 6.')",
+                "tool_steps": null,
+                "runTime": 2.882,
+                "usedCredits": 1.1439900000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 3.004,
+                "usedCredits": 1.0939900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 6.",
+                "tool_steps": null,
+                "runTime": 1.832,
+                "usedCredits": 7.189900000000001e-07
+            }
+        ]
+    }
+}

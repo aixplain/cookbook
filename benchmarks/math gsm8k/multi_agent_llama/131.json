@@ -1,0 +1,100 @@
+{
+    "question": "The expenditure of Joseph in May was $500. In June, his expenditure was $60 less. How much was his total expenditure for those two months?",
+    "generated_answer": "940",
+    "correct_answer": "940",
+    "accuracy": 1,
+    "current_accuracy": 0.8106060606060606,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The expenditure of Joseph in May was $500. In June, his expenditure was $60 less. How much was his total expenditure for those two months?",
+        "output": "940",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the expenditure for June by subtracting $60 from the May expenditure",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the May expenditure and the June expenditure to get the total expenditure",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total expenditure",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.028,
+                "usedCredits": 5.089900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The May expenditure is $500. Calculate the June expenditure by subtracting $60 from the May expenditure and store it in a variable. Print the calculated June expenditure. \n\nExample code:\nmay_expenditure = 500\njune_expenditure = may_expenditure - 60\nprint(june_expenditure)')",
+                "tool_steps": null,
+                "runTime": 2.894,
+                "usedCredits": 7.2274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The June expenditure is $440.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "may_expenditure = 500\njune_expenditure = may_expenditure - 60\nprint(june_expenditure)",
+                        "output": "440\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.936,
+                "usedCredits": 1.47548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the May expenditure and the June expenditure to get the total expenditure",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the total expenditure",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.862,
+                "usedCredits": 7.7024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The May expenditure is $500 and the June expenditure is $440. Calculate the total expenditure by adding the May and June expenditures. Print the total expenditure.\n\nExample code:\nmay_expenditure = 500\njune_expenditure = 440\ntotal_expenditure = may_expenditure + june_expenditure\nprint(total_expenditure)')",
+                "tool_steps": null,
+                "runTime": 3.164,
+                "usedCredits": 8.302400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total expenditure is $940.",
+                "tool_steps": [],
+                "runTime": 1.945,
+                "usedCredits": 6.9774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.771,
+                "usedCredits": 8.8774e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "940",
+                "tool_steps": null,
+                "runTime": 2.025,
+                "usedCredits": 4.9149e-07
+            }
+        ]
+    }
+}

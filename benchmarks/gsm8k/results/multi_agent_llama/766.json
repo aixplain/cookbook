@@ -1,0 +1,134 @@
+{
+    "question": "Marissa bought a ball at the store for $20. If she had $80 on her and used the rest of the money to buy her brother Jimmy, candy bars sold at $5 each, how many candy bars did Marissa buy for Jimmy?",
+    "generated_answer": "12",
+    "correct_answer": "12",
+    "accuracy": 1,
+    "current_accuracy": 0.8265971316818774,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Marissa bought a ball at the store for $20. If she had $80 on her and used the rest of the money to buy her brother Jimmy, candy bars sold at $5 each, how many candy bars did Marissa buy for Jimmy?",
+        "output": "Marissa had $80 and spent $20 on a ball. She then used the remaining $60 to buy candy bars for Jimmy at $5 each. Marissa bought 12 candy bars for Jimmy, candy bars, 12",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the amount of money Marissa had left after buying the ball",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of candy bars Marissa bought for Jimmy",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.9,
+                "usedCredits": 5.6024e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Marissa had $80 and spent $20 on a ball. Calculate the amount of money Marissa had left after buying the ball. Please provide the result as a variable that can be used in the next step.')",
+                "tool_steps": null,
+                "runTime": 1.858,
+                "usedCredits": 7.8399e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Marissa had $60 left after buying the ball.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_money = 80\nmoney_spent = 20\nmoney_left = initial_money - money_spent\nprint(money_left)",
+                        "output": "60\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.859,
+                "usedCredits": 1.41173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of candy bars Marissa bought for Jimmy using the remaining money ($60) and the cost of each candy bar ($5).",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.871,
+                "usedCredits": 8.039900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='\"Marissa had $60 left after buying the ball and she used this money to buy candy bars for Jimmy at $5 each. Calculate the number of candy bars Marissa bought for Jimmy using the remaining money and the cost of each candy bar. Please provide the result as a variable that can be used in the next step.\"')",
+                "tool_steps": null,
+                "runTime": 1.985,
+                "usedCredits": 8.8774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Marissa bought 12 candy bars for Jimmy.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "candy_bars = 60 // 5; print(candy_bars)",
+                        "output": "12\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.811,
+                "usedCredits": 1.45423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an explanation, unit, and final answer as an integer, where the explanation is 'Marissa had $80 and spent $20 on a ball. She then used the remaining $60 to buy candy bars for Jimmy at $5 each. Marissa bought 12 candy bars for Jimmy.', the unit is 'candy bars', and the final answer is 12",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.894,
+                "usedCredits": 9.3524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='\"Construct the final answer as an explanation, unit, and final answer as an integer. The explanation is 'Marissa had $80 and spent $20 on a ball. She then used the remaining $60 to buy candy bars for Jimmy at $5 each. Marissa bought 12 candy bars for Jimmy.', the unit is 'candy bars', and the final answer is 12. Please return the final answer in the format: 'Explanation, unit, final answer'.\"')",
+                "tool_steps": null,
+                "runTime": 1.896,
+                "usedCredits": 1.0539900000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Marissa had $80 and spent $20 on a ball. She then used the remaining $60 to buy candy bars for Jimmy at $5 each. Marissa bought 12 candy bars for Jimmy, candy bars, 12",
+                "tool_steps": [],
+                "runTime": 1.91,
+                "usedCredits": 7.2274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.878,
+                "usedCredits": 1.1852400000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Marissa had $80 and spent $20 on a ball. She then used the remaining $60 to buy candy bars for Jimmy at $5 each. Marissa bought 12 candy bars for Jimmy, candy bars, 12",
+                "tool_steps": null,
+                "runTime": 1.891,
+                "usedCredits": 7.314899999999999e-07
+            }
+        ]
+    }
+}

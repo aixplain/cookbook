@@ -1,0 +1,142 @@
+{
+    "question": "Marilyn wants to buy a pair of boots online. On Amazon.com, the boots cost $16 and shipping costs $4. On eBay, those same pair of shoes are only $13, but shipping costs twice as much as it does on Amazon. How much more expensive do the boots work out to be on eBay?",
+    "generated_answer": "1",
+    "correct_answer": "1",
+    "accuracy": 1,
+    "current_accuracy": 0.7386172006745363,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Marilyn wants to buy a pair of boots online. On Amazon.com, the boots cost $16 and shipping costs $4. On eBay, those same pair of shoes are only $13, but shipping costs twice as much as it does on Amazon. How much more expensive do the boots work out to be on eBay?",
+        "output": "The boots work out to be $1 more expensive on eBay.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the boots on Amazon",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the boots on eBay",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Find the difference between the total cost on Amazon and eBay",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 12.915,
+                "usedCredits": 5.5274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the boots on Amazon. The boots cost $16 and shipping costs $4. Please write a Python code to calculate the total cost and print the result.')",
+                "tool_steps": null,
+                "runTime": 3.372,
+                "usedCredits": 7.639900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the boots on Amazon is $20.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "boot_cost = 16\nshipping_cost = 4\ntotal_cost = boot_cost + shipping_cost\nprint(total_cost)",
+                        "output": "20\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.597,
+                "usedCredits": 1.39048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the boots on eBay. The boots cost $13 and shipping costs twice as much as it does on Amazon ($4). Please write a Python code to calculate the total cost and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Find the difference between the total cost on Amazon ($20) and eBay. Please write a Python code to calculate the difference and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.879,
+                "usedCredits": 7.764899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the boots on eBay. The boots cost $13 and shipping costs twice as much as it does on Amazon ($4). Please write a Python code to calculate the total cost and print the result. The total cost on Amazon is $20, but you don't need this information for this step.')",
+                "tool_steps": null,
+                "runTime": 2.982,
+                "usedCredits": 9.0899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the boots on eBay is $21.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "boot_cost = 13\nshipping_cost = 4 * 2\ntotal_cost = boot_cost + shipping_cost\nprint(total_cost)",
+                        "output": "21\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.387,
+                "usedCredits": 1.4642300000000003e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Find the difference between the total cost on Amazon ($20) and eBay ($21). Please write a Python code to calculate the difference and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.87,
+                "usedCredits": 9.564900000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the difference between the total cost on Amazon ($20) and eBay ($21). Please write a Python code to calculate the difference and print the result.')",
+                "tool_steps": null,
+                "runTime": 2.844,
+                "usedCredits": 9.814900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The difference between the total cost on Amazon ($20) and eBay ($21) is $1.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "amazon_cost = 20\nebay_cost = 21\ncost_difference = ebay_cost - amazon_cost\nprint(cost_difference)",
+                        "output": "1\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.501,
+                "usedCredits": 1.37798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.719,
+                "usedCredits": 9.977400000000003e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The boots work out to be $1 more expensive on eBay.",
+                "tool_steps": null,
+                "runTime": 1.705,
+                "usedCredits": 6.014899999999999e-07
+            }
+        ]
+    }
+}

@@ -1,0 +1,220 @@
+{
+    "question": "It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, how long does he have to spend walking each day?",
+    "generated_answer": "20",
+    "correct_answer": "20",
+    "accuracy": 1,
+    "current_accuracy": 0.792016806722689,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, how long does he have to spend walking each day?",
+        "output": "It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day., minutes, 20",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of days Jason has to break in the shoes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of weeks Jason has to break in the shoes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of days Jason can walk per week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of days Jason can walk",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of minutes Jason needs to walk each day",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.757,
+                "usedCredits": 5.664899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of days Jason has to break in the shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, how long does he have to spend walking each day? The total number of days can be calculated by multiplying the number of weeks by the number of days per week that Jason can walk. Please provide the total number of days as an integer.')",
+                "tool_steps": null,
+                "runTime": 2.043,
+                "usedCredits": 8.8274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jason has 12 days to break in the shoes.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "3 * 4",
+                        "output": "12",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.07,
+                "usedCredits": 1.49548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of weeks Jason has to break in the shoes",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of days Jason can walk per week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of days Jason can walk",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of minutes Jason needs to walk each day",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.945,
+                "usedCredits": 9.627400000000002e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of days Jason can walk per week. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, how long does he have to spend walking each day? The total number of days Jason has to break in the shoes is 12 days. Please provide the number of days Jason can walk per week as an integer.')",
+                "tool_steps": null,
+                "runTime": 1.945,
+                "usedCredits": 1.0239900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jason can walk 4 days a week.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_days = 12; days_per_week = 4; weeks = total_days / days_per_week; print(int(weeks))",
+                        "output": "3\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.965,
+                "usedCredits": 1.5067299999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of minutes Jason needs to walk each day",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.018,
+                "usedCredits": 1.09149e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Calculate the number of minutes Jason needs to walk each day. It takes 240 minutes of walking to break in a new pair of shoes. Jason has 12 days to break in the shoes and can walk 4 days a week. Please provide the total number of minutes Jason needs to walk each day as an integer.'')",
+                "tool_steps": null,
+                "runTime": 2.014,
+                "usedCredits": 1.0952400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Jason needs to walk 20 minutes each day.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_minutes = 240\nweeks = 12 / 4\ndays_per_week = 4\nminutes_per_day = total_minutes / (weeks * days_per_week)\nprint(int(minutes_per_day))",
+                        "output": "20\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.94,
+                "usedCredits": 1.4854799999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation, unit, final answer as an integer]. The explanation should be 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit should be 'minutes', and the final answer should be 20.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.953,
+                "usedCredits": 1.1402400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already determined in the intermediate steps. The explanation is 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit is 'minutes', and the final answer is 20. Therefore, the final answer is ['It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', 'minutes', 20].')",
+                "tool_steps": null,
+                "runTime": 2.888,
+                "usedCredits": 1.2989900000000003e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. The explanation should be 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit should be 'minutes', and the final answer should be 20.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.985,
+                "usedCredits": 1.4302400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already determined in the intermediate steps. The explanation is 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit is 'minutes', and the final answer is 20. Therefore, the final answer is ['It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', 'minutes', 20].')",
+                "tool_steps": null,
+                "runTime": 2.007,
+                "usedCredits": 1.52524e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]. The explanation should be 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit should be 'minutes', and the final answer should be 20.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.799,
+                "usedCredits": 1.6564900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is already determined in the intermediate steps. The explanation is 'It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', the unit is 'minutes', and the final answer is 20. Therefore, the final answer is ['It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day.', 'minutes', 20].')",
+                "tool_steps": null,
+                "runTime": 2.881,
+                "usedCredits": 1.7514900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "It takes 240 minutes of walking to break in a new pair of shoes. Jason wants to try out for the track team in three weeks. If he can walk 4 days a week to break in the new shoes, he needs to walk 20 minutes each day., minutes, 20",
+                "tool_steps": null,
+                "runTime": 1.925,
+                "usedCredits": 1.4102400000000001e-06
+            }
+        ]
+    }
+}

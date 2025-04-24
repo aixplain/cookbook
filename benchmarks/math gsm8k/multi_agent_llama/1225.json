@@ -1,0 +1,97 @@
+{
+    "question": "Carly is making cupcakes and brownies for her art class. She makes 2 less than three times as many brownies as cupcakes. If Carly's class has five people and each person gets two treats, how many cupcakes did Carly make?",
+    "generated_answer": "3",
+    "correct_answer": "3",
+    "accuracy": 1,
+    "current_accuracy": 0.7218597063621534,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Carly is making cupcakes and brownies for her art class. She makes 2 less than three times as many brownies as cupcakes. If Carly's class has five people and each person gets two treats, how many cupcakes did Carly make?",
+        "output": "The final answer is 3.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Let's denote the number of cupcakes as x. Since Carly makes 2 less than three times as many brownies as cupcakes, the number of brownies is 3x - 2.",
+                        "worker": "NOT_SOLVABLE"
+                    },
+                    {
+                        "step": "Each person in the class gets 2 treats, and there are 5 people in the class. So, the total number of treats is 2 * 5 = 10.",
+                        "worker": "NOT_SOLVABLE"
+                    },
+                    {
+                        "step": "The total number of treats is the sum of the number of cupcakes and brownies. So, we can set up the equation x + (3x - 2) = 10.",
+                        "worker": "NOT_SOLVABLE"
+                    },
+                    {
+                        "step": "Solve the equation x + (3x - 2) = 10 for x.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the value of x.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.162,
+                "usedCredits": 5.3149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Solve the equation x + (3x - 2) = 10 for x. The equation represents the total number of treats, which is the sum of the number of cupcakes and brownies. The number of cupcakes is denoted by x, and the number of brownies is 3x - 2. Use the python_repl tool to solve for x. Please provide the solution in the following format: x = [value].')",
+                "tool_steps": null,
+                "runTime": 3.02,
+                "usedCredits": 9.1899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "x = 3",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve; x = symbols('x'); equation = Eq(x + (3*x - 2), 10); solution = solve(equation, x); print(f'x = {solution[0]}')",
+                        "output": "x = 3\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.832,
+                "usedCredits": 1.51048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the value of x.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.997,
+                "usedCredits": 9.877400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 3.')",
+                "tool_steps": null,
+                "runTime": 2.903,
+                "usedCredits": 8.4274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.93,
+                "usedCredits": 7.9274e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 3.",
+                "tool_steps": null,
+                "runTime": 2.945,
+                "usedCredits": 4.2774000000000004e-07
+            }
+        ]
+    }
+}

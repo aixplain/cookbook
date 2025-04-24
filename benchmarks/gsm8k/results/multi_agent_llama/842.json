@@ -1,0 +1,92 @@
+{
+    "question": "While on vacation in Bali, Thea bought a hat from a craftsman worth $70. If she gave the craftsman four $20 bills, how much change did she get?",
+    "generated_answer": "10",
+    "correct_answer": "10",
+    "accuracy": 1,
+    "current_accuracy": 0.8220640569395018,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2While on vacation in Bali, Thea bought a hat from a craftsman worth $70. If she gave the craftsman four $20 bills, how much change did she get?",
+        "output": "Thea paid 80 dollars for a hat worth 70 dollars, so she got 10 dollars in change. dollars 10",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total amount Thea paid",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the cost of the hat from the total amount paid to find the change",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.848,
+                "usedCredits": 5.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total amount Thea paid. Thea gave the craftsman four $20 bills. The cost of the hat is $70. Please provide the total amount paid as an integer. Use the following format: \n```python\n# Define variables\nbills = 4\nbill_value = 20\nhat_cost = 70\n\n# Calculate total amount paid\ntotal_amount_paid = bills * bill_value\n\n# Print total amount paid\nprint(total_amount_paid)\n```')",
+                "tool_steps": null,
+                "runTime": 1.871,
+                "usedCredits": 7.614900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Thea paid 80 dollars, but since the hat cost is 70 dollars, Thea paid 10 dollars more than the cost of the hat. So, the total amount paid is 80 dollars.",
+                "tool_steps": [],
+                "runTime": 1.906,
+                "usedCredits": 7.2899e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the cost of the hat from the total amount paid to find the change",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.845,
+                "usedCredits": 8.914900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Calculate the change Thea got after buying the hat. The total amount paid is 80 dollars, and the cost of the hat is 70 dollars. Please provide the explanation, unit, and final answer as an integer. Use the following format:\n```python\n# Define variables\ntotal_amount_paid = 80\nhat_cost = 70\n\n# Calculate change\nchange = total_amount_paid - hat_cost\n\n# Print explanation, unit, and final answer\nprint(f\"Thea paid {total_amount_paid} dollars for a hat worth {hat_cost} dollars, so she got {change} dollars in change.\")\nprint(\"dollars\")\nprint(change)\n```'')",
+                "tool_steps": null,
+                "runTime": 2.714,
+                "usedCredits": 9.602400000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Thea paid 80 dollars for a hat worth 70 dollars, so she got 10 dollars in change.\ndollars\n10",
+                "tool_steps": [],
+                "runTime": 1.888,
+                "usedCredits": 7.827400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.875,
+                "usedCredits": 1.12774e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Thea paid 80 dollars for a hat worth 70 dollars, so she got 10 dollars in change. dollars 10",
+                "tool_steps": null,
+                "runTime": 1.892,
+                "usedCredits": 7.1774e-07
+            }
+        ]
+    }
+}

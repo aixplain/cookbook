@@ -1,0 +1,157 @@
+{
+    "question": "Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she has to choose between the boots and two pairs of high heels that together cost five dollars less than the boots. If one pair of heels costs $33 and the other costs twice as much, how many dollars are the boots?",
+    "generated_answer": "104",
+    "correct_answer": "104",
+    "accuracy": 1,
+    "current_accuracy": 0.8333333333333334,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she has to choose between the boots and two pairs of high heels that together cost five dollars less than the boots. If one pair of heels costs $33 and the other costs twice as much, how many dollars are the boots?",
+        "output": "[Explanation: The boots cost $5 more than the two pairs of heels, which together cost $99, unit: dollars, final answer: 104]",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the cost of the second pair of heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total cost of the two pairs of heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the cost of the boots by adding $5 to the total cost of the heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.928,
+                "usedCredits": 5.8149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost of the second pair of heels. The first pair of heels costs $33 and the second pair costs twice as much. Please provide the cost of the second pair of heels in dollars.')",
+                "tool_steps": null,
+                "runTime": 1.969,
+                "usedCredits": 8.389900000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The cost of the second pair of heels is $66.",
+                "tool_steps": [],
+                "runTime": 1.954,
+                "usedCredits": 1.3917300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the two pairs of heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the cost of the boots by adding $5 to the total cost of the heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.93,
+                "usedCredits": 8.5649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the two pairs of heels. The first pair of heels costs $33 and the second pair costs $66. Please provide the total cost of the two pairs of heels in dollars.')",
+                "tool_steps": null,
+                "runTime": 1.983,
+                "usedCredits": 9.2274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the two pairs of heels is $99.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "33 + 66",
+                        "output": "99",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.899,
+                "usedCredits": 7.1774e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the cost of the boots by adding $5 to the total cost of the heels",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.914,
+                "usedCredits": 9.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the cost of the boots by adding $5 to the total cost of the heels. The total cost of the two pairs of heels is $99. Please provide the cost of the boots in dollars as an [Explanation,unit,final answer as an integer].')",
+                "tool_steps": null,
+                "runTime": 1.932,
+                "usedCredits": 1.0077400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[Explanation: Adding $5 to the total cost of the heels, unit: dollars, final answer: 104]",
+                "tool_steps": [],
+                "runTime": 1.972,
+                "usedCredits": 1.53298e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the answer as an [Explanation,unit,final answer as an integer]",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.99,
+                "usedCredits": 1.0552400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer has already been calculated in the intermediate steps. The boots cost $104.')",
+                "tool_steps": null,
+                "runTime": 1.945,
+                "usedCredits": 1.11149e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.938,
+                "usedCredits": 1.0752400000000001e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "[Explanation: The boots cost $5 more than the two pairs of heels, which together cost $99, unit: dollars, final answer: 104]",
+                "tool_steps": null,
+                "runTime": 1.943,
+                "usedCredits": 6.9774e-07
+            }
+        ]
+    }
+}

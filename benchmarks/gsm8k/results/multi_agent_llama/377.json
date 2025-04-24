@@ -1,0 +1,199 @@
+{
+    "question": "Lucy sells apples from her orchard at $4 per piece. On Monday, she sold all the apples picked. On Tuesday, she picked 12 apples. Come Wednesday, Lucy picked double the number of apples she did the previous day. If Lucy got $56 from selling the apples picked on Monday, how many apples did she pick over the three days?",
+    "generated_answer": "50",
+    "correct_answer": "50",
+    "accuracy": 1,
+    "current_accuracy": 0.7804232804232805,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Lucy sells apples from her orchard at $4 per piece. On Monday, she sold all the apples picked. On Tuesday, she picked 12 apples. Come Wednesday, Lucy picked double the number of apples she did the previous day. If Lucy got $56 from selling the apples picked on Monday, how many apples did she pick over the three days?",
+        "output": "Lucy picked a total of 50 apples over the three days, apples, 50",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Monday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Tuesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of apples Lucy picked on all three days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer along with the explanation and unit",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.738,
+                "usedCredits": 5.877399999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of apples Lucy picked on Monday. We know that she sold all the apples picked on Monday and got $56. Since each apple is sold at $4, calculate the number of apples picked on Monday. \n\nPlease use the following python code to calculate the number of apples picked on Monday:\n\n```python\n# Define the total amount earned on Monday\ntotal_amount = 56\n\n# Define the price per apple\nprice_per_apple = 4\n\n# Calculate the number of apples picked on Monday\napples_on_monday = total_amount // price_per_apple\n\nprint(apples_on_monday)\n```')",
+                "tool_steps": null,
+                "runTime": 1.849,
+                "usedCredits": 8.627400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of apples picked on Monday is 14.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the total amount earned on Monday\ntotal_amount = 56\n# Define the price per apple\nprice_per_apple = 4\n# Calculate the number of apples picked on Monday\napples_on_monday = total_amount // price_per_apple\nprint(apples_on_monday)",
+                        "output": "14\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.81,
+                "usedCredits": 1.7604800000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Tuesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of apples Lucy picked on all three days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer along with the explanation and unit",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.964,
+                "usedCredits": 9.977400000000003e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of apples Lucy picked on Tuesday. We know that she picked 12 apples on Tuesday. Please use the following information to calculate the number of apples picked on Tuesday:\n\n- The number of apples picked on Monday is 14.\n- The number of apples picked on Tuesday is 12.\n\nPlease use the following python code to calculate the number of apples picked on Tuesday:\n\n```python\n# Define the number of apples picked on Monday\napples_on_monday = 14\n\n# Define the number of apples picked on Tuesday\napples_on_tuesday = 12\n\nprint(apples_on_tuesday)\n```')",
+                "tool_steps": null,
+                "runTime": 2.745,
+                "usedCredits": 1.06399e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of apples Lucy picked on Tuesday is 12.",
+                "tool_steps": [],
+                "runTime": 1.917,
+                "usedCredits": 7.7149e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of apples Lucy picked on Wednesday",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add up the number of apples Lucy picked on all three days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer along with the explanation and unit",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.871,
+                "usedCredits": 1.2002400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Calculate the number of apples Lucy picked on Wednesday. We know that she picked double the number of apples she did the previous day. The number of apples picked on Tuesday is 12. Please use the following python code to calculate the number of apples picked on Wednesday:\n\n```python\n# Define the number of apples picked on Tuesday\napples_on_tuesday = 12\n\n# Calculate the number of apples picked on Wednesday\napples_on_wednesday = apples_on_tuesday * 2\n\nprint(apples_on_wednesday)\n```'')",
+                "tool_steps": null,
+                "runTime": 1.844,
+                "usedCredits": 1.26649e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of apples Lucy picked on Wednesday is 24.",
+                "tool_steps": [],
+                "runTime": 1.927,
+                "usedCredits": 7.4524e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add up the number of apples Lucy picked on all three days",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the final answer as an integer along with the explanation and unit",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.863,
+                "usedCredits": 1.37774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add up the number of apples Lucy picked on all three days. We know that she picked 14 apples on Monday, 12 apples on Tuesday, and 24 apples on Wednesday. Please use the following python code to calculate the total number of apples picked:\n\n```python\n# Define the number of apples picked on Monday\napples_on_monday = 14\n\n# Define the number of apples picked on Tuesday\napples_on_tuesday = 12\n\n# Define the number of apples picked on Wednesday\napples_on_wednesday = 24\n\n# Calculate the total number of apples picked\ntotal_apples = apples_on_monday + apples_on_tuesday + apples_on_wednesday\n\n# Print the total number of apples picked along with the explanation and unit\nprint(\"Lucy picked a total of\", total_apples, \"apples over the three days.\")\nprint(\"The unit is apples and the final answer is\", total_apples)\n```'')",
+                "tool_steps": null,
+                "runTime": 2.825,
+                "usedCredits": 1.4439900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Lucy picked a total of 50 apples over the three days. The unit is apples and the final answer is 50.",
+                "tool_steps": [],
+                "runTime": 1.905,
+                "usedCredits": 8.602400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the final answer as an integer along with the explanation and unit",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.861,
+                "usedCredits": 1.6877400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 50 apples. The explanation is \"Lucy picked a total of 50 apples over the three days.\" The unit is apples.')",
+                "tool_steps": null,
+                "runTime": 1.879,
+                "usedCredits": 1.75024e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.874,
+                "usedCredits": 1.7302400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Lucy picked a total of 50 apples over the three days, apples, 50",
+                "tool_steps": null,
+                "runTime": 1.891,
+                "usedCredits": 1.35649e-06
+            }
+        ]
+    }
+}

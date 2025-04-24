@@ -1,0 +1,108 @@
+{
+    "question": "After Andrea saved some money, she then spent the rest of her money on an $11 sweater and gave her brother $4. If she had $36 in the beginning, how much did Andrea save?",
+    "generated_answer": "21",
+    "correct_answer": "21",
+    "accuracy": 1,
+    "current_accuracy": 0.7762039660056658,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.After Andrea saved some money, she then spent the rest of her money on an $11 sweater and gave her brother $4. If she had $36 in the beginning, how much did Andrea save?",
+        "output": "Andrea saved $21.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total amount spent by Andrea",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total amount spent from the initial amount to find the amount saved",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final amount saved",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.917,
+                "usedCredits": 5.214899999999999e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Andrea initially had $36. She spent $11 on a sweater and gave her brother $4. Calculate the total amount spent by Andrea. Use the given expenses to find the total amount spent. You can use python_repl to execute the python commands. \n\nExample python command: \n```python\n# Define the expenses\nsweater_cost = 11\nbrother_gift = 4\n\n# Calculate the total amount spent\ntotal_spent = sweater_cost + brother_gift\n\n# Print the total amount spent\nprint(total_spent)\n```')",
+                "tool_steps": null,
+                "runTime": 2.921,
+                "usedCredits": 7.302400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total amount spent by Andrea is $15.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "# Define the expenses\nsweater_cost = 11\nbrother_gift = 4\n# Calculate the total amount spent\ntotal_spent = sweater_cost + brother_gift\n# Print the total amount spent\nprint(total_spent)",
+                        "output": "15\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.798,
+                "usedCredits": 1.63048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total amount spent from the initial amount to find the amount saved",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final amount saved",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.016,
+                "usedCredits": 8.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Andrea initially had $36. She spent a total of $15 on a sweater and gave her brother some money. Calculate the amount saved by Andrea. Use the given initial amount and total amount spent to find the amount saved. You can use python_repl to execute the python commands.\n\nExample python command:\n```python\n# Define the initial amount and total amount spent\ninitial_amount = 36\ntotal_spent = 15\n\n# Calculate the amount saved\namount_saved = initial_amount - total_spent\n\n# Print the amount saved\nprint(amount_saved)\n```')",
+                "tool_steps": null,
+                "runTime": 3.166,
+                "usedCredits": 9.1149e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Andrea saved $21.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_amount = 36\ntotal_spent = 15\namount_saved = initial_amount - total_spent\nprint(amount_saved)",
+                        "output": "21\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.687,
+                "usedCredits": 1.61048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.818,
+                "usedCredits": 1.0239900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "Andrea saved $21.",
+                "tool_steps": null,
+                "runTime": 1.845,
+                "usedCredits": 6.2399e-07
+            }
+        ]
+    }
+}

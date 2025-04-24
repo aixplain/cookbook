@@ -1,0 +1,149 @@
+{
+    "question": "100 people apply for a job at Google. Of the people that apply, only 30% receive interviews. Of those who receive interviews, 20% receive a job offer. Of those who receive a job offer, a third of the people accept the position. How many people accept the position?",
+    "generated_answer": "2",
+    "correct_answer": "2",
+    "accuracy": 1,
+    "current_accuracy": 0.7107093184979137,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.100 people apply for a job at Google. Of the people that apply, only 30% receive interviews. Of those who receive interviews, 20% receive a job offer. Of those who receive a job offer, a third of the people accept the position. How many people accept the position?",
+        "output": "2",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of people who receive interviews",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of people who receive a job offer",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of people who accept the position",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.909,
+                "usedCredits": 5.4649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of people who receive interviews. 100 people apply for a job at Google. Of the people that apply, only 30% receive interviews. Use this information to calculate the number of people who receive interviews and print the result.')",
+                "tool_steps": null,
+                "runTime": 3.442,
+                "usedCredits": 7.5524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of people who receive interviews is 30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_applicants = 100\ninterview_rate = 0.3\npeople_receiving_interviews = total_applicants * interview_rate\nprint(people_receiving_interviews)",
+                        "output": "30.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.599,
+                "usedCredits": 1.4429799999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of people who receive a job offer. Of those who receive interviews, 20% receive a job offer. Use the result from the previous step (30 people) to calculate the number of people who receive a job offer and print the result.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of people who accept the position. Of those who receive a job offer, a third of the people accept the position. Use the result from the previous step to calculate the number of people who accept the position and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.013,
+                "usedCredits": 7.827400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of people who receive a job offer. Of those who receive interviews, 20% receive a job offer. Use the result from the previous step (30 people) to calculate the number of people who receive a job offer and print the result. The result should be a number only, with no symbols or other punctuation.')",
+                "tool_steps": null,
+                "runTime": 2.758,
+                "usedCredits": 9.5274e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "6",
+                "tool_steps": [
+                    {
+                        "tool": "_Exception",
+                        "input": "Invalid or incomplete response",
+                        "output": "Invalid or incomplete response",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "int(30 * 0.2)",
+                        "output": "6",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 84.979,
+                "usedCredits": 0.0011415154799999999
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the number of people who accept the position. Of those who receive a job offer, a third of the people accept the position. Use the result from the previous step (6 people) to calculate the number of people who accept the position and print the result.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.1,
+                "usedCredits": 9.902400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the number of people who accept the position. Of those who receive a job offer, a third of the people accept the position. Use the result from the previous step (6 people) to calculate the number of people who accept the position and print the result. The result should be a number only, with no symbols or other punctuation.')",
+                "tool_steps": null,
+                "runTime": 3.904,
+                "usedCredits": 1.0077400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "2",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "6 / 3",
+                        "output": "2.0",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.461,
+                "usedCredits": 1.4404799999999999e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.773,
+                "usedCredits": 1.0464900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "2",
+                "tool_steps": null,
+                "runTime": 1.63,
+                "usedCredits": 6.227399999999999e-07
+            }
+        ]
+    }
+}

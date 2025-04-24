@@ -1,0 +1,119 @@
+{
+    "question": "Sam sells bread. He has a target of selling 120 crates of bread in a week. One week he was closed on Monday and Friday. Over the weekend he sold 20 crates. On Tuesday he sold 15 crates, on Wednesday 12 crates, and Thursday 18 crates. By how many crates was Sam off from his target for the week?",
+    "generated_answer": "55",
+    "correct_answer": "55",
+    "accuracy": 1,
+    "current_accuracy": 0.7684563758389261,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Sam sells bread. He has a target of selling 120 crates of bread in a week. One week he was closed on Monday and Friday. Over the weekend he sold 20 crates. On Tuesday he sold 15 crates, on Wednesday 12 crates, and Thursday 18 crates. By how many crates was Sam off from his target for the week?",
+        "output": "55",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of crates sold during the week",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total number of crates sold from the target and print the result",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.879,
+                "usedCredits": 5.6149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total number of crates sold during the week. The total number of crates sold over the weekend is 20, on Tuesday is 15, on Wednesday is 12, and on Thursday is 18. Use the python_repl tool to calculate the total number of crates sold. \n\nPlease use the following python command to calculate the total number of crates sold:\n\n```python\ntotal_crates_sold = 20 + 15 + 12 + 18\nprint(total_crates_sold)\n```')",
+                "tool_steps": null,
+                "runTime": 3.063,
+                "usedCredits": 7.5024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of crates sold during the week is 65.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_crates_sold = 20 + 15 + 12 + 18\nprint(total_crates_sold)",
+                        "output": "65\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.665,
+                "usedCredits": 1.56548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total number of crates sold from the target and print the result",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.97,
+                "usedCredits": 8.5274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Subtract the total number of crates sold from the target and print the result. The total number of crates sold is 65, and the target is 120. Use the python_repl tool to calculate the difference. \n\nPlease use the following python command to calculate the difference:\n```python\ntarget = 120\ntotal_crates_sold = 65\ndifference = target - total_crates_sold\nprint(difference)\n```')",
+                "tool_steps": null,
+                "runTime": 2.966,
+                "usedCredits": 9.1774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The difference between the target and the total number of crates sold is 55.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "target = 120\ntotal_crates_sold = 65\ndifference = target - total_crates_sold\nprint(difference)",
+                        "output": "55\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.788,
+                "usedCredits": 1.53673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Return the final answer which is the difference between the target and the total number of crates sold",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.061,
+                "usedCredits": 1.00649e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The task is complete, and the final answer is 55.')",
+                "tool_steps": null,
+                "runTime": 3.089,
+                "usedCredits": 1.10524e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.922,
+                "usedCredits": 1.06274e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "55",
+                "tool_steps": null,
+                "runTime": 2.244,
+                "usedCredits": 6.8274e-07
+            }
+        ]
+    }
+}

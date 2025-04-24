@@ -1,0 +1,108 @@
+{
+    "question": "Janet\u2019s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+    "generated_answer": "18",
+    "correct_answer": "18",
+    "accuracy": 1,
+    "current_accuracy": 1.0,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Janet\u2019s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+        "output": "[Explanation, unit, final answer as an integer] = [\"Janet makes money by selling 9 eggs at $2 per egg.\", \"$\", 18]",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the number of eggs Janet has left after eating three for breakfast and baking four muffins",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total amount of money Janet makes by selling the remaining eggs at the farmers' market",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as a list containing the explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.834,
+                "usedCredits": 5.7649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Janet's ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. Calculate the number of eggs Janet has left after eating three for breakfast and baking four muffins. Please provide the calculation as a Python code using the given information.')",
+                "tool_steps": null,
+                "runTime": 1.937,
+                "usedCredits": 8.1899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "Janet has 9 eggs left after eating three for breakfast and baking four muffins.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "eggs_per_day = 16\neggs_for_breakfast = 3\neggs_for_muffins = 4\neggs_left = eggs_per_day - eggs_for_breakfast - eggs_for_muffins\nprint(eggs_left)",
+                        "output": "9\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.752,
+                "usedCredits": 2.9359599999999997e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total amount of money Janet makes by selling the remaining eggs at the farmers' market",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Return the answer as a list containing the explanation, unit, and final answer as an integer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.945,
+                "usedCredits": 8.727400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Janet has 9 eggs left after eating three for breakfast and baking four muffins. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. Calculate the total amount of money Janet makes by selling these remaining eggs. Please provide the calculation as a Python code using the given information. Also, return the answer as a list containing the explanation, unit, and final answer as an integer.')",
+                "tool_steps": null,
+                "runTime": 1.841,
+                "usedCredits": 9.2774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "[\"Janet makes money by selling 7 eggs at $2 per egg.\", \"$\", 14]",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_eggs = 9 + 3 + 4\neggs_sold = initial_eggs - 9\nmoney_made = eggs_sold * 2\nprint([f\"Janet makes money by selling {eggs_sold} eggs at $2 per egg.\", \"$\", money_made])",
+                        "output": "['Janet makes money by selling 7 eggs at $2 per egg.', '$', 14]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.928,
+                "usedCredits": 2.30697e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.688,
+                "usedCredits": 1.0127400000000003e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "[Explanation, unit, final answer as an integer] = [\"Janet makes money by selling 9 eggs at $2 per egg.\", \"$\", 18]",
+                "tool_steps": null,
+                "runTime": 1.897,
+                "usedCredits": 5.9274e-07
+            }
+        ]
+    }
+}

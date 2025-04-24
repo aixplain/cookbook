@@ -1,0 +1,218 @@
+{
+    "question": "Janet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $800 for the jeweler to construct it.  After that, she pays 10% of that to get it insured.  How much did she pay?",
+    "generated_answer": "1430",
+    "correct_answer": "1430",
+    "accuracy": 1,
+    "current_accuracy": 0.7580645161290323,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Janet buys a brooch for her daughter.  She pays $500 for the material to make it and then another $800 for the jeweler to construct it.  After that, she pays 10% of that to get it insured.  How much did she pay?",
+        "output": "1430",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total cost of the material and construction",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the insurance cost as 10% of the total cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the insurance cost to the total cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.933,
+                "usedCredits": 5.4274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the total cost of the material and construction. The material cost is $500 and the construction cost is $800. Use the python_repl tool to calculate the total cost. \n\nPlease use the python_repl tool to execute the following command: \nprint(500 + 800)')",
+                "tool_steps": null,
+                "runTime": 2.936,
+                "usedCredits": 7.7774e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the material and construction is $1300.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(500 + 800)",
+                        "output": "1300\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.901,
+                "usedCredits": 1.42798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the insurance cost as 10% of the total cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the insurance cost to the total cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.063,
+                "usedCredits": 8.2274e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the insurance cost as 10% of the total cost. The total cost is $1300. Use the python_repl tool to calculate the insurance cost. Please use the python_repl tool to execute the following command: \nprint(1300 * 0.1)')",
+                "tool_steps": null,
+                "runTime": 2.957,
+                "usedCredits": 8.8899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The insurance cost is $130.0.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(1300 * 0.1)",
+                        "output": "130.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 7.375,
+                "usedCredits": 1.42548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the insurance cost to the total cost",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.405,
+                "usedCredits": 9.2524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the insurance cost to the total cost. The total cost is $1300 and the insurance cost is $130.0. Use the python_repl tool to calculate the new total cost. Please use the python_repl tool to execute the following command: \nprint(1300 + 130.0)'')",
+                "tool_steps": null,
+                "runTime": 3.029,
+                "usedCredits": 9.877400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The new total cost is $1430.0.",
+                "tool_steps": [],
+                "runTime": 2.029,
+                "usedCredits": 6.8274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final total cost",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.36,
+                "usedCredits": 1.03524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final total cost is $1430.0.')",
+                "tool_steps": null,
+                "runTime": 2.975,
+                "usedCredits": 1.1027400000000003e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final total cost without symbols or punctuation",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.828,
+                "usedCredits": 1.05774e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''The final total cost is $1430.0. Please use the python_repl tool to execute the following command: \nprint(1430.0)')",
+                "tool_steps": null,
+                "runTime": 2.976,
+                "usedCredits": 1.1577400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final total cost is $1430.0.",
+                "tool_steps": [],
+                "runTime": 1.861,
+                "usedCredits": 6.4274e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final total cost without symbols or punctuation",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.916,
+                "usedCredits": 1.1652400000000001e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The final total cost is $1430.0. Please use the python_repl tool to execute the following command: \nprint(int(1430.0))')",
+                "tool_steps": null,
+                "runTime": 2.943,
+                "usedCredits": 1.26024e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final total cost is $1430.0. The integer value of the total cost is 1430.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(int(1430.0))",
+                        "output": "1430\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.677,
+                "usedCredits": 1.36423e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "1430",
+                "tool_steps": null,
+                "runTime": 1.813,
+                "usedCredits": 9.152400000000001e-07
+            }
+        ]
+    }
+}

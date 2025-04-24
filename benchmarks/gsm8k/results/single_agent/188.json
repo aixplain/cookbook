@@ -1,0 +1,29 @@
+{
+    "question": "A trader buys some bags of wheat from a farmer at a rate of $20 per bag. If it costs $2 to transport each bag from the farm to the warehouse, and the trader made a total profit of $400 after selling all the bags at a rate of $30 each, how many bags did he sell?",
+    "generated_answer": "50",
+    "correct_answer": "50",
+    "accuracy": 1,
+    "current_accuracy": 0.6984126984126984,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.A trader buys some bags of wheat from a farmer at a rate of $20 per bag. If it costs $2 to transport each bag from the farm to the warehouse, and the trader made a total profit of $400 after selling all the bags at a rate of $30 each, how many bags did he sell?",
+        "output": "The trader sold 50 bags of wheat.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "The trader sold 50 bags of wheat.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\nx = symbols('x')\nbuy_price = 20\ntransport_cost = 2\nsell_price = 30\nprofit = 400\nequation = Eq((sell_price * x) - (buy_price * x) - (transport_cost * x), profit)\nsolution = solve(equation, x)\nprint(solution[0])",
+                        "output": "50\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.76,
+                "usedCredits": 1.47298e-06
+            }
+        ]
+    }
+}

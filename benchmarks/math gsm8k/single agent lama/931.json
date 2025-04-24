@@ -1,0 +1,35 @@
+{
+    "question": "The combined age of Peter, Paul and Jean is 100 years old. Find the age of Peter knowing that Paul is 10 years older than John and that Peter\u2019s age is equal to the sum of Paul and John's age.",
+    "generated_answer": null,
+    "correct_answer": "50",
+    "accuracy": 0,
+    "current_accuracy": 0.14163090128755365,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The combined age of Peter, Paul and Jean is 100 years old. Find the age of Peter knowing that Paul is 10 years older than John and that Peter\u2019s age is equal to the sum of Paul and John's age.",
+        "output": "Agent stopped due to iteration limit or time limit.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "Agent stopped due to iteration limit or time limit.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\n# Define the variables\np, paul, jean = symbols('p paul jean')\n# Define the equations\neq1 = Eq(paul, jean + 10)\neq2 = Eq(p, paul + jean)\neq3 = Eq(p + paul + jean, 100)\n# Solve the system of equations\nsolution = solve((eq1, eq2, eq3), (p, paul, jean))\nprint(solution[p])",
+                        "output": "50\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\n# Define the variables\np, paul, jean = symbols('p paul jean')\n# Define the equations\npaul = jean + 10\np = paul + jean\nsum_of_ages = p + paul + jean\n# Create equations\neq1 = Eq(paul, jean + 10)\neq2 = Eq(p, paul + jean)\neq3 = Eq(sum_of_ages, 100)\n# Solve the equations\nsolution = solve((eq1, eq2, eq3), (p, paul, jean))\nprint(solution)",
+                        "output": "{jean: 20}\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "from sympy import symbols, Eq, solve\n# Define the variables\np, paul, jean = symbols('p paul jean')\n# Define the equations\npaul = jean + 10\np = paul + jean\ncombined_age = p + paul + jean\n# Set up the equation for combined age\neq = Eq(combined_age, 100)\n# Solve the equation\nsolution = solve(eq, (p, paul, jean))\nsolution",
+                        "output": [
+                            [
+                                

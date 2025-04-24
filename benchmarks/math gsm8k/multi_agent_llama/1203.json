@@ -1,0 +1,142 @@
+{
+    "question": "Mattison is 60 inches tall. His two-story house is 7 times as high as he is. The floor to the ceiling on the first floor is thrice as high as he is. How high is the roof from the second floor's floor in inches?",
+    "generated_answer": "240",
+    "correct_answer": "240",
+    "accuracy": 1,
+    "current_accuracy": 0.7200996677740864,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.Mattison is 60 inches tall. His two-story house is 7 times as high as he is. The floor to the ceiling on the first floor is thrice as high as he is. How high is the roof from the second floor's floor in inches?",
+        "output": "240",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the height of the house",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the height of the first floor",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the height of the roof from the second floor's floor",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.837,
+                "usedCredits": 5.3899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the height of the house. Mattison is 60 inches tall. His two-story house is 7 times as high as he is. Use this information to calculate the height of the house in inches. Print the calculated height.')",
+                "tool_steps": null,
+                "runTime": 2.732,
+                "usedCredits": 7.4524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The height of the house is 420 inches.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "mattison_height = 60\nhouse_height = mattison_height * 7\nprint(house_height)",
+                        "output": "420\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.251,
+                "usedCredits": 1.4142300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the height of the first floor. Mattison is 60 inches tall. The floor to the ceiling on the first floor is thrice as high as he is. Use this information to calculate the height of the first floor in inches. Print the calculated height.",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the height of the roof from the second floor's floor. The height of the house is 420 inches. The height of the first floor is calculated in the previous step. Use this information to calculate the height of the roof from the second floor's floor in inches. Print the calculated height.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.715,
+                "usedCredits": 7.6899e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the height of the first floor. Mattison is 60 inches tall. The floor to the ceiling on the first floor is thrice as high as he is. Use this information to calculate the height of the first floor in inches. Print the calculated height.')",
+                "tool_steps": null,
+                "runTime": 2.699,
+                "usedCredits": 9.564900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The height of the first floor is 180 inches.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "mattison_height = 60\nceiling_height = mattison_height * 3\nprint(ceiling_height)",
+                        "output": "180\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 4.645,
+                "usedCredits": 1.43048e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the height of the roof from the second floor's floor. The height of the house is 420 inches. The height of the first floor is 180 inches. Use this information to calculate the height of the roof from the second floor's floor in inches. Print the calculated height.",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.222,
+                "usedCredits": 9.889900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the height of the roof from the second floor's floor. The height of the house is 420 inches. The height of the first floor is 180 inches. Use this information to calculate the height of the roof from the second floor's floor in inches. Print the calculated height.')",
+                "tool_steps": null,
+                "runTime": 2.771,
+                "usedCredits": 9.977400000000003e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The height of the roof from the second floor's floor is 240 inches.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "420 - 180",
+                        "output": "240",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.432,
+                "usedCredits": 1.4129800000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.738,
+                "usedCredits": 1.04274e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "240",
+                "tool_steps": null,
+                "runTime": 1.653,
+                "usedCredits": 6.1274e-07
+            }
+        ]
+    }
+}

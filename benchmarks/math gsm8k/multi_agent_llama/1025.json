@@ -1,0 +1,108 @@
+{
+    "question": "The Easter egg hunt team hid 100 eggs. The Smith twins each found 30 eggs. All the other eggs except 10 were found by their friends. How many eggs did the friends find?",
+    "generated_answer": "30",
+    "correct_answer": "30",
+    "accuracy": 1,
+    "current_accuracy": 0.7241715399610137,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The Easter egg hunt team hid 100 eggs. The Smith twins each found 30 eggs. All the other eggs except 10 were found by their friends. How many eggs did the friends find?",
+        "output": "The number of eggs found by the friends is 30.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of eggs found by the Smith twins",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of eggs found by the Smith twins and the remaining eggs",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of eggs found by the friends",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.941,
+                "usedCredits": 5.202400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The Easter egg hunt team hid 100 eggs. The Smith twins each found 30 eggs. All the other eggs except 10 were found by their friends. Calculate the total number of eggs found by the Smith twins. Use the given information to devise a Python code to solve this problem.')",
+                "tool_steps": null,
+                "runTime": 2.441,
+                "usedCredits": 7.3899e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of eggs found by the Smith twins is 60.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_eggs = 100\ntwins_eggs = 30 * 2\nother_eggs = total_eggs - twins_eggs - 10\nprint(twins_eggs)",
+                        "output": "60\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.898,
+                "usedCredits": 1.4617300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of eggs found by the Smith twins and the remaining eggs",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the number of eggs found by the friends",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.167,
+                "usedCredits": 7.8149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='\"The Easter egg hunt team hid 100 eggs. The Smith twins each found 30 eggs. All the other eggs except 10 were found by their friends. We already know that the total number of eggs found by the Smith twins is 60. Use the given information to devise a Python code to calculate the number of eggs found by the friends. The code should print the number of eggs found by the friends.\"')",
+                "tool_steps": null,
+                "runTime": 3.204,
+                "usedCredits": 8.4524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The number of eggs found by the friends is 30.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_eggs = 100\ntwins_eggs = 60\nremaining_eggs = 10\nfriends_eggs = total_eggs - twins_eggs - remaining_eggs\nprint(friends_eggs)",
+                        "output": "30\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.276,
+                "usedCredits": 1.53673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 1.946,
+                "usedCredits": 9.1774e-07
+            },
+            {
+                "agent": "response_generator",
+                "output": "The number of eggs found by the friends is 30.",
+                "tool_steps": null,
+                "runTime": 2.288,
+                "usedCredits": 5.1274e-07
+            }
+        ]
+    }
+}

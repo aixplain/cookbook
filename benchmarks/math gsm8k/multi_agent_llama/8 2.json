@@ -1,0 +1,249 @@
+{
+    "question": "John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot something very important at home.  He tries to get home in 4 hours but spends the first 2 hours in standstill traffic.  He spends the next half-hour driving at a speed of 30mph, before being able to drive the remaining time of the 4 hours going at 80 mph.  How far is he from home at the end of those 4 hours?",
+    "generated_answer": "45",
+    "correct_answer": "45",
+    "accuracy": 1,
+    "current_accuracy": 0.7777777777777778,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.John drives for 3 hours at a speed of 60 mph and then turns around because he realizes he forgot something very important at home.  He tries to get home in 4 hours but spends the first 2 hours in standstill traffic.  He spends the next half-hour driving at a speed of 30mph, before being able to drive the remaining time of the 4 hours going at 80 mph.  How far is he from home at the end of those 4 hours?",
+        "output": "The final answer is -45.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the distance John travels during the half-hour of driving at 30mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the distance John travels during the remaining 1.5 hours of driving at 80mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the distances from the previous steps to get the total distance John travels during the 4 hours",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the distance John was initially 3 hours away from home at a speed of 60 mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.067,
+                "usedCredits": 5.9774e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance John travels during the half-hour of driving at 30mph. The formula to calculate distance is distance = speed * time. The speed is 30mph and the time is 0.5 hours. Use the python_repl tool to calculate the distance. \n\nPlease use the following python command: \nprint(30 * 0.5)')",
+                "tool_steps": null,
+                "runTime": 2.883,
+                "usedCredits": 9.3024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance John travels during the half-hour of driving at 30mph is 15.0 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(30 * 0.5)",
+                        "output": "15.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.867,
+                "usedCredits": 1.46923e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the distance John travels during the remaining 1.5 hours of driving at 80mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the distances from the previous steps to get the total distance John travels during the 4 hours",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the distance John was initially 3 hours away from home at a speed of 60 mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.921,
+                "usedCredits": 1.0039900000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance John travels during the 3 hours of driving at 60mph. The formula to calculate distance is distance = speed * time. The speed is 60mph and the time is 3 hours. Use the python_repl tool to calculate the distance. Please use the following python command: print(60 * 3)')",
+                "tool_steps": null,
+                "runTime": 2.918,
+                "usedCredits": 1.06274e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance John travels during the 3 hours of driving at 60mph is 180 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(60 * 3)",
+                        "output": "180\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.42,
+                "usedCredits": 1.44423e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the distance John travels during the remaining 1.5 hours of driving at 80mph",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Add the distances from the previous steps to get the total distance John travels during the 4 hours",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.878,
+                "usedCredits": 1.12524e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance John travels during the remaining 1.5 hours of driving at 80mph. The formula to calculate distance is distance = speed * time. The speed is 80mph and the time is 1.5 hours. Use the python_repl tool to calculate the distance. Please use the following python command: print(80 * 1.5)')",
+                "tool_steps": null,
+                "runTime": 2.958,
+                "usedCredits": 1.1789900000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance John travels during the remaining 1.5 hours of driving at 80mph is 120.0 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(80 * 1.5)",
+                        "output": "120.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.581,
+                "usedCredits": 1.46673e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Add the distances from the previous steps to get the total distance John travels during the 4 hours",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.932,
+                "usedCredits": 1.2564900000000003e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Add the distances from the previous steps to get the total distance John travels during the 4 hours. The distances are 15.0 miles for the half-hour of driving at 30mph, 180 miles for the 3 hours of driving at 60mph, and 120.0 miles for the remaining 1.5 hours of driving at 80mph. Use the python_repl tool to calculate the total distance. Please use the following python command: print(15.0 + 180 + 120.0)'')",
+                "tool_steps": null,
+                "runTime": 2.958,
+                "usedCredits": 1.3102400000000002e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total distance John travels during the 4 hours is 315.0 miles.",
+                "tool_steps": [],
+                "runTime": 1.812,
+                "usedCredits": 7.377400000000001e-07
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.913,
+                "usedCredits": 1.42024e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance John was initially away from home. John drives for 3 hours at a speed of 60 mph before turning around. The formula to calculate distance is distance = speed * time. The speed is 60mph and the time is 3 hours. Use the python_repl tool to calculate the distance. Please use the following python command: print(60 * 3). Also, note that we will need to subtract the total distance John travels during the 4 hours from this initial distance to get the final distance. The total distance John travels during the 4 hours is 315.0 miles as calculated in the previous steps.')",
+                "tool_steps": null,
+                "runTime": 2.914,
+                "usedCredits": 1.4739900000000001e-06
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The initial distance John was away from home is 180 miles. The final distance is -45.0 miles.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(60 * 3)",
+                        "output": "180\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    },
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(315.0 - 2 * 180)",
+                        "output": "-45.0\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 7.597,
+                "usedCredits": 2.6944700000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total distance John travels during the 4 hours from the distance he was initially away from home to get the final distance",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.906,
+                "usedCredits": 1.6177400000000002e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final distance John is away from home is -45.0 miles.')",
+                "tool_steps": null,
+                "runTime": 4.102,
+                "usedCredits": 1.7127400000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is -45.",
+                "tool_steps": null,
+                "runTime": 5.332,
+                "usedCredits": 1.28274e-06
+            }
+        ]
+    }
+}

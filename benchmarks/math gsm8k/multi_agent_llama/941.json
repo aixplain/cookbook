@@ -1,0 +1,161 @@
+{
+    "question": "There are 29 pupils in a class. The teacher has 9 coupons; each coupon can be redeemed for 100 bottles of apple juice. The teacher gives each student 2 bottles of apple juice to drink for lunch. After redeeming all her coupons and giving each student their apple juice lunch, how many bottles of apple juice does the teacher have for herself?",
+    "generated_answer": "842",
+    "correct_answer": "842",
+    "accuracy": 1,
+    "current_accuracy": 0.7229299363057324,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.There are 29 pupils in a class. The teacher has 9 coupons; each coupon can be redeemed for 100 bottles of apple juice. The teacher gives each student 2 bottles of apple juice to drink for lunch. After redeeming all her coupons and giving each student their apple juice lunch, how many bottles of apple juice does the teacher have for herself?",
+        "output": "The final answer is 842.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the total number of bottles of apple juice the teacher has after redeeming all her coupons",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the total number of bottles of apple juice given to the students",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total number of bottles given to the students from the total number of bottles the teacher has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.455,
+                "usedCredits": 5.6149e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The teacher has 9 coupons, each coupon can be redeemed for 100 bottles of apple juice. Calculate the total number of bottles of apple juice the teacher has after redeeming all her coupons. Print the total number of bottles.')",
+                "tool_steps": null,
+                "runTime": 4.518,
+                "usedCredits": 8.0024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The teacher has 900 bottles of apple juice after redeeming all her coupons.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_coupons = 9\ncoupons_per_bottle = 100\nprint(total_coupons * coupons_per_bottle)",
+                        "output": "900\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 5.748,
+                "usedCredits": 1.41173e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the total number of bottles of apple juice given to the students",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Subtract the total number of bottles given to the students from the total number of bottles the teacher has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 4.192,
+                "usedCredits": 8.302400000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The teacher has 29 students in her class and gives each student 2 bottles of apple juice to drink for lunch. Calculate the total number of bottles given to the students. Print the total number of bottles.')",
+                "tool_steps": null,
+                "runTime": 2.24,
+                "usedCredits": 8.8524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The total number of bottles given to the students is 58.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "total_bottles = 29 * 2; print(total_bottles)",
+                        "output": "58\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 6.055,
+                "usedCredits": 1.38798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total number of bottles given to the students from the total number of bottles the teacher has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 2.596,
+                "usedCredits": 9.0649e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='The teacher has 900 bottles of apple juice and gave 58 bottles to the students. Calculate the total number of bottles the teacher has left after giving the students their apple juice lunch. Print the total number of bottles.')",
+                "tool_steps": null,
+                "runTime": 2.542,
+                "usedCredits": 9.677400000000001e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The teacher has 842 bottles of apple juice left after giving the students their lunch.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "900 - 58",
+                        "output": "842",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 7.482,
+                "usedCredits": 1.37798e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Subtract the total number of bottles given to the students from the total number of bottles the teacher has",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.698,
+                "usedCredits": 9.964900000000003e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 842.')",
+                "tool_steps": null,
+                "runTime": 3.513,
+                "usedCredits": 1.09149e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [],
+                "tool_steps": null,
+                "runTime": 2.33,
+                "usedCredits": 1.04149e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 842.",
+                "tool_steps": null,
+                "runTime": 3.216,
+                "usedCredits": 6.5899e-07
+            }
+        ]
+    }
+}

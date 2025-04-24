@@ -1,0 +1,58 @@
+{
+    "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?",
+    "generated_answer": "195000",
+    "correct_answer": "70000",
+    "accuracy": 0,
+    "current_accuracy": 0.6666666666666666,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?",
+        "output": "The final answer is ['The profit made by Josh is', 'dollars', 70000].",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "The profit made by Josh is $70000",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "initial_price = 80000\nrepair_cost = 50000\nincrease_percentage = 150\n\ntotal_cost = initial_price + repair_cost\nnew_price = initial_price + (initial_price * increase_percentage / 100)\nprofit = new_price - total_cost\nprint([\"The profit made by Josh is\", \"$\", int(profit)])",
+                        "output": "['The profit made by Josh is', '$', 70000]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.77,
+                "usedCredits": 1.55548e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input=''Reformat the answer to match the user's request. The explanation should be \"The profit made by Josh is\", the unit should be \"dollars\", and the final answer should be 70000. Please provide a python code to return the answer in the format [Explanation, unit, final answer as an integer].'\n\nPlease provide a python code to return the answer in the format [\"The profit made by Josh is\", \"dollars\", 70000].')",
+                "tool_steps": null,
+                "runTime": 1.824,
+                "usedCredits": 7.5024e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The final answer is ['The profit made by Josh is', 'dollars', 70000].",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "def format_answer():\n  explanation = 'The profit made by Josh is'\n  unit = 'dollars'\n  final_answer = 70000\n  return [explanation, unit, final_answer]\n\nprint(format_answer())",
+                        "output": "['The profit made by Josh is', 'dollars', 70000]\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.842,
+                "usedCredits": 2.29947e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is ['The profit made by Josh is', 'dollars', 70000].')",
+                "tool_steps": null,
+                "runTime": 1.831,
+                "usedCredits": 9.4274e-07
+            }
+        ]
+    }
+}

@@ -1,0 +1,139 @@
+{
+    "question": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of 1000 feet.  Polly could throw the gold javelin, the only known weapon that could sleigh the dragon, for a distance of 400 feet, well within the reach of the dragon's flames.  But when Polly held the sapphire gemstone, she could throw the javelin three times farther than when not holding the gemstone. If holding the gemstone, how far outside of the reach of the dragon's flames could Polly stand and still hit the dragon with the gold javelin?",
+    "generated_answer": "200",
+    "correct_answer": "200",
+    "accuracy": 1,
+    "current_accuracy": 0.7619047619047619,
+    "full_response": {
+        "input": "Please return only the number, with no symbols or other punctuation.The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of 1000 feet.  Polly could throw the gold javelin, the only known weapon that could sleigh the dragon, for a distance of 400 feet, well within the reach of the dragon's flames.  But when Polly held the sapphire gemstone, she could throw the javelin three times farther than when not holding the gemstone. If holding the gemstone, how far outside of the reach of the dragon's flames could Polly stand and still hit the dragon with the gold javelin?",
+        "output": "The final answer is 200.",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "mentalist",
+                "output": [
+                    {
+                        "step": "Calculate the distance Polly can throw the javelin while holding the gemstone",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Calculate the distance outside of the dragon's flames where Polly can stand and still hit the dragon",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 3.299,
+                "usedCredits": 6.2524e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance Polly can throw the javelin while holding the gemstone. The distance without the gemstone is 400 feet, and with the gemstone, Polly can throw the javelin three times farther. Use the python_repl tool to calculate this distance. \n\nPlease use the following python command to calculate the distance: \nprint(400 * 3)')",
+                "tool_steps": null,
+                "runTime": 3.325,
+                "usedCredits": 8.4524e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance Polly can throw the javelin while holding the gemstone is 1200 feet.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(400 * 3)",
+                        "output": "1200\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.829,
+                "usedCredits": 1.46548e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Calculate the distance outside of the dragon's flames where Polly can stand and still hit the dragon",
+                        "worker": "Python Code Executor"
+                    },
+                    {
+                        "step": "Print the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.937,
+                "usedCredits": 9.164900000000001e-07
+            },
+            {
+                "agent": "orchestrator",
+                "output": "Python Code Executor(input='Calculate the distance outside of the dragon's flames where Polly can stand and still hit the dragon. The dragon's flames reach 1000 feet, and Polly can throw the javelin 1200 feet while holding the gemstone. Use the python_repl tool to calculate this distance. \n\nPlease use the following python command to calculate the distance: \nprint(1200 - 1000)')",
+                "tool_steps": null,
+                "runTime": 3.145,
+                "usedCredits": 9.764900000000002e-07
+            },
+            {
+                "agent": "Python Code Executor",
+                "output": "The distance outside of the dragon's flames where Polly can stand and still hit the dragon is 200 feet.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "print(1200 - 1000)",
+                        "output": "200\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.749,
+                "usedCredits": 1.4817300000000001e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.805,
+                "usedCredits": 1.05899e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 200.')",
+                "tool_steps": null,
+                "runTime": 1.914,
+                "usedCredits": 1.1139900000000002e-06
+            },
+            {
+                "agent": "inspector",
+                "output": [
+                    {
+                        "step": "Print the final answer",
+                        "worker": "Python Code Executor"
+                    }
+                ],
+                "tool_steps": null,
+                "runTime": 1.951,
+                "usedCredits": 1.06399e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='The final answer is 200.')",
+                "tool_steps": null,
+                "runTime": 3.289,
+                "usedCredits": 1.1589900000000002e-06
+            },
+            {
+                "agent": "response_generator",
+                "output": "The final answer is 200.",
+                "tool_steps": null,
+                "runTime": 1.886,
+                "usedCredits": 7.4649e-07
+            }
+        ]
+    }
+}

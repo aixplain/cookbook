@@ -1,0 +1,36 @@
+{
+    "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy 16 glasses. How much does he need to pay for them?",
+    "generated_answer": "64",
+    "correct_answer": "64",
+    "accuracy": 1,
+    "current_accuracy": 0.8333333333333334,
+    "full_response": {
+        "input": "Return the answer as an [Explanation,unit,final answer as an integer],Example: 3 apples minus 1 are 2 apples, apples, 2Kylar went to the store to buy glasses for his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy 16 glasses. How much does he need to pay for them?",
+        "output": "Kylar needs to buy 16 glasses, so he needs to pay for 8 full price glasses and 8 discounted glasses. The total cost of the glasses is $64, dollars, 64",
+        "session_id": "1234",
+        "intermediate_steps": [
+            {
+                "agent": "Python Code Executor",
+                "output": "The total cost of the glasses is $64.",
+                "tool_steps": [
+                    {
+                        "tool": "python_repl_ast",
+                        "input": "cost_per_glass = 5\ndiscount = 0.6\ntotal_glasses = 16\nfull_price_glasses = total_glasses // 2\ndiscounted_glasses = total_glasses - full_price_glasses\ntotal_cost = (full_price_glasses * cost_per_glass) + (discounted_glasses * cost_per_glass * discount)\nprint(int(total_cost))",
+                        "output": "64\n",
+                        "runTime": null,
+                        "usedCredits": null
+                    }
+                ],
+                "runTime": 3.703,
+                "usedCredits": 2.30697e-06
+            },
+            {
+                "agent": "orchestrator",
+                "output": "FINISH(input='Kylar needs to buy 16 glasses, so he needs to pay for 8 full price glasses and 8 discounted glasses. The total cost of the glasses is $64, dollars, 64')",
+                "tool_steps": null,
+                "runTime": 2.777,
+                "usedCredits": 7.9524e-07
+            }
+        ]
+    }
+}
