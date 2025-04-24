@@ -11,26 +11,26 @@ This page includes everything you need to continue your journey building with ai
 Our team covered 6 key modules:
 
 1. **Module 1: Foundations of AI agents**
-   - [Recording](#)
+   - [Recording](https://www.youtube.com/watch?v=Xr5hSfA0ugQ&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=1&pp=iAQB)
 
 2. **Module 2: Building and deploying agents**  
-   - [Recording](#)
+   - [Recording](https://www.youtube.com/watch?v=EoDdL3RodIM&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=2&pp=iAQB0gcJCYQJAYcqIYzv)
    - [TMB-Demo Colab](https://colab.research.google.com/drive/1CKpjEoQvqO8hpLePOpcJeCJlH4bC8eec?usp=sharing)
 
 3. **Module 3: Creating agent apps and integrations**
-   - [Recording](#) 
+   - [Recording](https://www.youtube.com/watch?v=3tDdWqfOysg&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=6&pp=iAQB0gcJCYQJAYcqIYzv) 
    - [Jira Slack Bot GitHub](https://github.com/aixplain/cookbook/tree/main/tutorials/jira-slack-agent)   
 
 4. **Module 4: aiXplain Overview and Marketplace**  
-   - [Recording](#)
+   - [Recording](https://www.youtube.com/watch?v=lTMRKJEKuTw&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=4&pp=iAQB)
 
 5. **Module 5: Agentic RAG (retrieval-augmented generation)**
-   - [Recording](#)  
+   - [Recording](https://www.youtube.com/watch?v=CRUi6-XOAVc&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=5&pp=iAQB)  
    - [aixplain_generic_rag Colab](https://colab.research.google.com/drive/19ohDhGMOlZmXgKWAZFwAAxkDcpVwrVhS?usp=sharing)
    - [CodingTutorAgentOfficial Colab](https://colab.research.google.com/drive/11h2K43mTVPqatCl5zFgUga907z89Nz_4?usp=sharing#scrollTo=sGFSRpqNU7s7)
 
 6. **Module 6: Agent Builder (no-code/low-code interface)**
-   - [Recording](#)  
+   - [Recording](https://www.youtube.com/watch?v=UEoeIGvI21U&list=PL4X2zpOPPGepLJsqV93BXrcMKH6zWhklp&index=3&pp=iAQB)  
    - ⬇️ [Download Agent Builder (Beta) App](https://aixplain.com/agent-builder/)
 
 
