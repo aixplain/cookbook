@@ -10,8 +10,8 @@ import sdk
 sdk.load_credentials()
 import os
 
-os.environ["TEAM_API_KEY"] = "7315cd4fb7e85cf14361525fd7c5f994b3e45b7333c96835c02c613162118705"
-os.environ["SERPAPI_API_KEY"] = "43d5bfc4ff7ff84dfb5a540c1f51734ac1bb196894e83cac0208b4e97936e462"
+os.environ["TEAM_API_KEY"] = ""
+os.environ["SERPAPI_API_KEY"] = ""
 
 import json
 from agentification.utilities.models import Agent, UtilityTool, UtilityToolType
