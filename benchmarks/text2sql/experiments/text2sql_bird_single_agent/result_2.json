@@ -1,0 +1,9 @@
+{
+    "question_id": 77,
+    "difficulty": "moderate",
+    "field": "california_schools",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/bird/dev_databases/california_schools/california_schools.sqlite",
+    "question": "Which schools served a grade span of Kindergarten to 9th grade in the county of Los Angeles and what is its Percent (%) Eligible FRPM (Ages 5-17)?",
+    "prediction": "SELECT `School Name`, `Percent (%) Eligible FRPM (Ages 5-17)` FROM frpm WHERE `County Name` = 'Los Angeles' AND `Low Grade` = 'K' AND `High Grade` = '9';",
+    "ground_truth": "SELECT T2.School, T1.`FRPM Count (Ages 5-17)` * 100 / T1.`Enrollment (Ages 5-17)` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Los Angeles' AND T2.GSserved = 'K-9'"
+}

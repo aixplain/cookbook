@@ -1,0 +1,9 @@
+{
+    "question_id": 66,
+    "difficulty": "simple",
+    "field": "california_schools",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/bird/dev_databases/california_schools/california_schools.sqlite",
+    "question": "Between 1/1/2000 to 12/31/2005, how many directly funded schools opened in the county of Stanislaus?",
+    "prediction": "SELECT COUNT(*) FROM schools WHERE `FundingType` = 'Directly Funded' AND `County` = 'Stanislaus' AND `OpenDate` BETWEEN '2000-01-01' AND '2005-12-31';",
+    "ground_truth": "SELECT COUNT(School) FROM schools WHERE strftime('%Y', OpenDate) BETWEEN '2000' AND '2005' AND County = 'Stanislaus' AND FundingType = 'Directly funded'"
+}

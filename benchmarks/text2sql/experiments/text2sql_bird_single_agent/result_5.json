@@ -1,0 +1,9 @@
+{
+    "question_id": 52,
+    "difficulty": "simple",
+    "field": "california_schools",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/bird/dev_databases/california_schools/california_schools.sqlite",
+    "question": "What is the total number of schools whose total SAT scores are greater or equal to 1500 whose mailing city is Lakeport?",
+    "prediction": "SELECT COUNT(DISTINCT s.cds) FROM satscores AS s INNER JOIN schools AS sc ON s.cds = sc.CDSCode WHERE (s.AvgScrRead + s.AvgScrMath + s.AvgScrWrite) >= 1500 AND sc.MailCity = 'Lakeport';",
+    "ground_truth": "SELECT COUNT(T1.cds) FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T2.MailCity = 'Lakeport' AND (T1.AvgScrRead + T1.AvgScrMath + T1.AvgScrWrite) >= 1500"
+}

@@ -1,23 +1,171 @@
 import os
+import shutil
 import json
 import re
 import random
 import sqlite3
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
 from collections import defaultdict
+from typing import List, Dict, Text
+from aixplain.modules.model.record import Record 
 from aixplain.factories import ModelFactory, AgentFactory, TeamAgentFactory
 
-def read_binary(file):
+def __parse_question_chunks(text: Text, chunk_size: int = 1000) -> List[Text]:
+    """Chunk natural language questions using sentence-aware splitting"""
+    if not text.strip():
+        return []
+
+    chunks = []
+    current_chunk = []
+    current_length = 0
+    sentences = nltk.sent_tokenize(text)
+
+    for sentence in sentences:
+        sentence_length = len(sentence)
+        
+        # Split long sentences into sub-chunks
+        if sentence_length > chunk_size:
+            sub_chunks = [sentence[i:i+chunk_size] for i in range(0, sentence_length, chunk_size)]
+            for sub in sub_chunks:
+                if current_length + len(sub) > chunk_size:
+                    if current_chunk:
+                        chunks.append(" ".join(current_chunk))
+                    current_chunk = [sub]
+                    current_length = len(sub)
+                else:
+                    current_chunk.append(sub)
+                    current_length += len(sub) + 1
+        else:
+            if current_length + len(sentence) + 1 > chunk_size:
+                if current_chunk:
+                    chunks.append(" ".join(current_chunk))
+                current_chunk = [sentence]
+                current_length = len(sentence)
+            else:
+                current_chunk.append(sentence)
+                current_length += len(sentence) + 1
+
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+    
+    return chunks
+
+def __parse_sql_chunks(sql: Text, chunk_size: int = 1000) -> List[Text]:
+    """Chunk SQL queries while preserving syntax structure"""
+    if not sql.strip():
+        return []
+
+    chunks = []
+    current_chunk = []
+    current_length = 0
+    tokens = sql.split()
+    
+    for token in tokens:
+        token_length = len(token) + 1  # Account for space
+        
+        if current_length + token_length > chunk_size:
+            if current_chunk:
+                chunks.append(" ".join(current_chunk))
+                current_chunk = []
+                current_length = 0
+            
+            # Handle over-sized tokens
+            while len(token) > chunk_size:
+                chunks.append(token[:chunk_size])
+                token = token[chunk_size:]
+                current_length = len(token)
+            
+            if token:
+                current_chunk.append(token)
+                current_length += len(token) + 1
+        else:
+            current_chunk.append(token)
+            current_length += token_length
+
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+    
+    return chunks
+
+def process_train_data(file_path: str, chunk_size: int = 1000) -> List[Record]:
+    """Process training data with proper chunking for different field types"""
+    with open(file_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    records = []
+    
+    for entry in data:
+        db_id = entry.get("db_id", "").strip()
+        evidence = entry.get("evidence", "").strip()
+        question = entry.get("question", "").strip()
+        sql_query = entry.get("SQL", "").strip()
+
+        docs = f"""Question: {question}; \nSQL: {sql_query}"""
+
+        # Process questions with sentence-aware chunking
+        question_chunks = __parse_question_chunks(docs, chunk_size)
+        for chunk in question_chunks:
+            records.append(
+                            Record(
+                                value=chunk,
+                                attributes={
+                                    "Database Id": db_id,
+                                    "Evidence": evidence,
+                                }
+                                ))
+
+        # # Process SQL with syntax-aware chunking
+        # sql_chunks = __parse_sql_chunks(sql_query, chunk_size)
+        # for chunk in sql_chunks:
+        #     records.append(
+        #         Record(
+        #             value=chunk,
+        #             attributes={
+        #                 "db_id": db_id,
+        #                 "type": "sql_query",
+        #                 "full_query": sql_query
+        #                 "evidence": evidence,
+        #             }
+        #     ))
+
+    return records
+
+def rename_and_save_sqlite(original_path, base_dir="dev_databases"):
     """
-    Reads a binary file and converts it to a .db file.
-    :param file: The path to the binary file.
-    :return: The path to the new .db file.
+    Rename a .sqlite file to .db and save it under dev_databases/<db_id>/<db_id>.db
+    Skip if the .db version already exists.
+
+    Args:
+        original_path (str): Path to the original .sqlite file.
+        base_dir (str): Root directory to save the .db files.
+
+    Returns:
+        str: Final path of the .db file.
     """
-    with open(file, "rb") as f:
-        data = f.read()
-    new_file = file.replace('sqlite', 'db') #Convert .sqlite to .db
-    with open(new_file, "wb") as f:
-        f.write(data)
-    return new_file
+    if not os.path.isfile(original_path):
+        raise FileNotFoundError(f"File not found: {original_path}")
+
+    # Infer db_id from parent directory name
+    db_id = os.path.basename(os.path.dirname(original_path))
+
+    # Target .db path
+    target_dir = os.path.join(base_dir, db_id)
+    os.makedirs(target_dir, exist_ok=True)
+
+    target_path = os.path.join(target_dir, f"{db_id}.db")
+
+    # Skip if .db already exists
+    if os.path.exists(target_path):
+        print(f"[✓] Target .db already exists: {target_path}")
+        return target_path
+
+    # Otherwise, rename and save
+    shutil.copyfile(original_path, target_path)
+    print(f"[+] Renamed and saved as: {target_path}")
+    return target_path
+
 
 def retrieve_docs(query, model_id, num_results):
     """
@@ -358,9 +506,9 @@ def create_sql_tool(entry):
     """Helper function to create an SQL tool asset."""
     return AgentFactory.create_sql_tool(
                 description=f"This is the database about {entry['db_id'].replace('_', ' ')}",
-                source=read_binary(entry["sql_path"]), # it has to be a .bd for an sqlite file
+                source=rename_and_save_sqlite(entry["sql_path"]), # it has to be a .bd for an sqlite file
                 source_type="sqlite",
-                schema=entry["schema"],
+                schema=entry["schema"], #It automatically parses the schema
                 enable_commit=False,
             )
 
@@ -392,3 +540,19 @@ def execute_query(query, agent, team_agent, configuration, plan_inspector):
         response = team_agent.run(query)
 
     return response
+
+def safe_dump_response_step(response, result_path):
+    """Safely dump the first intermediate step of a response to disk."""
+    try:
+        step = response.data.intermediate_steps[0]
+        
+        with open(result_path, "w", encoding="utf-8") as f:
+            if hasattr(step, "model_dump_json"):
+                f.write(step.model_dump_json(indent=4))
+            elif hasattr(step, "model_dump"):
+                json.dump(step.model_dump(), f, indent=4, ensure_ascii=False)
+            else:
+                json.dump(step, f, indent=4, ensure_ascii=False)
+    except Exception as e:
+        with open(result_path, "w", encoding="utf-8") as f:
+            json.dump({"error": f"Failed to dump intermediate step: {str(e)}"}, f, indent=2)
