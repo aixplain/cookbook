@@ -542,17 +542,27 @@ def execute_query(query, agent, team_agent, configuration, plan_inspector):
     return response
 
 def safe_dump_response_step(response, result_path):
-    """Safely dump the first intermediate step of a response to disk."""
+    """
+    Save all intermediate steps from an Agent response into one JSON file.
+    """
     try:
-        step = response.data.intermediate_steps[0]
-        
-        with open(result_path, "w", encoding="utf-8") as f:
-            if hasattr(step, "model_dump_json"):
-                f.write(step.model_dump_json(indent=4))
-            elif hasattr(step, "model_dump"):
-                json.dump(step.model_dump(), f, indent=4, ensure_ascii=False)
+        steps = response.data.intermediate_steps
+        serialized_steps = []
+
+        for i, step in enumerate(steps):
+            if hasattr(step, "model_dump"):
+                serialized_steps.append(step.model_dump())
+            elif hasattr(step, "__dict__"):
+                serialized_steps.append(step.__dict__)
             else:
-                json.dump(step, f, indent=4, ensure_ascii=False)
+                serialized_steps.append(str(step))  # fallback
+
+        with open(result_path, "w", encoding="utf-8") as f:
+            json.dump(serialized_steps, f, indent=4, ensure_ascii=False)
+
+        print(f"[✓] Saved {len(serialized_steps)} intermediate steps to {result_path}")
+    
     except Exception as e:
         with open(result_path, "w", encoding="utf-8") as f:
-            json.dump({"error": f"Failed to dump intermediate step: {str(e)}"}, f, indent=2)
+            json.dump({"error": f"Failed to dump steps: {str(e)}"}, f, indent=2)
+        print(f"[!] Failed to save steps: {e}")
