@@ -46,8 +46,8 @@ This token gives the agent permission to access your Moodle data via API.
 
 ### 2. 👤 Your Moodle User ID
 
-This is the numeric ID linked to your account. After getting your token, visit this page
-https://<your-university-domain>/webservice/rest/server.php?wstoken=YOUR_TOKEN&moodlewsrestformat=json&wsfunction=core_webservice_get_site_info
+This is the numeric ID linked to your account. After getting your token, visit this page:
+> `https://<your-university-domain>/webservice/rest/server.php?wstoken=YOUR_TOKEN&moodlewsrestformat=json&wsfunction=core_webservice_get_site_info`
 
 - You’ll see your User ID in the second line, under "userid".
 - Copy and save the value securely.
