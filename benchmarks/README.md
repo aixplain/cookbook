@@ -38,7 +38,7 @@ It demonstrates how to use structured multi-agent workflows for **fact verificat
 
 ---
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 .
