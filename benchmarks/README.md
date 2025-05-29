@@ -1,3 +1,4 @@
+
 # aiXplain Agent-Based Evaluation Suite
 
 This project is a comprehensive framework built around **aiXplain’s LLM agent system**, enabling dynamic, context-aware generation and evaluation across a range of AI tasks.
@@ -36,6 +37,13 @@ It demonstrates how to use structured multi-agent workflows for **fact verificat
 - **Tech**: Subprocess execution, timeout management, multi-test correctness
 - **Evaluation**: Test case pass rate, full solution correctness, agent inference time
 
+### 5. GSM8K Math Problem Solving
+
+- **Dataset**: [GSM8K](https://huggingface.co/datasets/openai/gsm8k)
+- **Function**: Solves grade-school math problems using a tool-augmented agent
+- **Tech**: `AgentFactory` with Python interpreter and LLM tools
+- **Evaluation**: Accuracy of predicted final answers, cost and time tracking
+
 ---
 
 ## Directory Structure
@@ -46,6 +54,7 @@ It demonstrates how to use structured multi-agent workflows for **fact verificat
 ├── code_kaggle/               # Python execution + MCQ evaluation
 ├── fact_verification/         # Single and multi-agent FEVEROUS pipeline
 ├── text2sql/                  # Index-based generation for BIRD and SPIDER benchmark
+├── gsm8k/                     # Math problem solving with Python tools
 └── README.md                  # This general documentation file
 ```
 
@@ -59,6 +68,7 @@ It demonstrates how to use structured multi-agent workflows for **fact verificat
 | Text-to-SQL       | Query correctness, SQL match          |
 | Kaggle MCQ        | Accuracy (% correct answers)          |
 | Code Contests     | Test pass rate, sample-level accuracy |
+| GSM8K             | Math accuracy, execution time, cost   |
 
 ---
 
