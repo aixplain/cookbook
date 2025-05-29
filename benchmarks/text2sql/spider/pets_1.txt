@@ -1,0 +1,22 @@
+CREATE TABLE Student (
+       StuID    	INTEGER PRIMARY KEY,  -- Unique identifier for the student
+       LName		VARCHAR(12),          -- Last name of the student
+       Fname		VARCHAR(12),          -- First name of the student
+       Age		INTEGER,              -- Age of the student
+       Sex		VARCHAR(1),           -- Gender of the student, typically 'M' or 'F'
+       Major		INTEGER,              -- Identifier for the student's major field of study
+       Advisor	INTEGER,              -- Identifier for the student's academic advisor
+       city_code	VARCHAR(3)            -- Code representing the city of the student's residence
+)
+CREATE TABLE Has_Pet (
+       StuID		INTEGER,              -- Identifier for the student who owns the pet
+       PetID		INTEGER,              -- Identifier for the pet owned by the student
+       FOREIGN KEY(PetID) REFERENCES Pets(PetID),  -- Foreign key linking to the pet's unique identifier
+       FOREIGN KEY(StuID) REFERENCES Student(StuID) -- Foreign key linking to the student's unique identifier
+)
+CREATE TABLE Pets (
+       PetID		INTEGER PRIMARY KEY,  -- Unique identifier for the pet
+       PetType		VARCHAR(20),          -- Type or species of the pet
+       pet_age INTEGER,              -- Age of the pet
+       weight REAL                   -- Weight of the pet in appropriate units (e.g., kilograms)
+)

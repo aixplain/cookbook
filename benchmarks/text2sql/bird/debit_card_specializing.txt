@@ -1,0 +1,32 @@
+CREATE TABLE customers(
+    CustomerID INTEGER UNIQUE NOT NULL PRIMARY KEY,  -- Unique identifier for each customer
+    Segment TEXT NULL,  -- Category or group to which the customer belongs (e.g., SME, LAM, KAM)
+    Currency TEXT NULL  -- Currency code used by the customer (e.g., EUR)
+)
+CREATE TABLE gasstations(
+    GasStationID INTEGER UNIQUE NOT NULL PRIMARY KEY,  -- Unique identifier for each gas station
+    ChainID INTEGER NULL,  -- Identifier for the chain to which the gas station belongs
+    Country TEXT NULL,  -- Country code where the gas station is located
+    Segment TEXT NULL  -- Market segment classification of the gas station
+)
+CREATE TABLE products(
+    ProductID INTEGER UNIQUE NOT NULL PRIMARY KEY,  -- Unique identifier for each product
+    Description TEXT NULL                          -- Textual description of the product
+)
+CREATE TABLE "transactions_1k"(
+    TransactionID INTEGER primary key autoincrement,  -- Unique identifier for each transaction
+    Date DATE,                                        -- Date when the transaction occurred
+    Time TEXT,                                        -- Time when the transaction occurred
+    CustomerID INTEGER,                               -- Unique identifier for the customer involved in the transaction
+    CardID INTEGER,                                   -- Unique identifier for the card used in the transaction
+    GasStationID INTEGER,                             -- Unique identifier for the gas station where the transaction took place
+    ProductID INTEGER,                                -- Unique identifier for the product purchased in the transaction
+    Amount INTEGER,                                   -- Quantity of the product purchased
+    Price REAL                                        -- Total price of the transaction
+)
+CREATE TABLE "yearmonth"(
+    CustomerID INTEGER not null references customers on update cascade on delete cascade references customers,  -- Unique identifier for the customer, linked to the customers table
+    Date TEXT not null,  -- Year and month of the consumption record, formatted as YYYYMM
+    Consumption REAL,  -- Amount of consumption recorded for the customer in the specified month
+    primary key (Date, CustomerID)  -- Composite primary key ensuring each record is unique for a given customer and date
+)

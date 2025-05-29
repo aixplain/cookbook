@@ -1,0 +1,79 @@
+CREATE TABLE account(
+    account_id INTEGER default 0 not null primary key,  -- Unique identifier for the account
+    district_id INTEGER default 0 not null,             -- Identifier for the district associated with the account
+    frequency TEXT not null,                            -- Frequency of account operations or charges, e.g., monthly
+    date DATE not null,                                 -- Date when the account was created or registered
+    foreign key (district_id) references district (district_id)  -- Foreign key linking to the district table
+)
+CREATE TABLE card (
+    card_id INTEGER default 0 not null primary key,  -- Unique identifier for the card
+    disp_id INTEGER not null,                        -- Identifier for the associated disposition, linking to the disp table
+    type TEXT not null,                              -- Type of the card, such as 'gold', 'classic', or 'junior'
+    issued DATE not null,                            -- Date when the card was issued
+    foreign key (disp_id) references disp (disp_id)  -- Foreign key constraint linking disp_id to the disp table
+)
+CREATE TABLE client(
+    client_id INTEGER not null primary key,  -- Unique identifier for each client
+    gender TEXT not null,                    -- Gender of the client, typically 'M' for male or 'F' for female
+    birth_date DATE not null,                -- Birth date of the client
+    district_id INTEGER not null,            -- Identifier for the district where the client resides, linked to the district table
+    foreign key (district_id) references district (district_id)  -- Ensures district_id corresponds to a valid entry in the district table
+)
+CREATE TABLE disp(
+    disp_id INTEGER not null primary key,  -- Unique identifier for the disposition record
+    client_id INTEGER not null,  -- Identifier for the client associated with the disposition
+    account_id INTEGER not null,  -- Identifier for the account associated with the disposition
+    type TEXT not null,  -- Role of the client in relation to the account, such as 'OWNER' or 'DISPONENT'
+    foreign key (account_id) references account (account_id),  -- Ensures account_id corresponds to a valid account
+    foreign key (client_id) references client (client_id)  -- Ensures client_id corresponds to a valid client
+)
+CREATE TABLE district(
+    district_id INTEGER default 0 not null primary key,  -- Unique identifier for the district
+    A2 TEXT not null,  -- Name of the district or region
+    A3 TEXT not null,  -- Larger administrative area or region where the district is located
+    A4 TEXT not null,  -- Population of the district
+    A5 TEXT not null,  -- Number of schools in the district
+    A6 TEXT not null,  -- Number of hospitals in the district
+    A7 TEXT not null,  -- Number of parks in the district
+    A8 INTEGER not null,  -- District classification or type code
+    A9 INTEGER not null,  -- Number of administrative divisions within the district
+    A10 REAL not null,  -- Area of the district in square kilometers
+    A11 INTEGER not null,  -- Number of households in the district
+    A12 REAL null,  -- Unemployment rate in the district
+    A13 REAL not null,  -- Average income per household in the district
+    A14 INTEGER not null,  -- Number of businesses in the district
+    A15 INTEGER null,  -- Number of public transport routes in the district
+    A16 INTEGER not null  -- Number of cultural or historical sites in the district
+)
+CREATE TABLE loan(
+    loan_id INTEGER default 0 not null primary key,  -- Unique identifier for the loan
+    account_id INTEGER not null,                     -- Identifier for the account associated with the loan
+    date DATE not null,                              -- Date when the loan was issued
+    amount INTEGER not null,                         -- Total amount of the loan
+    duration INTEGER not null,                       -- Duration of the loan in months
+    payments REAL not null,                          -- Monthly payment amount for the loan
+    status TEXT not null,                            -- Current status of the loan (e.g., A, B, C, D)
+    foreign key (account_id) references account (account_id)  -- Foreign key linking to the account table
+)
+CREATE TABLE `order`(
+    order_id INTEGER default 0 not null primary key,  -- Unique identifier for the order
+    account_id INTEGER not null,                      -- Identifier for the account associated with the order
+    bank_to TEXT not null,                            -- Code representing the bank to which the order is directed
+    account_to INTEGER not null,                      -- Account number to which the order amount is transferred
+    amount REAL not null,                             -- Monetary value of the order
+    k_symbol TEXT not null,                           -- Code representing the type or purpose of the transaction
+    foreign key (account_id) references account (account_id)  -- Foreign key linking to the account table
+)
+CREATE TABLE trans(
+    trans_id INTEGER default 0 not null primary key,  -- Unique identifier for the transaction
+    account_id INTEGER default 0 not null,  -- Identifier for the account associated with the transaction
+    date DATE not null,  -- Date when the transaction occurred
+    type TEXT not null,  -- Type of transaction (e.g., PRIJEM for income)
+    operation TEXT null,  -- Specific operation type of the transaction (e.g., VKLAD for deposit)
+    amount INTEGER not null,  -- Amount of money involved in the transaction
+    balance INTEGER not null,  -- Account balance after the transaction
+    k_symbol TEXT null,  -- Additional transaction symbol or code, if applicable
+    bank TEXT null,  -- Bank identifier for transactions involving other banks
+    account INTEGER null,  -- Account number for transactions involving other accounts
+    foreign key (account_id) references account (account_id)  -- Foreign key linking to the account table
+)

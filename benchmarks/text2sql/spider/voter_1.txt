@@ -1,0 +1,19 @@
+CREATE TABLE `AREA_CODE_STATE` (
+    `area_code` integer NOT NULL,  -- Unique identifier for the area code
+    `state` varchar(2) NOT NULL,  -- Abbreviation of the state associated with the area code
+    PRIMARY KEY (`area_code`)
+) 
+CREATE TABLE `CONTESTANTS` (
+    `contestant_number` integer,  -- Unique identifier for each contestant
+    `contestant_name` varchar(50) NOT NULL,  -- Name of the contestant
+    PRIMARY KEY (`contestant_number`)
+) 
+CREATE TABLE `VOTES` (
+    `vote_id` integer NOT NULL PRIMARY KEY,  -- Unique identifier for each vote
+    `phone_number` integer NOT NULL,  -- Phone number from which the vote was cast
+    `state` varchar(2) NOT NULL,  -- Abbreviation of the state from which the vote was cast
+    `contestant_number` integer NOT NULL,  -- Identifier of the contestant receiving the vote
+    `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  -- Timestamp when the vote was recorded
+    FOREIGN KEY (`state`) REFERENCES `AREA_CODE_STATE`(`state`),  -- Foreign key linking to the state in AREA_CODE_STATE table
+    FOREIGN KEY (`contestant_number`) REFERENCES `CONTESTANTS`(`contestant_number`)  -- Foreign key linking to the contestant in CONTESTANTS table
+)

@@ -1,0 +1,62 @@
+CREATE TABLE alignment(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for each alignment entry
+    alignment TEXT DEFAULT NULL       -- Describes the alignment status, such as 'Good', 'Bad', 'Neutral', or 'N/A'
+)
+CREATE TABLE attribute(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for the attribute
+    attribute_name TEXT DEFAULT NULL  -- Name of the attribute, such as Intelligence, Strength, etc.
+)
+CREATE TABLE colour(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for the attribute
+    attribute_name TEXT DEFAULT NULL  -- Name of the attribute, such as Intelligence, Strength, etc.
+)
+CREATE TABLE gender(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for each gender entry
+    gender TEXT DEFAULT NULL          -- Gender description, which can include values like 'Male', 'Female', or 'N/A'
+)
+CREATE TABLE publisher(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for the publisher
+    publisher_name TEXT DEFAULT NULL  -- Name of the publisher, can be empty or null if not provided
+)
+CREATE TABLE race(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for each race entry
+    race TEXT DEFAULT NULL           -- Name or type of the race, which can include various fictional or non-human races
+)
+CREATE TABLE superhero(
+    id INTEGER not null primary key,  -- Unique identifier for the superhero
+    superhero_name TEXT default NULL,  -- Name of the superhero
+    full_name TEXT default NULL,  -- Full name or real identity of the superhero
+    gender_id INTEGER default NULL,  -- Identifier for the gender of the superhero, referencing the gender table
+    eye_colour_id INTEGER default NULL,  -- Identifier for the eye color of the superhero, referencing the colour table
+    hair_colour_id INTEGER default NULL,  -- Identifier for the hair color of the superhero, referencing the colour table
+    skin_colour_id INTEGER default NULL,  -- Identifier for the skin color of the superhero, referencing the colour table
+    race_id INTEGER default NULL,  -- Identifier for the race of the superhero, referencing the race table
+    publisher_id INTEGER default NULL,  -- Identifier for the publisher of the superhero, referencing the publisher table
+    alignment_id INTEGER default NULL,  -- Identifier for the alignment of the superhero, referencing the alignment table
+    height_cm INTEGER default NULL,  -- Height of the superhero in centimeters
+    weight_kg INTEGER default NULL,  -- Weight of the superhero in kilograms
+    foreign key (alignment_id) references alignment(id),
+    foreign key (eye_colour_id) references colour(id),
+    foreign key (gender_id) references gender(id),
+    foreign key (hair_colour_id) references colour(id),
+    foreign key (publisher_id) references publisher(id),
+    foreign key (race_id) references race(id),
+    foreign key (skin_colour_id) references colour(id)
+)
+CREATE TABLE hero_attribute(
+    hero_id INTEGER default NULL,  -- Unique identifier for the hero, referencing the `superhero` table
+    attribute_id INTEGER default NULL,  -- Unique identifier for the attribute, referencing the `attribute` table
+    attribute_value INTEGER default NULL,  -- Value of the attribute for the specified hero
+    foreign key (attribute_id) references attribute(id),
+    foreign key (hero_id) references superhero(id)
+)
+CREATE TABLE superpower(
+    id INTEGER NOT NULL PRIMARY KEY,  -- Unique identifier for the superpower
+    power_name TEXT DEFAULT NULL      -- Name of the superpowerLL
+)
+CREATE TABLE hero_power(
+    hero_id INTEGER DEFAULT NULL,  -- Identifier for the hero, referencing the `id` column in the `superhero` table
+    power_id INTEGER DEFAULT NULL,  -- Identifier for the power, referencing the `id` column in the `superpower` table
+    foreign key (hero_id) references superhero(id),  -- Establishes a relationship with the superhero table based on hero_id
+    foreign key (power_id) references superpower(id)  -- Establishes a relationship with the superpower table based on power_id
+)

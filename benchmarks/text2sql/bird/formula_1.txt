@@ -1,0 +1,141 @@
+CREATE TABLE circuits(
+    circuitId INTEGER primary key autoincrement,  -- Unique identifier for each circuit, automatically incremented
+    circuitRef TEXT default '' not null,          -- Reference code or abbreviation for the circuit
+    name TEXT default '' not null,                -- Full name of the circuit
+    location TEXT,                                -- City or locality where the circuit is located
+    country TEXT,                                 -- Country where the circuit is situated
+    lat REAL,                                     -- Latitude coordinate of the circuit's location
+    lng REAL,                                     -- Longitude coordinate of the circuit's location
+    alt INTEGER,                                  -- Altitude of the circuit above sea level, in meters
+    url TEXT default '' not null unique           -- Unique URL linking to more information about the circuit
+)
+CREATE TABLE constructors(
+    constructorId INTEGER primary key autoincrement,  -- Unique identifier for each constructor, automatically incremented
+    constructorRef TEXT default '' not null,          -- Reference code or abbreviation for the constructor, cannot be null
+    name TEXT default '' not null unique,             -- Full name of the constructor, must be unique and cannot be null
+    nationality TEXT,                                 -- Nationality of the constructor, indicating the country of origin
+    url TEXT default '' not null                      -- URL to the constructor's Wikipedia page or official site, cannot be null
+)
+CREATE TABLE drivers(
+    driverId INTEGER primary key autoincrement,  -- Unique identifier for each driver, automatically incremented
+    driverRef TEXT default '' not null,          -- Reference code or nickname for the driver, cannot be null
+    number INTEGER,                              -- Racing number assigned to the driver, may be null if not assigned
+    code TEXT,                                   -- Abbreviation or code representing the driver, often used in race results
+    forename TEXT default '' not null,           -- First name of the driver, cannot be null
+    surname TEXT default '' not null,            -- Last name of the driver, cannot be null
+    dob DATE,                                    -- Date of birth of the driver
+    nationality TEXT,                            -- Nationality of the driver
+    url TEXT default '' not null unique          -- Unique URL linking to the driver's detailed profile or biography, cannot be null
+)
+CREATE TABLE seasons(
+    year INTEGER default 0 not null primary key,  -- Year of the Formula One season, serving as a unique identifier for each season
+    url TEXT default '' not null unique,          -- URL linking to the Wikipedia page for the specific Formula One season
+)
+CREATE TABLE races(
+    raceId INTEGER primary key autoincrement,  -- Unique identifier for each race
+    year INTEGER default 0 not null,           -- Year in which the race took place
+    round INTEGER default 0 not null,          -- The round number of the race within the season
+    circuitId INTEGER default 0 not null,      -- Identifier for the circuit where the race is held
+    name TEXT default '' not null,             -- Official name of the race
+    date DATE default '0000-00-00' not null,   -- Date on which the race occurred
+    time TEXT,                                 -- Scheduled start time of the race
+    url TEXT unique,                           -- Unique URL linking to more information about the race
+    foreign key (year) references seasons(year),
+    foreign key (circuitId) references circuits(circuitId)
+)
+CREATE TABLE constructorResults(
+    constructorResultsId INTEGER primary key autoincrement,  -- Unique identifier for each constructor result entry
+    raceId INTEGER default 0 not null,  -- Identifier for the race, referencing the races table
+    constructorId INTEGER default 0 not null,  -- Identifier for the constructor, referencing the constructors table
+    points REAL,  -- Points awarded to the constructor for the race
+    status TEXT,  -- Status of the constructor's result in the race (e.g., finished, disqualified)
+    foreign key (raceId) references races(raceId),
+    foreign key (constructorId) references constructors(constructorId)
+)
+CREATE TABLE constructorStandings(
+    constructorStandingsId INTEGER primary key autoincrement,  -- Unique identifier for the constructor standings entry
+    raceId INTEGER default 0 not null,  -- Identifier for the race associated with the standings, referencing the races table
+    constructorId INTEGER default 0 not null,  -- Identifier for the constructor, referencing the constructors table
+    points REAL default 0 not null,  -- Total points accumulated by the constructor in the race
+    position INTEGER,  -- Numerical position of the constructor in the race standings
+    positionText TEXT,  -- Textual representation of the constructor's position in the race standings
+    wins INTEGER default 0 not null,  -- Number of wins achieved by the constructor in the race
+    foreign key (raceId) references races(raceId),
+    foreign key (constructorId) references constructors(constructorId)
+)
+CREATE TABLE driverStandings(
+    driverStandingsId INTEGER primary key autoincrement,  -- Unique identifier for each driver standing entry
+    raceId INTEGER default 0 not null,  -- Identifier for the race associated with the driver standing
+    driverId INTEGER default 0 not null,  -- Identifier for the driver associated with the standing
+    points REAL default 0 not null,  -- Total points earned by the driver in the race
+    position INTEGER,  -- Finishing position of the driver in the race
+    positionText TEXT,  -- Textual representation of the driver's finishing position
+    wins INTEGER default 0 not null,  -- Number of wins the driver has in the race
+    foreign key (raceId) references races(raceId),
+    foreign key (driverId) references drivers(driverId)
+)
+CREATE TABLE lapTimes(
+    raceId INTEGER not null,       -- Unique identifier for the race, referencing the `races` table
+    driverId INTEGER not null,     -- Unique identifier for the driver, referencing the `drivers` table
+    lap INTEGER not null,          -- The lap number within the race
+    position INTEGER,              -- The position of the driver at the end of the lap
+    time TEXT,                     -- The lap time in a formatted string (e.g., '1:49.088')
+    milliseconds INTEGER,          -- The lap time in milliseconds for precise measurement
+    primary key (raceId, driverId, lap),  -- Composite primary key ensuring uniqueness of each lap entry for a driver in a race
+    foreign key (raceId) references races(raceId),  -- Foreign key constraint linking to the `races` table
+    foreign key (driverId) references drivers(driverId)  -- Foreign key constraint linking to the `drivers` table
+)
+CREATE TABLE pitStops(
+    raceId INTEGER not null,       -- Unique identifier for the race, referencing the `races` table
+    driverId INTEGER not null,     -- Unique identifier for the driver, referencing the `drivers` table
+    stop INTEGER not null,         -- Sequence number of the pit stop for the driver in the race
+    lap INTEGER not null,          -- Lap number during which the pit stop occurred
+    time TEXT not null,            -- Time of day when the pit stop occurred, formatted as a string
+    duration TEXT,                 -- Duration of the pit stop, formatted as a string
+    milliseconds INTEGER,          -- Duration of the pit stop in milliseconds
+    primary key (raceId, driverId, stop),  -- Composite primary key ensuring uniqueness of each pit stop entry
+    foreign key (raceId) references races(raceId),  -- Foreign key constraint linking to the `races` table
+    foreign key (driverId) references drivers(driverId)  -- Foreign key constraint linking to the `drivers` table
+)
+CREATE TABLE qualifying(
+    qualifyId INTEGER primary key autoincrement,  -- Unique identifier for the qualifying session
+    raceId INTEGER default 0 not null,  -- Identifier for the race event, referencing the races table
+    driverId INTEGER default 0 not null,  -- Identifier for the driver, referencing the drivers table
+    constructorId INTEGER default 0 not null,  -- Identifier for the constructor team, referencing the constructors table
+    number INTEGER default 0 not null,  -- Car number used by the driver during the qualifying session
+    position INTEGER,  -- Final position achieved by the driver in the qualifying session
+    q1 TEXT,  -- Lap time recorded by the driver in the first qualifying session (Q1)
+    q2 TEXT,  -- Lap time recorded by the driver in the second qualifying session (Q2)
+    q3 TEXT,  -- Lap time recorded by the driver in the third qualifying session (Q3)
+    foreign key (raceId) references races(raceId),
+    foreign key (driverId) references drivers(driverId),
+    foreign key (constructorId) references constructors(constructorId)
+)
+CREATE TABLE status(
+    statusId INTEGER primary key autoincrement,  -- Unique identifier for each status entry
+    status TEXT default '' not null              -- Description or name of the status
+)
+CREATE TABLE results(
+    resultId INTEGER primary key autoincrement,  -- Unique identifier for the race result
+    raceId INTEGER default 0 not null,  -- Identifier for the race, referencing the races table
+    driverId INTEGER default 0 not null,  -- Identifier for the driver, referencing the drivers table
+    constructorId INTEGER default 0 not null,  -- Identifier for the constructor, referencing the constructors table
+    number INTEGER,  -- Car number used by the driver in the race
+    grid INTEGER default 0 not null,  -- Starting position of the driver on the grid
+    position INTEGER,  -- Final position of the driver in the race
+    positionText TEXT default '' not null,  -- Text representation of the final position (e.g., '1', '2', 'R' for retired)
+    positionOrder INTEGER default 0 not null,  -- Order of the driver's finish in the race
+    points REAL default 0 not null,  -- Points awarded to the driver for the race
+    laps INTEGER default 0 not null,  -- Number of laps completed by the driver
+    time TEXT,  -- Total race time for the driver
+    milliseconds INTEGER,  -- Total race time in milliseconds
+    fastestLap INTEGER,  -- Lap number in which the driver achieved their fastest lap
+    rank INTEGER default 0,  -- Rank of the driver's fastest lap time compared to others
+    fastestLapTime TEXT,  -- Time of the driver's fastest lap
+    fastestLapSpeed TEXT,  -- Speed achieved during the driver's fastest lap
+    statusId INTEGER default 0 not null,  -- Identifier for the race status, referencing the status table
+    foreign key (raceId) references races(raceId),
+    foreign key (driverId) references drivers(driverId),
+    foreign key (constructorId) references constructors(constructorId),
+    foreign key (statusId) references status(statusId)
+)

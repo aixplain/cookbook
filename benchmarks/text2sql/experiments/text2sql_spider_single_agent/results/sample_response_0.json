@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n\\nExamples:\\nQuestion: Find the name of the stadium that has the maximum capacity. ; \\nSQL: SELECT name FROM stadium ORDER BY capacity DESC LIMIT 1\\n\\nQuestion: What is the average capacity of the stadiums that were opened in year 2005? ; \\nSQL: SELECT avg(capacity) FROM stadium WHERE opening_year  =  2005\\n\\nQuestion: What is the name of the stadium which held the most events? ; \\nSQL: SELECT t1.name FROM stadium AS t1 JOIN event AS t2 ON t1.id  =  t2.stadium_id GROUP BY t2.stadium_id ORDER BY count(*) DESC LIMIT 1\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nShow the stadium name and capacity with most number of concerts in year 2014 or after.\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT s.Name, s.Capacity FROM stadium s JOIN concert c ON s.Stadium_ID = c.Stadium_ID WHERE c.Year >= '2014' GROUP BY s.Stadium_ID ORDER BY COUNT(c.concert_ID) DESC LIMIT 1",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.599,
+    "usedCredits": 0.009160000000000001,
+    "apiCalls": 1,
+    "task": null
+}

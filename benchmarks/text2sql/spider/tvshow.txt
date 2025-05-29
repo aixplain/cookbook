@@ -1,0 +1,34 @@
+CREATE TABLE "TV_Channel" (
+    `id` text,  -- Unique identifier for the TV channel
+    `series_name` text,  -- Name of the TV series broadcasted on the channel
+    `Country` text,  -- Country where the TV channel is based or broadcasted
+    `Language` text,  -- Primary language of the TV channel's content
+    `Content` text,  -- Type or genre of content broadcasted by the channel
+    `Pixel_aspect_ratio_PAR` text,  -- Pixel aspect ratio used by the channel for broadcasting
+    `Hight_definition_TV` text,  -- Indicates whether the channel broadcasts in high definition
+    `Pay_per_view_PPV` text,  -- Indicates if the channel offers pay-per-view content
+    `Package_Option` text,  -- Subscription package options available for the channel
+    PRIMARY KEY ("id")
+) CREATE TABLE "TV_series" (
+    `id` real,  -- Unique identifier for the TV series episode
+    `Episode` text,  -- Title or name of the episode
+    `Air_Date` text,  -- Date when the episode was aired
+    `Rating` text,  -- Viewer rating of the episode
+    `Share` real,  -- Percentage of audience share for the episode
+    `18_49_Rating_Share` text,  -- Rating share among viewers aged 18-49
+    `Viewers_m` text,  -- Number of viewers in millions
+    `Weekly_Rank` real,  -- Rank of the episode in weekly viewership
+    `Channel` text,  -- Identifier of the channel that aired the episode
+    PRIMARY KEY ("id"),
+    FOREIGN KEY (`Channel`) REFERENCES `TV_Channel`(`id`)
+) CREATE TABLE "Cartoon" (
+    `id` real,  -- Unique identifier for the cartoon episode
+    `Title` text,  -- Title of the cartoon episode
+    `Directed_by` text,  -- Name of the director of the cartoon episode
+    `Written_by` text,  -- Name of the writer of the cartoon episode
+    `Original_air_date` text,  -- Date when the cartoon episode was originally aired
+    `Production_code` real,  -- Production code assigned to the cartoon episode
+    `Channel` text,  -- Identifier of the channel that aired the cartoon episode
+    PRIMARY KEY ("id"),
+    FOREIGN KEY (`Channel`) REFERENCES `TV_Channel`(`id`)
+)

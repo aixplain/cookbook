@@ -1,0 +1,9 @@
+{
+    "question_id": 59,
+    "difficulty": "Undefined",
+    "field": "pets_1",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/spider/database/pets_1/pets_1.sqlite",
+    "question": "Find the first name of students who have both cat and dog pets .",
+    "prediction": "SELECT Fname FROM Student WHERE StuID IN (SELECT StuID FROM Has_Pet WHERE PetID IN (SELECT PetID FROM Pets WHERE PetType = 'Cat') INTERSECT SELECT StuID FROM Has_Pet WHERE PetID IN (SELECT PetID FROM Pets WHERE PetType = 'Dog'))",
+    "ground_truth": "select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'cat' intersect select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'dog'"
+}

@@ -1,0 +1,28 @@
+CREATE TABLE `atom` (
+  `atom_id` TEXT NOT NULL,  -- Unique identifier for the atom within a molecule
+  `molecule_id` TEXT DEFAULT NULL,  -- Identifier for the molecule to which the atom belongs
+  `element` TEXT DEFAULT NULL,  -- Chemical element symbol representing the type of atom
+  PRIMARY KEY (`atom_id`),
+  FOREIGN KEY (`molecule_id`) REFERENCES `molecule` (`molecule_id`)
+)
+CREATE TABLE `bond` (
+  `bond_id` TEXT NOT NULL,  -- Unique identifier for the bond within a molecule
+  `molecule_id` TEXT DEFAULT NULL,  -- Identifier for the molecule to which the bond belongs
+  `bond_type` TEXT DEFAULT NULL,  -- Type of chemical bond (e.g., single, double, triple) represented by symbols like '-', '=', etc.,
+  PRIMARY KEY (`bond_id`),
+  FOREIGN KEY (`molecule_id`) REFERENCES `molecule` (`molecule_id`)
+)
+CREATE TABLE `connected` (
+  `atom_id` TEXT NOT NULL,  -- Unique identifier for the first atom in the connection
+  `atom_id2` TEXT NOT NULL,  -- Unique identifier for the second atom in the connection
+  `bond_id` TEXT DEFAULT NULL,  -- Identifier for the bond connecting the two atoms, if applicable
+  PRIMARY KEY (`atom_id`,`atom_id2`),
+  FOREIGN KEY (`atom_id`) REFERENCES `atom` (`atom_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`atom_id2`) REFERENCES `atom` (`atom_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`bond_id`) REFERENCES `bond` (`bond_id`) ON DELETE CASCADE ON UPDATE CASCADE
+)
+CREATE TABLE `molecule` (
+  `molecule_id` TEXT NOT NULL,  -- Unique identifier for each molecule
+  `label` TEXT DEFAULT NULL,    -- Classification label for the molecule, indicating a positive ('+') or negative ('-') status
+  PRIMARY KEY (`molecule_id`)
+)

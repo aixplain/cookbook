@@ -1,0 +1,32 @@
+CREATE TABLE Ref_Template_Types (
+    Template_Type_Code CHAR(15) NOT NULL,  -- Unique code identifying the type of template
+    Template_Type_Description VARCHAR(255) NOT NULL,  -- Description of the template type
+    PRIMARY KEY (Template_Type_Code)
+)
+CREATE TABLE Templates (
+    Template_ID INTEGER NOT NULL,  -- Unique identifier for the template
+    Version_Number INTEGER NOT NULL,  -- Version number of the template
+    Template_Type_Code CHAR(15) NOT NULL,  -- Code linking to the type of template
+    Date_Effective_From DATETIME,  -- Start date from which the template is effective
+    Date_Effective_To DATETIME,  -- End date until which the template is effective
+    Template_Details VARCHAR(255) NOT NULL,  -- Detailed information about the template
+    PRIMARY KEY (Template_ID),
+    FOREIGN KEY (Template_Type_Code) REFERENCES Ref_Template_Types (Template_Type_Code)
+)
+CREATE TABLE Documents (
+    Document_ID INTEGER NOT NULL,  -- Unique identifier for the document
+    Template_ID INTEGER,  -- Identifier linking the document to a template
+    Document_Name VARCHAR(255),  -- Name of the document
+    Document_Description VARCHAR(255),  -- Description of the document
+    Other_Details VARCHAR(255),  -- Additional details about the document
+    PRIMARY KEY (Document_ID),
+    FOREIGN KEY (Template_ID) REFERENCES Templates (Template_ID)
+)
+CREATE TABLE Paragraphs (
+    Paragraph_ID INTEGER NOT NULL,  -- Unique identifier for the paragraph
+    Document_ID INTEGER NOT NULL,  -- Identifier linking the paragraph to a document
+    Paragraph_Text VARCHAR(255),  -- Text content of the paragraph
+    Other_Details VARCHAR(255),  -- Additional details about the paragraph
+    PRIMARY KEY (Paragraph_ID),
+    FOREIGN KEY (Document_ID) REFERENCES Documents (Document_ID)
+)

@@ -1,0 +1,32 @@
+CREATE TABLE "employee" (
+    "Employee_ID" int,  -- Unique identifier for the employee
+    "Name" text,  -- Full name of the employee
+    "Age" int,  -- Age of the employee
+    "City" text,  -- City where the employee resides
+PRIMARY KEY ("Employee_ID")
+) 
+CREATE TABLE "shop" (
+    "Shop_ID" int,  -- Unique identifier for the shop
+    "Name" text,  -- Name of the shop
+    "Location" text,  -- Physical location or address of the shop
+    "District" text,  -- District where the shop is located
+    "Number_products" int,  -- Total number of products available in the shop
+    "Manager_name" text,  -- Name of the shop manager
+    PRIMARY KEY ("Shop_ID")
+) 
+CREATE TABLE "hiring" (
+    "Shop_ID" int,  -- Identifier for the shop where the employee is hired
+    "Employee_ID" int,  -- Identifier for the hired employee
+    "Start_from" text,  -- Date when the employee started working at the shop
+    "Is_full_time" bool,  -- Indicates whether the employee is working full-time (true) or part-time (false)
+    PRIMARY KEY ("Employee_ID"),
+    FOREIGN KEY (`Shop_ID`) REFERENCES `shop`(`Shop_ID`),
+    FOREIGN KEY (`Employee_ID`) REFERENCES `employee`(`Employee_ID`)
+) 
+CREATE TABLE "evaluation" (
+    "Employee_ID" text,  -- Identifier for the evaluated employee
+    "Year_awarded" text,  -- Year when the evaluation or bonus was awarded
+    "Bonus" real,  -- Bonus amount awarded to the employee
+    PRIMARY KEY ("Employee_ID","Year_awarded"),
+    FOREIGN KEY (`Employee_ID`) REFERENCES `employee`(`Employee_ID`)
+)

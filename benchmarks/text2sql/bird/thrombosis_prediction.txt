@@ -1,0 +1,73 @@
+CREATE TABLE Examination(
+    ID INTEGER null,  -- Unique identifier for the examination, referencing the patient ID
+    `Examination Date` DATE null,  -- Date when the examination was conducted
+    `aCL IgG` REAL null,  -- Level of anti-cardiolipin IgG antibodies in the blood
+    `aCL IgM` REAL null,  -- Level of anti-cardiolipin IgM antibodies in the blood
+    ANA INTEGER null,  -- Titer level of antinuclear antibodies
+    `ANA Pattern` TEXT null,  -- Pattern observed in the antinuclear antibody test
+    `aCL IgA` INTEGER null,  -- Level of anti-cardiolipin IgA antibodies in the blood
+    Diagnosis TEXT null,  -- Medical diagnosis based on the examination results
+    KCT TEXT null,  -- Result of the Kaolin Clotting Time test
+    RVVT TEXT null,  -- Result of the Russell Viper Venom Test
+    LAC TEXT null,  -- Presence of lupus anticoagulant
+    Symptoms TEXT null,  -- Symptoms observed in the patient
+    Thrombosis INTEGER null,  -- Number of thrombosis events experienced by the patient
+    foreign key (ID) references Patient (ID) on update cascade on delete cascade  -- Foreign key constraint linking to the Patient table
+)
+CREATE TABLE Patient(
+    ID INTEGER default 0 not null primary key,  -- Unique identifier for the patient
+    SEX TEXT null,  -- Gender of the patient
+    Birthday DATE null,  -- Date of birth of the patient
+    Description DATE null,  -- Date associated with a specific description or event for the patient
+    `First Date` DATE null,  -- Date of the first recorded event or visit for the patient
+    Admission TEXT null,  -- Admission status of the patient, indicated by '+' or '-'
+    Diagnosis TEXT null  -- Medical diagnosis or condition of the patient
+)
+CREATE TABLE Laboratory(
+    ID INTEGER default 0 not null,  -- Unique identifier for the patient, referencing the Patient table
+    Date DATE default '0000-00-00' not null,  -- Date of the laboratory test
+    GOT INTEGER null,  -- Glutamic Oxaloacetic Transaminase level, an enzyme found in the liver and heart
+    GPT INTEGER null,  -- Glutamic Pyruvic Transaminase level, an enzyme found in the liver
+    LDH INTEGER null,  -- Lactate Dehydrogenase level, an enzyme involved in energy production
+    ALP INTEGER null,  -- Alkaline Phosphatase level, an enzyme related to the liver and bones
+    TP REAL null,  -- Total Protein level in the blood
+    ALB REAL null,  -- Albumin level, a protein made by the liver
+    UA REAL null,  -- Uric Acid level, a waste product found in the blood
+    UN INTEGER null,  -- Urea Nitrogen level, a measure of kidney function
+    CRE REAL null,  -- Creatinine level, a waste product from muscle metabolism
+    `T-BIL` REAL null,  -- Total Bilirubin level, a substance produced by the breakdown of red blood cells
+    `T-CHO` INTEGER null,  -- Total Cholesterol level in the blood
+    TG INTEGER null,  -- Triglycerides level, a type of fat found in the blood
+    CPK INTEGER null,  -- Creatine Phosphokinase level, an enzyme found in the heart, brain, and skeletal muscle
+    GLU INTEGER null,  -- Glucose level, a measure of blood sugar
+    WBC REAL null,  -- White Blood Cell count, a measure of immune system health
+    RBC REAL null,  -- Red Blood Cell count, a measure of oxygen-carrying cells in the blood
+    HGB REAL null,  -- Hemoglobin level, a protein in red blood cells that carries oxygen
+    HCT REAL null,  -- Hematocrit level, the proportion of blood volume occupied by red blood cells
+    PLT INTEGER null,  -- Platelet count, a measure of blood clotting ability
+    PT REAL null,  -- Prothrombin Time, a measure of blood clotting time
+    APTT INTEGER null,  -- Activated Partial Thromboplastin Time, a measure of blood clotting time
+    FG REAL null,  -- Fibrinogen level, a protein involved in blood clotting
+    PIC INTEGER null,  -- Plasmin Inhibitor Complex level, related to blood clotting
+    TAT INTEGER null,  -- Thrombin-Antithrombin Complex level, related to blood clotting
+    TAT2 INTEGER null,  -- Secondary Thrombin-Antithrombin Complex level, related to blood clotting
+    `U-PRO` TEXT null,  -- Urine Protein level, a measure of protein in the urine
+    IGG INTEGER null,  -- Immunoglobulin G level, a type of antibody
+    IGA INTEGER null,  -- Immunoglobulin A level, a type of antibody
+    IGM INTEGER null,  -- Immunoglobulin M level, a type of antibody
+    CRP TEXT null,  -- C-Reactive Protein level, a marker of inflammation
+    RA TEXT null,  -- Rheumatoid Arthritis factor, a marker for rheumatoid arthritis
+    RF TEXT null,  -- Rheumatoid Factor, an antibody found in rheumatoid arthritis
+    C3 INTEGER null,  -- Complement Component 3 level, part of the immune system
+    C4 INTEGER null,  -- Complement Component 4 level, part of the immune system
+    RNP TEXT null,  -- Ribonucleoprotein level, related to autoimmune diseases
+    SM TEXT null,  -- Smith Antigen level, related to autoimmune diseases
+    SC170 TEXT null,  -- Scl-70 Antigen level, related to scleroderma
+    SSA TEXT null,  -- Sjögren's Syndrome Antigen A level, related to autoimmune diseases
+    SSB TEXT null,  -- Sjögren's Syndrome Antigen B level, related to autoimmune diseases
+    CENTROMEA TEXT null,  -- Centromere Antibody level, related to autoimmune diseases
+    DNA TEXT null,  -- Anti-DNA Antibody level, related to autoimmune diseases
+    `DNA-II` INTEGER null,  -- Secondary Anti-DNA Antibody level, related to autoimmune diseases
+    primary key (ID, Date),
+    foreign key (ID) references Patient (ID) on update cascade on delete cascade
+)

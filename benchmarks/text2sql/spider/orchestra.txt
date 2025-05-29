@@ -1,0 +1,37 @@
+CREATE TABLE "conductor" (
+    "Conductor_ID" int,  -- Unique identifier for the conductor
+    "Name" text,  -- Full name of the conductor
+    "Age" int,  -- Age of the conductor
+    "Nationality" text,  -- Nationality of the conductor
+    "Year_of_Work" int,  -- Number of years the conductor has been working
+    PRIMARY KEY ("Conductor_ID")
+)
+CREATE TABLE "orchestra" (
+    "Orchestra_ID" int,  -- Unique identifier for the orchestra
+    "Orchestra" text,  -- Name of the orchestra
+    "Conductor_ID" int,  -- Identifier for the conductor associated with the orchestra
+    "Record_Company" text,  -- Name of the record company associated with the orchestra
+    "Year_of_Founded" real,  -- Year the orchestra was founded
+    "Major_Record_Format" text,  -- Primary format in which the orchestra's records are produced
+    PRIMARY KEY ("Orchestra_ID"),
+    FOREIGN KEY (`Conductor_ID`) REFERENCES `conductor`(`Conductor_ID`)
+)
+CREATE TABLE "performance" (
+    "Performance_ID" int,  -- Unique identifier for the performance
+    "Orchestra_ID" int,  -- Identifier for the orchestra performing
+    "Type" text,  -- Type or genre of the performance
+    "Date" text,  -- Date of the performance
+    "Official_ratings_(millions)" real,  -- Official ratings of the performance in millions
+    "Weekly_rank" text,  -- Weekly ranking of the performance
+    "Share" text,  -- Share of the audience or market captured by the performance
+    PRIMARY KEY ("Performance_ID"),
+    FOREIGN KEY (`Orchestra_ID`) REFERENCES `orchestra`(`Orchestra_ID`)
+)
+CREATE TABLE "show" (
+    "Show_ID" int,  -- Unique identifier for the show
+    "Performance_ID" int,  -- Identifier for the performance associated with the show
+    "If_first_show" bool,  -- Indicator of whether this is the first show (true/false)
+    "Result" text,  -- Outcome or result of the show
+    "Attendance" real,  -- Number of attendees at the show
+    FOREIGN KEY (`Performance_ID`) REFERENCES `performance`(`Performance_ID`)
+)

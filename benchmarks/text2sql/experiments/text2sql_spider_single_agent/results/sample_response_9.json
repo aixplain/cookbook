@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n\\nExamples:\\nQuestion: How old is the youngest winning pilot and what is their name? ; \\nSQL: SELECT t1.name ,  t1.age FROM pilot AS t1 JOIN MATCH AS t2 ON t1.pilot_id  =  t2.winning_pilot ORDER BY t1.age LIMIT 1\\n\\nQuestion: What is the weight of the shortest person? ; \\nSQL: SELECT Weight FROM people ORDER BY Height ASC LIMIT 1\\n\\nQuestion: What is the name of the youngest captain? ; \\nSQL: SELECT name FROM captain ORDER BY age LIMIT 1\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nWhat type of pet is the youngest animal, and how much does it weigh?\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT PetType, weight FROM Pets ORDER BY pet_age ASC LIMIT 1",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.111,
+    "usedCredits": 0.007710000000000001,
+    "apiCalls": 1,
+    "task": null
+}

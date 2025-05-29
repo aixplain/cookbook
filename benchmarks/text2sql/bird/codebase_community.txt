@@ -1,0 +1,100 @@
+CREATE TABLE badges(
+    Id INTEGER not null primary key,  -- Unique identifier for each badge entry
+    UserId INTEGER null,              -- Identifier for the user associated with the badge, referencing the users table
+    Name TEXT null,                   -- Name or type of the badge awarded
+    Date DATETIME null,               -- Date and time when the badge was awarded
+    foreign key (UserId) references users (Id) on update cascade on delete cascade
+)
+CREATE TABLE comments(
+    Id INTEGER not null primary key,  -- Unique identifier for each comment
+    PostId INTEGER null,  -- Identifier of the post to which the comment is related
+    Score INTEGER null,  -- Score or rating given to the comment, indicating its popularity or usefulness
+    Text TEXT null,  -- Content of the comment
+    CreationDate DATETIME null,  -- Date and time when the comment was created
+    UserId INTEGER null,  -- Identifier of the user who made the comment
+    UserDisplayName TEXT null,  -- Display name of the user who made the comment
+    foreign key (PostId) references posts (Id) on update cascade on delete cascade,
+    foreign key (UserId) references users (Id) on update cascade on delete cascade
+)
+CREATE TABLE postHistory(
+    Id INTEGER not null UNIQUE primary key,  -- Unique identifier for each post history entry
+    PostHistoryTypeId INTEGER null,          -- Identifier for the type of post history event
+    PostId INTEGER null,                     -- Identifier for the associated post
+    RevisionGUID TEXT null,                  -- Globally unique identifier for the revision
+    CreationDate DATETIME null,              -- Date and time when the post history entry was created
+    UserId INTEGER null,                     -- Identifier for the user who made the change
+    Text TEXT null,                          -- Content of the post or revision
+    Comment TEXT null,                       -- Additional comments or notes about the revision
+    UserDisplayName TEXT null,               -- Display name of the user who made the change
+    foreign key (PostId) references posts (Id) on update cascade on delete cascade,
+    foreign key (UserId) references users (Id) on update cascade on delete cascade
+)
+CREATE TABLE postLinks(
+    Id INTEGER not null primary key,  -- Unique identifier for the post link
+    CreationDate DATETIME null,       -- Date and time when the post link was created
+    PostId INTEGER null,              -- Identifier of the primary post involved in the link
+    RelatedPostId INTEGER null,       -- Identifier of the related post involved in the link
+    LinkTypeId INTEGER null,          -- Identifier indicating the type of link between the posts
+    foreign key (PostId) references posts (Id) on update cascade on delete cascade,  -- Ensures PostId corresponds to an existing post and maintains referential integrity
+    foreign key (RelatedPostId) references posts (Id) on update cascade on delete cascade  -- Ensures RelatedPostId corresponds to an existing post and maintains referential integrity
+)
+CREATE TABLE posts(
+    Id INTEGER not null UNIQUE primary key,  -- Unique identifier for each post
+    PostTypeId INTEGER null,  -- Identifier indicating the type of post (e.g., question, answer)
+    AcceptedAnswerId INTEGER null,  -- Identifier for the accepted answer to the post, if applicable
+    CreaionDate DATETIME null,  -- Date and time when the post was created
+    Score INTEGER null,  -- Score of the post based on user votes
+    ViewCount INTEGER null,  -- Number of times the post has been viewed
+    Body TEXT null,  -- Main content of the post
+    OwnerUserId INTEGER null,  -- Identifier of the user who owns the post
+    LasActivityDate DATETIME null,  -- Date and time of the last activity on the post
+    Title TEXT null,  -- Title of the post, if applicable
+    Tags TEXT null,  -- Tags associated with the post for categorization
+    AnswerCount INTEGER null,  -- Number of answers the post has received, if it is a question
+    CommentCount INTEGER null,  -- Number of comments on the post
+    FavoriteCount INTEGER null,  -- Number of times the post has been marked as a favorite by users
+    LastEditorUserId INTEGER null,  -- Identifier of the user who last edited the post
+    LastEditDate DATETIME null,  -- Date and time when the post was last edited
+    CommunityOwnedDate DATETIME null,  -- Date and time when the post became community-owned
+    ParentId INTEGER null,  -- Identifier of the parent post, if the post is an answer
+    ClosedDate DATETIME null,  -- Date and time when the post was closed, if applicable
+    OwnerDisplayName TEXT null,  -- Display name of the post owner, if available
+    LastEditorDisplayName TEXT null,  -- Display name of the last editor, if available
+    foreign key (LastEditorUserId) references users (Id) on update cascade on delete cascade,
+    foreign key (OwnerUserId) references users (Id) on update cascade on delete cascade,
+    foreign key (ParentId) references posts (Id) on update cascade on delete cascade
+)
+CREATE TABLE tags(
+    Id INTEGER not null primary key,  -- Unique identifier for each tag
+    TagName TEXT null,                -- Name of the tag
+    Count INTEGER null,               -- Number of times the tag has been used
+    ExcerptPostId INTEGER null,       -- Identifier for the post containing the tag's excerpt, references the posts table
+    WikiPostId INTEGER null,          -- Identifier for the post containing the tag's wiki, references the posts table
+    foreign key (ExcerptPostId) references posts (Id) on update cascade on delete cascade
+)
+CREATE TABLE users(
+    Id INTEGER not null UNIQUE primary key,  -- Unique identifier for each user
+    Reputation INTEGER null,  -- User's reputation score on the platform
+    CreationDate DATETIME null,  -- Date and time when the user account was created
+    DisplayName TEXT null,  -- Display name chosen by the user
+    LastAccessDate DATETIME null,  -- Date and time when the user last accessed the platform
+    WebsiteUrl TEXT null,  -- URL of the user's personal or professional website
+    Location TEXT null,  -- Geographical location of the user
+    AboutMe TEXT null,  -- User's self-description or biography
+    Views INTEGER null,  -- Number of times the user's profile has been viewed
+    UpVotes INTEGER null,  -- Total number of upvotes given by the user
+    DownVotes INTEGER null,  -- Total number of downvotes given by the user
+    AccountId INTEGER null,  -- Identifier for the user's account, possibly linked to another system
+    Age INTEGER null,  -- Age of the user
+    ProfileImageUrl TEXT null  -- URL of the user's profile image
+)
+CREATE TABLE votes(
+    Id INTEGER not null primary key,  -- Unique identifier for each vote
+    PostId INTEGER null,              -- Identifier of the post associated with the vote
+    VoteTypeId INTEGER null,          -- Type of vote, represented by an identifier
+    CreationDate DATE null,           -- Date when the vote was created
+    UserId INTEGER null,              -- Identifier of the user who cast the vote
+    BountyAmount INTEGER null,        -- Amount of bounty associated with the vote, if applicable
+    foreign key (PostId) references posts (Id) on update cascade on delete cascade,
+    foreign key (UserId) references users (Id) on update cascade on delete cascade
+)

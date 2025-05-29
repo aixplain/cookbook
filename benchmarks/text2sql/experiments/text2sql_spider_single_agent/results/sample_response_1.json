@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n\\nExamples:\\nQuestion: What is the average capacity of the stadiums that were opened in year 2005? ; \\nSQL: SELECT avg(capacity) FROM stadium WHERE opening_year  =  2005\\n\\nQuestion: What is the average attendance of stadiums with capacity percentage higher than 100%? ; \\nSQL: SELECT average_attendance FROM stadium WHERE capacity_percentage  >  100\\n\\nQuestion: What are the maximum, minimum and average home games each stadium held? ; \\nSQL: SELECT max(home_games) ,  min(home_games) ,  avg(home_games) FROM stadium\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nWhat is the average and maximum capacities for all stadiums ?\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT AVG(Capacity) AS average_capacity, MAX(Capacity) AS maximum_capacity FROM stadium;",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.337,
+    "usedCredits": 0.00861,
+    "apiCalls": 1,
+    "task": null
+}

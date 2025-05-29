@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': 'You are tasked with creating a valid SQL command that accurately answers the user\\'s query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n\\nExamples:\\nQuestion: How many animal type allergies exist? ; \\nSQL: SELECT count(*) FROM Allergy_type WHERE allergytype  =  \"animal\"\\n\\nQuestion: How many different allergy types exist? ; \\nSQL: SELECT count(DISTINCT allergytype) FROM Allergy_type\\n\\nQuestion: How many different product types are there? ; \\nSQL: SELECT count(DISTINCT product_type_code) FROM products_for_hire\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nHow many different types of pet are there?\\n\\n**SQL**:\\n', 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT count(DISTINCT PetType) FROM Pets",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.09,
+    "usedCredits": 0.00742,
+    "apiCalls": 1,
+    "task": null
+}

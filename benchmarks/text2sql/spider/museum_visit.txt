@@ -1,0 +1,23 @@
+CREATE TABLE "museum" (
+    "Museum_ID" int,  -- Unique identifier for the museum
+    "Name" text,  -- Name of the museum
+    "Num_of_Staff" int,  -- Number of staff members working at the museum
+    "Open_Year" text,  -- Year the museum was opened
+    PRIMARY KEY ("Museum_ID")
+) 
+CREATE TABLE "visitor" (
+    "ID" int,  -- Unique identifier for the visitor
+    "Name" text,  -- Name of the visitor
+    "Level_of_membership" int,  -- Membership level of the visitor
+    "Age" int,  -- Age of the visitor
+    PRIMARY KEY ("ID")
+) 
+CREATE TABLE "visit" (
+    "Museum_ID" int,  -- Identifier for the museum being visited
+    "visitor_ID" text,  -- Identifier for the visitor
+    "Num_of_Ticket" int,  -- Number of tickets purchased by the visitor
+    "Total_spent" real,  -- Total amount spent by the visitor during the visit
+    PRIMARY KEY ("Museum_ID","visitor_ID"),
+    FOREIGN KEY ("Museum_ID") REFERENCES `museum`("Museum_ID"),
+    FOREIGN KEY ("visitor_ID") REFERENCES `visitor`("ID")
+)

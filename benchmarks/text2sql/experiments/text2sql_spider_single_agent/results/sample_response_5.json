@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n\\nExamples:\\nQuestion: What are the names of people in ascending order of weight? ; \\nSQL: SELECT Name FROM People ORDER BY Weight ASC\\n\\nQuestion: What are the average and minimum weights for people of each sex? ; \\nSQL: SELECT avg(weight) ,  min(weight) ,  sex FROM people GROUP BY sex\\n\\nQuestion: List the height and weight of people in descending order of height. ; \\nSQL: SELECT Height ,  Weight FROM people ORDER BY Height DESC\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nList the maximum weight and type for each type of pet.\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT PetType, MAX(weight) FROM Pets GROUP BY PetType",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.783,
+    "usedCredits": 0.0075450000000000005,
+    "apiCalls": 1,
+    "task": null
+}

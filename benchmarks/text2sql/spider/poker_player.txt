@@ -1,0 +1,18 @@
+CREATE TABLE "poker_player" (
+    "Poker_Player_ID" int,  -- Unique identifier for the poker player
+    "People_ID" int,  -- Identifier linking to the person in the people table
+    "Final_Table_Made" real,  -- Number of times the player has reached the final table in tournaments
+    "Best_Finish" real,  -- Best finishing position achieved by the player in a tournament
+    "Money_Rank" real,  -- Player's rank based on tournament earnings
+    "Earnings" real,  -- Total earnings of the player from poker tournaments
+    PRIMARY KEY ("Poker_Player_ID"),  -- Ensures each poker player has a unique identifier
+    FOREIGN KEY ("People_ID") REFERENCES `people`("People_ID")  -- Establishes a relationship with the people table
+) 
+CREATE TABLE "people" (
+    "People_ID" int,  -- Unique identifier for the person
+    "Nationality" text,  -- Nationality of the person
+    "Name" text,  -- Full name of the person
+    "Birth_Date" text,  -- Birth date of the person
+    "Height" real,  -- Height of the person in meters
+    PRIMARY KEY ("People_ID")  -- Ensures each person has a unique identifier
+)

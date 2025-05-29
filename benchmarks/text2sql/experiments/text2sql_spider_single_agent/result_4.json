@@ -1,0 +1,9 @@
+{
+    "question_id": 33,
+    "difficulty": "Undefined",
+    "field": "concert_singer",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/spider/database/concert_singer/concert_singer.sqlite",
+    "question": "Show the name and theme for all concerts and the number of singers in each concert.",
+    "prediction": "SELECT concert.concert_Name, concert.Theme, COUNT(singer_in_concert.Singer_ID) AS number_of_singers FROM concert JOIN singer_in_concert ON concert.concert_ID = singer_in_concert.concert_ID GROUP BY concert.concert_ID",
+    "ground_truth": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id"
+}

@@ -1,0 +1,51 @@
+ CREATE TABLE players(
+    "player_id" INT PRIMARY KEY,  -- Unique identifier for each player
+    "first_name" TEXT,  -- First name of the player
+    "last_name" TEXT,  -- Last name of the player
+    "hand" TEXT,  -- Dominant playing hand of the player (e.g., left or right)
+    "birth_date" DATE,  -- Birth date of the player
+    "country_code" TEXT,  -- Country code representing the player's nationality
+) 
+CREATE TABLE matches(
+    "best_of" INT,  -- Maximum number of sets in the match
+    "draw_size" INT,  -- Number of players in the tournament draw
+    "loser_age" FLOAT,  -- Age of the player who lost the match
+    "loser_entry" TEXT,  -- Method of entry for the losing player (e.g., wildcard, qualifier)
+    "loser_hand" TEXT,  -- Dominant playing hand of the losing player
+    "loser_ht" INT,  -- Height of the losing player in centimeters
+    "loser_id" INT,  -- Unique identifier for the losing player
+    "loser_ioc" TEXT,  -- International Olympic Committee country code for the losing player
+    "loser_name" TEXT,  -- Full name of the losing player
+    "loser_rank" INT,  -- World ranking of the losing player at the time of the match
+    "loser_rank_points" INT,  -- Ranking points of the losing player at the time of the match
+    "loser_seed" INT,  -- Seed number of the losing player in the tournament
+    "match_num" INT,  -- Unique identifier for the match within the tournament
+    "minutes" INT,  -- Duration of the match in minutes
+    "round" TEXT,  -- Round of the tournament in which the match was played
+    "score" TEXT,  -- Final score of the match
+    "surface" TEXT,  -- Type of court surface the match was played on (e.g., clay, grass, hard)
+    "tourney_date" DATE,  -- Start date of the tournament
+    "tourney_id" TEXT,  -- Unique identifier for the tournament
+    "tourney_level" TEXT,  -- Level of the tournament (e.g., Grand Slam, ATP 1000)
+    "tourney_name" TEXT,  -- Name of the tournament
+    "winner_age" FLOAT,  -- Age of the player who won the match
+    "winner_entry" TEXT,  -- Method of entry for the winning player (e.g., wildcard, qualifier)
+    "winner_hand" TEXT,  -- Dominant playing hand of the winning player
+    "winner_ht" INT,  -- Height of the winning player in centimeters
+    "winner_id" INT,  -- Unique identifier for the winning player
+    "winner_ioc" TEXT,  -- International Olympic Committee country code for the winning player
+    "winner_name" TEXT,  -- Full name of the winning player
+    "winner_rank" INT,  -- World ranking of the winning player at the time of the match
+    "winner_rank_points" INT,  -- Ranking points of the winning player at the time of the match
+    "winner_seed" INT,  -- Seed number of the winning player in the tournament
+    "year" INT,  -- Year the match took place
+    FOREIGN KEY(loser_id) REFERENCES players(player_id),
+    FOREIGN KEY(winner_id) REFERENCES players(player_id)
+) CREATE TABLE rankings(
+    "ranking_date" DATE,  -- Date when the ranking was recorded
+    "ranking" INT,  -- World ranking of the player on the given date
+    "player_id" INT,  -- Unique identifier for the player
+    "ranking_points" INT,  -- Total ranking points of the player on the given date
+    "tours" INT,  -- Number of tours or tournaments the player participated in
+    FOREIGN KEY(player_id) REFERENCES players(player_id)
+)

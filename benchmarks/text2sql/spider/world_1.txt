@@ -1,0 +1,34 @@
+CREATE TABLE `city` (
+    `ID` integer NOT NULL PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for the city
+    `Name` char(35) NOT NULL DEFAULT '',  -- Name of the city
+    `CountryCode` char(3) NOT NULL DEFAULT '',  -- ISO 3166-1 alpha-3 country code associated with the city
+    `District` char(20) NOT NULL DEFAULT '',  -- Administrative district or region where the city is located
+    `Population` integer NOT NULL DEFAULT '0',  -- Total population of the city
+    CONSTRAINT `city_ibfk_1` FOREIGN KEY (`CountryCode`) REFERENCES `country` (`Code`)
+) 
+CREATE TABLE `country` (
+    `Code` char(3) NOT NULL DEFAULT '',  -- ISO 3166-1 alpha-3 code representing the country
+    `Name` char(52) NOT NULL DEFAULT '',  -- Official name of the country
+    `Continent` text NOT NULL DEFAULT 'Asia',  -- Continent on which the country is located
+    `Region` char(26) NOT NULL DEFAULT '',  -- Geographical region within the continent
+    `SurfaceArea` float(10,2) NOT NULL DEFAULT '0.00',  -- Total land area of the country in square kilometers
+    `IndepYear` integer DEFAULT NULL,  -- Year in which the country gained independence
+    `Population` integer NOT NULL DEFAULT '0',  -- Total population of the country
+    `LifeExpectancy` float(3,1) DEFAULT NULL,  -- Average life expectancy of the population in years
+    `GNP` float(10,2) DEFAULT NULL,  -- Gross National Product of the country in millions of dollars
+    `GNPOld` float(10,2) DEFAULT NULL,  -- Previous year's Gross National Product in millions of dollars
+    `LocalName` char(45) NOT NULL DEFAULT '',  -- Local name of the country
+    `GovernmentForm` char(45) NOT NULL DEFAULT '',  -- Type of government in the country
+    `HeadOfState` char(60) DEFAULT NULL,  -- Name of the current head of state
+    `Capital` integer DEFAULT NULL,  -- ID of the capital city, referencing the `city` table
+    `Code2` char(2) NOT NULL DEFAULT '',  -- ISO 3166-1 alpha-2 code representing the country
+    PRIMARY KEY (`Code`)
+) 
+CREATE TABLE `countrylanguage` (
+    `CountryCode` char(3) NOT NULL DEFAULT '',  -- ISO 3166-1 alpha-3 code of the country where the language is spoken
+    `Language` char(30) NOT NULL DEFAULT '',  -- Name of the language spoken in the country
+    `IsOfficial` text NOT NULL DEFAULT 'F',  -- Indicates whether the language is an official language of the country ('T' for true, 'F' for false)
+    `Percentage` float(4,1) NOT NULL DEFAULT '0.0',  -- Percentage of the population that speaks the language
+    PRIMARY KEY (`CountryCode`,`Language`),  
+    CONSTRAINT `countryLanguage_ibfk_1` FOREIGN KEY (`CountryCode`) REFERENCES `country` (`Code`)
+)

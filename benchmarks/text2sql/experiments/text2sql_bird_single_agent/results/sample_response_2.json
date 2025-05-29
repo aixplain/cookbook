@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': 'You are tasked with creating a valid SQL command that accurately answers the user\\'s query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n**External Knowledge to help you answer the question:** Percent (%) Eligible FRPM (Ages 5-17) can be acquired by `FRPM Count (Ages 5-17)` / `Enrollment (Ages 5-17)` * 100\\n\\nExamples:\\nQuestion: What is the number of the year round school in Los Angeles? ; \\nSQL: SELECT COUNT(school_year_round) FROM projects WHERE school_city = \\'Los Angeles\\' AND school_year_round = \\'t\\'\\n\\nQuestion: In which cities are Los Angeles County Suburban Metro Schools located? ; \\nSQL: SELECT school_city FROM projects WHERE school_metro = \\'suburban\\' AND school_county = \\'Los Angeles\\'\\n\\nQuestion: How many 2-year public schools are there in \"California\"? ; \\nSQL: SELECT COUNT(stateid) FROM state_sector_details WHERE state = \\'California\\' AND level = \\'2-year\\' AND control = \\'Public\\'\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nWhich schools served a grade span of Kindergarten to 9th grade in the county of Los Angeles and what is its Percent (%) Eligible FRPM (Ages 5-17)?\\n\\n**SQL**:\\n', 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT `School Name`, `Percent (%) Eligible FRPM (Ages 5-17)` FROM frpm WHERE `County Name` = 'Los Angeles' AND `Low Grade` = 'K' AND `High Grade` = '9';",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.888,
+    "usedCredits": 0.016695,
+    "apiCalls": 1,
+    "task": null
+}

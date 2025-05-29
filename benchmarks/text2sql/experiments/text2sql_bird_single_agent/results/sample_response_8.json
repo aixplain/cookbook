@@ -1,0 +1,17 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n**External Knowledge to help you answer the question:** \\n\\nExamples:\\nQuestion: Among the institutes in the state of Alabama whose percent rank for median SAT value within sector is 77, how many of them have over 500 graduates in total in 2011? ; \\nSQL: SELECT COUNT(DISTINCT T1.chronname) FROM institution_details AS T1 INNER JOIN institution_grads AS T2 ON T2.unitid = T1.unitid WHERE T1.state = 'Alabama' AND T1.med_sat_percentile = '100' AND T2.year = 2011 AND T2.grad_cohort > 500\\n\\nQuestion: What is the average SAT value for incoming students in all of the schools located in the state with the lowest state appropriations to higher education in fiscal year 2011 per resident? ; \\nSQL: SELECT AVG(t1.med_sat_value) FROM institution_details AS T1 INNER JOIN state_sector_details AS T2 ON t1.state = t2.state ORDER BY t2.state_appr_value LIMIT 1\\n\\nQuestion: How many universities have at least 80,000 students in the year 2011? ; \\nSQL: SELECT COUNT(*) FROM university_year WHERE num_students > 80000 AND year = 2011\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nAmong the schools with the average score in Math over 560 in the SAT test, how many schools are directly charter-funded?\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "There are 2 schools with an average score in Math over 560 in the SAT test that are directly charter-funded.",
+    "tool_steps": [
+        {
+            "tool": "sql_query_tool_0",
+            "input": "{'command': \"SELECT COUNT(*) FROM satscores AS s INNER JOIN frpm AS f ON s.cds = f.CDSCode WHERE s.AvgScrMath > 560 AND f.`Charter Funding Type` = 'Directly funded';\", 'database_url': 's3://aixplain-platform-backend-temp/1/sdk/1747318470817-california_schools.db'}",
+            "output": "| COUNT(*) |\n| --- |\n| 2 |\n"
+        }
+    ],
+    "thought": null,
+    "runTime": 6.34,
+    "usedCredits": 0.034769999999999995,
+    "apiCalls": 2,
+    "task": null
+}

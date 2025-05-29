@@ -1,0 +1,19 @@
+CREATE TABLE Highschooler(
+    ID int primary key,  -- Unique identifier for each high school student
+    name text,  -- Full name of the high school student
+    grade int  -- Current grade level of the high school student
+)
+CREATE TABLE Friend(
+    student_id int,  -- Unique identifier of the student who has a friend
+    friend_id int,  -- Unique identifier of the friend of the student
+    primary key (student_id, friend_id),  -- Composite primary key to ensure unique friendship pairs
+    foreign key(student_id) references Highschooler(ID),  -- Foreign key referencing the student in the Highschooler table
+    foreign key (friend_id) references Highschooler(ID)  -- Foreign key referencing the friend in the Highschooler table
+)
+CREATE TABLE Likes(
+    student_id int,  -- Unique identifier of the student who likes another student
+    liked_id int,  -- Unique identifier of the student who is liked
+    primary key (student_id, liked_id),  -- Composite primary key to ensure unique like pairs
+    foreign key (liked_id) references Highschooler(ID),  -- Foreign key referencing the liked student in the Highschooler table
+    foreign key (student_id) references Highschooler(ID)  -- Foreign key referencing the student who likes in the Highschooler table
+)

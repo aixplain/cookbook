@@ -1,0 +1,71 @@
+CREATE TABLE `Breeds` (
+  `breed_code` VARCHAR(10) PRIMARY KEY,  -- Unique code identifying the breed
+  `breed_name` VARCHAR(80)               -- Name of the breed
+)
+CREATE TABLE `Charges` (
+  `charge_id` INTEGER PRIMARY KEY,       -- Unique identifier for the charge
+  `charge_type` VARCHAR(10),             -- Type of charge
+  `charge_amount` DECIMAL(19,4)          -- Amount of the charge
+)
+CREATE TABLE `Sizes` (
+  `size_code` VARCHAR(10) PRIMARY KEY,   -- Unique code identifying the size
+  `size_description` VARCHAR(80)         -- Description of the size
+)
+CREATE TABLE `Treatment_Types` (
+  `treatment_type_code` VARCHAR(10) PRIMARY KEY,  -- Unique code identifying the treatment type
+  `treatment_type_description` VARCHAR(80)        -- Description of the treatment type
+)
+CREATE TABLE `Owners` (
+  `owner_id` INTEGER PRIMARY KEY,        -- Unique identifier for the owner
+  `first_name` VARCHAR(50),              -- First name of the owner
+  `last_name` VARCHAR(50),               -- Last name of the owner
+  `street` VARCHAR(50),                  -- Street address of the owner
+  `city` VARCHAR(50),                    -- City of the owner's address
+  `state` VARCHAR(20),                   -- State of the owner's address
+  `zip_code` VARCHAR(20),                -- ZIP code of the owner's address
+  `email_address` VARCHAR(50),           -- Email address of the owner
+  `home_phone` VARCHAR(20),              -- Home phone number of the owner
+  `cell_number` VARCHAR(20)              -- Cell phone number of the owner
+)
+CREATE TABLE `Dogs` (
+  `dog_id` INTEGER PRIMARY KEY,          -- Unique identifier for the dog
+  `owner_id` INTEGER NOT NULL,           -- Identifier for the owner of the dog
+  `abandoned_yn` VARCHAR(1),             -- Indicator if the dog is abandoned (Y/N)
+  `breed_code` VARCHAR(10) NOT NULL,     -- Code identifying the breed of the dog
+  `size_code` VARCHAR(10) NOT NULL,      -- Code identifying the size of the dog
+  `name` VARCHAR(50),                    -- Name of the dog
+  `age` VARCHAR(20),                     -- Age of the dog
+  `date_of_birth` DATETIME,              -- Date of birth of the dog
+  `gender` VARCHAR(1),                   -- Gender of the dog (M/F)
+  `weight` VARCHAR(20),                  -- Weight of the dog
+  `date_arrived` DATETIME,               -- Date the dog arrived
+  `date_adopted` DATETIME,               -- Date the dog was adopted
+  `date_departed` DATETIME,              -- Date the dog departed
+  FOREIGN KEY (`breed_code`) REFERENCES `Breeds`(`breed_code`),
+  FOREIGN KEY (`size_code`) REFERENCES `Sizes`(`size_code`),
+  FOREIGN KEY (`owner_id`) REFERENCES `Owners`(`owner_id`)
+)
+CREATE TABLE `Professionals` (
+  `professional_id` INTEGER PRIMARY KEY, -- Unique identifier for the professional
+  `role_code` VARCHAR(10) NOT NULL,      -- Code identifying the role of the professional
+  `first_name` VARCHAR(50),              -- First name of the professional
+  `street` VARCHAR(50),                  -- Street address of the professional
+  `city` VARCHAR(50),                    -- City of the professional's address
+  `state` VARCHAR(20),                   -- State of the professional's address
+  `zip_code` VARCHAR(20),                -- ZIP code of the professional's address
+  `last_name` VARCHAR(50),               -- Last name of the professional
+  `email_address` VARCHAR(50),           -- Email address of the professional
+  `home_phone` VARCHAR(20),              -- Home phone number of the professional
+  `cell_number` VARCHAR(20)              -- Cell phone number of the professional
+)
+CREATE TABLE `Treatments` (
+  `treatment_id` INTEGER PRIMARY KEY,    -- Unique identifier for the treatment
+  `dog_id` INTEGER NOT NULL,             -- Identifier for the dog receiving the treatment
+  `professional_id` INTEGER NOT NULL,    -- Identifier for the professional administering the treatment
+  `treatment_type_code` VARCHAR(10) NOT NULL,  -- Code identifying the type of treatment
+  `date_of_treatment` DATETIME,          -- Date the treatment was administered
+  `cost_of_treatment` DECIMAL(19,4),     -- Cost of the treatment
+  FOREIGN KEY (`treatment_type_code`) REFERENCES `Treatment_Types`(`treatment_type_code`),
+  FOREIGN KEY (`professional_id`) REFERENCES `Professionals`(`professional_id`),
+  FOREIGN KEY (`dog_id`) REFERENCES `Dogs`(`dog_id`)
+)

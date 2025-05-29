@@ -1,0 +1,127 @@
+CREATE TABLE "cards"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each card, automatically incremented
+    artist TEXT,  -- Name of the artist who illustrated the card
+    asciiName TEXT,  -- ASCII representation of the card's name, if applicable
+    availability TEXT,  -- Formats in which the card is available (e.g., mtgo, paper)
+    borderColor TEXT,  -- Color of the card's border
+    cardKingdomFoilId TEXT,  -- Identifier for the card's foil version on Card Kingdom
+    cardKingdomId TEXT,  -- Identifier for the card on Card Kingdom
+    colorIdentity TEXT,  -- Colors that define the card's identity
+    colorIndicator TEXT,  -- Indicator for the card's color, if different from its mana cost
+    colors TEXT,  -- Colors of the card
+    convertedManaCost REAL,  -- Total mana cost of the card, converted to a numeric value
+    duelDeck TEXT,  -- Duel deck information, if applicable
+    edhrecRank INTEGER,  -- Ranking of the card on EDHREC
+    faceConvertedManaCost REAL,  -- Converted mana cost of the card's face, if it has multiple faces
+    faceName TEXT,  -- Name of the card's face, if it has multiple faces
+    flavorName TEXT,  -- Flavor name of the card, if applicable
+    flavorText TEXT,  -- Flavor text of the card
+    frameEffects TEXT,  -- Special effects applied to the card's frame
+    frameVersion TEXT,  -- Version of the card's frame
+    hand TEXT,  -- Hand size modifier, if applicable
+    hasAlternativeDeckLimit INTEGER default 0 not null,  -- Indicates if the card has an alternative deck limit
+    hasContentWarning INTEGER default 0 not null,  -- Indicates if the card has a content warning
+    hasFoil INTEGER default 0 not null,  -- Indicates if the card has a foil version
+    hasNonFoil INTEGER default 0 not null,  -- Indicates if the card has a non-foil version
+    isAlternative INTEGER default 0 not null,  -- Indicates if the card is an alternative version
+    isFullArt INTEGER default 0 not null,  -- Indicates if the card is a full art version
+    isOnlineOnly INTEGER default 0 not null,  -- Indicates if the card is only available online
+    isOversized INTEGER default 0 not null,  -- Indicates if the card is oversized
+    isPromo INTEGER default 0 not null,  -- Indicates if the card is a promotional version
+    isReprint INTEGER default 0 not null,  -- Indicates if the card is a reprint
+    isReserved INTEGER default 0 not null,  -- Indicates if the card is on the reserved list
+    isStarter INTEGER default 0 not null,  -- Indicates if the card is part of a starter set
+    isStorySpotlight INTEGER default 0 not null,  -- Indicates if the card is part of a story spotlight
+    isTextless INTEGER default 0 not null,  -- Indicates if the card is textless
+    isTimeshifted INTEGER default 0 not null,  -- Indicates if the card is timeshifted
+    keywords TEXT,  -- Keywords associated with the card
+    layout TEXT,  -- Layout of the card (e.g., normal, split, flip)
+    leadershipSkills TEXT,  -- Leadership skills associated with the card, if applicable
+    life TEXT,  -- Life modifier, if applicable
+    loyalty TEXT,  -- Loyalty value for planeswalker cards
+    manaCost TEXT,  -- Mana cost of the card
+    mcmId TEXT,  -- Identifier for the card on Magic Card Market
+    mcmMetaId TEXT,  -- Meta identifier for the card on Magic Card Market
+    mtgArenaId TEXT,  -- Identifier for the card on MTG Arena
+    mtgjsonV4Id TEXT,  -- Identifier for the card in MTGJSON v4
+    mtgoFoilId TEXT,  -- Identifier for the card's foil version on Magic: The Gathering Online
+    mtgoId TEXT,  -- Identifier for the card on Magic: The Gathering Online
+    multiverseId TEXT,  -- Multiverse identifier for the card
+    name TEXT,  -- Name of the card
+    number TEXT,  -- Collector number of the card
+    originalReleaseDate TEXT,  -- Original release date of the card
+    originalText TEXT,  -- Original text of the card
+    originalType TEXT,  -- Original type of the card
+    otherFaceIds TEXT,  -- Identifiers for other faces of the card, if applicable
+    power TEXT,  -- Power value for creature cards
+    printings TEXT,  -- Sets in which the card has been printed
+    promoTypes TEXT,  -- Types of promotions for the card
+    purchaseUrls TEXT,  -- URLs for purchasing the card
+    rarity TEXT,  -- Rarity of the card (e.g., common, uncommon, rare)
+    scryfallId TEXT,  -- Identifier for the card on Scryfall
+    scryfallIllustrationId TEXT,  -- Identifier for the card's illustration on Scryfall
+    scryfallOracleId TEXT,  -- Oracle identifier for the card on Scryfall
+    setCode TEXT,  -- Code of the set in which the card is included
+    side TEXT,  -- Side of the card, if it has multiple sides
+    subtypes TEXT,  -- Subtypes of the card
+    supertypes TEXT,  -- Supertypes of the card
+    tcgplayerProductId TEXT,  -- Identifier for the card on TCGPlayer
+    text TEXT,  -- Text of the card
+    toughness TEXT,  -- Toughness value for creature cards
+    type TEXT,  -- Type of the card
+    types TEXT,  -- Types of the card
+    uuid TEXT not null unique,  -- Universally unique identifier for the card
+    variations TEXT,  -- Variations of the card
+    watermark TEXT  -- Watermark on the card, if applicable
+)
+CREATE TABLE "foreign_data"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each entry, automatically incremented
+    flavorText TEXT,  -- Descriptive or thematic text associated with the card, often a quote or lore snippet
+    language TEXT,  -- Language in which the card's text is written
+    multiverseid INTEGER,  -- Unique identifier for the card within the multiverse database
+    name TEXT,  -- Name of the card
+    text TEXT,  -- Game-related text describing the card's abilities or effects
+    type TEXT,  -- Type of the card, indicating its category and subtypes
+    uuid TEXT references cards (uuid)  -- Universally unique identifier for the card, referencing the `uuid` in the `cards` table
+)
+CREATE TABLE "legalities"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each legality record
+    format TEXT,  -- Name of the format in which the card's legality is being specified
+    status TEXT,  -- Legal status of the card in the specified format (e.g., Legal, Banned, Restricted)
+    uuid TEXT REFERENCES cards (uuid) ON UPDATE CASCADE ON DELETE CASCADE,  -- Unique identifier for the card, referencing the 'uuid' column in the 'cards' table, with cascading updates and deletions
+)
+CREATE TABLE "sets"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each set, automatically incremented
+    baseSetSize INTEGER,  -- Number of cards in the base set
+    block TEXT,  -- The block or series to which the set belongs
+    booster TEXT,  -- JSON structure detailing the booster pack contents and configurations
+    code TEXT not null unique,  -- Unique code representing the set
+    isFoilOnly INTEGER default 0 not null,  -- Indicator if the set contains only foil cards (0 for no, 1 for yes)
+    isForeignOnly INTEGER default 0 not null,  -- Indicator if the set is available only in foreign languages (0 for no, 1 for yes)
+    isNonFoilOnly INTEGER default 0 not null,  -- Indicator if the set contains only non-foil cards (0 for no, 1 for yes)
+    isOnlineOnly INTEGER default 0 not null,  -- Indicator if the set is available only online (0 for no, 1 for yes)
+    isPartialPreview INTEGER default 0 not null,  -- Indicator if the set is a partial preview (0 for no, 1 for yes)
+    keyruneCode TEXT,  -- Code representing the keyrune symbol associated with the set
+    mcmId INTEGER,  -- ID of the set in the Magic Card Market database
+    mcmIdExtras INTEGER,  -- Additional ID for extras in the Magic Card Market database
+    mcmName TEXT,  -- Name of the set in the Magic Card Market database
+    mtgoCode TEXT,  -- Code used for the set in Magic: The Gathering Online
+    name TEXT,  -- Official name of the set
+    parentCode TEXT,  -- Code of the parent set, if applicable
+    releaseDate DATE,  -- Official release date of the set
+    tcgplayerGroupId INTEGER,  -- Group ID of the set in the TCGPlayer database
+    totalSetSize INTEGER,  -- Total number of cards in the set, including all variations
+    type TEXT  -- Type of the set, such as core, expansion, etc.
+)
+CREATE TABLE "set_translations"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each translation entry
+    language TEXT,  -- Language in which the set is translated
+    setCode TEXT REFERENCES sets (code) ON UPDATE CASCADE ON DELETE CASCADE,  -- Code of the set being translated, linked to the 'sets' table
+    translation TEXT  -- Translated name or description of the set in the specified language
+)
+CREATE TABLE "rulings"(
+    id INTEGER not null primary key autoincrement,  -- Unique identifier for each ruling entry, automatically incremented
+    date DATE,  -- Date when the ruling was issued or recorded
+    text TEXT,  -- Detailed description or explanation of the ruling
+    uuid TEXT REFERENCES cards (uuid) ON UPDATE CASCADE ON DELETE CASCADE  -- Unique identifier linking to the related card, with cascading updates and deletions
+)

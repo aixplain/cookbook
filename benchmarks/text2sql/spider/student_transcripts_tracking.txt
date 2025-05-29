@@ -1,0 +1,89 @@
+ CREATE TABLE `Addresses` (
+    `address_id` INTEGER PRIMARY KEY,  -- Unique identifier for the address
+    `line_1` VARCHAR(255),  -- First line of the address, typically the street address
+    `line_2` VARCHAR(255),  -- Second line of the address, often used for apartment or suite numbers
+    `line_3` VARCHAR(255),  -- Third line of the address, for additional address information
+    `city` VARCHAR(255),  -- City where the address is located
+    `zip_postcode` VARCHAR(20),  -- Postal code or ZIP code for the address
+    `state_province_county` VARCHAR(255),  -- State, province, or county of the address
+    `country` VARCHAR(255),  -- Country where the address is located
+    `other_address_details` VARCHAR(255),  -- Additional details about the address
+) 
+CREATE TABLE `Courses` (
+    `course_id` INTEGER PRIMARY KEY,  -- Unique identifier for the course
+    `course_name` VARCHAR(255),  -- Name of the course
+    `course_description` VARCHAR(255),  -- Description of the course content
+    `other_details` VARCHAR(255),  -- Additional details about the course
+) 
+CREATE TABLE `Departments` (
+    `department_id` INTEGER PRIMARY KEY,  -- Unique identifier for the department
+    `department_name` VARCHAR(255),  -- Name of the department
+    `department_description` VARCHAR(255),  -- Description of the department's focus or mission
+    `other_details` VARCHAR(255),  -- Additional details about the department
+) 
+CREATE TABLE `Degree_Programs` (
+    `degree_program_id` INTEGER PRIMARY KEY,  -- Unique identifier for the degree program
+    `department_id` INTEGER NOT NULL,  -- Identifier for the department offering the degree program
+    `degree_summary_name` VARCHAR(255),  -- Summary name of the degree program
+    `degree_summary_description` VARCHAR(255),  -- Summary description of the degree program
+    `other_details` VARCHAR(255),  -- Additional details about the degree program
+    FOREIGN KEY (`department_id` ) REFERENCES `Departments`(`department_id` )
+) 
+CREATE TABLE `Sections` (
+    `section_id` INTEGER PRIMARY KEY,  -- Unique identifier for the section
+    `course_id` INTEGER NOT NULL,  -- Identifier for the course associated with the section
+    `section_name` VARCHAR(255),  -- Name of the section
+    `section_description` VARCHAR(255),  -- Description of the section
+    `other_details` VARCHAR(255),  -- Additional details about the section
+    FOREIGN KEY (`course_id` ) REFERENCES `Courses`(`course_id` )
+) 
+CREATE TABLE `Semesters` (
+    `semester_id` INTEGER PRIMARY KEY,  -- Unique identifier for the semester
+    `semester_name` VARCHAR(255),  -- Name of the semester
+    `semester_description` VARCHAR(255),  -- Description of the semester
+    `other_details` VARCHAR(255),  -- Additional details about the semester
+) 
+CREATE TABLE `Students` (
+    `student_id` INTEGER PRIMARY KEY,  -- Unique identifier for the student
+    `current_address_id` INTEGER NOT NULL,  -- Identifier for the student's current address
+    `permanent_address_id` INTEGER NOT NULL,  -- Identifier for the student's permanent address
+    `first_name` VARCHAR(80),  -- First name of the student
+    `middle_name` VARCHAR(40),  -- Middle name of the student
+    `last_name` VARCHAR(40),  -- Last name of the student
+    `cell_mobile_number` VARCHAR(40),  -- Mobile phone number of the student
+    `email_address` VARCHAR(40),  -- Email address of the student
+    `ssn` VARCHAR(40),  -- Social Security Number of the student
+    `date_first_registered` DATETIME,  -- Date when the student first registered
+    `date_left` DATETIME,  -- Date when the student left the institution
+    `other_student_details` VARCHAR(255),  -- Additional details about the student
+    FOREIGN KEY (`current_address_id` ) REFERENCES `Addresses`(`address_id` ),
+    FOREIGN KEY (`permanent_address_id` ) REFERENCES `Addresses`(`address_id` )
+) 
+CREATE TABLE `Student_Enrolment` (
+    `student_enrolment_id` INTEGER PRIMARY KEY,  -- Unique identifier for the student enrolment
+    `degree_program_id` INTEGER NOT NULL,  -- Identifier for the degree program the student is enrolled in
+    `semester_id` INTEGER NOT NULL,  -- Identifier for the semester of enrolment
+    `student_id` INTEGER NOT NULL,  -- Identifier for the student
+    `other_details` VARCHAR(255),  -- Additional details about the enrolment
+    FOREIGN KEY (`degree_program_id` ) REFERENCES `Degree_Programs`(`degree_program_id` ),
+    FOREIGN KEY (`semester_id` ) REFERENCES `Semesters`(`semester_id` ),
+    FOREIGN KEY (`student_id` ) REFERENCES `Students`(`student_id` )
+) 
+CREATE TABLE `Student_Enrolment_Courses` (
+    `student_course_id` INTEGER PRIMARY KEY,  -- Unique identifier for the student's course enrolment
+    `course_id` INTEGER NOT NULL,  -- Identifier for the course the student is enrolled in
+    `student_enrolment_id` INTEGER NOT NULL,  -- Identifier for the student's enrolment record
+    FOREIGN KEY (`course_id` ) REFERENCES `Courses`(`course_id` ),
+    FOREIGN KEY (`student_enrolment_id` ) REFERENCES `Student_Enrolment`(`student_enrolment_id` )
+) 
+CREATE TABLE `Transcripts` (
+    `transcript_id` INTEGER PRIMARY KEY,  -- Unique identifier for the transcript
+    `transcript_date` DATETIME,  -- Date when the transcript was issued
+    `other_details` VARCHAR(255),  -- Additional details about the transcript
+) 
+CREATE TABLE `Transcript_Contents` (
+    `student_course_id` INTEGER NOT NULL,  -- Identifier for the student's course enrolment included in the transcript
+    `transcript_id` INTEGER NOT NULL,  -- Identifier for the transcript containing the course enrolment
+    FOREIGN KEY (`student_course_id` ) REFERENCES `Student_Enrolment_Courses`(`student_course_id` ),
+    FOREIGN KEY (`transcript_id` ) REFERENCES `Transcripts`(`transcript_id` )
+)
