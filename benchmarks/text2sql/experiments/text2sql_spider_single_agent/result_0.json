@@ -1,0 +1,9 @@
+{
+    "question_id": 24,
+    "difficulty": "Undefined",
+    "field": "concert_singer",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/spider/database/concert_singer/concert_singer.sqlite",
+    "question": "Show the stadium name and capacity with most number of concerts in year 2014 or after.",
+    "prediction": "SELECT s.Name, s.Capacity FROM stadium s JOIN concert c ON s.Stadium_ID = c.Stadium_ID WHERE c.Year >= '2014' GROUP BY s.Stadium_ID ORDER BY COUNT(c.concert_ID) DESC LIMIT 1",
+    "ground_truth": "SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1"
+}

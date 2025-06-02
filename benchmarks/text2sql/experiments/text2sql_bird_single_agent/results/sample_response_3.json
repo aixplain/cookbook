@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': \"You are tasked with creating a valid SQL command that accurately answers the user's query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n**External Knowledge to help you answer the question:** Usually, administrators manage the school stuff.\\n\\nExamples:\\nQuestion: What is the average score of all universities in 2012? ; \\nSQL: SELECT AVG(score) FROM university_ranking_year WHERE year = 2012\\n\\nQuestion: List the names of universities with a score less than 28% of the average score of all universities in 2015.; \\nSQL: SELECT T2.university_name FROM university_ranking_year AS T1 INNER JOIN university AS T2 ON T1.university_id = T2.id WHERE T1.year = 2015 AND T1.score * 100 < ( SELECT AVG(score) * 28 FROM university_ranking_year WHERE year = 2015 )\\n\\nQuestion: Calculate the average score per university under Alumni criteria in 2008.; \\nSQL: SELECT AVG(T2.score) FROM ranking_criteria AS T1 INNER JOIN university_ranking_year AS T2 ON T1.id = T2.ranking_criteria_id WHERE T1.criteria_name = 'Alumni' AND T2.year = 2008\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nWhat is the average writing score of each of the schools managed by Ricci Ulrich? List the schools and the corresponding average writing scores.\\n\\n**SQL**:\\n\", 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT s.School, ss.AvgScrWrite FROM schools s JOIN satscores ss ON s.CDSCode = ss.cds WHERE s.AdmFName1 = 'Ricci' AND s.AdmLName1 = 'Ulrich';",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 1.938,
+    "usedCredits": 0.016825000000000003,
+    "apiCalls": 1,
+    "task": null
+}

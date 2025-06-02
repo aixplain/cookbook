@@ -1,0 +1,9 @@
+{
+    "question_id": 45,
+    "difficulty": "moderate",
+    "field": "california_schools",
+    "sql_path": "/Users/chinonsoosuji/Desktop/text2sql/bird/dev_databases/california_schools/california_schools.sqlite",
+    "question": "What is the average writing score of each of the schools managed by Ricci Ulrich? List the schools and the corresponding average writing scores.",
+    "prediction": "SELECT s.School, ss.AvgScrWrite FROM schools s JOIN satscores ss ON s.CDSCode = ss.cds WHERE s.AdmFName1 = 'Ricci' AND s.AdmLName1 = 'Ulrich';",
+    "ground_truth": "SELECT T2.School, T1.AvgScrWrite FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T2.AdmFName1 = 'Ricci' AND T2.AdmLName1 = 'Ulrich'"
+}

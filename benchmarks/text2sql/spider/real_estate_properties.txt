@@ -1,0 +1,50 @@
+CREATE TABLE `Ref_Feature_Types` (
+    `feature_type_code` VARCHAR(20) PRIMARY KEY,  -- Unique code identifying the type of feature
+    `feature_type_name` VARCHAR(80),  -- Name of the feature type
+) 
+CREATE TABLE `Ref_Property_Types` (
+    `property_type_code` VARCHAR(20) PRIMARY KEY,  -- Unique code identifying the type of property
+    `property_type_description` VARCHAR(80),  -- Description of the property type
+) 
+CREATE TABLE `Other_Available_Features` (
+    `feature_id` INTEGER PRIMARY KEY,  -- Unique identifier for the feature
+    `feature_type_code` VARCHAR(20) NOT NULL,  -- Code linking the feature to its type
+    `feature_name` VARCHAR(80),  -- Name of the feature
+    `feature_description` VARCHAR(80),  -- Description of the feature
+    FOREIGN KEY (`feature_type_code` ) REFERENCES `Ref_Feature_Types`(`feature_type_code` )
+) 
+CREATE TABLE `Properties` (
+    `property_id` INTEGER PRIMARY KEY,  -- Unique identifier for the property
+    `property_type_code` VARCHAR(20) NOT NULL,  -- Code linking the property to its type
+    `date_on_market` DATETIME,  -- Date when the property was listed on the market
+    `date_sold` DATETIME,  -- Date when the property was sold
+    `property_name` VARCHAR(80),  -- Name of the property
+    `property_address` VARCHAR(255),  -- Address of the property
+    `room_count` INTEGER,  -- Number of rooms in the property
+    `vendor_requested_price` DECIMAL(19,4),  -- Price requested by the vendor
+    `buyer_offered_price` DECIMAL(19,4),  -- Price offered by the buyer
+    `agreed_selling_price` DECIMAL(19,4),  -- Final agreed selling price
+    `apt_feature_1` VARCHAR(255),  -- First feature specific to apartments
+    `apt_feature_2` VARCHAR(255),  -- Second feature specific to apartments
+    `apt_feature_3` VARCHAR(255),  -- Third feature specific to apartments
+    `fld_feature_1` VARCHAR(255),  -- First feature specific to fields
+    `fld_feature_2` VARCHAR(255),  -- Second feature specific to fields
+    `fld_feature_3` VARCHAR(255),  -- Third feature specific to fields
+    `hse_feature_1` VARCHAR(255),  -- First feature specific to houses
+    `hse_feature_2` VARCHAR(255),  -- Second feature specific to houses
+    `hse_feature_3` VARCHAR(255),  -- Third feature specific to houses
+    `oth_feature_1` VARCHAR(255),  -- First feature specific to other property types
+    `oth_feature_2` VARCHAR(255),  -- Second feature specific to other property types
+    `oth_feature_3` VARCHAR(255),  -- Third feature specific to other property types
+    `shp_feature_1` VARCHAR(255),  -- First feature specific to shops
+    `shp_feature_2` VARCHAR(255),  -- Second feature specific to shops
+    `shp_feature_3` VARCHAR(255),  -- Third feature specific to shops
+    `other_property_details` VARCHAR(255),  -- Additional details about the property
+    FOREIGN KEY (`property_type_code` ) REFERENCES `Ref_Property_Types`(`property_type_code` )
+) CREATE TABLE `Other_Property_Features` (
+    `property_id` INTEGER NOT NULL,  -- Identifier linking the feature to a specific property
+    `feature_id` INTEGER NOT NULL,  -- Identifier linking the feature to its details
+    `property_feature_description` VARCHAR(80),  -- Description of the feature as it applies to the property
+    FOREIGN KEY (`feature_id` ) REFERENCES `Other_Available_Features`(`feature_id` ),
+    FOREIGN KEY (`property_id` ) REFERENCES `Properties`(`property_id` )
+)

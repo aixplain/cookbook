@@ -1,0 +1,218 @@
+CREATE TABLE "Player_Attributes" (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for each player attribute record
+    `player_fifa_api_id` INTEGER,  -- Identifier linking to the player's FIFA API data
+    `player_api_id` INTEGER,  -- Identifier linking to the player's API data
+    `date` TEXT,  -- Date when the player attributes were recorded
+    `overall_rating` INTEGER,  -- Overall skill rating of the player
+    `potential` INTEGER,  -- Potential skill rating the player can achieve
+    `preferred_foot` TEXT,  -- Player's preferred foot for playing
+    `attacking_work_rate` TEXT,  -- Player's work rate in attacking situations
+    `defensive_work_rate` TEXT,  -- Player's work rate in defensive situations
+    `crossing` INTEGER,  -- Player's ability to deliver accurate crosses
+    `finishing` INTEGER,  -- Player's ability to finish scoring opportunities
+    `heading_accuracy` INTEGER,  -- Player's accuracy in heading the ball
+    `short_passing` INTEGER,  -- Player's ability to make accurate short passes
+    `volleys` INTEGER,  -- Player's ability to strike the ball before it hits the ground
+    `dribbling` INTEGER,  -- Player's skill in dribbling the ball
+    `curve` INTEGER,  -- Player's ability to curve the ball
+    `free_kick_accuracy` INTEGER,  -- Player's accuracy in taking free kicks
+    `long_passing` INTEGER,  -- Player's ability to make accurate long passes
+    `ball_control` INTEGER,  -- Player's skill in controlling the ball
+    `acceleration` INTEGER,  -- Player's speed in reaching top speed
+    `sprint_speed` INTEGER,  -- Player's top speed
+    `agility` INTEGER,  -- Player's ability to move quickly and easily
+    `reactions` INTEGER,  -- Player's response time to events on the field
+    `balance` INTEGER,  -- Player's ability to maintain balance
+    `shot_power` INTEGER,  -- Power behind the player's shots
+    `jumping` INTEGER,  -- Player's ability to jump
+    `stamina` INTEGER,  -- Player's endurance during a match
+    `strength` INTEGER,  -- Player's physical strength
+    `long_shots` INTEGER,  -- Player's ability to score from long distances
+    `aggression` INTEGER,  -- Player's aggression level during play
+    `interceptions` INTEGER,  -- Player's ability to intercept passes
+    `positioning` INTEGER,  -- Player's ability to position themselves effectively
+    `vision` INTEGER,  -- Player's ability to see and execute opportunities
+    `penalties` INTEGER,  -- Player's skill in taking penalty kicks
+    `marking` INTEGER,  -- Player's ability to mark opponents
+    `standing_tackle` INTEGER,  -- Player's skill in making standing tackles
+    `sliding_tackle` INTEGER,  -- Player's skill in making sliding tackles
+    `gk_diving` INTEGER,  -- Goalkeeper's diving ability
+    `gk_handling` INTEGER,  -- Goalkeeper's ability to handle the ball
+    `gk_kicking` INTEGER,  -- Goalkeeper's kicking ability
+    `gk_positioning` INTEGER,  -- Goalkeeper's positioning ability
+    `gk_reflexes` INTEGER,  -- Goalkeeper's reflexes
+	FOREIGN KEY(`player_fifa_api_id`) REFERENCES `Player`(`player_fifa_api_id`),
+	FOREIGN KEY(`player_api_id`) REFERENCES `Player`(`player_api_id`)
+)
+CREATE TABLE `Player` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for each player record, automatically incremented
+    `player_api_id` INTEGER UNIQUE,  -- Unique identifier for the player in the API database
+    `player_name` TEXT,  -- Full name of the player
+    `player_fifa_api_id` INTEGER UNIQUE,  -- Unique identifier for the player in the FIFA API database
+    `birthday` TEXT,  -- Date of birth of the player in 'YYYY-MM-DD HH:MM:SS' format
+    `height` INTEGER,  -- Height of the player in centimeters
+    `weight` INTEGER  -- Weight of the player in pounds
+)
+CREATE TABLE `League` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for the league, automatically incremented
+    `country_id` INTEGER,  -- Identifier for the country associated with the league, referencing the `country` table
+    `name` TEXT UNIQUE,  -- Name of the league, must be unique across all entries
+	FOREIGN KEY(`country_id`) REFERENCES `country`(`id`)
+)
+CREATE TABLE `Country` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for the country, automatically incremented
+    `name` TEXT UNIQUE,                      -- Name of the country, must be unique
+)
+CREATE TABLE "Team" (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for each team entry
+    `team_api_id` INTEGER UNIQUE,  -- Unique identifier for the team in the API
+    `team_fifa_api_id` INTEGER,  -- Unique identifier for the team in the FIFA database
+    `team_long_name` TEXT,  -- Full name of the team
+    `team_short_name` TEXT  -- Abbreviated name of the team
+)
+CREATE TABLE `Team_Attributes` (
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,  -- Unique identifier for each team attribute entry
+    `team_fifa_api_id` INTEGER,  -- Identifier for the team in the FIFA database
+    `team_api_id` INTEGER,  -- Identifier for the team in the API database
+    `date` TEXT,  -- Date when the team attributes were recorded
+    `buildUpPlaySpeed` INTEGER,  -- Speed of the team's build-up play
+    `buildUpPlaySpeedClass` TEXT,  -- Classification of the build-up play speed (e.g., Balanced, Fast)
+    `buildUpPlayDribbling` INTEGER,  -- Dribbling skill level during build-up play
+    `buildUpPlayDribblingClass` TEXT,  -- Classification of the dribbling during build-up play (e.g., Little, Normal)
+    `buildUpPlayPassing` INTEGER,  -- Passing skill level during build-up play
+    `buildUpPlayPassingClass` TEXT,  -- Classification of the passing during build-up play (e.g., Mixed, Long)
+    `buildUpPlayPositioningClass` TEXT,  -- Positioning style during build-up play (e.g., Organised)
+    `chanceCreationPassing` INTEGER,  -- Passing skill level during chance creation
+    `chanceCreationPassingClass` TEXT,  -- Classification of the passing during chance creation (e.g., Normal, Risky)
+    `chanceCreationCrossing` INTEGER,  -- Crossing skill level during chance creation
+    `chanceCreationCrossingClass` TEXT,  -- Classification of the crossing during chance creation (e.g., Normal, Lots)
+    `chanceCreationShooting` INTEGER,  -- Shooting skill level during chance creation
+    `chanceCreationShootingClass` TEXT,  -- Classification of the shooting during chance creation (e.g., Normal, Lots)
+    `chanceCreationPositioningClass` TEXT,  -- Positioning style during chance creation (e.g., Organised, Free Form)
+    `defencePressure` INTEGER,  -- Level of pressure applied by the team's defense
+    `defencePressureClass` TEXT,  -- Classification of the defensive pressure (e.g., Medium, Deep)
+    `defenceAggression` INTEGER,  -- Level of aggression in the team's defense
+    `defenceAggressionClass` TEXT,  -- Classification of the defensive aggression (e.g., Press, Double)
+    `defenceTeamWidth` INTEGER,  -- Width of the team's defensive formation
+    `defenceTeamWidthClass` TEXT,  -- Classification of the defensive team width (e.g., Normal, Narrow)
+    `defenceDefenderLineClass` TEXT,  -- Style of the defensive line (e.g., Cover, Offside Trap)
+	FOREIGN KEY(`team_fifa_api_id`) REFERENCES `Team`(`team_fifa_api_id`),
+	FOREIGN KEY(`team_api_id`) REFERENCES `Team`(`team_api_id`)
+)
+CREATE TABLE "Match"(
+    id INTEGER primary key autoincrement,  -- Unique identifier for each match
+    country_id INTEGER references Country,  -- Identifier for the country where the match is played
+    league_id INTEGER references League,  -- Identifier for the league in which the match is played
+    season TEXT,  -- Season during which the match takes place
+    stage INTEGER,  -- Stage of the competition or league
+    date TEXT,  -- Date and time when the match is played
+    match_api_id INTEGER unique,  -- Unique identifier for the match in the API
+    home_team_api_id INTEGER references Team (team_api_id),  -- Identifier for the home team
+    away_team_api_id INTEGER references Team (team_api_id),  -- Identifier for the away team
+    home_team_goal INTEGER,  -- Number of goals scored by the home team
+    away_team_goal INTEGER,  -- Number of goals scored by the away team
+    home_player_X1 INTEGER,  -- X-coordinate of the first home player on the field
+    home_player_X2 INTEGER,  -- X-coordinate of the second home player on the field
+    home_player_X3 INTEGER,  -- X-coordinate of the third home player on the field
+    home_player_X4 INTEGER,  -- X-coordinate of the fourth home player on the field
+    home_player_X5 INTEGER,  -- X-coordinate of the fifth home player on the field
+    home_player_X6 INTEGER,  -- X-coordinate of the sixth home player on the field
+    home_player_X7 INTEGER,  -- X-coordinate of the seventh home player on the field
+    home_player_X8 INTEGER,  -- X-coordinate of the eighth home player on the field
+    home_player_X9 INTEGER,  -- X-coordinate of the ninth home player on the field
+    home_player_X10 INTEGER,  -- X-coordinate of the tenth home player on the field
+    home_player_X11 INTEGER,  -- X-coordinate of the eleventh home player on the field
+    away_player_X1 INTEGER,  -- X-coordinate of the first away player on the field
+    away_player_X2 INTEGER,  -- X-coordinate of the second away player on the field
+    away_player_X3 INTEGER,  -- X-coordinate of the third away player on the field
+    away_player_X4 INTEGER,  -- X-coordinate of the fourth away player on the field
+    away_player_X5 INTEGER,  -- X-coordinate of the fifth away player on the field
+    away_player_X6 INTEGER,  -- X-coordinate of the sixth away player on the field
+    away_player_X7 INTEGER,  -- X-coordinate of the seventh away player on the field
+    away_player_X8 INTEGER,  -- X-coordinate of the eighth away player on the field
+    away_player_X9 INTEGER,  -- X-coordinate of the ninth away player on the field
+    away_player_X10 INTEGER,  -- X-coordinate of the tenth away player on the field
+    away_player_X11 INTEGER,  -- X-coordinate of the eleventh away player on the field
+    home_player_Y1 INTEGER,  -- Y-coordinate of the first home player on the field
+    home_player_Y2 INTEGER,  -- Y-coordinate of the second home player on the field
+    home_player_Y3 INTEGER,  -- Y-coordinate of the third home player on the field
+    home_player_Y4 INTEGER,  -- Y-coordinate of the fourth home player on the field
+    home_player_Y5 INTEGER,  -- Y-coordinate of the fifth home player on the field
+    home_player_Y6 INTEGER,  -- Y-coordinate of the sixth home player on the field
+    home_player_Y7 INTEGER,  -- Y-coordinate of the seventh home player on the field
+    home_player_Y8 INTEGER,  -- Y-coordinate of the eighth home player on the field
+    home_player_Y9 INTEGER,  -- Y-coordinate of the ninth home player on the field
+    home_player_Y10 INTEGER,  -- Y-coordinate of the tenth home player on the field
+    home_player_Y11 INTEGER,  -- Y-coordinate of the eleventh home player on the field
+    away_player_Y1 INTEGER,  -- Y-coordinate of the first away player on the field
+    away_player_Y2 INTEGER,  -- Y-coordinate of the second away player on the field
+    away_player_Y3 INTEGER,  -- Y-coordinate of the third away player on the field
+    away_player_Y4 INTEGER,  -- Y-coordinate of the fourth away player on the field
+    away_player_Y5 INTEGER,  -- Y-coordinate of the fifth away player on the field
+    away_player_Y6 INTEGER,  -- Y-coordinate of the sixth away player on the field
+    away_player_Y7 INTEGER,  -- Y-coordinate of the seventh away player on the field
+    away_player_Y8 INTEGER,  -- Y-coordinate of the eighth away player on the field
+    away_player_Y9 INTEGER,  -- Y-coordinate of the ninth away player on the field
+    away_player_Y10 INTEGER,  -- Y-coordinate of the tenth away player on the field
+    away_player_Y11 INTEGER,  -- Y-coordinate of the eleventh away player on the field
+    home_player_1 INTEGER references Player (player_api_id),  -- Identifier for the first home player
+    home_player_2 INTEGER references Player (player_api_id),  -- Identifier for the second home player
+    home_player_3 INTEGER references Player (player_api_id),  -- Identifier for the third home player
+    home_player_4 INTEGER references Player (player_api_id),  -- Identifier for the fourth home player
+    home_player_5 INTEGER references Player (player_api_id),  -- Identifier for the fifth home player
+    home_player_6 INTEGER references Player (player_api_id),  -- Identifier for the sixth home player
+    home_player_7 INTEGER references Player (player_api_id),  -- Identifier for the seventh home player
+    home_player_8 INTEGER references Player (player_api_id),  -- Identifier for the eighth home player
+    home_player_9 INTEGER references Player (player_api_id),  -- Identifier for the ninth home player
+    home_player_10 INTEGER references Player (player_api_id),  -- Identifier for the tenth home player
+    home_player_11 INTEGER references Player (player_api_id),  -- Identifier for the eleventh home player
+    away_player_1 INTEGER references Player (player_api_id),  -- Identifier for the first away player
+    away_player_2 INTEGER references Player (player_api_id),  -- Identifier for the second away player
+    away_player_3 INTEGER references Player (player_api_id),  -- Identifier for the third away player
+    away_player_4 INTEGER references Player (player_api_id),  -- Identifier for the fourth away player
+    away_player_5 INTEGER references Player (player_api_id),  -- Identifier for the fifth away player
+    away_player_6 INTEGER references Player (player_api_id),  -- Identifier for the sixth away player
+    away_player_7 INTEGER references Player (player_api_id),  -- Identifier for the seventh away player
+    away_player_8 INTEGER references Player (player_api_id),  -- Identifier for the eighth away player
+    away_player_9 INTEGER references Player (player_api_id),  -- Identifier for the ninth away player
+    away_player_10 INTEGER references Player (player_api_id),  -- Identifier for the tenth away player
+    away_player_11 INTEGER references Player (player_api_id),  -- Identifier for the eleventh away player
+    goal TEXT,  -- Details about goals scored in the match
+    shoton TEXT,  -- Details about shots on target during the match
+    shotoff TEXT,  -- Details about shots off target during the match
+    foulcommit TEXT,  -- Details about fouls committed during the match
+    card TEXT,  -- Details about cards issued during the match
+    "cross" TEXT,  -- Details about crosses made during the match
+    corner TEXT,  -- Details about corner kicks during the match
+    possession TEXT,  -- Details about ball possession during the match
+    B365H REAL,  -- Bet365 odds for home team win
+    B365D REAL,  -- Bet365 odds for draw
+    B365A REAL,  -- Bet365 odds for away team win
+    BWH REAL,  -- Bet&Win odds for home team win
+    BWD REAL,  -- Bet&Win odds for draw
+    BWA REAL,  -- Bet&Win odds for away team win
+    IWH REAL,  -- Interwetten odds for home team win
+    IWD REAL,  -- Interwetten odds for draw
+    IWA REAL,  -- Interwetten odds for away team win
+    LBH REAL,  -- Ladbrokes odds for home team win
+    LBD REAL,  -- Ladbrokes odds for draw
+    LBA REAL,  -- Ladbrokes odds for away team win
+    PSH REAL,  -- Pinnacle odds for home team win
+    PSD REAL,  -- Pinnacle odds for draw
+    PSA REAL,  -- Pinnacle odds for away team win
+    WHH REAL,  -- William Hill odds for home team win
+    WHD REAL,  -- William Hill odds for draw
+    WHA REAL,  -- William Hill odds for away team win
+    SJH REAL,  -- Stan James odds for home team win
+    SJD REAL,  -- Stan James odds for draw
+    SJA REAL,  -- Stan James odds for away team win
+    VCH REAL,  -- VC Bet odds for home team win
+    VCD REAL,  -- VC Bet odds for draw
+    VCA REAL,  -- VC Bet odds for away team win
+    GBH REAL,  -- Gamebookers odds for home team win
+    GBD REAL,  -- Gamebookers odds for draw
+    GBA REAL,  -- Gamebookers odds for away team win
+    BSH REAL,  -- Blue Square odds for home team win
+    BSD REAL,  -- Blue Square odds for draw
+    BSA REAL  -- Blue Square odds for away
+)
