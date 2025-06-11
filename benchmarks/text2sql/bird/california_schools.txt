@@ -1,0 +1,98 @@
+CREATE TABLE frpm(
+    CDSCode TEXT not null primary key,  -- Unique identifier for the school, combining county, district, and school codes
+    `Academic Year` TEXT null,  -- Academic year for which the data is reported
+    `County Code` TEXT null,  -- Code representing the county where the school is located
+    `District Code` INTEGER null,  -- Code representing the district where the school is located
+    `School Code` TEXT null,  -- Code representing the specific school
+    `County Name` TEXT null,  -- Name of the county where the school is located
+    `District Name` TEXT null,  -- Name of the district where the school is located
+    `School Name` TEXT null,  -- Name of the school
+    `District Type` TEXT null,  -- Type of district, such as County Office of Education (COE)
+    `School Type` TEXT null,  -- Type of school, such as Elementary, High School, etc.
+    `Educational Option Type` TEXT null,  -- Type of educational option, such as Traditional or Juvenile Court School
+    `NSLP Provision Status` TEXT null,  -- Status of the National School Lunch Program provision, if applicable
+    `Charter School (Y/N)` INTEGER null,  -- Indicator if the school is a charter school (1 for Yes, 0 for No)
+    `Charter School Number` TEXT null,  -- Unique number assigned to the charter school
+    `Charter Funding Type` TEXT null,  -- Type of funding for the charter school, such as Directly funded
+    IRC INTEGER null,  -- Indicator of whether the school is an Independent Reporting Charter (1 for Yes, 0 for No)
+    `Low Grade` TEXT null,  -- Lowest grade level offered at the school
+    `High Grade` TEXT null,  -- Highest grade level offered at the school
+    `Enrollment (K-12)` REAL null,  -- Total number of students enrolled in grades K-12
+    `Free Meal Count (K-12)` REAL null,  -- Number of students eligible for free meals in grades K-12
+    `Percent (%) Eligible Free (K-12)` REAL null,  -- Percentage of students eligible for free meals in grades K-12
+    `FRPM Count (K-12)` REAL null,  -- Number of students eligible for Free or Reduced Price Meals (FRPM) in grades K-12
+    `Percent (%) Eligible FRPM (K-12)` REAL null,  -- Percentage of students eligible for FRPM in grades K-12
+    `Enrollment (Ages 5-17)` REAL null,  -- Total number of students enrolled aged 5-17
+    `Free Meal Count (Ages 5-17)` REAL null,  -- Number of students aged 5-17 eligible for free meals
+    `Percent (%) Eligible Free (Ages 5-17)` REAL null,  -- Percentage of students aged 5-17 eligible for free meals
+    `FRPM Count (Ages 5-17)` REAL null,  -- Number of students aged 5-17 eligible for FRPM
+    `Percent (%) Eligible FRPM (Ages 5-17)` REAL null,  -- Percentage of students aged 5-17 eligible for FRPM
+    `2013-14 CALPADS Fall 1 Certification Status` INTEGER null,  -- Certification status of the school for the 2013-14 CALPADS Fall 1 data
+    foreign key (CDSCode) references schools (CDSCode) -- Foreign key constraint linking to the schools table using CDSCode
+)
+CREATE TABLE satscores(
+    cds TEXT not null primary key,  -- Unique identifier for the school or district, used as a primary key
+    rtype TEXT not null,  -- Type of record, indicating whether it is a school ('S') or district ('D')
+    sname TEXT null,  -- Name of the school, if applicable
+    dname TEXT null,  -- Name of the district to which the school belongs
+    cname TEXT null,  -- Name of the county where the school or district is located
+    enroll12 INTEGER not null,  -- Number of students enrolled in the 12th grade
+    NumTstTakr INTEGER not null,  -- Number of 12th-grade students who took the SAT test
+    AvgScrRead INTEGER null,  -- Average SAT reading score for the students who took the test
+    AvgScrMath INTEGER null,  -- Average SAT math score for the students who took the test
+    AvgScrWrite INTEGER null,  -- Average SAT writing score for the students who took the test
+    NumGE1500 INTEGER null,  -- Number of students who scored 1500 or above on the SAT
+    -- PctGE1500 double null,  -- Percentage of students who scored 1500 or above on the SAT (commented out)
+    foreign key (cds) references schools (CDSCode)  -- Foreign key constraint linking to the schools table using CDSCode
+)
+CREATE TABLE schools(
+    CDSCode TEXT not null primary key,  -- Unique identifier for the school, typically a state-assigned code
+    NCESDist TEXT null,  -- National Center for Education Statistics (NCES) district identifier
+    NCESSchool TEXT null,  -- National Center for Education Statistics (NCES) school identifier
+    StatusType TEXT not null,  -- Current operational status of the school (e.g., Active, Closed)
+    County TEXT not null,  -- Name of the county where the school is located
+    District TEXT not null,  -- Name of the school district
+    School TEXT null,  -- Name of the school
+    Street TEXT null,  -- Street address of the school
+    StreetAbr TEXT null,  -- Abbreviated street address of the school
+    City TEXT null,  -- City where the school is located
+    Zip TEXT null,  -- ZIP code for the school's location
+    State TEXT null,  -- State where the school is located
+    MailStreet TEXT null,  -- Mailing street address for the school
+    MailStrAbr TEXT null,  -- Abbreviated mailing street address for the school
+    MailCity TEXT null,  -- Mailing city for the school
+    MailZip TEXT null,  -- Mailing ZIP code for the school
+    MailState TEXT null,  -- Mailing state for the school
+    Phone TEXT null,  -- Contact phone number for the school
+    Ext TEXT null,  -- Phone extension number, if applicable
+    Website TEXT null,  -- Website URL for the school
+    OpenDate DATE null,  -- Date when the school was opened
+    ClosedDate DATE null,  -- Date when the school was closed, if applicable
+    Charter INTEGER null,  -- Indicator if the school is a charter school (1 for yes, 0 for no)
+    CharterNum TEXT null,  -- Charter number assigned to the school, if applicable
+    FundingType TEXT null,  -- Type of funding the school receives (e.g., Directly funded)
+    DOC TEXT not null,  -- District of Control code, indicating the controlling district
+    DOCType TEXT not null,  -- Type of District of Control (e.g., County Office of Education)
+    SOC TEXT null,  -- School Operational Code, indicating the type of school
+    SOCType TEXT null,  -- Description of the School Operational Code (e.g., K-12 Schools)
+    EdOpsCode TEXT null,  -- Educational Operations Code, indicating the type of educational operation
+    EdOpsName TEXT null,  -- Description of the Educational Operations Code (e.g., Traditional)
+    EILCode TEXT null,  -- Educational Institution Level Code, indicating the level of education
+    EILName TEXT null,  -- Description of the Educational Institution Level Code (e.g., High School)
+    GSoffered TEXT null,  -- Grade span offered by the school (e.g., K-12)
+    GSserved TEXT null,  -- Grade span served by the school (e.g., 9-12)
+    Virtual TEXT null,  -- Indicator if the school offers virtual education (e.g., N for No, P for Partial)
+    Magnet INTEGER null,  -- Indicator if the school is a magnet school (1 for yes, 0 for no)
+    Latitude REAL null,  -- Latitude coordinate of the school's location
+    Longitude REAL null,  -- Longitude coordinate of the school's location
+    AdmFName1 TEXT null,  -- First name of the primary administrator
+    AdmLName1 TEXT null,  -- Last name of the primary administrator
+    AdmEmail1 TEXT null,  -- Email address of the primary administrator
+    AdmFName2 TEXT null,  -- First name of the secondary administrator
+    AdmLName2 TEXT null,  -- Last name of the secondary administrator
+    AdmEmail2 TEXT null,  -- Email address of the secondary administrator
+    AdmFName3 TEXT null,  -- First name of the tertiary administrator
+    AdmLName3 TEXT null,  -- Last name of the tertiary administrator
+    AdmEmail3 TEXT null,  -- Email address of the tertiary administrator
+    LastUpdate DATE not null  -- Date when the record was last updated
+)

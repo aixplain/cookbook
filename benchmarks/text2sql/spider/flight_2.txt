@@ -1,0 +1,22 @@
+CREATE TABLE 'airlines' (
+    "uid INTEGER PRIMARY KEY",  -- Unique identifier for each airline
+    "Airline TEXT",  -- Name of the airline
+    "Abbreviation TEXT",  -- Abbreviated name or code for the airline
+    "Country TEXT",  -- Country where the airline is based
+) 
+CREATE TABLE 'airports' (
+    "City TEXT",  -- City where the airport is located
+    "AirportCode TEXT PRIMARY KEY",  -- Unique code identifying the airport
+    "AirportName TEXT",  -- Full name of the airport
+    "Country TEXT",  -- Country where the airport is located
+    "CountryAbbrev TEXT",  -- Abbreviated name or code for the country
+) 
+CREATE TABLE 'flights' (
+    "Airline INTEGER",  -- Identifier for the airline operating the flight, referencing "airlines(uid)"
+    "FlightNo INTEGER",  -- Unique number assigned to the flight
+    "SourceAirport TEXT",  -- Code of the airport where the flight originates, referencing "airports(AirportCode)"
+    "DestAirport TEXT",  -- Code of the airport where the flight is destined, referencing "airports(AirportCode)"
+    "PRIMARY KEY(Airline, FlightNo)",  -- Composite primary key ensuring uniqueness of each flight for an airline
+    "FOREIGN KEY (SourceAirport) REFERENCES airports(AirportCode)",  -- Ensures the source airport exists in the "airports" table
+    "FOREIGN KEY (DestAirport) REFERENCES airports(AirportCode)",  -- Ensures the destination airport exists in the "airports" table
+)

@@ -1,0 +1,36 @@
+CREATE TABLE "stadium" (
+    "Stadium_ID" int,  -- Unique identifier for the stadium
+    "Location" text,   -- Geographical location of the stadium
+    "Name" text,       -- Name of the stadium
+    "Capacity" int,    -- Maximum number of spectators the stadium can accommodate
+    "Highest" int,     -- Highest recorded attendance at the stadium
+    "Lowest" int,      -- Lowest recorded attendance at the stadium
+    "Average" int,     -- Average attendance at the stadium
+    PRIMARY KEY ("Stadium_ID")
+)
+CREATE TABLE "singer" (
+    "Singer_ID" int,          -- Unique identifier for the singer
+    "Name" text,              -- Full name of the singer
+    "Country" text,           -- Country of origin of the singer
+    "Song_Name" text,         -- Name of a song performed by the singer
+    "Song_release_year" text, -- Year the song was released
+    "Age" int,                -- Age of the singer
+    "Is_male" bool,           -- Gender of the singer, where true indicates male
+    PRIMARY KEY ("Singer_ID")
+)
+CREATE TABLE "concert" (
+    "concert_ID" int,       -- Unique identifier for the concert
+    "concert_Name" text,    -- Name of the concert
+    "Theme" text,           -- Theme or main concept of the concert
+    "Stadium_ID" text,      -- Identifier of the stadium where the concert is held, referencing "Stadium_ID" in the stadium table
+    "Year" text,            -- Year the concert took place
+    PRIMARY KEY ("concert_ID"),
+    FOREIGN KEY ("Stadium_ID") REFERENCES "stadium"("Stadium_ID")
+)
+CREATE TABLE "singer_in_concert" (
+    "concert_ID" int,       -- Identifier of the concert, referencing "concert_ID" in the concert table
+    "Singer_ID" text,       -- Identifier of the singer, referencing "Singer_ID" in the singer table
+    PRIMARY KEY ("concert_ID","Singer_ID"),
+    FOREIGN KEY ("concert_ID") REFERENCES "concert"("concert_ID"),
+    FOREIGN KEY ("Singer_ID") REFERENCES "singer"("Singer_ID")
+)

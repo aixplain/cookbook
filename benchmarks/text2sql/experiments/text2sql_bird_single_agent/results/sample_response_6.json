@@ -1,0 +1,11 @@
+{
+    "agent": "Text2SQL Agent",
+    "input": "{'input': 'You are tasked with creating a valid SQL command that accurately answers the user\\'s query, strictly using the provided database schema.\\n\\n### **Guidelines**:\\n- **Schema Verification**: Confirm that all referenced tables and columns exist and are used correctly.\\n\\n- **Query Formatting**:\\n   - Use backticks for column names with spaces.\\n   - Start your query with `SELECT` and ensure it includes necessary subqueries and joins.\\n\\n- **Best Practices**:\\n   - Adhere to SQL best practices for clarity and efficiency.\\n   - Ensure all column and table names are copied exactly as they appear in the schema.\\n**External Knowledge to help you answer the question:** \\n\\nExamples:\\nQuestion: Give at least five alias of cities with a postal point of post office. ; \\nSQL: SELECT T1.alias FROM alias AS T1 INNER JOIN zip_data AS T2 ON T1.zip_code = T2.zip_code WHERE T2.type = \\'Post Office\\' LIMIT 5\\n\\nQuestion: Give the district numbers with an Anti-Administration party. ; \\nSQL: SELECT district FROM `historical-terms` WHERE party = \\'Anti-Administration\\' GROUP BY district\\n\\nQuestion: List the poverty level of all the schools that received donations with the zip code \"7079\". ; \\nSQL: SELECT DISTINCT T2.poverty_level FROM donations AS T1 INNER JOIN projects AS T2 ON T1.projectid = T2.projectid WHERE T1.donor_zip = 7079\\n\\n**Output Format**:\\n- Your response must begin with `SELECT`.\\n\\n**Question**:\\nPlease specify all of the schools and their related mailing zip codes that are under Avetik Atoian\\'s administration.\\n\\n**SQL**:\\n', 'chat_history': [], 'outputFormat': 'text'}",
+    "output": "SELECT `School`, `MailZip` FROM schools WHERE `AdmFName1` = 'Avetik' AND `AdmLName1` = 'Atoian';",
+    "tool_steps": [],
+    "thought": null,
+    "runTime": 2.376,
+    "usedCredits": 0.01632,
+    "apiCalls": 1,
+    "task": null
+}

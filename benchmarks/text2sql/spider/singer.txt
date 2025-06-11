@@ -1,0 +1,17 @@
+CREATE TABLE "singer" (
+    "Singer_ID" int,  -- Unique identifier for the singer
+    "Name" text,  -- Full name of the singer
+    "Birth_Year" real,  -- Year of birth of the singer
+    "Net_Worth_Millions" real,  -- Estimated net worth of the singer in millions
+    "Citizenship" text,  -- Country of citizenship of the singer
+    PRIMARY KEY ("Singer_ID")
+) 
+CREATE TABLE "song" (
+    "Song_ID" int,  -- Unique identifier for the song
+    "Title" text,  -- Title of the song
+    "Singer_ID" int,  -- Identifier for the singer who performed the song, referencing `singer` table
+    "Sales" real,  -- Total sales of the song in units
+    "Highest_Position" real,  -- Highest chart position achieved by the song
+    PRIMARY KEY ("Song_ID"),
+    FOREIGN KEY ("Singer_ID") REFERENCES `singer`("Singer_ID")
+)

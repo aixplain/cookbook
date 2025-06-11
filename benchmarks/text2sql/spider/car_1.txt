@@ -1,0 +1,40 @@
+CREATE TABLE "continents" (
+	"ContId" INTEGER PRIMARY KEY,  -- Unique identifier for each continent
+	"Continent" TEXT  -- Name of the continent
+)
+CREATE TABLE "countries" (
+	"CountryId" INTEGER PRIMARY KEY,  -- Unique identifier for each country
+	"CountryName" TEXT,  -- Name of the country
+	"Continent" INTEGER,  -- Identifier for the continent the country belongs to
+	FOREIGN KEY (Continent) REFERENCES continents(ContId)
+)
+CREATE TABLE "car_makers" (
+	"Id" INTEGER PRIMARY KEY,  -- Unique identifier for each car maker
+	"Maker" TEXT,  -- Short name or abbreviation of the car maker
+	"FullName" TEXT,  -- Full name of the car maker
+	"Country" TEXT,  -- Identifier for the country where the car maker is based
+	FOREIGN KEY (Country) REFERENCES countries(CountryId)
+)
+CREATE TABLE "model_list" (
+	"ModelId" INTEGER PRIMARY KEY,  -- Unique identifier for each car model
+	"Maker" INTEGER,  -- Identifier for the car maker of the model
+	"Model" TEXT UNIQUE,  -- Name of the car model, must be unique
+	FOREIGN KEY (Maker) REFERENCES car_makers (Id)
+)
+CREATE TABLE "car_names" (
+	"MakeId" INTEGER PRIMARY KEY,  -- Unique identifier for each car make
+	"Model" TEXT,  -- Name of the car model
+	"Make" TEXT,  -- Name of the car make
+	FOREIGN KEY (Model) REFERENCES model_list (Model)
+)
+CREATE TABLE "cars_data" (
+	"Id" INTEGER PRIMARY KEY,  -- Unique identifier for each car data entry
+	"MPG" TEXT,  -- Miles per gallon fuel efficiency of the car
+	"Cylinders" INTEGER,  -- Number of cylinders in the car's engine
+	"Edispl" REAL,  -- Engine displacement in liters
+	"Horsepower" TEXT,  -- Horsepower of the car's engine
+	"Weight" INTEGER,  -- Weight of the car in pounds
+	"Accelerate" REAL,  -- Acceleration time from 0 to 60 mph in seconds
+	"Year" INTEGER,  -- Manufacturing year of the car
+	FOREIGN KEY (Id) REFERENCES car_names (MakeId)
+)

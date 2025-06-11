@@ -1,0 +1,73 @@
+CREATE TABLE event(
+    event_id TEXT constraint event_pk primary key,  -- Unique identifier for the event
+    event_name TEXT,  -- Name or title of the event
+    event_date TEXT,  -- Date and time when the event is scheduled to occur
+    type TEXT,  -- Category or type of the event (e.g., Meeting, Election, Game, Guest Speaker, Social)
+    notes TEXT,  -- Additional information or remarks about the event
+    location TEXT,  -- Venue or place where the event will take place
+    status TEXT  -- Current status of the event (e.g., Open, Closed, Planning)
+)
+CREATE TABLE major(
+    major_id TEXT constraint major_pk primary key,  -- Unique identifier for the major
+    major_name TEXT,  -- Name of the major
+    department TEXT,  -- Department offering the major
+    college TEXT  -- College under which the major is offered
+)
+CREATE TABLE zip_code(
+    zip_code INTEGER CONSTRAINT zip_code_pk PRIMARY KEY,  -- Unique identifier for the postal code area
+    type TEXT,  -- Classification of the postal code (e.g., Standard, PO Box, Unique)
+    city TEXT,  -- Name of the city associated with the postal code
+    county TEXT,  -- Name of the county associated with the postal code, if applicable
+    state TEXT,  -- Full name of the state where the postal code is located
+    short_state TEXT  -- Abbreviation of the state name where the postal code is located
+)
+CREATE TABLE "attendance"(
+    link_to_event TEXT,  -- Unique identifier linking to a specific event
+    link_to_member TEXT,  -- Unique identifier linking to a specific member
+    primary key (link_to_event, link_to_member),
+    foreign key (link_to_event) references event(event_id),
+    foreign key (link_to_member) references member(member_id)
+)
+CREATE TABLE "budget"(
+    budget_id     TEXT primary key,  -- Unique identifier for the budget entry
+    category      TEXT,              -- Category of the budget, such as 'Food' or 'Advertisement'
+    spent         REAL,              -- Amount of money already spent from the budget
+    remaining     REAL,              -- Amount of money remaining in the budget
+    amount        INTEGER,           -- Total allocated amount for the budget
+    event_status  TEXT,              -- Current status of the event, such as 'Open', 'Closed', or 'Planning'
+    link_to_event TEXT,              -- Reference to the associated event, linking to the event table
+    foreign key (link_to_event) references event(event_id)  -- Foreign key linking to the event table's event_id
+)
+CREATE TABLE "expense"(
+    expense_id TEXT primary key,  -- Unique identifier for the expense record
+    expense_description TEXT,     -- Description of the expense item(s)
+    expense_date TEXT,            -- Date when the expense was incurred
+    cost REAL,                    -- Monetary cost of the expense
+    approved TEXT,                -- Approval status of the expense (e.g., 'true' or 'false')
+    link_to_member TEXT,          -- Reference to the member associated with the expense
+    link_to_budget TEXT,          -- Reference to the budget associated with the expense
+    foreign key (link_to_budget) references budget(budget_id),  -- Foreign key linking to the budget table
+    foreign key (link_to_member) references member(member_id)   -- Foreign key linking to the member table
+)
+CREATE TABLE "income"(
+    income_id TEXT constraint income_pk primary key,  -- Unique identifier for each income record
+    date_received TEXT,  -- Date when the income was received
+    amount INTEGER,  -- Amount of money received
+    source TEXT,  -- Origin or reason for the income, such as 'Dues' or 'Fundraising'
+    notes TEXT,  -- Additional information or comments about the income
+    link_to_member TEXT,  -- Reference to the member associated with the income, linking to the member table
+    foreign key (link_to_member) references member(member_id)
+)
+CREATE TABLE "member"(
+    member_id TEXT constraint member_pk primary key,  -- Unique identifier for the member
+    first_name TEXT,  -- First name of the member
+    last_name TEXT,  -- Last name of the member
+    email TEXT,  -- Email address of the member
+    position TEXT,  -- Position or role of the member within the organization
+    t_shirt_size TEXT,  -- T-shirt size of the member
+    phone TEXT,  -- Contact phone number of the member
+    zip INTEGER,  -- Zip code of the member's address
+    link_to_major TEXT,  -- Reference to the member's major, linked to the major table
+    foreign key (link_to_major) references major(major_id),  -- Foreign key constraint linking to the major table
+    foreign key (zip) references zip_code(zip_code)  -- Foreign key constraint linking to the zip_code table
+)
