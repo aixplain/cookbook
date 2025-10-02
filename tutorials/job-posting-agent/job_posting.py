@@ -1,7 +1,7 @@
 import os
 
 # Set the TEAM_API_KEY
-os.environ["TEAM_API_KEY"] = "3865acfa0e554e9a4f4c950c6c0ef1e709e08ce32e55944ef8eb6e1f6e9830f1"
+os.environ["TEAM_API_KEY"] = "<YOUR_API_KEY>"
 
 from aixplain.modules.agent.tool.model_tool import ModelTool
 from aixplain.factories import AgentFactory
